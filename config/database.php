@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,9 +43,9 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql' => [
-            'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
+        'pgsql' => [
+            'driver' => 'pgsql',
+            'url' => 'postgres://lkgwxfgvmvckun:466b58fdb7e3234a291d092a179859ae92bfdebe42fd5b0df94c647d24bcbec7@ec2-107-20-24-247.compute-1.amazonaws.com:5432/d58cdguj5rth0i',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
