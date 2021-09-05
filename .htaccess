@@ -9,4 +9,7 @@ Options -Indexes
     RewriteEngine on
     RewriteCond %{REQUEST_URI} !^public
     RewriteRule ^(.*)$ public/$1 [L]
+
+    AddType 'text/css; charset=UTF-8' css
+    AddType 'text/js; charset=UTF-8' js
 </IfModule>
