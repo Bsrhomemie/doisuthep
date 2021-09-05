@@ -15,7 +15,7 @@ class FileInPost extends Migration
     {
         Schema::table('file', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('post_id')->unsigned()->index()->nullable();
+            $table->bigInteger('post_id')->unsigned()->index();
             $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');
             $table->text('file_name');
         });
