@@ -13,11 +13,13 @@ class FileInPost extends Migration
      */
     public function up()
     {
-        Schema::table('file', function (Blueprint $table) {
+        Schema::table('files', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('post_id')->unsigned()->index();
-            $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');
+            $table->timestamps();
+            $table->bigInteger('post_id')->unsigned();
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->text('file_name');
+            $table->softDeletes('deleted_at', 0);
         });
     }
 
