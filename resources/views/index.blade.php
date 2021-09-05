@@ -2,20 +2,20 @@
 
 @section('content')
   <div id="owl-cover" class="owl-carousel cover-page owl-theme">
-    <div class="item-cover" style="background-image:url({{secure_asset('images/cover1.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover1.jpg')}});">
       <div class="text-cover text-danger">
         <h1>Chiang Mai University</h1>
       </div>
     </div>
-    <div class="item-cover" style="background-image:url({{secure_asset('images/cover2.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover2.jpg')}});">
       <div class="text-cover">
         <h1>นโยบายคุณภาพ</h1>
       </div>
     </div>
-    <div class="item-cover" style="background-image:url({{secure_asset('images/cover3.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover3.jpg')}});">
 
     </div>
-    <div class="item-cover" style="background-image:url({{secure_asset('images/cover4.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover4.jpg')}});">
 
     </div>
   </div>
@@ -64,10 +64,10 @@
               <div class="card card-box mb-3">
                 <div class="highlight-hover">
                   <div class="img-16by9 holder " >
-                    <img src="{{URL::secure_asset($list[$i])}}" class="img-responsive image-preview" >
+                    <img src="{{URL::asset($list[$i])}}" class="img-responsive image-preview" >
                   </div>
                   <div class="show-hover">
-                    <a href="{{URL::secure_asset($list[$i])}}" class="me-3" data-lightbox="news"  title="ดูรูปภาพ">
+                    <a href="{{URL::asset($list[$i])}}" class="me-3" data-lightbox="news"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
                     <a href="{{url('news-detail/news/1')}}" title="รายละเอียด">
@@ -96,10 +96,10 @@
               <div class="card card-box mb-3">
                 <div class="highlight-hover">
                   <div class="img-16by9 holder " >
-                    <img src="{{URL::secure_asset($list[$i])}}" class="img-responsive image-preview" >
+                    <img src="{{URL::asset($list[$i])}}" class="img-responsive image-preview" >
                   </div>
                   <div class="show-hover">
-                    <a href="{{URL::secure_asset($list[$i])}}" class="me-3" data-lightbox="portfolio"  title="ดูรูปภาพ">
+                    <a href="{{URL::asset($list[$i])}}" class="me-3" data-lightbox="portfolio"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
                     <a href="" title="รายละเอียด">
@@ -129,7 +129,7 @@
                 <div class="card card-product ">
                   <div class="d-flex justify-content-center">
                     <div class="img-product">
-                      <img src="{{URL::secure_asset('images/product1.jpg')}}" >
+                      <img src="{{URL::asset('images/product1.jpg')}}" >
                     </div>
                   </div>
                   <div class="card-body text-center pt-0">
