@@ -18,7 +18,7 @@ class CreateFilesPostsTable extends Migration
             $table->timestamps();
             $table->text('file_name');
             $table->text('file_type');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
         });
     }
 
