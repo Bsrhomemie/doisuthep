@@ -2,38 +2,38 @@
 
 @section('content')
   <div id="owl-cover" class="owl-carousel cover-page owl-theme">
-    <div class="item-cover" style="background-image:url({{asset('images/cover1.jpg')}});">
+    <div class="item-cover" style="background-image:url({{secure_asset('images/cover1.jpg')}});">
       <div class="text-cover text-danger">
         <h1>Chiang Mai University</h1>
       </div>
     </div>
-    <div class="item-cover" style="background-image:url({{asset('images/cover2.jpg')}});">
+    <div class="item-cover" style="background-image:url({{secure_asset('images/cover2.jpg')}});">
       <div class="text-cover">
         <h1>นโยบายคุณภาพ</h1>
       </div>
     </div>
-    <div class="item-cover" style="background-image:url({{asset('images/cover3.jpg')}});">
+    <div class="item-cover" style="background-image:url({{secure_asset('images/cover3.jpg')}});">
 
     </div>
-    <div class="item-cover" style="background-image:url({{asset('images/cover4.jpg')}});">
-  
+    <div class="item-cover" style="background-image:url({{secure_asset('images/cover4.jpg')}});">
+
     </div>
   </div>
   <div class="container">
-    <selected  > 
+    <selected  >
       <div class="row pt-76">
         <div class="col-lg-7" >
-          <p class="mb-3 font-SemiBold">ศูนย์ธรรมชาติวิทยาดอยสุเทพเฉลิมพระเกียรติฯ มหาวิทยาลัยเชียงใหม่</p>   
-          <p class="mb-3 font-SemiBold">Doi Suthep Nature Center, Chiang Mai University </p>   
+          <p class="mb-3 font-SemiBold">ศูนย์ธรรมชาติวิทยาดอยสุเทพเฉลิมพระเกียรติฯ มหาวิทยาลัยเชียงใหม่</p>
+          <p class="mb-3 font-SemiBold">Doi Suthep Nature Center, Chiang Mai University </p>
           <p>
             เป็นแหล่งเรียนรู้ด้านธรรมชาติวิทยา นิเวศวิทยา ธรรมชาติและสิ่งแวดล้อม ผ่านการจัดแสดง
             นิทรรศการ กิจกรรม/โครงการ และการอบรมบริการวิชาการต่าง ๆ แก่กลุ่มเป้าหมายซึ่งเป็น
             เด็ก เยาวชน ครอบครัว และบุคคลทั่วไป อีกทั้งยังให้บริการข้อมูลด้านธรรมชาติวิทยา
             ดอยสุเทพ เพื่อถ่ายทอดความรู้ความเข้าใจตลอดจนสร้างความตระหนักแก่ชุมชนให้เห็นความ   สำคัญของการรักษาสิ่งแวดล้อม
-            และอนุรักษ์ทรัพยากรธรรมชาติ โดยเฉพาะอย่างยิ่งในพื้นที่ดอยสุเทพ นอกจากนั้น 
+            และอนุรักษ์ทรัพยากรธรรมชาติ โดยเฉพาะอย่างยิ่งในพื้นที่ดอยสุเทพ นอกจากนั้น
             ศูนย์ฯ ยังถือเป็นตัวกลางในการสร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริม
-            ชุมชนให้เป็นมิตรกับสิ่งแวดล้อม	
-          </p>   
+            ชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
+          </p>
         </div>
         <div class="col-lg-5">
           <div class="ratio ratio-16x9">
@@ -64,10 +64,10 @@
               <div class="card card-box mb-3">
                 <div class="highlight-hover">
                   <div class="img-16by9 holder " >
-                    <img src="{{URL::asset($list[$i])}}" class="img-responsive image-preview" >
+                    <img src="{{URL::secure_asset($list[$i])}}" class="img-responsive image-preview" >
                   </div>
                   <div class="show-hover">
-                    <a href="{{URL::asset($list[$i])}}" class="me-3" data-lightbox="news"  title="ดูรูปภาพ">
+                    <a href="{{URL::secure_asset($list[$i])}}" class="me-3" data-lightbox="news"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
                     <a href="{{url('news-detail/news/1')}}" title="รายละเอียด">
@@ -96,10 +96,10 @@
               <div class="card card-box mb-3">
                 <div class="highlight-hover">
                   <div class="img-16by9 holder " >
-                    <img src="{{URL::asset($list[$i])}}" class="img-responsive image-preview" >
+                    <img src="{{URL::secure_asset($list[$i])}}" class="img-responsive image-preview" >
                   </div>
                   <div class="show-hover">
-                    <a href="{{URL::asset($list[$i])}}" class="me-3" data-lightbox="portfolio"  title="ดูรูปภาพ">
+                    <a href="{{URL::secure_asset($list[$i])}}" class="me-3" data-lightbox="portfolio"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
                     <a href="" title="รายละเอียด">
@@ -116,8 +116,8 @@
           <div class="col-lg-12 d-flex justify-content-end">
             <a href="{{url('news/articles')}}" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
-        </div> 
-      </section> 
+        </div>
+      </section>
       <section id="box-souvenirs" class="wow fadeInDown mt-5" >
         <div class="header-selected">
           <p><i class="fa fa-bullhorn"></i>{{__('message.souvenirs')}}</p>
@@ -129,7 +129,7 @@
                 <div class="card card-product ">
                   <div class="d-flex justify-content-center">
                     <div class="img-product">
-                      <img src="{{URL::asset('images/product1.jpg')}}" >
+                      <img src="{{URL::secure_asset('images/product1.jpg')}}" >
                     </div>
                   </div>
                   <div class="card-body text-center pt-0">
@@ -142,7 +142,7 @@
             <?php  } ?>
           </div>
         </div>
-      </section> 
+      </section>
       <section id="box-vedio" class="wow fadeInDown mt-5" >
         <div class="header-selected">
           <p><i class="fa fa-bullhorn"></i>{{__('message.video')}}</p>
@@ -156,7 +156,7 @@
             </div>
           <?php  } ?>
         </div>
-      </section> 
+      </section>
       <section id="box-join" class="wow fadeInDown mt-5 pb-5" >
         <div class="header-selected">
           <p><i class="fa fa-bullhorn"></i> {{__('message.join')}}</p>
@@ -169,7 +169,7 @@
                   <tr>
                     <td class="text-grey">
                       <span style="font-size:14px;">
-                        <i class="far fa-calendar-alt"></i> 16 ก.ค. 2564 | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา                       
+                        <i class="far fa-calendar-alt"></i> 16 ก.ค. 2564 | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
                         <a class="text-link" href="">{{__('message.detail')}}</a>
                       </span>
                     </td>
@@ -180,9 +180,9 @@
           </div>
           <div class="col-lg-12 d-flex justify-content-end ">
             <a href="news.php" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
-          </div>        
+          </div>
         </div>
-      </section> 
+      </section>
     </div>
   </div>
 
