@@ -90,13 +90,13 @@
       @yield('content')
  
     </div>
-    <script src="{{asset('js/jquery-3.6.0.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{secure_asset('js/jquery-3.6.0.js')}}"></script>
+    <script src="{{secure_asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- <script src="{{asset('vendor/summernote/summernote-bs4.min.js')}}"></script> -->
     <!-- <script src="{{asset('js/summernote-custom.js')}}"></script> -->
-    <script src="{{asset('js/jquery.scrollTo.min.js')}}"></script>
-    <script src="{{asset('js/jquery.nicescroll.js')}}" ></script>
-    <script src="{{asset('js/scripts.js')}}"></script>
+    <script src="{{secure_asset('js/jquery.scrollTo.min.js')}}"></script>
+    <script src="{{secure_asset('js/jquery.nicescroll.js')}}" ></script>
+    <script src="{{secure_asset('js/scripts.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
     <script>
