@@ -48,11 +48,11 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="{{url('/admin/content?type=publicize')}}">ข่าวประชาสัมพันธ์ </a></li>
-              <li><a class="" href="{{url('/admin/content?type=context')}}">บทความ</a></li>
-              <li><a class="" href="{{url('/admin/product?type=product')}}">ของที่ระลึก</a></li>
+              <li><a class="" href="{{url('/admin/content/news')}}">ข่าวประชาสัมพันธ์ </a></li>
+              <li><a class="" href="{{url('/admin/content/articles')}}">บทความ</a></li>
+              <li><a class="" href="{{url('/admin/product?type=souvenirs')}}">ของที่ระลึก</a></li>
               <li><a class="" href="{{url('/admin/vedio?type=vedio')}}">วิดีโอ</a></li>
-              <li><a class="" href="{{url('/admin/work?type=work')}}">ร่วมงานกันเรา</a></li>
+              <li><a class="" href="{{url('/admin/work?type=join')}}">ร่วมงานกันเรา</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -62,11 +62,11 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="{{url('/admin/content?type=plant')}}">พืช </a></li>
-              <li><a class="" href="{{url('/admin/content?type=animal')}}">สัตว์</a></li>
-              <li><a class="" href="{{url('/admin/content?type=fungi')}}">จุลินทรีย์และฟังไจ</a></li>
-              <li><a class="" href="{{url('/admin/content?type=land')}}">ธรณี</a></li>
-              <li><a class="" href="{{url('/admin/content?type=culture')}}">ศิลปวัฒนธรรม</a></li>
+              <li><a class="" href="{{url('/admin/content/plant')}}">พืช </a></li>
+              <li><a class="" href="{{url('/admin/content/animals')}}">สัตว์</a></li>
+              <li><a class="" href="{{url('/admin/content/fungus')}}">จุลินทรีย์และฟังไจ</a></li>
+              <li><a class="" href="{{url('/admin/content/geology')}}">ธรณี</a></li>
+              <li><a class="" href="{{url('/admin/content/culture')}}">ศิลปวัฒนธรรม</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -76,9 +76,12 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="{{url('/admin/content?type=learning')}}">งานส่งเสริมการเรียนรู้ </a></li>
-              <li><a class="" href="{{url('/admin/content?type=project')}}">งานกิจกรรมโครงการ</a></li>
-              <li><a class="" href="{{url('/admin/content?type=online')}}">งานบริการออนไลน์</a></li>
+              <li><a href="{{url('/admin/content/exhibition')}}">นิทรรศการดอยสุเทพ</a></li>
+              <li><a href="{{url('/admin/content/learning')}}">กิจกรรมเรียนรู้ธรรมชาติ</a></li>
+              <li><a href="{{url('/admin/content/tree')}}">เรือนเพาะชำกล้าไม้ท้องถิ่น</a></li>
+              <li><a href="{{url('/admin/content/seed')}}">ห้องปฏิบัติการธนาคารเมล็ด</a></li>
+              <li><a href="{{url('/admin/content/research')}}">งานวิจัยและฐานข้อมูล</a></li>
+              <li><a href="{{url('/admin/content/activities')}}">พื้นที่จัดกิจกรรม</a></li>
             </ul>
           </li>
         </ul>

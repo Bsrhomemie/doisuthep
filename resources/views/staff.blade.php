@@ -16,14 +16,7 @@
           <p class="text-secondary  mb-0 text-normal">Excutive</p>
         </h3>
       </div>
-      <!-- <div class="likeShareBtnmt-3">
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v11.0" nonce="ccaa4s"></script>
-        <div class="fb-share-button" 
-        data-href="http://step.cmu.ac.th/news_specific.php?news_id=384" 
-        data-layout="button">
-        </div>
-      </div> -->
+   
       <div class="row ">
         @for ($i = 0; $i < 7; $i++)
           <div class="col-md-4  mt-4 wow fadeInUp">

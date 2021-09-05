@@ -39,7 +39,7 @@ Route::get('/suthep', [UserController::Class,'suthep']);
 Route::get('/empolyee/{type}', [UserController::Class,'empolyee']);
 
 Route::get('/admin', [AdminController::Class,'index'])->name('admin');;
-Route::get('/admin/content', [AdminController::Class,'listContent']);
+Route::get('/admin/content/{type}', [AdminController::Class,'listContent']);
 Route::get('/admin/product', [AdminController::Class,'listProtuct']);
 Route::get('/admin/vedio', [AdminController::Class,'listVedio']);
 Route::get('/admin/work', [AdminController::Class,'listWork']);

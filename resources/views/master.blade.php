@@ -153,7 +153,7 @@
             </div>
           </div>
         </section>
-        <p class="mb-0 pt-30px text-center">© Copyright DSN SCI CMU</p>
+        <p class="mb-0 pt-30px text-center">© Doi Suthep Nature Center</p>
       </footer>
     </section>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center active">
