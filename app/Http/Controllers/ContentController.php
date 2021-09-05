@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Content;
 use Illuminate\Http\Request;
 
 class ContentController extends Controller
@@ -10,7 +8,7 @@ class ContentController extends Controller
    
     public function index()
     {
-        $data = Content::first()->paginate(5);
+        $data = [];
 
         return view('content.index', compact('data'))->with('i', (request()->input('page', 1)-1) * 5);
     }
