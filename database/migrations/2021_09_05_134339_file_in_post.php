@@ -18,7 +18,6 @@ class FileInPost extends Migration
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->text('file_name');
-
         });
     }
 
@@ -29,8 +28,6 @@ class FileInPost extends Migration
      */
     public function down()
     {
-        Schema::table('post', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('files');
     }
 }
