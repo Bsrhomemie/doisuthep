@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- <link href="{{asset('css/bootstrap-theme.css')}}" rel="stylesheet"> -->
-    <link href="{{asset('vendor/fontawesome/css/all.css')}}" rel="stylesheet"> 
-    <link href="{{asset('css/elegant-icons-style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style-responsive.css')}}" rel="stylesheet">
-    <link href="{{asset('css/custom.css') }}" rel="stylesheet">
-    <link href="{{asset('vendor/summernote/summernote-bs4.min.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('vendor/fontawesome/css/all.css')}}" rel="stylesheet"> 
+    <link href="{{secure_asset('css/elegant-icons-style.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/style-responsive.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{secure_asset('vendor/summernote/summernote-bs4.min.css')}}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 
     <title>Doisuthep</title>
