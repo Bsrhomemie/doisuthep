@@ -9,6 +9,13 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $table = 'type_name';
+    protected $fillable = [
+        'post_name',
+        'post_type',
+        'content',
+    ];
+
     public function file()
     {
         return $this->hasMany('App\Post');
