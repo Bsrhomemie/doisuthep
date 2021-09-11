@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ContentController extends Controller
 {
-  
+
     public function viewContet($type)
-    {   
+    {
         $type_list = [
 			'news' => 'ข่าวประชาสัมพันธ์',
 			'articles' => 'บทความ',
@@ -24,7 +25,7 @@ class ContentController extends Controller
 			'research' => 'งานวิจัยและฐานข้อมูล',
 			'activities' => 'พื้นที่จัดกิจกรรม',
 		];
-        
+
 		$type = $type;
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
         return view('content.create', compact('type', 'type_text'));
@@ -43,7 +44,7 @@ class ContentController extends Controller
     }
 
     public function addContet(Request $request)
-    {  
+    {
 
         $type_list = [
 			'news' => 1,
@@ -73,29 +74,29 @@ class ContentController extends Controller
 
         if($request->file()) {
             $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-            $filePath = $request->file('picture')->storeAs('uploads', $fileName, 'public');
-            $data_post->picture = '/storage/' . $filePath;
+            $request->file('picture')->storeAs('/public', $fileName);
+            $data_post->picture = $fileName;
         }
-       
+
         $data_post->save();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
-       
+
     }
 
-   
+
     // public function show(Content $content)
     // {
     //     return view('content.create');
     // }
 
-    
+
     // public function edit(Request $request)
     // {
     //     return view('content.edit');
 
     // }
 
-  
+
     // public function update(Request $request, Content $content)
     // {
     //     // $request->validate([
@@ -108,7 +109,7 @@ class ContentController extends Controller
 
     // }
 
-   
+
     // public function destroy(Content $content)
     // {
     //     $content->delete();
