@@ -40,8 +40,8 @@ Route::get('/empolyee/{type}', [UserController::Class,'empolyee']);
 
 Route::get('/admin', [AdminController::Class,'index'])->name('admin');;
 Route::get('/admin/content/{type}', [AdminController::Class,'listContent']);
-Route::get('/content/{type}', [ContentController::Class,'viewContet']);
-Route::get('add/content', [ContentController::Class,'addContet']);
+Route::get('/content/form/{type}', [ContentController::Class,'viewContet']);
+Route::get('content/add/', [ContentController::Class,'addContet']);
 
 
 // Route::get('/admin/product', [AdminController::Class,'listProtuct']);
