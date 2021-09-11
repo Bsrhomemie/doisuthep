@@ -45,7 +45,7 @@ class ContentController extends Controller
     public function addContet(Request $request)
     {
        
-        var_dump($request->input('post_name_th'));
+        var_dump($request);
         die();
         // Post::create($request->all());
         // return redirect('/admin/content/news')
