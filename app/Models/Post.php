@@ -18,6 +18,9 @@ class Post extends Model
         'content_th',
         'post_name_en',
         'content_en',
+        'created_at',
+        'picture',
+        'pdf'
     ];
 
     public function user()
