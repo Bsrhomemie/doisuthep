@@ -69,13 +69,14 @@ class ContentController extends Controller
         $data_post->content_en = $data['content_en'];
         $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
 
-        // if($request->file()) {
+        if($request->file()) {
+            $fileName = time().'_'.$req->file->getClientOriginalName();
         //     $fileName = time().'_'.$request->file->getClientOriginalName();
         //     $filePath = $request->file('picture')->storeAs('uploads', $fileName, 'public');
 
         //     // $fileModel->name = time().'_'.$data->file->getClientOriginalName();
         //     $data_post->picture = '/storage/' . $filePath;
-        // }
+        }
         // var_dump($data_post);
         var_dump($request->file());
 
