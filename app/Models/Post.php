@@ -23,4 +23,9 @@ class Post extends Model
     {
         return $this->hasMany('App\File');
     }
+
+    public function type()
+    {
+        return $this->belongsTo('App\Type');
+    }
 }
