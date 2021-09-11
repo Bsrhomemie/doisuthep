@@ -68,7 +68,7 @@ class ContentController extends Controller
         $data_post->post_name_en = $data['post_name_en'];
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
-        $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
+        $data_post->post_type = 1;//isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
 
         if($request->file()) {
             $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
