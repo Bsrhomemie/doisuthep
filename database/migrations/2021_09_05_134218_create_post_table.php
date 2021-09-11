@@ -21,6 +21,8 @@ class CreatePostTable extends Migration
             $table->text('content_th');
             $table->text('content_en');
             $table->date('created_at');
+            $table->text('picture');
+            $table->text('pdf');
             $table->softDeletes('deleted_at', 0);
         });
     }
