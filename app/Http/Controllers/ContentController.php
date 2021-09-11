@@ -76,8 +76,8 @@ class ContentController extends Controller
         //     // $fileModel->name = time().'_'.$data->file->getClientOriginalName();
         //     $data_post->picture = '/storage/' . $filePath;
         // }
-        var_dump($data_post);
-        var_dump($request->file());
+        // var_dump($data_post);
+        var_dump($data);
 
         die();
         $data_post->save();
