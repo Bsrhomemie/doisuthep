@@ -67,21 +67,19 @@ class ContentController extends Controller
         $data_post->content_th = $data['content_th'];
         $data_post->post_name_en = $data['post_name_en'];
         $data_post->content_en = $data['content_en'];
-        $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
+        $data_post->created_at = $data['created_at'];
+        $data_post->post_type = 1;//isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
+        
+        var_dump($data_post);
 
-        if($request->file()) {
-            $fileName = time().'_'.$req->file->getClientOriginalName();
-        //     $fileName = time().'_'.$request->file->getClientOriginalName();
+        // if($request->file()) {
+        //     $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
         //     $filePath = $request->file('picture')->storeAs('uploads', $fileName, 'public');
-
-        //     // $fileModel->name = time().'_'.$data->file->getClientOriginalName();
         //     $data_post->picture = '/storage/' . $filePath;
-        }
-        // var_dump($data_post);
-        var_dump($request->file());
-
-        die();
+        // }
+       
         $data_post->save();
+        
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
        
     }
