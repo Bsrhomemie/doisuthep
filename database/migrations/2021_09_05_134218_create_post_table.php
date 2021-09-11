@@ -15,12 +15,12 @@ class CreatePostTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->text('post_name_th');
             $table->text('post_name_en');
             $table->text('post_type');
             $table->text('content_th');
             $table->text('content_en');
+            $table->date('created_at');
             $table->softDeletes('deleted_at', 0);
         });
     }
