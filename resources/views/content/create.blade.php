@@ -24,8 +24,8 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('content/addContet')}}" method="post">
-              @csrf
+            <form action="{{url('content/addContet')}}" method="get">
+             @csrf
               <div class="row">
                 <div class="col-lg-4">
                   <div class="form-group">
