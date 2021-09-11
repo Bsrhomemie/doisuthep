@@ -44,14 +44,8 @@ class ContentController extends Controller
 
     public function addContet(Request $request)
     {
-        $request->validate([
-            'post_name_th' => 'required',
-            'post_type' => 'required',
-            'content_th' => 'required',
-            'post_name_en' => 'required',
-            'content_en' => 'required'
-        ]);
-        var_dump($request);
+       
+        var_dump($request->input('post_name_th'));
         die();
         // Post::create($request->all());
         // return redirect('/admin/content/news')
