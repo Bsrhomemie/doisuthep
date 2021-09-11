@@ -107,9 +107,9 @@ class AdminController extends Controller
 	
 		$content = Post::where('post_type', $type_id)
 							->orderBy('id','desc')
-							->paginate(2); 
+							->paginate(10); 
 		
-		return view('admin.content', compact('type', 'type_text', 'content'))->with('i', (request()->input('page', 1)-1) * 2);
+		return view('admin.content', compact('type', 'type_text', 'content'))->with('i', (request()->input('page', 1)-1) * 10);
 	}
 
 	public function listProtuct(Request $request)
