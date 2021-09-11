@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
   function index() {
 
-		$data = Post::first()->paginate(5);
+		// $data = Post::first()->paginate(5);
 		$todo = [
 				[
 					'id' => 1,
