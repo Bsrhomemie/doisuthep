@@ -105,9 +105,7 @@ class AdminController extends Controller
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 		$todo = [];
 	
-		// $content = Post::where('post_type', $type_id)->get();
-
-		$content = Post::all();
+		$content = Post::where('post_type', $type_id)->get();
 
 		
 		return view('admin.content', compact('type', 'type_text', 'content'));
