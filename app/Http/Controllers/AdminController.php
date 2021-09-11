@@ -62,44 +62,10 @@ class AdminController extends Controller
 		];
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
 		$todo = [];
-		$content = Post::all();
-		if($type == 'vedio') {
-			
-		} else {
-			$todo = [
-				[
-					'id' => 1,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 'STeP',
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
-
-				],
-				[
-					'id' => 2,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 'STeP',
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
-				],	
-				[
-					'id' => 3,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 'STeP',
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
-				],
-				[
-					'id' => 4,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 	$type,
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
-				],
-			];
-		}
 		
-		return view('admin.content', compact('todo', 'type', 'type_text', 'content'));
+		$content = Post::where('post_type', '1')->get();
+		
+		return view('admin.content', compact('type', 'type_text', 'content'));
 	}
 
 	public function listProtuct(Request $request)
