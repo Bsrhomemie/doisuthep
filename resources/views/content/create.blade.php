@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{route('content.store')}}" method="post">
+            <form action="{{url('content/addContet')}}" method="post">
               @csrf
               <div class="row">
                 <div class="col-lg-4">
@@ -45,6 +45,7 @@
                     <label>วันที่ลงประกาศ </label>
                     <input type="date" name="date" class="form-control">
                   </div>
+                  <input type="text" value="{{$type}}">
                   @if($type == 'learning')
                   <div class="form-group mt-2">
                     <label>หมวดหมู่ </label>
