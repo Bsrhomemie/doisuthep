@@ -77,7 +77,7 @@ class ContentController extends Controller
         //     $data_post->picture = '/storage/' . $filePath;
         // }
         // var_dump($data_post);
-        var_dump($data);
+        var_dump($request->file());
 
         die();
         $data_post->save();
