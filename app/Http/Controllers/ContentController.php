@@ -7,26 +7,25 @@ use Illuminate\Http\Request;
 class ContentController extends Controller
 {
    
-    public function index()
-    {
-        $data = [];
-
-        return view('content.index', compact('data'))->with('i', (request()->input('page', 1)-1) * 5);
-    }
+  
     public function create(Request $request)
     {   
         $type_list = [
-			'publicize' => 'ข่าวประชาสัมพันธ์',
-			'context' => 'บทความ',
-			'plant' => 'พืช',
-			'animal' => 'สัตว์',
-			'fungi' => 'จุลินทรีย์และฟังไจ',
-			'land' => 'ธรณี',
-			'culture' => 'ศิลปวัฒนธรรม',
-			'learning' => 'งานส่งเสริมการเรียนรู้',
-			'project' => 'งานกิจกรรมโครงการ',
-			'online' => 'งานบริการออนไลน์',
+			'news' => 'ข่าวประชาสัมพันธ์',
+			'articles' => 'บทความ',
+			'plants' => 'พืช',
+			'animals' => 'สัตว์',
+			'fungus' => 'จุลินทรีย์และฟังไจ',
+			'geology' => 'ธรณีวิทยา',
+			'culture' => 'สังคมและวัฒนธรรม',
+			'exhibition' => 'นิทรรศการดอยสุเทพ',
+			'learning' => 'กิจกรรมเรียนรู้ธรรมชาติ',
+			'tree' => 'เรือนเพาะชำกล้าไม้ท้องถิ่น',
+			'seed' => 'ห้องปฏิบัติการธนาคารเมล็ด',
+			'research' => 'งานวิจัยและฐานข้อมูล',
+			'activities' => 'พื้นที่จัดกิจกรรม',
 		];
+        
 		$type = $request['type'];
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
         if(isset($_REQUEST['id'])) {
@@ -46,20 +45,18 @@ class ContentController extends Controller
     public function viewContet(Request $request)
 	{
 		
-        var_dump($request['title_th']);
-        die();
-	    // return redirect('/admin');
+  
 	}
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'description' => 'required'
-        // ]);{{url('/admin/content?type=publicize')}}
+        $request->validate([
+            'post_name' => 'required',
+            'content' => 'required'
+        ]);
 
-        // Content::create($request->all());
-        return redirect('/admin')
+        Post::create($request->all());
+        return redirect('/admin/content/news')
                          ->with('success', 'Created successfully');
     }
 
