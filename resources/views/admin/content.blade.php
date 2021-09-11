@@ -58,7 +58,7 @@
                     @endforeach
                 </tbody>
               </table>
-              {!! $data->links() !!}
+              {!! $content->links() !!}
             </div>
           </div>
         </div>
