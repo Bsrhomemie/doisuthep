@@ -10,7 +10,7 @@ class File extends Model
     use HasFactory;
 
     protected $table = 'files_posts';
-
+    public $timestamps = false;
 
     public function user()
     {
