@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/content/add')}}" method="post">
+            <form action="{{url('/content/add')}}" method="post" enctype="multipart/form-data">
              @csrf
               <div class="row">
                 <div class="col-lg-4">
@@ -38,12 +38,12 @@
                           </div>
                         </div>
                       </div>
-                      <input type="file" name="profile_image" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
+                      <input type="file" name="picture" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
                     </div>
                   </div>
                   <div class="form-group mt-2">
                     <label>วันที่ลงประกาศ </label>
-                    <input type="date" name="date" class="form-control">
+                    <input type="date" name="created_at" class="form-control">
                   </div>
                   <input type="hidden" name="post_type" value="{{$type}}">
                 </div>

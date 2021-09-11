@@ -68,6 +68,16 @@ class ContentController extends Controller
         $data_post->post_name_en = $data['post_name_en'];
         $data_post->content_en = $data['content_en'];
         $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
+
+        if($request->file()) {
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('picture')->storeAs('uploads', $fileName, 'public');
+
+            // $fileModel->name = time().'_'.$data->file->getClientOriginalName();
+            $data_post->picture = '/storage/' . $filePath;
+        }
+        var_dump($data_post);
+        die();
         $data_post->save();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
        
