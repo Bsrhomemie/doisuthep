@@ -42,23 +42,19 @@ class ContentController extends Controller
         // }
     }
 
-    // public function viewContet(Request $request)
-	// {
-		
-  
-	// }
+    public function addContet(Request $request)
+    {
+        var_dump($request);
+        die();
+        // $request->validate([
+        //     'post_name' => 'required',
+        //     'content' => 'required'
+        // ]);
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'post_name' => 'required',
-    //         'content' => 'required'
-    //     ]);
-
-    //     Post::create($request->all());
-    //     return redirect('/admin/content/news')
-    //                      ->with('success', 'Created successfully');
-    // }
+        // Post::create($request->all());
+        // return redirect('/admin/content/news')
+        //                  ->with('success', 'Created successfully');
+    }
 
    
     // public function show(Content $content)
