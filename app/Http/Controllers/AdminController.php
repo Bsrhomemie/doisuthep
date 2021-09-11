@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
   function index() {
+
+		$data = Post::first()->paginate(5);
 		$todo = [
 				[
 					'id' => 1,

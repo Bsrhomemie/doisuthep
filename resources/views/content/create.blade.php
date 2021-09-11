@@ -45,26 +45,7 @@
                     <label>วันที่ลงประกาศ </label>
                     <input type="date" name="date" class="form-control">
                   </div>
-                  <input type="text" value="{{$type}}">
-                  @if($type == 'learning')
-                  <div class="form-group mt-2">
-                    <label>หมวดหมู่ </label>
-                    <select name="type" class="form-control">
-                      <option value="">นิทรรศการ (Exhibition)</option>
-                      <option value="">นิทรรศการธรรมชาติบันดาลใจ (Mother Nature)</option>
-                    </select>
-                  </div>
-                  @endif
-
-                  @if($type == 'project')
-                  <div class="form-group mt-2">
-                    <label>หมวดหมู่ </label>
-                    <select name="type" class="form-control" >
-                      <option value="">ท่องเที่ยวพรรณไม้งาม มช.</option>
-                      <option value=""> เรือนเพาะชำกล้าไม้ท้องถิ่น (Native Tree Species Nursery)</option>
-                    </select>
-                  </div>
-                  @endif
+                  <input type="hidden" name="post_type" value="{{$type}}">
                 </div>
                 <div class="col-lg-8">
                   <div class="row">

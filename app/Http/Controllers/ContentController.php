@@ -44,15 +44,32 @@ class ContentController extends Controller
 
     public function addContet(Request $request)
     {  
+
+        $type_list = [
+			'news' => 1,
+			'articles' => 2,
+			'plants' => 3,
+			'animals' => 4,
+			'fungus' => 5,
+			'geology' => 6,
+			'culture' => 7,
+			'exhibition' => 8,
+			'learning' => 9,
+			'tree' => 10,
+			'seed' => 11,
+			'research' => 12,
+			'activities' => 13,
+		];
+
         $data = $request->input();
         $data_post = new Post;
         $data_post->post_name_th = $data['post_name_th'];
         $data_post->content_th = $data['content_th'];
         $data_post->post_name_en = $data['post_name_en'];
         $data_post->content_en = $data['content_en'];
-        $data_post->post_type = 1;
+        $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
         $data_post->save();
-        return redirect('/admin/content/news')->with('status',"Insert successfully");
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
        
     }
 
