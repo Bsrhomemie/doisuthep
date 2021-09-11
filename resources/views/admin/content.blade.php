@@ -44,7 +44,7 @@
                         <td>{{Str::limit($data['description_en'], 200)}}</td>
                         <td>
                           <div class="d-flex justify-content-center">
-                            <a href="{{route('content.create','type='.$type.'&id='.$data['id'])}}" class="btn btn-warning me-2">
+                            <a href="" class="btn btn-warning me-2">
                               <i class="far fa-edit font-18px"></i>
                             </a>
                             <form action="" method="post">
