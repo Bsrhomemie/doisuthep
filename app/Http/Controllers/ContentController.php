@@ -27,18 +27,19 @@ class ContentController extends Controller
         
 		$type = $type;
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
-        if(isset($_REQUEST['id'])) {
-            $data =	[
-                    'id' => 2,
-                    'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-                    'title_en' => 'STeP',
-                    'description_th' => 'Mocup',
-                    'description_en' => 'Mocup',
-                ];
-            return view('content.edit', compact('type', 'type_text', 'data'));
-        } else {
-            return view('content.create', compact('type', 'type_text'));
-        }
+        return view('content.create', compact('type', 'type_text'));
+
+        // if(isset($_REQUEST['id'])) {
+        //     $data =	[
+        //             'id' => 2,
+        //             'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
+        //             'title_en' => 'STeP',
+        //             'description_th' => 'Mocup',
+        //             'description_en' => 'Mocup',
+        //         ];
+        //     return view('content.edit', compact('type', 'type_text', 'data'));
+        // } else {
+        // }
     }
 
     // public function viewContet(Request $request)
