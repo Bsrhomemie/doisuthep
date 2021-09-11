@@ -12,7 +12,7 @@
                   <h2>{{$type_text}}</h2>
                 </div>
                 <div>
-                  <a href="{{url('content/'.$type)}}" class="btn btn-success px-3  py-2" id="btn-add" data-toggle="modal" data-target="#formModal">
+                  <a href="{{url('content/form/'.$type)}}" class="btn btn-success px-3  py-2" >
                   <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล 
                   </a>
                 </div>

@@ -43,14 +43,18 @@ class ContentController extends Controller
     }
 
     public function addContet(Request $request)
-    {
-        var_dump($request);
+    {  
+        $data = $request->input();
+        // $student = new StudInsert;
+        // $student->first_name = $data['first_name'];
+        // $student->last_name = $data['last_name'];
+        // $student->city_name = $data['city_name'];
+        // $student->email = $data['email'];
+            // $student->save();
+            // return redirect('insert')->with('status',"Insert successfully");
+       
+        var_dump($data);
         die();
-        // $request->validate([
-        //     'post_name' => 'required',
-        //     'content' => 'required'
-        // ]);
-
         // Post::create($request->all());
         // return redirect('/admin/content/news')
         //                  ->with('success', 'Created successfully');
