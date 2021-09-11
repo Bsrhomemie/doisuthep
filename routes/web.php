@@ -40,10 +40,11 @@ Route::get('/empolyee/{type}', [UserController::Class,'empolyee']);
 
 Route::get('/admin', [AdminController::Class,'index'])->name('admin');;
 Route::get('/admin/content/{type}', [AdminController::Class,'listContent']);
+Route::resource('/content', ContentController::Class);
+
 Route::get('/admin/product', [AdminController::Class,'listProtuct']);
 Route::get('/admin/vedio', [AdminController::Class,'listVedio']);
 Route::get('/admin/work', [AdminController::Class,'listWork']);
-Route::resource('content', ContentController::Class);
 Route::resource('product', ProductController::Class);
 Route::resource('work', WorkController::Class);
 

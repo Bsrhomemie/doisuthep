@@ -8,7 +8,7 @@ class ContentController extends Controller
 {
    
   
-    public function create(Request $request)
+    public function create($type)
     {   
         $type_list = [
 			'news' => 'ข่าวประชาสัมพันธ์',
@@ -25,8 +25,8 @@ class ContentController extends Controller
 			'research' => 'งานวิจัยและฐานข้อมูล',
 			'activities' => 'พื้นที่จัดกิจกรรม',
 		];
-        
-		$type = $request['type'];
+
+		$type = $type;
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
         if(isset($_REQUEST['id'])) {
             $data =	[
