@@ -61,8 +61,10 @@ class AdminController extends Controller
 			'activities' => 'พื้นที่จัดกิจกรรม',
 		];
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
+		$todo = [];
+		$content = User::all();
 		if($type == 'vedio') {
-			$todo = [];
+			
 		} else {
 			$todo = [
 				[
@@ -97,7 +99,7 @@ class AdminController extends Controller
 			];
 		}
 		
-		return view('admin.content', compact('todo', 'type', 'type_text'));
+		return view('admin.content', compact('todo', 'type', 'type_text', 'content'));
 	}
 
 	public function listProtuct(Request $request)

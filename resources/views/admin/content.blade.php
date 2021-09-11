@@ -18,6 +18,8 @@
                 </div>
               </div>
             </div>
+            {{@content}}
+
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
@@ -31,17 +33,17 @@
                   </tr>
                 </thead>
                 <tbody id="todos-list" name="todos-list">
-                    @foreach ($todo as $data)
+                    @foreach ($content as $data)
                     <tr id="todo{{$data['id']}}">
                         <td>
                           <div class="img-16by9 holder " >
-                            <img src="{{URL::asset('/images/image-5.jpg')}}" class="img-responsive image-preview" >
+                            <img src="{{URL::asset('$data->picture')}}" class="img-responsive image-preview" >
                           </div>
                         </td>
-                        <td>{{Str::limit($data['title_th'], 200)}}</td>
-                        <td>{{Str::limit($data['description_th'], 200)}}</td>
-                        <td>{{Str::limit($data['title_en'], 200)}}</td>
-                        <td>{{Str::limit($data['description_en'], 200)}}</td>
+                        <td>{{Str::limit($data->post_name_th, 200)}}</td>
+                        <td>{{Str::limit($data->post_name_th, 200)}}</td>
+                        <td>{{Str::limit($data->post_name_th)}}</td>
+                        <td>{{Str::limit($data->post_name_th, 200)}}</td>
                         <td>
                           <div class="d-flex justify-content-center">
                             <a href="" class="btn btn-warning me-2">
