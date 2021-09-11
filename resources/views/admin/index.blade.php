@@ -28,7 +28,7 @@
                   <input type="password" class="form-control">
                 </div>
                 <div class="mt-3">
-                  <a  href="{{url('//admin/content/news')}}" class="btn btn-main w-100">เข้าสู่ระบบ</a>
+                  <a  href="{{url('/admin/content/news')}}" class="btn btn-main w-100">เข้าสู่ระบบ</a>
                 </div>
               </div>
             </div>
