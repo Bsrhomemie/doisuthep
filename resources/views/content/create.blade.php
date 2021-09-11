@@ -4,7 +4,7 @@
 <div id="main-content">
   <div class="wrapper">
     <div class="col-12">
-      <a href="{{url('/admin/content?type='.$type)}}" class="btn btn-dark text-white font-12px p-1"> 
+      <a href="{{url('/admin/content/'.$type)}}" class="btn btn-dark text-white font-12px p-1"> 
         <i class="fas fa-arrow-circle-left me-2"></i>Back
       </a>
       <div class="card">
