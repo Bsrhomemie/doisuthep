@@ -15,7 +15,8 @@ class TypeNameTable extends Migration
     {
         Schema::create('type_name', function (Blueprint $table) {
             $table->id();
-            $table->string('type_name');
+            $table->string('type_name_th');
+            $table->string('type_name_eng');
         });
     }
 
