@@ -71,21 +71,21 @@
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label>หัวข้อภาษาไทย</label>
-                        <input type="text" name="title_th" class="form-control">
+                        <input type="text" name="post_name_th" class="form-control">
                       </div>
                       <div class="form-group">
                         <label>รายละเอียดภาษาไทย</label>
-                        <textarea name="description_th" class="summer-note summernote" > </textarea>
+                        <textarea name="content_th" class="summer-note summernote" > </textarea>
                       </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label>หัวข้อภาษาอังกฤษ</label>
-                        <input type="text" name="title_en" class="form-control">
+                        <input type="text" name="post_name_en" class="form-control">
                       </div>
                       <div class="form-group">
                         <label>รายละเอียดภาษาอังกฤษ</label>
-                        <textarea name="description_en" class="summer-note summernote" > </textarea>
+                        <textarea name="content_en" class="summer-note summernote" > </textarea>
                       </div>
                     </div>
                   </div>
