@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     protected $table = 'posts';
-
+    public $timestamps = false;
 
     protected $fillable = [
         'post_name_th',
@@ -26,11 +26,6 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
-    }
-
-    public function file()
-    {
-        return $this->hasMany('App\File');
     }
 
     public function type()
