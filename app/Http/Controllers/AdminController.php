@@ -62,7 +62,7 @@ class AdminController extends Controller
 		];
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
 		$todo = [];
-		$content = User::all();
+		$content = Post::all();
 		if($type == 'vedio') {
 			
 		} else {
