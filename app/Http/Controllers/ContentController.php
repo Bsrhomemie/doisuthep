@@ -69,6 +69,7 @@ class ContentController extends Controller
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
         $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
+        $data_post->pdf = '';
 
         if($request->file()) {
             $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
