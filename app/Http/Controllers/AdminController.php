@@ -99,12 +99,10 @@ class AdminController extends Controller
 			  'name' =>	'พื้นที่จัดกิจกรรม',
 			],
 		];
-		$type_id = array_column($type_list, 'id');
 
-		$type_name = array_column($type_list, 'name');
 
-		$type_text = isset($type_name[$type])? $type_name[$type] : '' ;
-		$get_id = isset($type_id[$type])? $type_id[$type] : '' ;
+		$type_text = isset($type_name[$type])? $type_name[$type]['name'] : '' ;
+		$type_id = isset($type_id[$type])? $type_id[$type]['id'] : '' ;
 		$todo = [];
 		
 		$content = Post::where('post_type', $get_id)->get();
