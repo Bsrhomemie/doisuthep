@@ -105,9 +105,12 @@ class AdminController extends Controller
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 		$todo = [];
 	
-		$content = Post::where('post_type', $type_id)->first()->paginate(5);
+		// $content = Post::where('post_type', $type_id)->get();
+
+		$content = Post::all();
+
 		
-		return view('admin.content', compact('type', 'type_text', 'content'))->with('i', (request()->input('page', 1)-1) * 5);
+		return view('admin.content', compact('type', 'type_text', 'content'));
 	}
 
 	public function listProtuct(Request $request)
@@ -118,7 +121,7 @@ class AdminController extends Controller
 				[
 					'id' => 1,
 					'price' => 200,
-					'name' => 'สินค้า',
+					'name' => 'สินค้า', 
 					'status' => 0
 				],
 				[
