@@ -72,6 +72,7 @@ class ContentController extends Controller
         $data_post->pdf = '';
 
         if($request->file()) {
+            $request->file->store('public');
             $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
             $filePath = $request->file('picture')->storeAs('uploads', $fileName, 'public');
             $data_post->picture = '/storage/' . $filePath;
