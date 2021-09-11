@@ -71,16 +71,10 @@ class ContentController extends Controller
 
         if($request->file()) {
             $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-        //     $fileName = time().'_'.$request->file->getClientOriginalName();
-        //     $filePath = $request->file('picture')->storeAs('uploads', $fileName, 'public');
-
-        //     // $fileModel->name = time().'_'.$data->file->getClientOriginalName();
-        //     $data_post->picture = '/storage/' . $filePath;
+            $filePath = $request->file('picture')->storeAs('uploads', $fileName, 'public');
+            $data_post->picture = '/storage/' . $filePath;
         }
-        // var_dump($data_post);
-        var_dump($fileName);
-
-        die();
+       
         $data_post->save();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
        
