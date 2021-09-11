@@ -15,14 +15,14 @@ class CreatePostTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->text('post_name_th');
-            $table->text('post_name_en');
-            $table->text('post_type');
-            $table->text('content_th');
-            $table->text('content_en');
-            $table->date('created_at');
-            $table->text('picture');
-            $table->text('pdf');
+            $table->text('post_name_th')->nullable();
+            $table->text('post_name_en')->nullable();
+            $table->text('post_type')->nullable();
+            $table->text('content_th')->nullable();
+            $table->text('content_en')->nullable();
+            $table->date('created_at')->nullable();
+            $table->text('picture')->nullable();
+            $table->text('pdf')->nullable();
             $table->softDeletes('deleted_at', 0);
         });
     }
