@@ -1,5 +1,5 @@
 @extends('admin.master')
- 
+
 @section('content')
   <div id="main-content">
     <div class="wrapper">
@@ -13,7 +13,7 @@
                 </div>
                 <div>
                   <a href="{{url('content/form/'.$type)}}" class="btn btn-success px-3  py-2" >
-                  <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล 
+                  <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล
                   </a>
                 </div>
               </div>
@@ -35,7 +35,7 @@
                     <tr id="todo{{$data['id']}}">
                         <td>
                           <div class="img-16by9 holder " >
-                            <img src="{{URL::asset('$data->picture')}}" class="img-responsive image-preview" >
+                            <img src="{{ asset('storage/'.$data->picture)}}" class="img-responsive image-preview" >
                           </div>
                         </td>
                         <td>{{Str::limit($data->post_name_th, 200)}}</td>
@@ -65,5 +65,5 @@
     </div>
   </div>
 @endsection
-  
+
 
