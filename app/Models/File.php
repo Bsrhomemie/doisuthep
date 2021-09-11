@@ -9,6 +9,7 @@ class File extends Model
 {
     use HasFactory;
 
+    protected $table = 'files_posts';
     public function user()
     {
         return $this->belongsTo('App\Post');
