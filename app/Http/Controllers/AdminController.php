@@ -46,60 +46,68 @@ class AdminController extends Controller
 	public function listContent($type)
 	{
 		$type_list = [
-			'news' => 'ข่าวประชาสัมพันธ์',
-			'articles' => 'บทความ',
-			'plants' => 'พืช',
-			'animals' => 'สัตว์',
-			'fungus' => 'จุลินทรีย์และฟังไจ',
-			'geology' => 'ธรณีวิทยา',
-			'culture' => 'สังคมและวัฒนธรรม',
-			'exhibition' => 'นิทรรศการดอยสุเทพ',
-			'learning' => 'กิจกรรมเรียนรู้ธรรมชาติ',
-			'tree' => 'เรือนเพาะชำกล้าไม้ท้องถิ่น',
-			'seed' => 'ห้องปฏิบัติการธนาคารเมล็ด',
-			'research' => 'งานวิจัยและฐานข้อมูล',
-			'activities' => 'พื้นที่จัดกิจกรรม',
+			'news' => [ 
+			  'id' =>	1,
+			  'name' =>	'ข่าวประชาสัมพันธ์',
+			],
+			'articles' => [ 
+			  'id' =>	2,
+			  'name' =>	'บทความ',
+			],
+			'plants' => [ 
+			  'id' => 3,
+			  'name' =>	'พืช',
+			],
+			'animals' => [ 
+			  'id' =>	4,
+			  'name' =>	'สัตว์',
+			],
+			'fungus' => [ 
+			  'id' =>	5,
+			  'name' =>	'จุลินทรีย์และฟังไจ',
+			],
+			'geology' => [ 
+			  'id' =>	6,
+			  'name' =>	'ธรณีวิทยา',
+			],
+			'culture' => [ 
+			  'id' =>	7,
+			  'name' =>	'สังคมและวัฒนธรรม',
+			],
+			'exhibition' => [ 
+			  'id' =>	8,
+			  'name' =>	'นิทรรศการดอยสุเทพ',
+			],
+			'learning' => [ 
+			  'id' =>	9,
+			  'name' =>	'กิจกรรมเรียนรู้ธรรมชาติ',
+			],
+			'tree' => [ 
+			  'id' =>	10,
+			  'name' =>	'เรือนเพาะชำกล้าไม้ท้องถิ่น',
+			],
+			'seed' => [ 
+			  'id' =>	11,
+			  'name' =>	'ห้องปฏิบัติการธนาคารเมล็ด',
+			],
+			'research' => [ 
+			  'id' =>	12,
+			  'name' =>	'งานวิจัยและฐานข้อมูล',
+			],
+			'activities' => [ 
+			  'id' =>	13,
+			  'name' =>	'พื้นที่จัดกิจกรรม',
+			],
 		];
-		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
-		$todo = [];
-		$content = Post::all();
-		if($type == 'vedio') {
-			
-		} else {
-			$todo = [
-				[
-					'id' => 1,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 'STeP',
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
 
-				],
-				[
-					'id' => 2,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 'STeP',
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
-				],	
-				[
-					'id' => 3,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 'STeP',
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
-				],
-				[
-					'id' => 4,
-					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-					'title_en' => 	$type,
-					'description_th' => 'Mocup',
-					'description_en' => 'Mocup',
-				],
-			];
-		}
+
+		$type_text = isset($type_list[$type])? $type_list[$type]['name'] : '' ;
+		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
+		$todo = [];
+	
+		$content = Post::where('post_type', $type_id)->first()->paginate(5)->get();
 		
-		return view('admin.content', compact('todo', 'type', 'type_text', 'content'));
+		return view('admin.content', compact('type', 'type_text', 'content'))->with('i', (request()->input('page', 1)-1) * 5);
 	}
 
 	public function listProtuct(Request $request)

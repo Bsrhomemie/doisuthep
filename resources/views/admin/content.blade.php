@@ -39,9 +39,9 @@
                           </div>
                         </td>
                         <td>{{Str::limit($data->post_name_th, 200)}}</td>
-                        <td>{{Str::limit($data->post_name_th, 200)}}</td>
-                        <td>{{Str::limit($data->post_name_th)}}</td>
-                        <td>{{Str::limit($data->post_name_th, 200)}}</td>
+                        <td>{{Str::limit($data->content_th, 200)}}</td>
+                        <td>{{Str::limit($data->post_name_en, 200)}}</td>
+                        <td>{{Str::limit($data->content_en, 200)}}</td>
                         <td>
                           <div class="d-flex justify-content-center">
                             <a href="" class="btn btn-warning me-2">
