@@ -29,7 +29,7 @@
     "post-install-cmd": [
         "php artisan clear-compiled",
         "chmod -R 777 public/",
-        "ln -sr storage/app/public public/storage"
+        "cd public/ && ln -s ../storage/app/public storage && cd .."
     ],
     "autoload-dev": {
         "psr-4": {
