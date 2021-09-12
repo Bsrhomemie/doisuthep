@@ -82,7 +82,7 @@ class ContentController extends Controller
     {  
 
         $data = $request->input();
-        $data_post = Student::find($data['id']);
+        $data_post = Post::find($data['id']);
         $data_post->post_name_th = $data['post_name_th'];
         $data_post->content_th = $data['content_th'];
         $data_post->post_name_en = $data['post_name_en'];
@@ -94,7 +94,7 @@ class ContentController extends Controller
             $data_post->picture = $fileName;
         }
 
-        $student->update();
+        $data_post->update();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
 
     }
