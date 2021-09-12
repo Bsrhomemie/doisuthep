@@ -22,11 +22,10 @@
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th nowrup class="w-150px" >Image</th>
-                    <th class="w-250px">Title TH</th>
-                    <th class="w-250px">Description TH</th>
-                    <th class="w-250px">Title EN</th>
-                    <th class="w-250px">Description EN</th>
+                    <th nowrup class="w-150px" >รูปภาพ</th>
+                    <th class="w-250px">หัวข้อภาษาไทย</th>
+                    <th class="w-250px">หัวข้อภาษาอังกฤษ TH</th>
+                    <th class="w-250px">วันที่ลงประกาศ</th>
                     <th class="thin-cell w-100px"></th>
                   </tr>
                 </thead>
@@ -41,7 +40,7 @@
                         <td>{{Str::limit($data->post_name_th, 200)}}</td>
                         <!-- <td>{!! Str::limit($data->content_th, 200) !!}</td> -->
                         <td>{{Str::limit($data->post_name_en, 200)}}</td>
-                        <td>{{date('d-m-Y', strtotime($data->created_at))}}</td>
+                        <td>{{date('d/m/Y', strtotime($data->created_at))}}</td>
                         <!-- <td>{!! Str::limit($data->content_en, 200) !!}</td> -->
                         <td>
                           <div class="d-flex justify-content-center">
