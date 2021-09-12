@@ -31,8 +31,8 @@ class ContentController extends Controller
         if(empty($id)) {
             return view('content.create', compact('type', 'type_text'));
         } else {
-            $content = Post::where('id', $id)->get();
-            var_dump($content);
+            $content = Post::where('id', $id)->first();;
+            print_r($content.'</br>');
             die();
             return view('content.edit', compact('type', 'type_text', 'content'));
         }
