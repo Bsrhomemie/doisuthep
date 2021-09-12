@@ -32,7 +32,7 @@ class ContentController extends Controller
             return view('content.create', compact('type', 'type_text'));
         } else {
             $content = Post::where('id', $id)->get();
-            return view('content.edit', compact('type', 'type_text'));
+            return view('content.edit', compact('type', 'type_text', 'content'));
         }
     }
 
