@@ -44,7 +44,7 @@ Route::get('/content/form/{type}', [ContentController::Class,'viewContet']);
 Route::post('content/add/', [ContentController::Class,'addContet']);
 Route::get('/content/form_edit/{type}/{id}', [ContentController::Class,'viewContet']);
 Route::post('content/edit/', [ContentController::Class,'editContet']);
-Route::post('content/delete/{id}', [ContentController::Class,'destroy']);
+Route::post('content/delete', [ContentController::Class,'deleteContet']);
 
 
 

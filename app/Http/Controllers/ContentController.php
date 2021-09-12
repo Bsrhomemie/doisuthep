@@ -99,9 +99,10 @@ class ContentController extends Controller
 
     }
 
-    public function destroy($id)
-    {
-        $data_post = Post::find($id);
+    public function deleteContet(Request $request)
+    {  
+         $data = $request->input();
+        $data_post = Post::find($data['id']);
         $data_post->delete();
         return redirect();
     }
