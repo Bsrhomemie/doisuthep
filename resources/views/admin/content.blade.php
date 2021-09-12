@@ -44,7 +44,7 @@
                         <td>{{Str::limit($data->content_en, 200)}}</td>
                         <td>
                           <div class="d-flex justify-content-center">
-                            <a href="" class="btn btn-warning me-2">
+                            <a href="{{url('content/form_edit/'.$type.'/'.$data->id)}}" class="btn btn-warning me-2">
                               <i class="far fa-edit font-18px"></i>
                             </a>
                             <form action="" method="post">

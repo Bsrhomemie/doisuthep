@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ContentController extends Controller
 {
 
-    public function viewContet($type)
+    public function viewContet($type, $id='')
     {
         $type_list = [
 			'news' => 'ข่าวประชาสัมพันธ์',
@@ -25,24 +25,18 @@ class ContentController extends Controller
 			'research' => 'งานวิจัยและฐานข้อมูล',
 			'activities' => 'พื้นที่จัดกิจกรรม',
 		];
-
 		$type = $type;
 		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
-        return view('content.create', compact('type', 'type_text'));
 
-        // if(isset($_REQUEST['id'])) {
-        //     $data =	[
-        //             'id' => 2,
-        //             'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
-        //             'title_en' => 'STeP',
-        //             'description_th' => 'Mocup',
-        //             'description_en' => 'Mocup',
-        //         ];
-        //     return view('content.edit', compact('type', 'type_text', 'data'));
-        // } else {
-        // }
+        if(empty($id)) {
+            return view('content.create', compact('type', 'type_text'));
+        } else {
+            $content = Post::where('id', $id)->get();
+            return view('content.edit', compact('type', 'type_text'));
+        }
     }
 
+    
     public function addContet(Request $request)
     {
 

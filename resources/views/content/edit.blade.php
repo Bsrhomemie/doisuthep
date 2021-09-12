@@ -4,7 +4,7 @@
 <div id="main-content">
   <div class="wrapper">
     <div class="col-12">
-      <a href="{{url('/admin/content?type='.$type)}}" class="btn btn-dark text-white font-12px p-1"> 
+      <a href="{{url('/admin/content/'.$type)}}" class="btn btn-dark text-white font-12px p-1"> 
         <i class="fas fa-arrow-circle-left me-2"></i>Back
       </a>
       <div class="card">
@@ -24,8 +24,8 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{route('addmin.content') }}" method="get">
-              @csrf
+            <form action="{{url('/content/add')}}" method="post" enctype="multipart/form-data">
+             @csrf
               <div class="row">
                 <div class="col-lg-4">
                   <div class="form-group">
@@ -38,53 +38,35 @@
                           </div>
                         </div>
                       </div>
-                      <input type="file" name="profile_image" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
+                      <input type="file" name="picture" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
                     </div>
                   </div>
                   <div class="form-group mt-2">
                     <label>วันที่ลงประกาศ </label>
-                    <input type="date" name="date" class="form-control">
+                    <input type="date" name="created_at" class="form-control">
                   </div>
-                  @if($type == 'learning')
-                  <div class="form-group mt-2">
-                    <label>หมวดหมู่ </label>
-                    <select name="type" class="form-control">
-                      <option value="">นิทรรศการ (Exhibition)</option>
-                      <option value="">นิทรรศการธรรมชาติบันดาลใจ (Mother Nature)</option>
-                    </select>
-                  </div>
-                  @endif
-
-                  @if($type == 'project')
-                  <div class="form-group mt-2">
-                    <label>หมวดหมู่ </label>
-                    <select name="type" class="form-control" >
-                      <option value="">ท่องเที่ยวพรรณไม้งาม มช.</option>
-                      <option value=""> เรือนเพาะชำกล้าไม้ท้องถิ่น (Native Tree Species Nursery)</option>
-                    </select>
-                  </div>
-                  @endif
+                  <input type="hidden" name="post_type" value="{{$type}}">
                 </div>
                 <div class="col-lg-8">
                   <div class="row">
                     <div class="col-lg-12">
-                      <div class="form-group ">
+                      <div class="form-group">
                         <label>หัวข้อภาษาไทย</label>
-                        <input type="text" name="title_th" value="{{$data['title_th']}}" class="form-control">
+                        <input type="text" name="post_name_th" class="form-control">
                       </div>
-                      <div class="form-group mt-2">
+                      <div class="form-group">
                         <label>รายละเอียดภาษาไทย</label>
-                        <textarea name="description_th" class="summer-note summernote" > </textarea>
+                        <textarea name="content_th" class="summer-note summernote" > </textarea>
                       </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label>หัวข้อภาษาอังกฤษ</label>
-                        <input type="text" name="title_en" class="form-control">
+                        <input type="text" name="post_name_en" class="form-control">
                       </div>
-                      <div class="form-group mt-2">
+                      <div class="form-group">
                         <label>รายละเอียดภาษาอังกฤษ</label>
-                        <textarea name="description_en" class="summer-note summernote" > </textarea>
+                        <textarea name="content_en" class="summer-note summernote" > </textarea>
                       </div>
                     </div>
                   </div>

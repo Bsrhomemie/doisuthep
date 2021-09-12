@@ -42,6 +42,8 @@ Route::get('/admin', [AdminController::Class,'index'])->name('admin');;
 Route::get('/admin/content/{type}', [AdminController::Class,'listContent']);
 Route::get('/content/form/{type}', [ContentController::Class,'viewContet']);
 Route::post('content/add/', [ContentController::Class,'addContet']);
+Route::get('/content/form_edit/{type}/{id}', [ContentController::Class,'viewContet']);
+
 
 
 // Route::get('/admin/product', [AdminController::Class,'listProtuct']);
