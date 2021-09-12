@@ -99,37 +99,14 @@ class ContentController extends Controller
 
     }
 
-    // public function show(Content $content)
-    // {
-    //     return view('content.create');
-    // }
-
-
-    // public function edit(Request $request)
-    // {
-    //     return view('content.edit');
-
-    // } $student = Student::find($id);
+    public function destroy($id)
+    {
+        $data_post = Post::find($id);
+        $data_post->delete();
+        return redirect();
+    }
     
 
 
-    // public function update(Request $request, Content $content)
-    // {
-    //     // $request->validate([
-    //     //     'title' => 'required',
-    //     //     'description' => 'required'
-    //     // ]);
-    //     // $content->update($request->all());
-    //     return redirect()->route('/admin')
-    //                     ->with('SUCCESS', 'Updated successfully');
-
-    // }
-
-
-    // public function destroy(Content $content)
-    // {
-    //     $content->delete();
-    //     return redirect()->route('content.index')
-    //                     >with('SUCCESS', 'Deleted successfully');
-    // }
+    
 }

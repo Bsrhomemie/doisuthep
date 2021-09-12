@@ -30,6 +30,7 @@
                   </tr>
                 </thead>
                 <tbody id="todos-list" name="todos-list">
+                    @if($content )
                     @foreach ($content as $data)
                     <tr id="todo{{$data['id']}}">
                         <td>
@@ -47,15 +48,16 @@
                             <a href="{{url('content/form_edit/'.$type.'/'.$data->id)}}" class="btn btn-warning me-2">
                               <i class="far fa-edit font-18px"></i>
                             </a>
-                            <form action="" method="post">
-                              <!-- @csrf
-                              @method('DELETE') -->
+                            <form action="{{url('/content/delete'.$data->id)}}" method="post">
+                              @csrf
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
                             </form>
                           </div>
                         </td>
                     </tr>
                     @endforeach
+                    @else 
+                    <tr><td class="text-center" colspan="5"></td> ไม่มีข้อมูล </tr>
                 </tbody>
               </table>
               {!! $content->links() !!}
