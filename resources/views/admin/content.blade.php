@@ -48,7 +48,7 @@
                             <a href="{{url('content/form_edit/'.$type.'/'.$data->id)}}" class="btn btn-warning me-2">
                               <i class="far fa-edit font-18px"></i>
                             </a>
-                            <form action="{{url('/content/delete)}}" method="post">
+                            <form action="{{url('/content/delete')}}" method="post">
                               @csrf
                               <input type="hidden" name="id" value="{{$data->id}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
