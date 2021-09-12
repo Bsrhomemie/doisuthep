@@ -40,7 +40,6 @@ class ContentController extends Controller
     
     public function addContet(Request $request)
     {
-
         $type_list = [
 			'news' => 1,
 			'articles' => 2,
@@ -79,6 +78,27 @@ class ContentController extends Controller
     }
 
 
+    public function editContet(Request $request)
+    {  
+
+        $data = $request->input();
+        $data_post = Student::find($data['id']);
+        $data_post->post_name_th = $data['post_name_th'];
+        $data_post->content_th = $data['content_th'];
+        $data_post->post_name_en = $data['post_name_en'];
+        $data_post->content_en = $data['content_en'];
+        $data_post->created_at = $data['created_at'];
+        if($request->file()) {
+            $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+            $request->file('picture')->storeAs('/public', $fileName);
+            $data_post->picture = $fileName;
+        }
+
+        $student->update();
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
+
+    }
+
     // public function show(Content $content)
     // {
     //     return view('content.create');
@@ -89,7 +109,8 @@ class ContentController extends Controller
     // {
     //     return view('content.edit');
 
-    // }
+    // } $student = Student::find($id);
+    
 
 
     // public function update(Request $request, Content $content)

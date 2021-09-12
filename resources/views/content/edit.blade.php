@@ -24,15 +24,15 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/content/add')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/content/edit')}}" method="post" enctype="multipart/form-data">
              @csrf
               <div class="row">
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label>รูปภาพ</label>
                     <div class="image-upload files">
-                      <div class="img-16by9 holder btn-change-image highlight-hover" >
-                        <img src="" class="img-responsive image-preview">
+                      <div class="img-16by9 holder btn-change-image highlight-hover" style="background-image:url({{$content->picture}});">
+                        <img src="" class="img-responsive image-preview" >
                         <div class="icon-box">
                           <div class="icon-box-text">
                           </div>
@@ -43,9 +43,10 @@
                   </div>
                   <div class="form-group mt-2">
                     <label>วันที่ลงประกาศ </label>
-                    <input type="date" name="created_at" value="" class="form-control">
+                    <input type="date" name="created_at" value="{{$content->created_at}}" class="form-control">
                   </div>
                   <input type="hidden" name="post_type" value="{{$type}}">
+                  <input type="hidden" name="id"  value="{{$content->id}}">
                 </div>
                 <div class="col-lg-8">
                   <div class="row">
@@ -56,17 +57,17 @@
                       </div>
                       <div class="form-group">
                         <label>รายละเอียดภาษาไทย</label>
-                        <textarea name="content_th" class="summer-note summernote" > </textarea>
+                        <textarea name="content_th"  class="summer-note summernote">{{$content->content_th}}</textarea>
                       </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label>หัวข้อภาษาอังกฤษ</label>
-                        <input type="text" name="post_name_en" class="form-control">
+                        <input type="text" name="post_name_en" value="{{$content->post_name_en}}" class="form-control">
                       </div>
                       <div class="form-group">
                         <label>รายละเอียดภาษาอังกฤษ</label>
-                        <textarea name="content_en" class="summer-note summernote" > </textarea>
+                        <textarea name="content_en" class="summer-note summernote">{{$content->content_en}}</textarea>
                       </div>
                     </div>
                   </div>
