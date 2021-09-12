@@ -18,6 +18,13 @@
                 </div>
               </div>
             </div>
+            <div class="col-12">
+              @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                  {{$message}}
+                </div>
+              @endif
+            </div>
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>

@@ -95,7 +95,7 @@ class ContentController extends Controller
         }
 
         $data_post->update();
-        return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Update successfully");
 
     }
 
@@ -104,7 +104,7 @@ class ContentController extends Controller
          $data = $request->input();
         $data_post = Post::find($data['id']);
         $data_post->delete();
-        return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Delete successfully");
 
     }
     
