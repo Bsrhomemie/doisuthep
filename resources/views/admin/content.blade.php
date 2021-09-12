@@ -51,6 +51,7 @@
                             <form action="{{url('/content/delete')}}" method="post">
                               @csrf
                               <input type="hidden" name="id" value="{{$data->id}}">
+                              <input type="hidden" name="post_type" value="{{$type}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
                             </form>
                           </div>

@@ -104,7 +104,8 @@ class ContentController extends Controller
          $data = $request->input();
         $data_post = Post::find($data['id']);
         $data_post->delete();
-        return redirect();
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
+
     }
     
 
