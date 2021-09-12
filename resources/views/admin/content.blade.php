@@ -58,6 +58,7 @@
                     @endforeach
                     @else 
                     <tr><td class="text-center" colspan="5"></td> ไม่มีข้อมูล </tr>
+                    @endif
                 </tbody>
               </table>
               {!! $content->links() !!}
