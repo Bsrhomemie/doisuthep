@@ -64,6 +64,7 @@
               </div>
               <div class="col-12 d-flex justify-content-end pt-3">
                 <input type="hidden" name="post_type" value="{{$type}}">
+                <input type="hidden" name="id" value="{{$content->id}}">
                 <button type="reset" class="btn btn-secondary  me-3 w-150px py-2">Reset</button>
                 <button type="submit" class="btn btn-success  w-150px py-2">Submit</button>
               </div>
