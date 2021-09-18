@@ -26,43 +26,54 @@
                 <button type="submit">Subtmit</button>
               </form>
             </div> -->
+            <div class="col-12">
+              @if ($message = Session::get('status'))
+                <div class="alert alert-success">
+                  {{$message}}
+                </div>
+              @endif
+            </div>
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
                     <th class="w-250px">Title TH</th>
-                    <th class="w-250px">Description TH</th>
                     <th class="w-250px">Title EN</th>
-                    <th class="w-250px">Description EN</th>
+                    <th class="w-250px">วันที่ลงประกาศ</th>
                     <th class="thin-cell w-150px"></th>
                   </tr>
                 </thead>
                 <tbody id="todos-list" name="todos-list">
-                    @foreach ($todo as $data)
+                    @if($content )
+                    @foreach ($content as $data)
                     <tr id="todo{{$data['id']}}">
-                      <td>{{Str::limit($data['title_th'], 200)}}</td>
-                      <td>{{Str::limit($data['description_th'], 200)}}</td>
-                      <td>{{Str::limit($data['title_en'], 200)}}</td>
-                      <td>{{Str::limit($data['description_en'], 200)}}</td>
+                      <td>{{Str::limit($data->post_name_th, 200)}}</td>
+                      <td>{{Str::limit($data->post_name_en, 200)}}</td>
+                      <td>{{date('d/m/Y', strtotime($data->created_at))}}</td>
                       <td class="w-150px">
                         <div class="d-flex justify-content-center">
-                          <a href="" class="btn btn-dark me-2">
+                          <a href="{{$data->pdf}}" class="btn btn-dark me-2">
                             <i class="fas fa-file-alt"></i>
                           </a>
-                          <a href="" class="btn btn-warning me-2">
-                            <i class="fas fa-pencil-alt"></i>
-                          </a>
-                          <form action="" method="post">
-                            <!-- @csrf
-                            @method('DELETE') -->
-                            <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
-                          </form>
+                          <a href="{{url('content/form_edit/'.$type.'/'.$data->id)}}" class="btn btn-warning me-2">
+                              <i class="far fa-edit font-18px"></i>
+                            </a>
+                            <form action="{{url('/content/delete')}}" method="post">
+                              @csrf
+                              <input type="hidden" name="id" value="{{$data->id}}">
+                              <input type="hidden" name="post_type" value="{{$type}}">
+                              <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
+                            </form>
                         </div>
                       </td>
                     </tr>
                     @endforeach
+                    @else 
+                    <tr><td class="text-center" colspan="5"></td> ไม่มีข้อมูล </tr>
+                    @endif
                 </tbody>
               </table>
+              {!! $content->links() !!}
             </div>
           </div>
         </div>
