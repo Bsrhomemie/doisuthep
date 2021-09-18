@@ -37,8 +37,8 @@
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>
-                    <th class="w-250px">Title TH</th>
-                    <th class="w-250px">Title EN</th>
+                    <th class="w-250px">หัวข้อภาษาไทย</th>
+                    <th class="w-250px">หัวข้อภาษาอังกฤษ</th>
                     <th class="w-250px">วันที่ลงประกาศ</th>
                     <th class="thin-cell w-150px"></th>
                   </tr>
