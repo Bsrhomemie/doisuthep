@@ -24,34 +24,33 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/admin/content/'.$type)}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/content/add')}}" method="post" enctype="multipart/form-data">
               @csrf
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label>หัวข้อภาษาไทย</label>
-                      <input type="text" name="title_th" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label>รายละเอียดภาษาไทย</label>
-                      <textarea name="description_th" class="summer-note summernote" > </textarea>
-                    </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>หัวข้อภาษาไทย</label>
+                    <input type="text" name="title_th" class="form-control">
                   </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label>หัวข้อภาษาอังกฤษ</label>
-                      <input type="text" name="title_en" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label>รายละเอียดภาษาอังกฤษ</label>
-                      <textarea name="description_en" class="summer-note summernote" > </textarea>
-                    </div>
+                  <div class="form-group">
+                    <label>รายละเอียดภาษาไทย</label>
+                    <textarea name="description_th" class="summer-note summernote" > </textarea>
                   </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label>ไฟล์</label>
-                      <input type="file" name="pdf" class="form-control">
-                    </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>หัวข้อภาษาอังกฤษ</label>
+                    <input type="text" name="title_en" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>รายละเอียดภาษาอังกฤษ</label>
+                    <textarea name="description_en" class="summer-note summernote" > </textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>ไฟล์</label>
+                    <input type="file" name="pdf" class="form-control">
                   </div>
                 </div>
               </div>
