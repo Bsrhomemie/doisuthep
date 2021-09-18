@@ -34,11 +34,15 @@ class ContentController extends Controller
                 return view('content.create', compact('type', 'type_text'));
             } else {
                 $content = Post::where('id', $id)->first();;
-            
                 return view('content.edit', compact('type', 'type_text', 'content'));
             }
         } else {
-            return view('content.create_join', compact('type', 'type_text'));
+            if(empty($id)) {
+                return view('content.create_join', compact('type', 'type_text'));
+            } else {
+                $content = Post::where('id', $id)->first();;
+                return view('content.edit_join', compact('type', 'type_text', 'content'));
+            }
         }
     }
 
@@ -85,7 +89,6 @@ class ContentController extends Controller
                 $request->file('picture')->storeAs('/public', $fileName);
                 $data_post->picture = $fileName;
             }
-
         }
       
         $data_post->save();
@@ -113,10 +116,21 @@ class ContentController extends Controller
         $data_post->post_name_en = $data['post_name_en'];
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
-        if($request->file()) {
-            $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-            $request->file('picture')->storeAs('/public', $fileName);
-            $data_post->picture = $fileName;
+        
+        if($data['post_type'] == 'join') {
+            $data_post->picture = '';
+            if($request->file()) {
+                $fileName = time().'_'.$request->file('pdf')->getClientOriginalName();
+                $request->file('pdf')->storeAs('/pdf', $fileName);
+                $data_post->pdf = $fileName;
+            }
+        } else {
+            $data_post->pdf = '';
+            if($request->file()) {
+                $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+                $request->file('picture')->storeAs('/public', $fileName);
+                $data_post->picture = $fileName;
+            }
         }
 
         $data_post->update();
