@@ -117,7 +117,7 @@ class AdminController extends Controller
 		} else {
 			$todo = [
 				[
-					'id' => $request['type'],
+					'id' => 1,
 					'title_th' => 'STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้',
 					'title_en' => 'STeP',
 					'description_th' => 'Mocup',
