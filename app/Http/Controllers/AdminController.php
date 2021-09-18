@@ -98,7 +98,7 @@ class AdminController extends Controller
 			  'id' =>	13,
 			  'name' =>	'พื้นที่จัดกิจกรรม',
 			],
-			'activities' => [ 
+			'join' => [ 
 			  'id' =>	14,
 			  'name' =>	'ร่วมงานกันเรา',
 			],
@@ -108,7 +108,7 @@ class AdminController extends Controller
 		$type_text = isset($type_list[$type])? $type_list[$type]['name'] : '' ;
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 		$todo = [];
-		if($type == 'join') {
+		if($type != 'join') {
 			$content = Post::where('post_type', $type_id)
 								->orderBy('id','desc')
 								->paginate(5); 
