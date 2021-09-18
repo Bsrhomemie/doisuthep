@@ -59,8 +59,9 @@ class ContentController extends Controller
 			'seed' => 11,
 			'research' => 12,
 			'activities' => 13,
+			'join' => 14,
 		];
-
+ 
         $data = $request->input();
         $data_post = new Post;
         $data_post->post_name_th = $data['post_name_th'];
@@ -69,12 +70,22 @@ class ContentController extends Controller
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
         $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
-        $data_post->pdf = '';
 
-        if($request->file()) {
-            $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-            $request->file('picture')->storeAs('/public', $fileName);
-            $data_post->picture = $fileName;
+        if($data['post_type'] == 'join') {
+            $data_post->picture = '';
+            if($request->file()) {
+                $fileName = time().'_'.$request->file('pdf')->getClientOriginalName();
+                $request->file('pdf')->storeAs('/pdf', $fileName);
+                $data_post->pdf = $fileName;
+            }
+        } else {
+            $data_post->pdf = '';
+            if($request->file()) {
+                $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+                $request->file('picture')->storeAs('/public', $fileName);
+                $data_post->picture = $fileName;
+            }
+
         }
 
         $data_post->save();
