@@ -87,8 +87,7 @@ class ContentController extends Controller
             }
 
         }
-        print_r($data_post.'<br>');
-        die();
+      
         $data_post->save();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
 
