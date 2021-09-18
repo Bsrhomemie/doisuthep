@@ -86,8 +86,8 @@ class ContentController extends Controller
         $data_type = new Type;
         $data_type->type_name_en = $data['type_name_en'];
         $data_type->type_name_th = $data['type_name_th'];
-        $data_type->updated_at = '2021-09-18 06:12:49';
-        $data_type->created_at = '2021-09-18 06:12:49';
+        $data_type->updated_at = '2021-09-18';
+        $data_type->created_at = '2021-09-18';
         $data_type->save();
         return redirect('/admin/content/join')->with('status',"Insert successfully");
     }
