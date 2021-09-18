@@ -11,7 +11,9 @@
     <link href="{{asset('vendor/owlcarousel/css/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owlcarousel/css/owl.theme.default.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/lightbox2/lightbox.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/fontawesome/css/all.css')}}" rel="stylesheet"> 
+    <link href="{{asset('vendor/fontawesome/css/all.css')}}" rel="stylesheet">  
+    <link href="{{asset('vendor/aos-master/dist/aos.css')}}" rel="stylesheet">  
+
     <title>Doisuthep</title>
   </head>
   
@@ -163,7 +165,7 @@
     <script src="{{asset('vendor/owlcarousel/owl.carousel.js')}}"></script>
     <script src="{{asset('js/owl-custom.js')}}"></script>
     <script src="{{asset('vendor/lightbox2/lightbox.min.js')}}"></script>
-
+    <script src="{{asset('vendor/aos-master/dist/aos.js')}}"></script>
      @yield('footer')
 
   </body>
