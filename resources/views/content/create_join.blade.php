@@ -30,7 +30,7 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>วันที่ลงประกาศ </label>
-                    <input type="date" name="created_at" value="{{date('Y-m-d')}}"  class="form-control">
+                    <input type="date" name="created_at" value="{{date('Y-m-d')}}" class="form-control">
                   </div>
                   <div class="form-group">
                     <label>ไฟล์</label>
