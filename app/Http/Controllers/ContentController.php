@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -10,30 +11,34 @@ class ContentController extends Controller
 
     public function viewContet($type, $id='')
     {
-        $type_list = [
-			'news' => 'ข่าวประชาสัมพันธ์',
-			'articles' => 'บทความ',
-			'plants' => 'พืช',
-			'animals' => 'สัตว์',
-			'fungus' => 'จุลินทรีย์และฟังไจ',
-			'geology' => 'ธรณีวิทยา',
-			'culture' => 'สังคมและวัฒนธรรม',
-			'exhibition' => 'นิทรรศการดอยสุเทพ',
-			'learning' => 'กิจกรรมเรียนรู้ธรรมชาติ',
-			'tree' => 'เรือนเพาะชำกล้าไม้ท้องถิ่น',
-			'seed' => 'ห้องปฏิบัติการธนาคารเมล็ด',
-			'research' => 'งานวิจัยและฐานข้อมูล',
-			'activities' => 'พื้นที่จัดกิจกรรม',
-		];
-		$type = $type;
-		$type_text = isset($type_list[$type])? $type_list[$type] :'' ;
 
-        if(empty($id)) {
-            return view('content.create', compact('type', 'type_text'));
+        $type_list = [
+            'news' => 'ข่าวประชาสัมพันธ์',
+            'articles' => 'บทความ',
+            'plants' => 'พืช',
+            'animals' => 'สัตว์',
+            'fungus' => 'จุลินทรีย์และฟังไจ',
+            'geology' => 'ธรณีวิทยา',
+            'culture' => 'สังคมและวัฒนธรรม',
+            'exhibition' => 'นิทรรศการดอยสุเทพ',
+            'learning' => 'กิจกรรมเรียนรู้ธรรมชาติ',
+            'tree' => 'เรือนเพาะชำกล้าไม้ท้องถิ่น',
+            'seed' => 'ห้องปฏิบัติการธนาคารเมล็ด',
+            'research' => 'งานวิจัยและฐานข้อมูล',
+            'join' => 'ร่วมงานกันเรา'
+        ];
+        $type = $type;
+        $type_text = isset($type_list[$type])? $type_list[$type] :'' ;
+        if($type != 'join') { 
+            if(empty($id)) {
+                return view('content.create', compact('type', 'type_text'));
+            } else {
+                $content = Post::where('id', $id)->first();;
+            
+                return view('content.edit', compact('type', 'type_text', 'content'));
+            }
         } else {
-            $content = Post::where('id', $id)->first();;
-           
-            return view('content.edit', compact('type', 'type_text', 'content'));
+            return view('content.create_join', compact('type', 'type_text'));
         }
     }
 
@@ -76,8 +81,15 @@ class ContentController extends Controller
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
 
     }
-
-
+    public function addType(Request $request) {
+        $data = $request->input();
+        $data_type = new Type;
+        $data_type->type_name_en = $data['type_name_en'];
+        $data_type->type_name_th = $data['type_name_th'];
+        $data_type->save();
+        return redirect('/admin/content/join')->with('status',"Insert successfully");
+    }
+    
     public function editContet(Request $request)
     {  
 

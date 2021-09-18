@@ -12,11 +12,18 @@
                   <h2>ร่วมงานกันเรา</h2>
                 </div>
                 <div>
-                  <a href="" class="btn btn-success px-3  py-2" id="btn-add" data-toggle="modal" data-target="#formModal">
+                  <a href="{{url('content/form/'.$type)}}" class="btn btn-success px-3  py-2" id="btn-add" data-toggle="modal" data-target="#formModal">
                     <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล 
                   </a>
                 </div>
               </div>
+            </div>
+            <div class="col-12">
+              <form action="{{url('/content/add_type')}}" method="post" enctype="multipart/form-data">
+                <input type="text" name="type_name_en">
+                <input type="text" name="type_name_th">
+                <button type="submit">Subtmit</button>
+              </form>
             </div>
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
