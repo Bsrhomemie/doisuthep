@@ -30,24 +30,30 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>หัวข้อภาษาไทย</label>
-                    <input type="text" name="title_th" class="form-control">
+                    <input type="text" name="post_name_th" class="form-control">
                   </div>
                   <div class="form-group">
                     <label>รายละเอียดภาษาไทย</label>
-                    <textarea name="description_th" class="summer-note summernote" > </textarea>
+                    <textarea name="content_th" class="summer-note summernote" > </textarea>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label>หัวข้อภาษาอังกฤษ</label>
-                    <input type="text" name="title_en" class="form-control">
+                    <input type="text" name="post_name_en" class="form-control">
                   </div>
                   <div class="form-group">
                     <label>รายละเอียดภาษาอังกฤษ</label>
-                    <textarea name="description_en" class="summer-note summernote" > </textarea>
+                    <textarea name="content_en" class="summer-note summernote" > </textarea>
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label>วันที่ลงประกาศ </label>
+                    <input type="date" name="created_at" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-6">
                   <div class="form-group">
                     <label>ไฟล์</label>
                     <input type="file" name="pdf" class="form-control">
