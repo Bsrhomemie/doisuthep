@@ -20,6 +20,7 @@
             </div>
             <div class="col-12">
               <form action="{{url('/content/add_type')}}" method="post" enctype="multipart/form-data">
+                @csrf
                 <input type="text" name="type_name_en">
                 <input type="text" name="type_name_th">
                 <button type="submit">Subtmit</button>
