@@ -12,7 +12,7 @@
                   <h2>ร่วมงานกันเรา</h2>
                 </div>
                 <div>
-                  <a href="{{route('work.create','type='.$type)}}" class="btn btn-success px-3  py-2" id="btn-add" data-toggle="modal" data-target="#formModal">
+                  <a href="" class="btn btn-success px-3  py-2" id="btn-add" data-toggle="modal" data-target="#formModal">
                     <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล 
                   </a>
                 </div>
