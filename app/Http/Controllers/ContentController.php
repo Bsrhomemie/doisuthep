@@ -59,7 +59,7 @@ class ContentController extends Controller
 			'seed' => 11,
 			'research' => 12,
 			'activities' => 13,
-			'join' => 14,
+			'join' => 13,
 		];
  
         $data = $request->input();
