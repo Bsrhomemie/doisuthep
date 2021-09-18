@@ -59,7 +59,7 @@ class ContentController extends Controller
 			'seed' => 11,
 			'research' => 12,
 			'activities' => 13,
-			'join' => 13,
+			'join' => 14,
 		];
  
         $data = $request->input();
@@ -87,7 +87,8 @@ class ContentController extends Controller
             }
 
         }
-
+        print_r($data_post.'<br>');
+        die();
         $data_post->save();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
 
