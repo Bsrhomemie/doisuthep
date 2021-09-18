@@ -29,6 +29,19 @@
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
+                    <label>วันที่ลงประกาศ </label>
+                    <input type="date" name="created_at" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>ไฟล์</label>
+                    <input type="file" name="pdf" class="form-control">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
                     <label>หัวข้อภาษาไทย</label>
                     <input type="text" name="post_name_th" class="form-control">
                   </div>
@@ -47,18 +60,7 @@
                     <textarea name="content_en" class="summer-note summernote" > </textarea>
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label>วันที่ลงประกาศ </label>
-                    <input type="date" name="created_at" class="form-control">
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label>ไฟล์</label>
-                    <input type="file" name="pdf" class="form-control">
-                  </div>
-                </div>
+               
               </div>
               <div class="col-12 d-flex justify-content-end pt-3">
                 <input type="text" name="post_type" value="{{$type}}">
