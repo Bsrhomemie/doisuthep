@@ -32,7 +32,6 @@
                     <th nowrup class="w-150px" >รูปภาพ</th>
                     <th class="w-250px">หัวข้อภาษาไทย</th>
                     <th class="w-250px">หัวข้อภาษาอังกฤษ TH</th>
-                    <th class="w-250px">วันที่ลงประกาศ</th>
                     <th class="thin-cell w-100px"></th>
                   </tr>
                 </thead>
