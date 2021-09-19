@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Post;
-use Illuminate\Support\Carbon;
 class UserController extends Controller
 {
 
