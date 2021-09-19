@@ -82,7 +82,7 @@ class UserController extends Controller
 		$content = Post::where('post_type', 1)
 		->orderBy('id','desc')
 		->paginate(3);
-		$content =	json_decode(json_encode($content), true);
+		
 		
 
 		
