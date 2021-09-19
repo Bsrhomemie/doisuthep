@@ -166,27 +166,26 @@
           <div class="col-12">
             <table class="table table-striped">
               <tbody>
-                <?php for($i=0; $i<4; $i++) { ?>
+                @foreach ($post_list['join'] as $key => $join) 
                   <tr>
                     <td class="text-grey">
                       <span style="font-size:14px;">
-                        <i class="far fa-calendar-alt"></i> 16 ก.ค. 2564 | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
+                        <i class="far fa-calendar-alt"></i> {{ $join->created_at->thaidate();}} | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
                         <a class="text-link" href="">{{__('message.detail')}}</a>
                       </span>
                     </td>
                   </tr>
-                <?php  } ?>
+               @endforeach
               </tbody>
             </table>
           </div>
           <div class="col-lg-12 d-flex justify-content-end ">
-            <a href="news.php" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
+            <a href="{{url('news/join')}}" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
         </div>
       </section>
     </div>
   </div>
-
 @endsection
 
 @section('footer')

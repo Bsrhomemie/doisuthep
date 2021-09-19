@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Post;
-
+use Illuminate\Support\Carbon;
 class UserController extends Controller
 {
 	function index() {
@@ -152,9 +152,11 @@ class UserController extends Controller
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 
 		$content_list = Post::where('post_type', $type_id)->get();
-
-		return view('news', compact('type_text', 'content_list'));
-
+		if($type == 'join') {
+			return view('news-job', compact('type_text', 'content_list'));
+		} else {
+			return view('news', compact('type_text', 'content_list'));
+		}
 	}
 
 	function news_detail($type, $id) {
