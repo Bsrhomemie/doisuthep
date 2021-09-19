@@ -152,8 +152,10 @@ class UserController extends Controller
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 
 		$content_list = Post::where('post_type', $type_id)->get();
-
+		var_dump($content_list);
+		die();
 		return view('news', compact('list', 'type_text', 'content_list'));
+
 	}
 
 	function news_detail($type, $id) {
