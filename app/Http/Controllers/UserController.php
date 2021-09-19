@@ -80,12 +80,14 @@ class UserController extends Controller
 		$post_list = [];
 		
 		foreach($type_list as $key => $type) {
-		$post_list[$key] = Post::where('post_type', $type['id'])
-		->orderBy('id','desc')
-		->paginate(3);
+			$number = 3;
+			if($key == 'join') {
+				$number = 5;
+			}
+			$post_list[$key] = Post::where('post_type', $type['id'])
+			->orderBy('id','desc')
+			->paginate($number);
 		}
-
-		
 		return view('index', compact('list', 'post_list'));
 	}
 
