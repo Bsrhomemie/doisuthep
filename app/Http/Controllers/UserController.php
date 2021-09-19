@@ -78,10 +78,10 @@ class UserController extends Controller
 		];
 		
 		$post_list = [];
-
+		
 		$content = Post::where('post_type', 1)
 		->orderBy('id','desc')
-		->take(3);
+		->paginate(3);
 		$content =	json_decode(json_encode($content), true);
 		
 
