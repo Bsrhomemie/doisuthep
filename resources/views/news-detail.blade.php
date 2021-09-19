@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          {{$content->content_th}}
+          {!! $content->content_th !!}
         </div>  
       </div>
       <div id="fb-root"></div>
