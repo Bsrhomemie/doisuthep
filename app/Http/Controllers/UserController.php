@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Post;
+
 class UserController extends Controller
 {
 	function index() {
-		$name = "homemie";
 
 		$list = [
 			"/images/cover3.jpg",
@@ -17,6 +18,75 @@ class UserController extends Controller
 			"/images/image-5.jpg", 
 		];
 
+		$type_list = [
+			'news' => [ 
+			  'id' =>	1,
+			  'name' =>	'ข่าวประชาสัมพันธ์',
+			],
+			'articles' => [ 
+			  'id' =>	2,
+			  'name' =>	'บทความ',
+			],
+			'plants' => [ 
+			  'id' => 3,
+			  'name' =>	'พืช',
+			],
+			'animals' => [ 
+			  'id' =>	4,
+			  'name' =>	'สัตว์',
+			],
+			'fungus' => [ 
+			  'id' =>	5,
+			  'name' =>	'จุลินทรีย์และฟังไจ',
+			],
+			'geology' => [ 
+			  'id' =>	6,
+			  'name' =>	'ธรณีวิทยา',
+			],
+			'culture' => [ 
+			  'id' =>	7,
+			  'name' =>	'สังคมและวัฒนธรรม',
+			],
+			'exhibition' => [ 
+			  'id' =>	8,
+			  'name' =>	'นิทรรศการดอยสุเทพ',
+			],
+			'learning' => [ 
+			  'id' =>	9,
+			  'name' =>	'กิจกรรมเรียนรู้ธรรมชาติ',
+			],
+			'tree' => [ 
+			  'id' =>	10,
+			  'name' =>	'เรือนเพาะชำกล้าไม้ท้องถิ่น',
+			],
+			'seed' => [ 
+			  'id' =>	11,
+			  'name' =>	'ห้องปฏิบัติการธนาคารเมล็ด',
+			],
+			'research' => [ 
+			  'id' =>	12,
+			  'name' =>	'งานวิจัยและฐานข้อมูล',
+			],
+			'activities' => [ 
+			  'id' =>	13,
+			  'name' =>	'พื้นที่จัดกิจกรรม',
+			],
+			'join' => [ 
+			  'id' =>	14,
+			  'name' =>	'ร่วมงานกันเรา',
+			],
+		];
+		
+		$post_list = [];
+
+		$content = Post::where('post_type', 1)
+		->orderBy('id','desc')
+		->paginate(3);
+		$content =	json_decode(json_encode($content), true);
+		print_r($content.'<br>');
+		die();
+
+		
 		return view('index', compact('list'));
 	}
 
