@@ -90,24 +90,40 @@ class UserController extends Controller
 	}
 
 	function news($type) {
-		$name = "homemie";
 
 		$list = [
 			"/images/cover3.jpg",
 			"/images/cover2.jpg",
 			"/images/image-5.jpg", 
 		];
-		
-		return view('news', compact('list'));
+
+		$type_list = [
+			'news' => 'ข่าวประชาสัมพันธ์',
+			'articles' => 'บทความ',
+			'plants' => 'พืช',
+			'animals' => 'สัตว์',
+			'fungus' => 'จุลินทรีย์และฟังไจ',
+			'geology' => 'ธรณีวิทยา',
+			'culture' => 'สังคมและวัฒนธรรม',
+			'exhibition' => 'นิทรรศการดอยสุเทพ',
+			'learning' => 'กิจกรรมเรียนรู้ธรรมชาติ',
+			'tree' => 'เรือนเพาะชำกล้าไม้ท้องถิ่น',
+			'seed' => 'ห้องปฏิบัติการธนาคารเมล็ด',
+			'research' => 'งานวิจัยและฐานข้อมูล',
+			'join' => 'ร่วมงานกันเรา'
+		];
+		$type_text = isset($type_list[$type])? $type_list[$type] : '';
+		$content_list = Post::where('post_type', $type)->get();
+		return view('news', compact('list', 'type_text', 'content_list'));
 	}
 
 	function news_detail($type, $id) {
-
 		$list = [
 			"/images/cover3.jpg",
 			"/images/cover2.jpg",
 			"/images/image-5.jpg", 
 		]; 
+	
 		$content = Post::where('id', $id)->first();
 		if(!$content) {
 			$content = (object) [
