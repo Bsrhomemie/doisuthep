@@ -648,6 +648,10 @@ a {
   overflow: hidden;
 }
 
+.card.card-box .card-body .card-text {
+  text-align: center;
+}
+
 .card.card-product {
   border: 0;
 }
