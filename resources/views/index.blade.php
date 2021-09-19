@@ -59,6 +59,13 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.news')}}</p>
         </div>
         <div class="row">
+        @foreach ($content as $data) 
+        <div class="col-md-4">
+        $data['id']
+        </div>
+        @endforeach
+
+
           @for ($i = 0; $i < 3; $i++)
             <div class="col-md-4">
               <div class="card card-box mb-3">

@@ -83,11 +83,10 @@ class UserController extends Controller
 		->orderBy('id','desc')
 		->paginate(3);
 		$content =	json_decode(json_encode($content), true);
-		var_dump($content);
-		die();
+		
 
 		
-		return view('index', compact('list'));
+		return view('index', compact('list', 'content'));
 	}
 
 	function news($type) {
