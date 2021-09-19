@@ -70,7 +70,7 @@
                     <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
-                    <a href="{{url('news-detail/news/1')}}" title="รายละเอียด">
+                    <a href="{{url('news-detail/news/{{$news->id}}')}}" title="รายละเอียด">
                       <i class="fas fa-eye"></i>
                     </a>
                   </div>

@@ -7,7 +7,7 @@
         <h3>
           {{$content->post_name_th}}
           <br>
-          <p class="text-secondary  mb-0 text-normal">
+          <p class="text-dark mt-5px mb-0 text-normal">
             <small><i class="fa fa-calendar"></i> 
               {{date('d/m/Y', strtotime($content->created_at))}}
             </small>
