@@ -90,13 +90,6 @@ class UserController extends Controller
 	}
 
 	function news($type) {
-
-		$list = [
-			"/images/cover3.jpg",
-			"/images/cover2.jpg",
-			"/images/image-5.jpg", 
-		];
-
 		$type_list = [
 			'news' => 'ข่าวประชาสัมพันธ์',
 			'articles' => 'บทความ',
