@@ -61,7 +61,7 @@
         <div class="row">
         @foreach ($content as $data) 
         <div class="col-md-4">
-        $data['id']
+        {{$data['id']}}
         </div>
         @endforeach
 
