@@ -169,7 +169,8 @@
                   <tr>
                     <td class="text-grey">
                       <span style="font-size:14px;">
-                        <i class="far fa-calendar-alt"></i>{{date('d/m/(Y+543)', strtotime($join->created_at))}} | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
+                        <i class="far fa-calendar-alt"></i>
+                        {{date('d/m/', strtotime($join->created_at)).''.sdate("Y",strtotime($join->created_at))+543}} | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
                         <a class="text-link" href="">{{__('message.detail')}}</a>
                       </span>
                     </td>
