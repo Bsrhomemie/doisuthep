@@ -59,7 +59,7 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.news')}}</p>
         </div>
         <div class="row">
-          @foreach ($post_list['news'] as $key => $data) 
+          @foreach ($post_list['news'] as $key => $news) 
             <div class="col-md-4">
               <div class="card card-box mb-3">
                 <div class="highlight-hover">
@@ -67,7 +67,7 @@
                     <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
                   </div>
                   <div class="show-hover">
-                    <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="news"  title="ดูรูปภาพ">
+                    <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
                     <a href="{{url('news-detail/news/1')}}" title="รายละเอียด">
@@ -76,7 +76,7 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p class="card-text">{{$data->post_name_th}}</p>
+                  <p class="card-text">{{$news->post_name_th}}</p>
                 </div>
               </div>
             </div>
@@ -92,15 +92,15 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.articles')}}</p>
         </div>
         <div class="row">
-          @for ($i = 0; $i < 3; $i++)
+          @foreach ($post_list['articles'] as $key => $articles) 
             <div class="col-md-4">
               <div class="card card-box mb-3">
                 <div class="highlight-hover">
                   <div class="img-16by9 holder " >
-                    <img src="{{URL::asset($list[$i])}}" class="img-responsive image-preview" >
+                    <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
                   </div>
                   <div class="show-hover">
-                    <a href="{{URL::asset($list[$i])}}" class="me-3" data-lightbox="portfolio"  title="ดูรูปภาพ">
+                    <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
                     <a href="" title="รายละเอียด">
@@ -109,11 +109,11 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p class="card-text">STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้</p>
+                  <p class="card-text">{{$articles->post_name_th}}</p>
                 </div>
               </div>
             </div>
-          @endfor
+          @endforeach
           <div class="col-lg-12 d-flex justify-content-end">
             <a href="{{url('news/articles')}}" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
