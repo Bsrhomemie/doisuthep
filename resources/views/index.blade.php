@@ -1,5 +1,5 @@
 @extends('master')
-
+@inject('thaiDateHelper', 'App\Services\ThaiDateHelperService')
 @section('content')
   <div id="owl-cover" class="owl-carousel cover-page owl-theme">
     <div class="item-cover" style="background-image:url({{asset('images/cover1.jpg')}});">
@@ -170,7 +170,7 @@
                   <tr>
                     <td class="text-grey">
                       <span style="font-size:14px;">
-                        <i class="far fa-calendar-alt"></i> {{ UserController::simpleDateFormat('2020-09-19') }} | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
+                        <i class="far fa-calendar-alt"></i>{{ $ThaiDateHelper->simpleDateFormat($join->created_at) }} | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
                         <a class="text-link" href="">{{__('message.detail')}}</a>
                       </span>
                     </td>
