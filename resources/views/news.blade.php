@@ -28,7 +28,7 @@
               </div>
             </div>
           </div>
-        @foreach
+        @endforeach
       </div>
     </section>
     
