@@ -109,7 +109,7 @@ class UserController extends Controller
 			"/images/image-5.jpg", 
 		]; 
 		$content = Post::where('id', $id)->first();
-		if($content) {
+		if(!$content) {
 			$content = (object) [
 				'id' => '',
 				'created_at' => date('Y-m-d'),
