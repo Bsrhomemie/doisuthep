@@ -169,7 +169,8 @@
                   <tr>
                     <td class="text-grey">
                       <span style="font-size:14px;">
-                        <i class="far fa-calendar-alt"></i>{{date('d/m/Y', strtotime($join->created_at))}} | $join->created_at
+                        <i class="far fa-calendar-alt"></i>
+                        {{date('d/m/Y', strtotime($join->created_at))}} | {{$join->created_at}}
                         <a class="text-link" href="">{{__('message.detail')}}</a>
                       </span>
                     </td>
