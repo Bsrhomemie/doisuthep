@@ -590,8 +590,12 @@ a {
   border-radius: 5px;
   overflow: hidden;
   .card-body {
+    height: 104px;
+    max-height: 104px;
+    overflow: hidden;
     .card-text {
       text-align: center;
+      line-height: 1.3;
     }
   }
 }
