@@ -59,13 +59,6 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.news')}}</p>
         </div>
         <div class="row">
-        @foreach ($post_list['news'] as $data) 
-        <div class="col-md-4">
-          {{$data->id}}
-        </div>
-        @endforeach
-
-
           @foreach ($post_list['news'] as $key => $data) 
             <div class="col-md-4">
               <div class="card card-box mb-3">
