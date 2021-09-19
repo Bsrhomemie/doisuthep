@@ -70,7 +70,7 @@
                     <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
-                    <a href="{{url('news-detail/news/{{$news->id}}')}}" title="รายละเอียด">
+                    <a href="{{url('news-detail/news/'.$news->id)}}" title="รายละเอียด">
                       <i class="fas fa-eye"></i>
                     </a>
                   </div>
@@ -103,7 +103,7 @@
                     <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
-                    <a href="" title="รายละเอียด">
+                    <a href="{{url('news-detail/news/'.$articles->id)}}" title="รายละเอียด">
                       <i class="fas fa-eye"></i>
                     </a>
                   </div>
