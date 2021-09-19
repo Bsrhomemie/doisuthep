@@ -31,7 +31,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto  mb-2 mb-lg-0">
-              @if(Request::segment(1) === 'news' || Request::segment(1) === 'news-detai')
+              @if(Request::segment(1) === 'news' || Request::segment(1) === 'news-detail')
                 <li class="me-lg-2"><a href="{{url('/#box-news')}}">
                   <i class="fa fa-arrow-left me-2 mt-1"></i> {{__('message.home')}}</a>
                 </li>
