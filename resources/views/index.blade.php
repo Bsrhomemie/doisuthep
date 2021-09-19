@@ -59,9 +59,9 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.news')}}</p>
         </div>
         <div class="row">
-        @foreach ($content as $data) 
+        @foreach ($post_list['news'] as $data) 
         <div class="col-md-4">
-        {{$data->id}}
+          {{$data->id}}
         </div>
         @endforeach
 
