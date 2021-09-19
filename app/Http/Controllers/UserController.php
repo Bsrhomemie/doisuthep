@@ -153,7 +153,7 @@ class UserController extends Controller
 
 		$content_list = Post::where('post_type', $type_id)->get();
 
-		return view('news', compact('list', 'type_text', 'content_list'));
+		return view('news', compact('type_text', 'content_list'));
 
 	}
 
