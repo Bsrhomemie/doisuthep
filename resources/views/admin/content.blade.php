@@ -39,7 +39,7 @@
                 <tbody id="todos-list" name="todos-list">
                     @if($content )
                     @foreach ($content as $data)
-                    <tr id="todo{{$data['id']}}">
+                    <tr>
                         <td>
                           <div class="img-16by9 holder " >
                             <img src="{{ asset('storage/'.$data->picture)}}" class="img-responsive image-preview" >
