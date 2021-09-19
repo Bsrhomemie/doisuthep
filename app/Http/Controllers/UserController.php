@@ -107,9 +107,9 @@ class UserController extends Controller
 			"/images/cover3.jpg",
 			"/images/cover2.jpg",
 			"/images/image-5.jpg", 
-		];
-
-		return view('news-detail', compact('list'));
+		]; 
+		$content = Post::where('id', $id)->first();
+		return view('news-detail', compact('list', 'content'));
 	}
 
 	function services(){   

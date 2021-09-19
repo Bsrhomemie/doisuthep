@@ -5,9 +5,13 @@
     <section id="box-publicize">
       <div class="header-selected pt-0">
         <h3>
-          STeP เปิดรับข้อเสนอโครงการวิจัยร่วมกับภาคเอกชน (Collaborative Research Program: Co-research)
+          {{$content->post_name_th}}
           <br>
-          <p class="text-secondary  mb-0 text-normal"><small><i class="fa fa-calendar"></i> 2021-08-20</small></p>
+          <p class="text-secondary  mb-0 text-normal">
+            <small><i class="fa fa-calendar"></i> 
+              {{date('d/m/Y', strtotime($content->created_at))}}
+            </small>
+          </p>
         </h3>
       </div>
       <div id="fb-root"></div>
