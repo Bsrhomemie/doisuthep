@@ -83,7 +83,7 @@ class UserController extends Controller
 		->orderBy('id','desc')
 		->paginate(3);
 		$content =	json_decode(json_encode($content), true);
-		print_r($content.'<br>');
+		var_dump($content);
 		die();
 
 		
