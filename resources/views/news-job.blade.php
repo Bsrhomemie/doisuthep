@@ -10,16 +10,17 @@
         <div class="col-12">
           <table class="table table-striped">
             <tbody>
-              <?php for($i=0; $i<4; $i++) { ?>
-                <tr>
-                  <td class="text-grey">
-                    <span style="font-size:14px;">
-                      <i class="far fa-calendar-alt"></i> 16 ก.ค. 2564 | ประกาศรายชื่อผู้มีสิทธิ์สอบรอบแรกตำแหน่งพนักงานบริหารงานทรัพย์สินทางปัญญา
-                      <a class="text-link" href="">{{__('message.detail')}}</a>
-                    </span>
-                  </td>
-                </tr>
-              <?php  } ?>
+                @foreach ($content_list as $key => $join) 
+                  <tr>
+                    <td class="text-grey">
+                      <span style="font-size:14px;">
+                        <i class="far fa-calendar-alt"></i>
+                        {{date('d/m/Y', strtotime($join->created_at))}} | {{$join->post_name_th}}
+                        <a class="text-link" href="{{url('news-detail/news/'.$join->id)}}">{{__('message.detail')}}</a>
+                      </span>
+                    </td>
+                  </tr>
+               @endforeach
             </tbody>
           </table>
         </div>
