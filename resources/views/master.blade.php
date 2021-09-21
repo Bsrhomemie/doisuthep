@@ -43,7 +43,7 @@
                   </a>
                   <ul>
                     <li><a href="#box-dsnc">{{__('message.aboutDSNC')}}</a></li>
-                    <li><a href="#box-structure">{{__('message.stutruc')}}</a></li>
+                    <li><a href="#box-structure">{{__('message.vision')}}</a></li>
                     <li><a href="#box-structure">{{__('message.mission')}}</a></li>
                     <li><a href="#box-structure">{{__('message.core_values')}}</a></li>
                     <li><a href="#box-logo">{{__('message.logo_mascots')}}</a></li>
