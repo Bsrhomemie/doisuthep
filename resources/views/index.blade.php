@@ -53,6 +53,26 @@
         <p class="mb-2">3. เพื่อเป็นศูนย์ประสานงานและความร่วมมือระหว่างนักวิชาการ และหน่วยงานต่าง ๆ ที่เกี่ยวข้องกับการท่องเที่ยวและการอนุรักษ์ดอยสุเทพ เป็นแหล่งรวบรวมความรู้ และการเผยแพร่ข้อมูลทางด้านวิชาการเกี่ยวกับดอยสุเทพ </p>
       </div>
     </section>
+    <section id="box-structure" class="wow fadeInDown" >
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card card-box">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+    </section>
+
     <hr class="mb-5">
   </div>
   <div class="bg-section">
