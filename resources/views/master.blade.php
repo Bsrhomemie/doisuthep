@@ -23,7 +23,7 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <div class="logo-img">
-              <img src="{{asset('images/logo-logo1.jpg')}}" alt="">
+              <img src="{{asset('images/logo.png')}}" alt="">
             </div>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
