@@ -59,7 +59,7 @@
           <div class="card card-box">
             <div class="card-body">
               <div class="d-flex justify-content-center">
-                <div class="w-150px mt-2">
+                <div class="w-120px mt-2">
                   <div class="img-1by1 holder " >
                     <img src="{{URL::asset('images/vision.png')}}" class="img-responsive image-preview" >
                   </div>
@@ -75,7 +75,7 @@
           <div class="card card-box">
             <div class="card-body">
               <div class="d-flex justify-content-center">
-                <div class="w-150px mt-1">
+                <div class="w-120px mt-1">
                   <div class="img-1by1 holder " >
                     <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
                   </div>
@@ -94,7 +94,7 @@
           <div class="card card-box">
             <div class="card-body">
               <div class="d-flex justify-content-center">
-                <div class="w-130px mt-2">
+                <div class="w-120px mt-2">
                   <div class="img-1by1 holder " >
                     <img src="{{URL::asset('images/diamond.png')}}" class="img-responsive image-preview" >
                   </div>
