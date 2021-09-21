@@ -589,6 +589,7 @@ a {
   border: 0;
   border-radius: 5px;
   overflow: hidden;
+  height: 100%;
   .card-body {
     .card-text {
       text-align: center;
@@ -597,6 +598,7 @@ a {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      margin-bottom: 10px;
     }
   }
 }

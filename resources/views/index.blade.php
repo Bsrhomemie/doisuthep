@@ -66,15 +66,44 @@
                 </div>
               </div>
               <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
-              <p class="text-center">“ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
+              <p class="text-center mb-0">
+                “ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-
+        <div class="col-md-4 mt-5">
+          <div class="card card-box">
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <div class="w-150px mt-2">
+                  <div class="img-1by1 holde">
+                    <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
+                  </div>
+                </div>
+              </div>
+              <p class="font-18px text-center mt-3"><b>{{__('message.mission')}}</b></p>
+              <p class="mb-0">
+                - จัดกิจกรรมและการอบรมที่ส่งเสริมการเรียนรู้ด้านธรรมชาติวิทยา <br>
+                - ให้บริการข้อมูลด้านธรรมชาติวิทยาดอยสุเทพ <br>
+                - สร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริมชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
+                </p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-
+        <div class="col-md-4 mt-5">
+          <div class="card card-box">
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <div class="w-150px mt-2">
+                  <div class="img-1by1 holder " >
+                    <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
+                  </div>
+                </div>
+              </div>
+              <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
+              <p class="text-center">“ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
