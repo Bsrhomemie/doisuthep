@@ -102,23 +102,23 @@
               </div>
               <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.core_values')}}</b></p>
               <div class="px-2">
-                <div class="from-row">
+                <div class="row">
                   <div class="col-md-6 col-lg-7">
                     D = Diversity 
                   </div>
                   <div class="col-md-6 col-lg-5">
                     ความหลายหลาย
                   </div>
-                  <div class="col-md-6 col-lg-7">
+                  <div class="col-md-6 col-lg-7 mt-2">
                     S = Services
                   </div>
-                  <div class="col-md-6 col-lg-5">
+                  <div class="col-md-6 col-lg-5 mt-2">
                     บริการ
                   </div>
-                  <div class="col-md-6 col-lg-7">
+                  <div class="col-md-6 col-lg-7 mt-2">
                     N = Networking 
                   </div>
-                  <div class="col-md-6 col-lg-5">
+                  <div class="col-md-6 col-lg-5 mt-2">
                      สร้างเครือข่าย
                   </div>
                   <div class="col-md-6 col-lg-7">
