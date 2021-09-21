@@ -59,14 +59,14 @@
           <div class="card card-box">
             <div class="card-body">
               <div class="d-flex justify-content-center">
-                <div class="w-250px">
+                <div class="w-150px mt-2">
                   <div class="img-1by1 holder " >
                     <img src="{{URL::asset('images/vision.png')}}" class="img-responsive image-preview" >
                   </div>
                 </div>
               </div>
-              <p class="font-18px text-center"><b>{{__('message.vision')}}</b></p>
-              <p class="text-center">“ชุมชนตระหนักถึงความสวยงาม และความเชื่อมโยงกับธรรมชาติ” </p>
+              <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
+              <p class="text-center">“ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
             </div>
           </div>
         </div>
