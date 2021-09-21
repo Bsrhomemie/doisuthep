@@ -121,10 +121,10 @@
                   <div class="col-md-6 col-lg-5 mt-2">
                      สร้างเครือข่าย
                   </div>
-                  <div class="col-md-6 col-lg-7">
+                  <div class="col-md-6 col-lg-7 mt-2">
                     C = Community 
                   </div>
-                  <div class="col-md-5">
+                  <div class="col-md-6 col-lg-5 mt-2">
                     ชุมชน
                   </div>
                 </div>
