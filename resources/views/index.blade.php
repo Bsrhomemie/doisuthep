@@ -102,7 +102,7 @@
               </div>
               <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.core_values')}}</b></p>
               <div class="px-2">
-                <div class="form-row">
+                <div class="from-row">
                   <div class="col-md-6 col-lg-7">
                     D = Diversity 
                   </div>
