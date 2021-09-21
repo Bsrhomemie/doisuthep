@@ -94,13 +94,13 @@
           <div class="card card-box">
             <div class="card-body">
               <div class="d-flex justify-content-center">
-                <div class="w-130px mt-1">
+                <div class="w-130px mt-2">
                   <div class="img-1by1 holder " >
                     <img src="{{URL::asset('images/diamond.png')}}" class="img-responsive image-preview" >
                   </div>
                 </div>
               </div>
-              <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.core_values')}}</b></p>
+              <p class="font-18px text-center mt-3 "><b>{{__('message.core_values')}}</b></p>
               <div class="px-2">
                 <div class="row">
                   <div class="col-md-6 col-lg-7">
