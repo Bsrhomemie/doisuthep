@@ -75,18 +75,60 @@
           <div class="card card-box">
             <div class="card-body">
               <div class="d-flex justify-content-center">
-                <div class="w-150px mt-2">
+                <div class="w-150px mt-1">
                   <div class="img-1by1 holder " >
                     <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
                   </div>
                 </div>
               </div>
-              <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
-              <p class="mb-0">
+              <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.mission')}}</b></p>
+              <p class="mb-0 px-2">
                 - จัดกิจกรรมและการอบรมที่ส่งเสริมการเรียนรู้ด้านธรรมชาติวิทยา <br>
                 - ให้บริการข้อมูลด้านธรรมชาติวิทยาดอยสุเทพ <br>
                 - สร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริมชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
               </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-5">
+          <div class="card card-box">
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <div class="w-130px mt-1">
+                  <div class="img-1by1 holder " >
+                    <img src="{{URL::asset('images/diamond.png')}}" class="img-responsive image-preview" >
+                  </div>
+                </div>
+              </div>
+              <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.core_values')}}</b></p>
+              <div class="px-2">
+                <div class="form-row">
+                  <div class="col-md-6 col-lg-7">
+                    D = Diversity 
+                  </div>
+                  <div class="col-md-6 col-lg-5">
+                    ความหลายหลาย
+                  </div>
+                  <div class="col-md-6 col-lg-7">
+                    S = Services
+                  </div>
+                  <div class="col-md-6 col-lg-5">
+                    บริการ
+                  </div>
+                  <div class="col-md-6 col-lg-7">
+                    N = Networking 
+                  </div>
+                  <div class="col-md-6 col-lg-5">
+                     สร้างเครือข่าย
+                  </div>
+                  <div class="col-md-6 col-lg-7">
+                    C = Community 
+                  </div>
+                  <div class="col-md-5">
+                    ชุมชน
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
