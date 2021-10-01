@@ -53,87 +53,92 @@
         <p class="mb-2">3. เพื่อเป็นศูนย์ประสานงานและความร่วมมือระหว่างนักวิชาการ และหน่วยงานต่าง ๆ ที่เกี่ยวข้องกับการท่องเที่ยวและการอนุรักษ์ดอยสุเทพ เป็นแหล่งรวบรวมความรู้ และการเผยแพร่ข้อมูลทางด้านวิชาการเกี่ยวกับดอยสุเทพ </p>
       </div>
     </section>
-    <section id="box-structure" class="wow fadeInDown" >
+   
       <div class="row">
         <div class="col-md-6 col-lg-4 mt-5">
-          <div class="card card-box">
-            <div class="card-body">
-              <div class="d-flex justify-content-center">
-                <div class="w-120px mt-2">
-                  <div class="img-1by1 holder " >
-                    <img src="{{URL::asset('images/vision.png')}}" class="img-responsive image-preview" >
+          <section id="box-vision" class="wow fadeInDown" >
+            <div class="card card-box">
+              <div class="card-body">
+                <div class="d-flex justify-content-center">
+                  <div class="w-120px mt-2">
+                    <div class="img-1by1 holder " >
+                      <img src="{{URL::asset('images/vision.png')}}" class="img-responsive image-preview" >
+                    </div>
                   </div>
                 </div>
+                <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
+                <p class="text-center mb-0">
+                  “ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
               </div>
-              <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
-              <p class="text-center mb-0">
-                “ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
             </div>
-          </div>
+          </section>
         </div>
         <div class="col-md-6 col-lg-4 mt-5">
-          <div class="card card-box">
-            <div class="card-body">
-              <div class="d-flex justify-content-center">
-                <div class="w-120px mt-1">
-                  <div class="img-1by1 holder " >
-                    <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
+          <section id="box-mission" class="wow fadeInDown" >
+            <div class="card card-box">
+              <div class="card-body">
+                <div class="d-flex justify-content-center">
+                  <div class="w-120px mt-1">
+                    <div class="img-1by1 holder " >
+                      <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
+                    </div>
                   </div>
                 </div>
+                <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.mission')}}</b></p>
+                <p class="mb-0 px-2">
+                  - จัดกิจกรรมและการอบรมที่ส่งเสริมการเรียนรู้ด้านธรรมชาติวิทยา <br>
+                  - ให้บริการข้อมูลด้านธรรมชาติวิทยาดอยสุเทพ <br>
+                  - สร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริมชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
+                </p>
               </div>
-              <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.mission')}}</b></p>
-              <p class="mb-0 px-2">
-                - จัดกิจกรรมและการอบรมที่ส่งเสริมการเรียนรู้ด้านธรรมชาติวิทยา <br>
-                - ให้บริการข้อมูลด้านธรรมชาติวิทยาดอยสุเทพ <br>
-                - สร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริมชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
-              </p>
             </div>
-          </div>
+          </section>
         </div>
         <div class="col-md-6 col-lg-4 mt-5">
-          <div class="card card-box">
-            <div class="card-body">
-              <div class="d-flex justify-content-center">
-                <div class="w-120px mt-2">
-                  <div class="img-1by1 holder " >
-                    <img src="{{URL::asset('images/diamond.png')}}" class="img-responsive image-preview" >
+          <section id="box-core_values" class="wow fadeInDown" >
+            <div class="card card-box">
+              <div class="card-body">
+                <div class="d-flex justify-content-center">
+                  <div class="w-120px mt-2">
+                    <div class="img-1by1 holder " >
+                      <img src="{{URL::asset('images/diamond.png')}}" class="img-responsive image-preview" >
+                    </div>
                   </div>
                 </div>
-              </div>
-              <p class="font-18px text-center mt-3 "><b>{{__('message.core_values')}}</b></p>
-              <div class="px-2">
-                <div class="row">
-                  <div class="col-6 col-lg-7">
-                    D = Diversity 
-                  </div>
-                  <div class="col-6 col-lg-5">
-                    ความหลายหลาย
-                  </div>
-                  <div class="col-6 col-lg-7 mt-2">
-                    S = Services
-                  </div>
-                  <div class="col-6 col-lg-5 mt-2">
-                    บริการ
-                  </div>
-                  <div class="col-6 col-lg-7 mt-2">
-                    N = Networking 
-                  </div>
-                  <div class="col-6 col-lg-5 mt-2">
-                     สร้างเครือข่าย
-                  </div>
-                  <div class="col-6 col-lg-7 mt-2">
-                    C = Community 
-                  </div>
-                  <div class="col-6 col-lg-5 mt-2">
-                    ชุมชน
+                <p class="font-18px text-center mt-3 "><b>{{__('message.core_values')}}</b></p>
+                <div class="px-2">
+                  <div class="row">
+                    <div class="col-6 col-lg-7">
+                      D = Diversity 
+                    </div>
+                    <div class="col-6 col-lg-5">
+                      ความหลายหลาย
+                    </div>
+                    <div class="col-6 col-lg-7 mt-2">
+                      S = Services
+                    </div>
+                    <div class="col-6 col-lg-5 mt-2">
+                      บริการ
+                    </div>
+                    <div class="col-6 col-lg-7 mt-2">
+                      N = Networking 
+                    </div>
+                    <div class="col-6 col-lg-5 mt-2">
+                      สร้างเครือข่าย
+                    </div>
+                    <div class="col-6 col-lg-7 mt-2">
+                      C = Community 
+                    </div>
+                    <div class="col-6 col-lg-5 mt-2">
+                      ชุมชน
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
-    </section>
 
     <hr class="mb-5">
   </div>
@@ -170,7 +175,7 @@
           @endforeach
 
           <div class="col-lg-12 d-flex justify-content-end">
-            <a href="{{url('news/news')}}" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
+            <a href="{{url('news/news')}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
         </div>
       </section>
@@ -202,7 +207,7 @@
             </div>
           @endforeach
           <div class="col-lg-12 d-flex justify-content-end">
-            <a href="{{url('news/articles')}}" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
+            <a href="{{url('news/articles')}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
         </div>
       </section>
@@ -268,7 +273,7 @@
             </table>
           </div>
           <div class="col-lg-12 d-flex justify-content-end ">
-            <a href="{{url('news/join')}}" class="btn btn-main btn-sm "><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
+            <a href="{{url('news/join')}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
         </div>
       </section>
