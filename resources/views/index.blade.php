@@ -57,9 +57,9 @@
       </div>
     </section>
     <div class="row">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4 mt-5">
         <section id="box-vision" class="wow fadeInDown h-100" >
-          <div class="card card-box mt-5">
+          <div class="card card-box">
             <div class="card-body custom">
               <div class="d-flex justify-content-center">
                 <div class="w-120px mt-2">
@@ -75,9 +75,9 @@
           </div>
         </section>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4  mt-5">
         <section id="box-mission" class="wow fadeInDown h-100" >
-          <div class="card card-box mt-5">
+          <div class="card card-box ">
             <div class="card-body custom">
               <div class="d-flex justify-content-center">
                 <div class="w-120px mt-1">
@@ -96,9 +96,9 @@
           </div>
         </section>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4  mt-5">
         <section id="box-core_values" class="wow fadeInDown h-100" >
-          <div class="card card-box mt-5">
+          <div class="card card-box">
             <div class="card-body custom">
               <div class="d-flex justify-content-center">
                 <div class="w-120px mt-2">
@@ -169,8 +169,8 @@
         </div>
       </div>
       <div class="row">
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-box mt-5">
+      <div class="col-md-6 col-lg-4  mt-4">
+        <div class="card card-box">
           <div class="card-body custom">
             <div class="d-flex justify-content-center">
               <div class="mascot-img" >
@@ -187,8 +187,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-box mt-5">
+      <div class="col-md-6 col-lg-4  mt-4">
+        <div class="card card-box">
           <div class="card-body custom">
             <div class="d-flex justify-content-center">
               <div class="mascot-img" >
@@ -205,8 +205,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-box mt-5">
+      <div class="col-md-6 col-lg-4  mt-4">
+        <div class="card card-box">
           <div class="card-body custom">
             <div class="d-flex justify-content-center">
               <div class="mascot-img" >
