@@ -49,7 +49,7 @@
         <h3>{{__('message.aboutUs')}}</h3>
         <p><i class="fa fa-bullhorn"></i>{{__('message.aboutDSNC')}}</p>
       </div>
-      <div>
+      <div class="mt-4">
         <p class="font-18px"><b>วัตถุประสงค์การจัดตั้งศูนย์ฯ </b> </p>
         <p class="mb-2"> 1. เพื่อเป็นการเฉลิมพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัวในรัชกาลที่ 9 ในวโรกาสทรงครองราชย์ครบ 50 ปี ในปี พ.ศ. 2539 และเพี่อเทิดพระเกียรติพระบาทสมเด็จพระเจ้าอยู่หัวในรัชกาลที่ 9 ในวโรกาสทรงมีพระชนมายุครบ 72 พรรษา ในปี พ.ศ. 2542 </p>
         <p class="mb-2">2. เพื่อเป็นศูนย์จัดแสดงเรื่องราวเกี่ยวกับดอยสุเทพทั้งในด้านธรรมชาติวิทยา นิเวศวิทยา ประวัติศาสตร์ วัฒนธรรม และชุมชน สำหรับนักท่องเที่ยว ประชาชนทั่วไป นักวิจัย นักศึกษา ก่อนที่จะเดินทางไปท่องเที่ยวบนดอยสุเทพ อันเป็นประตูสำคัญต่อการท่องเที่ยวอย่างมีคุณภาพและมีจิตสำนึก </p>
@@ -142,7 +142,7 @@
       </div>
     </div>
     <section id="box-logo" class="wow fadeInDown pt-40px">
-      <div class="header-selected pt-10px">
+      <div class="header-selected pt-20px">
         <p><i class="fa fa-bullhorn"></i>{{__('message.logo_mascots')}}</p>
       </div>
       <div class="row d-flex justify-content-center">
@@ -326,13 +326,13 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.video')}}</p>
         </div>
         <div class="row">
-            <?php for($i=0; $i<4; $i++) { ?>
+          @foreach ($youtube_list as $youtube) 
             <div class="col-md-6 mb-4">
               <div class="ratio ratio-21x9">
-                <iframe  src="https://www.youtube.com/embed/lm9-N4W-jWk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe  src="{{$youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
-          <?php  } ?>
+          @endforeach
         </div>
       </section>
       <section id="box-join" class="wow fadeInDown mt-5 pb-5" >
