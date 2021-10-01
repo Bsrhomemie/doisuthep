@@ -649,6 +649,14 @@ a {
   height: 100%;
 }
 
+.card.card-box .card-body {
+  padding-bottom: 5px;
+}
+
+.card.card-box .card-body.custom {
+  padding: 1rem 1rem;
+}
+
 .card.card-box .card-body .card-text {
   text-align: center;
   overflow: hidden;
@@ -656,7 +664,8 @@ a {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  margin-bottom: 10px;
+  margin-bottom: 0;
+  max-height: 70px;
 }
 
 .card.card-product {

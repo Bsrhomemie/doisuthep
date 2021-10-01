@@ -591,6 +591,10 @@ a {
   overflow: hidden;
   height: 100%;
   .card-body {
+    padding-bottom: 5px;
+    &.custom {
+      padding: 1rem 1rem;
+    }
     .card-text {
       text-align: center;
       overflow: hidden;
@@ -598,7 +602,8 @@ a {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
-      margin-bottom: 10px;
+      margin-bottom: 0;
+      max-height: 70px;
     }
   }
 }

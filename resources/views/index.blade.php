@@ -57,7 +57,7 @@
       <div class="row">
         <div class="col-md-6 col-lg-4 mt-5">
           <section id="box-vision" class="wow fadeInDown" >
-            <div class="card card-box">
+            <div class="card card-box custom">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
                   <div class="w-120px mt-2">
@@ -75,7 +75,7 @@
         </div>
         <div class="col-md-6 col-lg-4 mt-5">
           <section id="box-mission" class="wow fadeInDown" >
-            <div class="card card-box">
+            <div class="card card-box custom">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
                   <div class="w-120px mt-1">
@@ -96,7 +96,7 @@
         </div>
         <div class="col-md-6 col-lg-4 mt-5">
           <section id="box-core_values" class="wow fadeInDown" >
-            <div class="card card-box">
+            <div class="card card-box custom">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
                   <div class="w-120px mt-2">
