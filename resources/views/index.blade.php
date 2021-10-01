@@ -1,20 +1,23 @@
 @extends('master')
 @section('content')
   <div id="owl-cover" class="owl-carousel cover-page owl-theme">
-    <div class="item-cover" style="background-image:url({{asset('images/cover1.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover/cover1.jpg')}});">
       <div class="text-cover text-danger">
         <h1>Chiang Mai University</h1>
       </div>
     </div>
-    <div class="item-cover" style="background-image:url({{asset('images/cover2.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover/cover2.jpg')}});">
       <div class="text-cover">
         <h1>นโยบายคุณภาพ</h1>
       </div>
     </div>
-    <div class="item-cover" style="background-image:url({{asset('images/cover3.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover/cover3.jpg')}});">
 
     </div>
-    <div class="item-cover" style="background-image:url({{asset('images/cover4.jpg')}});">
+    <div class="item-cover" style="background-image:url({{asset('images/cover/cover4.jpg')}});">
+
+    </div>
+    <div class="item-cover" style="background-image:url({{asset('images/cover/cover5.jpg')}});">
 
     </div>
   </div>
@@ -56,7 +59,7 @@
    
       <div class="row">
         <div class="col-md-6 col-lg-4 mt-5">
-          <section id="box-vision" class="wow fadeInDown" >
+          <section id="box-vision" class="wow fadeInDown h-100" >
             <div class="card card-box custom">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
@@ -74,7 +77,7 @@
           </section>
         </div>
         <div class="col-md-6 col-lg-4 mt-5">
-          <section id="box-mission" class="wow fadeInDown" >
+          <section id="box-mission" class="wow fadeInDown h-100" >
             <div class="card card-box custom">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
@@ -95,7 +98,7 @@
           </section>
         </div>
         <div class="col-md-6 col-lg-4 mt-5">
-          <section id="box-core_values" class="wow fadeInDown" >
+          <section id="box-core_values" class="wow fadeInDown h-100" >
             <div class="card card-box custom">
               <div class="card-body">
                 <div class="d-flex justify-content-center">
