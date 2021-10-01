@@ -319,6 +319,19 @@ body {
      object-fit: cover;
 }
 
+.mascot-img {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.mascot-img img {
+  width: auto;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .img-product {
   min-width: 150px;
   min-height: 150px;

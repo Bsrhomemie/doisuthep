@@ -57,7 +57,7 @@
       </div>
     </section>
     <div class="row">
-      <div class="col-md-6 col-lg-4 pb-5">
+      <div class="col-md-6 col-lg-4">
         <section id="box-vision" class="wow fadeInDown h-100" >
           <div class="card card-box mt-5">
             <div class="card-body custom">
@@ -75,7 +75,7 @@
           </div>
         </section>
       </div>
-      <div class="col-md-6 col-lg-4 pb-5">
+      <div class="col-md-6 col-lg-4">
         <section id="box-mission" class="wow fadeInDown h-100" >
           <div class="card card-box mt-5">
             <div class="card-body custom">
@@ -96,7 +96,7 @@
           </div>
         </section>
       </div>
-      <div class="col-md-6 col-lg-4 pb-5">
+      <div class="col-md-6 col-lg-4">
         <section id="box-core_values" class="wow fadeInDown h-100" >
           <div class="card card-box mt-5">
             <div class="card-body custom">
@@ -141,7 +141,7 @@
         </section>
       </div>
     </div>
-    <section id="box-logo" class="wow fadeInDown pt-40px" >
+    <section id="box-logo" class="wow fadeInDown pt-40px">
       <div class="header-selected pt-10px">
         <p><i class="fa fa-bullhorn"></i>{{__('message.logo_mascots')}}</p>
       </div>
@@ -152,7 +152,7 @@
              <img src="{{URL::asset('images/thumbnail.png')}}">
             </div>
           </div>
-          <table class="table table-bordered">
+          <table class="table table-bordered mt-3">
             <tr>
               <th>ต้นไม้</th>
               <td>ที่มีรูปร่างเหมือนดอยสุเทพ สื่อถึงธรรมชาติวิทยาของพื้นที่</td>
@@ -169,14 +169,12 @@
         </div>
       </div>
       <div class="row">
-      <div class="col-md-6 col-lg-4 pb-5">
+      <div class="col-md-6 col-lg-4">
         <div class="card card-box mt-5">
           <div class="card-body custom">
             <div class="d-flex justify-content-center">
-              <div class="w-120px mt-2">
-                <div class="img-1by1 holder " >
-                  <img src="{{URL::asset('images/mascot/ndoi.png')}}" class="img-responsive image-preview" >
-                </div>
+              <div class="mascot-img" >
+                <img src="{{URL::asset('images/mascot/ndoi.png')}}">
               </div>
             </div>
             <p class="font-18px text-center mt-3"><b>น้องดอย</b></p>
@@ -189,14 +187,12 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 pb-5">
+      <div class="col-md-6 col-lg-4">
         <div class="card card-box mt-5">
           <div class="card-body custom">
             <div class="d-flex justify-content-center">
-              <div class="w-120px mt-1">
-                <div class="img-1by1 holder " >
-                  <img src="{{URL::asset('images/mascot/ntonnum.png')}}" class="img-responsive image-preview" >
-                </div>
+              <div class="mascot-img" >
+                <img src="{{URL::asset('images/mascot/ntonnum.png')}}">
               </div>
             </div>
             <p class="font-18px text-center mt-3 pt-1"><b>น้องต้นน้ำ</b></p>
@@ -209,14 +205,12 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 pb-5">
+      <div class="col-md-6 col-lg-4">
         <div class="card card-box mt-5">
           <div class="card-body custom">
             <div class="d-flex justify-content-center">
-              <div class="w-120px mt-1">
-                <div class="img-1by1 holder " >
-                  <img src="{{URL::asset('images/mascot/nguy.png')}}" class="img-responsive image-preview" >
-                </div>
+              <div class="mascot-img" >
+                <img src="{{URL::asset('images/mascot/nguy.png')}}">
               </div>
             </div>
             <p class="font-18px text-center mt-3 pt-1"><b>น้องกาย</b></p>
