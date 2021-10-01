@@ -56,9 +56,8 @@
         <p class="mb-2">3. เพื่อเป็นศูนย์ประสานงานและความร่วมมือระหว่างนักวิชาการ และหน่วยงานต่าง ๆ ที่เกี่ยวข้องกับการท่องเที่ยวและการอนุรักษ์ดอยสุเทพ เป็นแหล่งรวบรวมความรู้ และการเผยแพร่ข้อมูลทางด้านวิชาการเกี่ยวกับดอยสุเทพ </p>
       </div>
     </section>
-   
     <div class="row">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4 pb-5">
         <section id="box-vision" class="wow fadeInDown h-100" >
           <div class="card card-box mt-5">
             <div class="card-body custom">
@@ -76,7 +75,7 @@
           </div>
         </section>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4 pb-5">
         <section id="box-mission" class="wow fadeInDown h-100" >
           <div class="card card-box mt-5">
             <div class="card-body custom">
@@ -97,7 +96,7 @@
           </div>
         </section>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4 pb-5">
         <section id="box-core_values" class="wow fadeInDown h-100" >
           <div class="card card-box mt-5">
             <div class="card-body custom">
@@ -142,6 +141,34 @@
         </section>
       </div>
     </div>
+    <section id="box-logo" class="wow fadeInDown" >
+      <div class="header-selected pt-10px">
+        <p><i class="fa fa-bullhorn"></i>{{__('message.logo_mascots')}}</p>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-7 col-md-9">
+          <div class="d-flex justify-content-center">
+            <div class="img-product"> 
+             <img src="{{URL::asset('images/thumbnail.jpg')}}">
+            </div>
+          </div>
+          <table class="table">
+            <tr>
+              <th>ต้นไม้</th>
+              <td>ที่มีรูปร่างเหมือนดอยสุเทพ สื่อถึงธรรมชาติวิทยาของพื้นที่</td>
+            </tr>
+            <tr>
+              <th>พระธาตุดอยสุเทพ</th>
+              <td>ตรงกลางของตราสัญลักษณ์ สื่อถึงการเป็นศูนย์รวมจิตใจของชาวเชียงใหม่ </td>
+            </tr>
+            <tr>
+              <th>ทางเดิน </th>
+              <td>ด้านล่างของตราสัญลักษณ์ สื่อถึงการนำทุกคนเข้าถึงธรรมชาติและดอยสุเทพ</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
     <hr class="mb-5">
   </div>
   <div class="bg-section">
