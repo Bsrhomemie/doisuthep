@@ -57,92 +57,91 @@
       </div>
     </section>
    
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mt-5">
-          <section id="box-vision" class="wow fadeInDown h-100" >
-            <div class="card card-box custom">
-              <div class="card-body">
-                <div class="d-flex justify-content-center">
-                  <div class="w-120px mt-2">
-                    <div class="img-1by1 holder " >
-                      <img src="{{URL::asset('images/vision.png')}}" class="img-responsive image-preview" >
-                    </div>
-                  </div>
-                </div>
-                <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
-                <p class="text-center mb-0">
-                  “ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="col-md-6 col-lg-4 mt-5">
-          <section id="box-mission" class="wow fadeInDown h-100" >
-            <div class="card card-box custom">
-              <div class="card-body">
-                <div class="d-flex justify-content-center">
-                  <div class="w-120px mt-1">
-                    <div class="img-1by1 holder " >
-                      <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
-                    </div>
-                  </div>
-                </div>
-                <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.mission')}}</b></p>
-                <p class="mb-0 px-2">
-                  - จัดกิจกรรมและการอบรมที่ส่งเสริมการเรียนรู้ด้านธรรมชาติวิทยา <br>
-                  - ให้บริการข้อมูลด้านธรรมชาติวิทยาดอยสุเทพ <br>
-                  - สร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริมชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-        <div class="col-md-6 col-lg-4 mt-5">
-          <section id="box-core_values" class="wow fadeInDown h-100" >
-            <div class="card card-box custom">
-              <div class="card-body">
-                <div class="d-flex justify-content-center">
-                  <div class="w-120px mt-2">
-                    <div class="img-1by1 holder " >
-                      <img src="{{URL::asset('images/diamond.png')}}" class="img-responsive image-preview" >
-                    </div>
-                  </div>
-                </div>
-                <p class="font-18px text-center mt-3 "><b>{{__('message.core_values')}}</b></p>
-                <div class="px-2">
-                  <div class="row">
-                    <div class="col-6 col-lg-7">
-                      D = Diversity 
-                    </div>
-                    <div class="col-6 col-lg-5">
-                      ความหลายหลาย
-                    </div>
-                    <div class="col-6 col-lg-7 mt-2">
-                      S = Services
-                    </div>
-                    <div class="col-6 col-lg-5 mt-2">
-                      บริการ
-                    </div>
-                    <div class="col-6 col-lg-7 mt-2">
-                      N = Networking 
-                    </div>
-                    <div class="col-6 col-lg-5 mt-2">
-                      สร้างเครือข่าย
-                    </div>
-                    <div class="col-6 col-lg-7 mt-2">
-                      C = Community 
-                    </div>
-                    <div class="col-6 col-lg-5 mt-2">
-                      ชุมชน
-                    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-4">
+        <section id="box-vision" class="wow fadeInDown h-100" >
+          <div class="card card-box mt-5">
+            <div class="card-body custom">
+              <div class="d-flex justify-content-center">
+                <div class="w-120px mt-2">
+                  <div class="img-1by1 holder " >
+                    <img src="{{URL::asset('images/vision.png')}}" class="img-responsive image-preview" >
                   </div>
                 </div>
               </div>
+              <p class="font-18px text-center mt-3"><b>{{__('message.vision')}}</b></p>
+              <p class="text-center mb-0">
+                “ชุมชนตระหนักถึงความสวยงาม <br> และความเชื่อมโยงกับธรรมชาติ” </p>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
-
+      <div class="col-md-6 col-lg-4">
+        <section id="box-mission" class="wow fadeInDown h-100" >
+          <div class="card card-box mt-5">
+            <div class="card-body custom">
+              <div class="d-flex justify-content-center">
+                <div class="w-120px mt-1">
+                  <div class="img-1by1 holder " >
+                    <img src="{{URL::asset('images/target.png')}}" class="img-responsive image-preview" >
+                  </div>
+                </div>
+              </div>
+              <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.mission')}}</b></p>
+              <p class="mb-0 px-2">
+                - จัดกิจกรรมและการอบรมที่ส่งเสริมการเรียนรู้ด้านธรรมชาติวิทยา <br>
+                - ให้บริการข้อมูลด้านธรรมชาติวิทยาดอยสุเทพ <br>
+                - สร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริมชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <section id="box-core_values" class="wow fadeInDown h-100" >
+          <div class="card card-box mt-5">
+            <div class="card-body custom">
+              <div class="d-flex justify-content-center">
+                <div class="w-120px mt-2">
+                  <div class="img-1by1 holder " >
+                    <img src="{{URL::asset('images/diamond.png')}}" class="img-responsive image-preview" >
+                  </div>
+                </div>
+              </div>
+              <p class="font-18px text-center mt-3 "><b>{{__('message.core_values')}}</b></p>
+              <div class="px-2">
+                <div class="row">
+                  <div class="col-6 col-lg-7">
+                    D = Diversity 
+                  </div>
+                  <div class="col-6 col-lg-5">
+                    ความหลายหลาย
+                  </div>
+                  <div class="col-6 col-lg-7 mt-2">
+                    S = Services
+                  </div>
+                  <div class="col-6 col-lg-5 mt-2">
+                    บริการ
+                  </div>
+                  <div class="col-6 col-lg-7 mt-2">
+                    N = Networking 
+                  </div>
+                  <div class="col-6 col-lg-5 mt-2">
+                    สร้างเครือข่าย
+                  </div>
+                  <div class="col-6 col-lg-7 mt-2">
+                    C = Community 
+                  </div>
+                  <div class="col-6 col-lg-5 mt-2">
+                    ชุมชน
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
     <hr class="mb-5">
   </div>
   <div class="bg-section">
