@@ -224,6 +224,13 @@ class UserController extends Controller
 			->paginate($number);
 		}
 		print_r($post_list['plants']['list']);
+		print_r($post_list['plants']['list']);
+
+		// [total:protected] 
+		echo '<br>';
+		print_r($post_list['plants']['animals']);
+
+		
 		die();
 		return view('suthep', compact('post_list'));
 	}
