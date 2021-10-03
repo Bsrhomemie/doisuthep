@@ -221,11 +221,10 @@ class UserController extends Controller
 			$number = 3;
 			$select = Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
-			->take($number);
+			->paginate($number);
 			$post_list[$key]['list'] = $select;
 		}
 		dd($post_list);
-		die();
 		return view('suthep', compact('post_list'));
 	}
 
