@@ -225,9 +225,9 @@ class UserController extends Controller
 
 			$post_list[$key]['list'] = $select;
 		}
-		dd($post_list);
+		// dd($post_list);
 
-		die();
+		// die();
 		return view('suthep', compact('post_list'));
 	}
 
