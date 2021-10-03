@@ -219,9 +219,7 @@ class UserController extends Controller
 
 		foreach($post_list as $key => $type) {
 			$number = 3;
-			$select = [Post::where('post_type', $type['id'])
-			->orderBy('id','desc')
-			->take($number)];
+			$select = Post::where('post_type', $type['id'])->get();
 			$post_list[$key]['list'] = $select;
 		}
 		dd($post_list);
