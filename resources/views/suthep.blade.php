@@ -39,7 +39,7 @@
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  {{$list['post_name_th']}}
+                  {{$list->post_name_th}}
                 </p>
               </div>
             </div>
@@ -48,7 +48,7 @@
           <div class="col-lg-12 d-flex justify-content-end">
             <a href="news.php" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
-        
+
       </div>
     </section> 
     @endforeach
