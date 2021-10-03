@@ -223,6 +223,9 @@ class UserController extends Controller
 			->orderBy('id','desc')
 			->paginate($number);
 		}
+
+		var_dump($post_list);
+		die;
 		return view('suthep', compact('post_list'));
 	}
 
