@@ -38,7 +38,7 @@
               </div>
             </div>
             <div class="card-body">
-              <p class="card-text">{{$articles->__('message.lang_message')}}}</p>
+              <p class="card-text">{{$articles->post_name_.''.__('message.lang_message')}}</p>
             </div>
           </div>
         </div>
