@@ -12,14 +12,14 @@
         </div>
       </div>
     </section>
-    @foreach($data_topic as $key => $topic) 
-    <section id="{{$topic_name[$key]}}" class="wow fadeInDown " >
+    @foreach($post_list as $key => $topic) 
+    <section id="box-{{$key}}" class="wow fadeInDown " >
       <div class="header-selected ">
-        <p><i class="fa fa-bullhorn"></i>{{__('message.'.$topic["topic"])}} </p>
+        <p><i class="fa fa-bullhorn"></i>{{__('message.'.$key)}} </p>
       </div>
       <div class="row">
         <div class="col-12">
-          <p class="mb-3">{!! $topic['detail'] !!}</p>
+          <p class="mb-3">{!! $topic[__('message.suthep_detail')] !!}</p>
         </div>
         <div class="col-md-4">
           <div class="card card-box mb-3">

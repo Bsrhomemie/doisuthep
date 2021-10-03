@@ -42,11 +42,11 @@
                     <span>{{__('message.aboutUs')}}</span> <i class="fas fa-chevron-down"></i>
                   </a>
                   <ul>
-                    <li><a href="#box-dsnc">{{__('message.aboutDSNC')}}</a></li>
-                    <li><a href="#box-vision">{{__('message.vision')}}</a></li>
-                    <li><a href="#box-mission">{{__('message.mission')}}</a></li>
-                    <li><a href="#box-core_values">{{__('message.core_values')}}</a></li>
-                    <li><a href="#box-logo">{{__('message.logo_mascots')}}</a></li>
+                    <li><a href="{{url('/#box-aboutDSNC')}}">{{__('message.aboutDSNC')}}</a></li>
+                    <li><a href="{{url('/#box-vision')}}">{{__('message.vision')}}</a></li>
+                    <li><a href="{{url('/#box-mission')}}">{{__('message.mission')}}</a></li>
+                    <li><a href="{{url('/#box-core_values')}}">{{__('message.core_values')}}</a></li>
+                    <li><a href="{{url('/#box-logo')}}">{{__('message.logo_mascots')}}</a></li>
                   </ul>
                 </li>
                 <li class="dropdown me-lg-2">

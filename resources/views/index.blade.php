@@ -143,7 +143,7 @@
     </div>
     <section id="box-logo" class="wow fadeInDown pt-40px">
       <div class="header-selected pt-20px">
-        <p><i class="fa fa-bullhorn"></i>{{__('message.logo_mascots')}}</p>
+        <p class="mt-3"><i class="fa fa-bullhorn"></i>{{__('message.logo_mascots')}}</p>
       </div>
       <div class="row d-flex justify-content-center">
         <div class="col-lg-7 col-md-9">
