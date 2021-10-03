@@ -30,7 +30,7 @@
                   <img src="{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" alt="...">
                 </div>
                 <div class="show-hover">
-                  <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="context"  title="ดูรูปภาพ">
+                  <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="box_{{$key}}"  title="ดูรูปภาพ">
                     <i class="far fa-image"></i>
                   </a>
                   <a href="" title="รายละเอียด">
