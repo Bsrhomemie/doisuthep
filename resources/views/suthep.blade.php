@@ -44,6 +44,7 @@
             </div>
           </div>
         </div>
+        @endforeach
         @else
         <div class="col-12 text-center">
           <h6>ไม่มีข้อมูล</h6>
