@@ -21,7 +21,7 @@
         <div class="col-12">
           <p class="mb-3">{!! $topic[__('message.suthep_detail')] !!}</p>
         </div>
-        @foreach($post_list['post_list'] as $key => $post) 
+        @foreach($post_list['post_list'] as  $post) 
         <div class="col-md-4">
           <div class="card card-box mb-3">
             <div class="highlight-hover">
