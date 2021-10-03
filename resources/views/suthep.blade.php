@@ -22,7 +22,7 @@
           <p class="mb-3">{!! $topic[__('message.suthep_detail')] !!}</p>
         </div>
         <!-- @if ($topic['post'])  -->
-        @foreach($topic['post'] as $post) 
+        @foreach($topic['post_list'] as $post) 
         <div class="col-md-4">
           <div class="card card-box mb-3">
             <div class="highlight-hover">
@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="card-body">
-              <p class="card-text">{{$post->post_name_th}}</p>
+              <p class="card-text">fvfvf</p>
               <!-- <p class="card-text">{{$post->__('message.lang_message')}}</p> -->
             </div>
           </div>
