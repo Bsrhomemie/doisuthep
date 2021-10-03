@@ -219,7 +219,7 @@ class UserController extends Controller
 
 		foreach($post_list as $key => $type) {
 			$number = 3;
-			$post_list[$key]['post_list'] = Post::where('post_type', $type['id'])
+			$post_list[$key]['list'] = Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number);
 		}
