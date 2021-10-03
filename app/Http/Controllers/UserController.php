@@ -223,7 +223,7 @@ class UserController extends Controller
 			->orderBy('id','desc')
 			->paginate($number)];
 		}
-		print_r($post_list['animals']['list'] );
+		print_r($post_list['animals']['list']);
 		die();
 		return view('suthep', compact('post_list'));
 	}
