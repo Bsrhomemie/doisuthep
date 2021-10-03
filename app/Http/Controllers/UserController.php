@@ -222,9 +222,9 @@ class UserController extends Controller
 			$array = [Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number)];
-			$post_list[$key]['list'] = array($array);
+			$post_list[$key]['list'] = json_decode(json_encode($array), true);
 		}
-		print_r($post_list['animals']['list']['post_name_th']);
+		var_dump($post_list['animals']['list']);
 		die();
 		return view('suthep', compact('post_list'));
 	}
