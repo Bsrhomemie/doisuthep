@@ -21,8 +21,7 @@
         <div class="col-12">
           <p class="mb-3">{!! $topic[__('message.suthep_detail')] !!}</p>
         </div>
-        @if ($topic['post_list']) 
-        @foreach($topic['post_list'] as $post) 
+        @foreach($post_list['post_list'] as $key => $post) 
         <div class="col-md-4">
           <div class="card card-box mb-3">
             <div class="highlight-hover">
@@ -30,7 +29,7 @@
                 <img src="{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" alt="...">
               </div>
               <div class="show-hover">
-                <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="box_{{$key}}"  title="ดูรูปภาพ">
+                <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="context"  title="ดูรูปภาพ">
                   <i class="far fa-image"></i>
                 </a>
                 <a href="" title="รายละเอียด">
@@ -39,17 +38,11 @@
               </div>
             </div>
             <div class="card-body">
-              <p class="card-text">fvfvf</p>
-              <!-- <p class="card-text">{{$post->__('message.lang_message')}}</p> -->
+              <p class="card-text">STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้</p>
             </div>
           </div>
         </div>
         @endforeach
-        @else
-        <div class="col-12 text-center">
-          <h6>ไม่มีข้อมูล</h6>
-        </div>
-        @endif
         <div class="col-lg-12 d-flex justify-content-end">
           <a href="news.php" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
         </div>
