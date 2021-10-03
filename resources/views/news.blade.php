@@ -8,7 +8,7 @@
       </div>
       <div class="row wow fadeInDown">
         @foreach ($content_list as $content)
-          <div class="col-md-4">
+          <div class="col-md-4 pb-3">
             <div class="card card-box mb-3">
               <div class="highlight-hover">
                 <div class="img-16by9 holder " >

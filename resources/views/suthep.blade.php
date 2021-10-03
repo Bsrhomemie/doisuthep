@@ -50,8 +50,12 @@
             <a href="{{url('news/'.$key)}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
         @else 
-          <div class="col-12 text-center">
-            <h6>ไม่มีข้อมูล</h6>
+          <div class="col-12">
+            <div class="card card-box">
+              <div class="card-body text-center">
+                <h6>ไม่มีข้อมูล</h6>
+              </div>  
+            </div>
           </div>
         @endif
       </div>

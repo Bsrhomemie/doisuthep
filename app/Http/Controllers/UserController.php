@@ -66,11 +66,11 @@ class UserController extends Controller
 			],
 			'plants' => [ 
 			  'id' => 3,
-			  'name' =>	'พืช',
+			  'name' =>	'พืชดอยสุเทพ',
 			],
 			'animals' => [ 
 			  'id' =>	4,
-			  'name' =>	'สัตว์',
+			  'name' =>	'สัตว์ป่าดอยสุเทพ',
 			],
 			'fungus' => [ 
 			  'id' =>	5,

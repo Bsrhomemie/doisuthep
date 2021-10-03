@@ -15,8 +15,8 @@ class ContentController extends Controller
         $type_list = [
             'news' => 'ข่าวประชาสัมพันธ์',
             'articles' => 'บทความ',
-            'plants' => 'พืช',
-            'animals' => 'สัตว์',
+            'plants' => 'พืชดอยสุเทพ',
+            'animals' => 'สัตว์ป่าดอยสุเทพ',
             'fungus' => 'จุลินทรีย์และฟังไจ',
             'geology' => 'ธรณีวิทยา',
             'culture' => 'สังคมและวัฒนธรรม',

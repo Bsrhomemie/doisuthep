@@ -25,8 +25,8 @@ class TypeNameTable extends Migration
         DB::table('type_name')->insert([
             ['type_name_th' => 'news', 'type_name_en' => 'ข่าวประชาสัมพันธ์'],
             ['type_name_th' => 'articles', 'type_name_en' => 'บทความ'],
-            ['type_name_th' => 'plants', 'type_name_en' => 'พืช'],
-            ['type_name_th' => 'animals', 'type_name_en' => 'สัตว์'],
+            ['type_name_th' => 'plants', 'type_name_en' => 'พืชดอยสุเทพ'],
+            ['type_name_th' => 'animals', 'type_name_en' => 'สัตว์ป่าดอยสุเทพ'],
             ['type_name_th' => 'fungus', 'type_name_en' => 'จุลินทรีย์และฟังไจ'],
             ['type_name_th' => 'geology', 'type_name_en' => 'ธรณีวิทยา'],
             ['type_name_th' => 'culture', 'type_name_en' => 'สังคมและวัฒนธรรม'],
