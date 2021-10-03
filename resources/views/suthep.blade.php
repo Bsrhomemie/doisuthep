@@ -47,7 +47,7 @@
           </div>
         @endforeach
           <div class="col-lg-12 d-flex justify-content-end">
-            <a href="news.php" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
+            <a href="{{url('news/'.$key)}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
           </div>
         @else 
           <div class="col-12 text-center">
