@@ -38,5 +38,6 @@
     'organization_email' => 'อีเมล: doisuthep.center@cmu.ac.th ',
     'organization_tel' => 'โทรศัพท์: 053-941451-3 / 084-6116345',
     'suthep_detail' => 'detail_th',
+    'lang_system' => '_th',
   ];
 ?>

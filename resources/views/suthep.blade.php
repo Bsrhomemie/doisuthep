@@ -39,7 +39,9 @@
                 </div>
               </div>
               <div class="card-body">
-                <p class="card-text">STeP นำทัพนักศึกษา มช. กวาดรางวัล Startup Thailand League 2021 (ภาคเหนือ) คว้าชัยชนะแบบจัดเต็ม พร้อมเดินหน้าคว้าชัยเวทีระดับประเทศในเดือนสิงหาคมนี้</p>
+                <p class="card-text">
+                  {{$list->'post_name'.[__('message.suthep_detail')}}
+                </p>
               </div>
             </div>
           </div>
