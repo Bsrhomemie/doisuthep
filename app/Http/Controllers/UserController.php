@@ -222,12 +222,12 @@ class UserController extends Controller
 			$select =Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number);
-
+			$select = json_decode(json_encode($select), true);
 			$post_list[$key]['list'] = $select;
 		}
-		// dd($post_list);
+		dd($post_list);
 
-		// die();
+		die();
 		return view('suthep', compact('post_list'));
 	}
 
