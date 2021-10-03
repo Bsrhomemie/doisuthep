@@ -224,7 +224,9 @@ class UserController extends Controller
 			->paginate($number)];
 			$post_list[$key]['list'] = json_decode(json_encode($array), true);
 		}
-	
+
+		var_dump(Session::put('applocale'));
+		die();
 		return view('suthep', compact('post_list'));
 	}
 
