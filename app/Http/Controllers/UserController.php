@@ -220,11 +220,12 @@ class UserController extends Controller
 		foreach($post_list as $key => $type) {
 			$number = 3;
 			$select = Post::where('post_type', $type['id'])
-			->orderBy('id','desc');
-			// ->take ($number);
-			$post_list[$key]['list'] = $select;
+			->orderBy('id','desc')
+			->paginate($number);
+			$post_list[$key]['list'] = (array) $select;
 		}
 		dd($post_list);
+		die();
 		return view('suthep', compact('post_list'));
 	}
 
