@@ -224,6 +224,8 @@ class UserController extends Controller
 			->paginate($number);
 			$post_list[$key]['list'] = (array)$value;
 		}
+		var_dump($post_list);
+		die();
 		return view('suthep', compact('post_list'));
 	}
 
