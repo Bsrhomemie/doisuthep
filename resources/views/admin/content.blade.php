@@ -37,7 +37,7 @@
                   </tr>
                 </thead>
                 <tbody id="todos-list" name="todos-list">
-                    @if($content )
+                    @if(!$content->isEmpty())
                     @foreach ($content as $data)
                     <tr>
                         <td>
