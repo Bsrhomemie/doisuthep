@@ -21,8 +21,7 @@
         <div class="col-12">
           <p class="mb-3">{!! $topic[__('message.suthep_detail')] !!}</p>
         </div>
-        {{count($topic['list'])}}
-        @if(($topic['list']->count > 0 ) 
+        @if($topic['list']->count > 0 ) 
         @foreach($topic['list'] as $list) 
           <div class="col-md-4">
             <div class="card card-box mb-3">
