@@ -219,13 +219,12 @@ class UserController extends Controller
 
 		foreach($post_list as $key => $type) {
 			$number = 3;
-			$array = [Post::where('post_type', $type['id'])
+			$select = [Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number)];
-			$post_list[$key]['list'] = json_decode(json_encode($array), true);
+			$post_list[$key]['list'] = $select;
 		}
-
-		var_dump(Session()->get('applocale'));
+		dd($post_list);
 		die();
 		return view('suthep', compact('post_list'));
 	}
