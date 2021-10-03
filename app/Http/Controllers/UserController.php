@@ -222,7 +222,8 @@ class UserController extends Controller
 			$value = Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number);
-			$post_list[$key]['list'] = (array)$value;
+			$post_list[$key]['list'] = $value->toArray();
+
 		}
 
 		return view('suthep', compact('post_list'));
