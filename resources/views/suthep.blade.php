@@ -40,7 +40,7 @@
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  {{__('message.lang_system')}}
+                  {{$list['post_name_th']}}
                 </p>
               </div>
             </div>
