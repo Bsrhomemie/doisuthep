@@ -224,7 +224,7 @@ class UserController extends Controller
 			->paginate($number)];
 			$post_list[$key]['list'] = array($array);
 		}
-		print_r($post_list['animals']['list']);
+		print_r($post_list['animals']['list']['post_name_th']);
 		die();
 		return view('suthep', compact('post_list'));
 	}
