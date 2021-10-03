@@ -223,7 +223,7 @@ class UserController extends Controller
 			->orderBy('id','desc')
 			->paginate($number);
 
-			$post_list[$key]['list'] = (array) $select;
+			$post_list[$key]['list'] = $select;
 		}
 		dd($post_list);
 
