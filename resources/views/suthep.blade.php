@@ -39,7 +39,7 @@
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  {{$list->post_name_th}}
+                 sss
                 </p>
               </div>
             </div>
