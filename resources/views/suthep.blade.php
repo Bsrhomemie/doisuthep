@@ -33,7 +33,7 @@
                   <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="box_{{$key}}"  title="ดูรูปภาพ">
                     <i class="far fa-image"></i>
                   </a>
-                  <a href="" title="รายละเอียด">
+                  <a href="{{url('news-detail/news/'.$list['id'])}}" title="รายละเอียด">
                     <i class="fas fa-eye"></i>
                   </a>
                 </div>
