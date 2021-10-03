@@ -29,7 +29,7 @@
               </div>
               <div class="card-body pt-40px text-center">
                 <h4 class="title font-SemiBold">{{$employee['name_'.__('message.lang_system')]}}</h4>
-                <p class="card-text font-Medium mb-0">{{$employee['position_'.__('message.lang_system')]}}</p>
+                <p class="card-text font-Medium mb-3">{{$employee['position_'.__('message.lang_system')]}}</p>
                 <!-- <p class="card-text text-14px">อีเมล nutthapoom@step.cmu.ac.th</p> -->
               </div>
             </div>
