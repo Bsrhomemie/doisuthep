@@ -8,8 +8,8 @@
     'core_values' => 'ค่านิยม',
     'logo_mascots' => 'สัญลักษณ์',
     'doi_suthep' => 'ดอยสุเทพ',
-    'plants' => 'พืช',
-    'animals' => 'สัตว์',
+    'plants' => 'พืชดอยสุเทพ',
+    'animals' => 'สัตว์ป่าดอยสุเทพ',
     'fungus' => 'จุลินทรีย์และฟังไจ',
     'geology' => 'ธรณีวิทยา',
     'culture' => 'สังคมและวัฒนธรรม',
@@ -37,6 +37,7 @@
     'organization_adress' => '239 ถนนห้วยแก้ว ตำบลสุเทพ อำเภอเมือง จังหวัดเชียงใหม่ 50200',
     'organization_email' => 'อีเมล: doisuthep.center@cmu.ac.th ',
     'organization_tel' => 'โทรศัพท์: 053-941451-3 / 084-6116345',
-    'suthep_detail' => 'detail_th'
+    'suthep_detail' => 'detail_th',
+    'lang_message'  => 'th',
   ];
 ?>

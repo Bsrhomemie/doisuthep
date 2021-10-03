@@ -37,7 +37,8 @@
     'organization_adress' => '239 ถนนห้วยแก้ว ตำบลสุเทพ อำเภอเมือง จังหวัดเชียงใหม่ 50200',
     'organization_email' => 'อีเมล: doisuthep.center@cmu.ac.th ',
     'organization_tel' => 'โทรศัพท์: 053-941451-3 / 084-6116345',
-    'suthep_detail' => 'detail_en'
+    'suthep_detail' => 'detail_en',
+    'lang_message'  => 'en',
   ];
   
 ?>
