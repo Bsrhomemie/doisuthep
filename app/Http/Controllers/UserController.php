@@ -225,7 +225,7 @@ class UserController extends Controller
 		}
 		print_r($post_list['plants']['list']);
 
-		echo '<br>';
+	
 		print_r(count($post_list['plants']['animals']));
 
 		
