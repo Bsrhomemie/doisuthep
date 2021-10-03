@@ -224,11 +224,9 @@ class UserController extends Controller
 			->paginate($number);
 		}
 		print_r($post_list['plants']['list']);
-		print_r($post_list['plants']['list']);
 
-		// [total:protected] 
 		echo '<br>';
-		print_r($post_list['plants']['animals']);
+		print_r(count($post_list['plants']['animals']));
 
 		
 		die();
