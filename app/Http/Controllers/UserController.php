@@ -222,7 +222,6 @@ class UserController extends Controller
 			$select =Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number);
-			dd($select);
 
 			$post_list[$key]['list'] = (array) $select;
 		}
