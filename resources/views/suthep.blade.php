@@ -21,7 +21,6 @@
         <div class="col-12">
           <p class="mb-3">{!! $topic[__('message.suthep_detail')] !!}</p>
         </div>
-        @foreach($post_list['post_list'] as  $post) 
         <div class="col-md-4">
           <div class="card card-box mb-3">
             <div class="highlight-hover">
@@ -42,7 +41,6 @@
             </div>
           </div>
         </div>
-        @endforeach
         <div class="col-lg-12 d-flex justify-content-end">
           <a href="news.php" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
         </div>
