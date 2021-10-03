@@ -225,7 +225,7 @@ class UserController extends Controller
 			$post_list[$key]['list'] = json_decode(json_encode($array), true);
 		}
 
-		var_dump(Session::put('applocale'));
+		var_dump(Session()->get('applocale'));
 		die();
 		return view('suthep', compact('post_list'));
 	}
