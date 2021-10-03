@@ -234,6 +234,71 @@ class UserController extends Controller
 			"/images/cover2.jpg",
 			"/images/image-5.jpg", 
 		];
-		return view('empolyee', compact('list', 'type'));
+
+		$employee_list = [];
+		if($type == 'administrator')  {
+			$employee_list = [
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'รองศาสตราจารย์ ดร. ประสิทธิ์ วังภคพัฒนวงศ์',
+					'name_en' => 'Assoc Prof Dr. Prasit Wangpakapattawong',
+					'position_th' => 'หัวหน้าศูนย์ธรรมชาติวิทยาดอยสุเทพลิมพระเกียรติฯ',
+					'position_en' => 'Head of Doi Suthep Nature Center',
+				],
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'ผู้ช่วยศาสตราจารย์ ดร. พิมลรัตน์ เทียนสวัสดิ์',
+					'name_en' => 'Asst. Prof. Dr. Pimonrat Tiansawat',
+					'position_th' => 'รองหัวหน้าศูนย์ธรรมชาติวิทยาดอยสุเทพลิมพระเกียรติฯ',
+					'position_en' => 'Deputy Head of Doi Suthep Nature Center',
+				],
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'อาจารย์ ดร. นที ทองศิริ',
+					'name_en' => 'Dr. Natee Tongsiri',
+					'position_th' => 'ผู้ช่วยหัวหน้าศูนย์ธรรมชาติวิทยาดอยสุเทพเฉลิมพระเกียรติฯ',
+					'position_en' => 'Assistant Head of Doi Suthep Nature Center',
+				],
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'อาจารย์ ดร. เดีย พนิตนาถ แชนนอน',
+					'name_en' => 'Dr. Dia Shannon',
+					'position_th' => 'ผู้ช่วยหัวหน้าศูนย์ธรรมชาติวิทยาดอยสุเทพเฉลิมพระเกียรติฯ',
+					'position_en' => 'Assistant Head of Doi Suthep Nature Center',
+				],
+			];
+		} else if($type == 'staff') {
+			$employee_list = [
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'นางสาวธารางกูร ปั้นเทียน',
+					'name_en' => 'Ms.Tharangkul Phuntien',
+					'position_th' => 'ฝ่ายบริหารทั่วไป',
+					'position_en' => 'General Administration Departmen',
+				],
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'นางสาวเอื้องอริน สายจันทร์',
+					'name_en' => 'Ms.Oeungarin Saichan',
+					'position_th' => 'ฝ่ายสื่อสารการตลาด',
+					'position_en' => 'Marketing Communication Department',
+				],
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'นายสุพจน์ อุ่นแก้ว',
+					'name_en' => 'Mr. Supoj Aunkaew',
+					'position_th' => 'ฝ่ายดิจิทัลครีเอทีฟ',
+					'position_en' => 'Digital Creative Department',
+				],
+				[
+					'img_path' => '/images/image-5.jpg',
+					'name_th' => 'นายอุเทน ฟูศรี',
+					'name_en' => 'Mr. Autian Fusri',
+					'position_th' => 'ฝ่ายกายภาพ',
+					'position_en' => 'Physical Facilities Department',
+				],
+			];
+		} 
+		return view('empolyee', compact('employee_list', 'type'));
 	}
 }
