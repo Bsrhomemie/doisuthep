@@ -226,7 +226,7 @@ class UserController extends Controller
 		print_r($post_list['plants']['list']);
 
 	
-		print_r(count($post_list['plants']['animals']));
+		print_r(count($post_list['animals']['list']));
 
 		
 		die();
