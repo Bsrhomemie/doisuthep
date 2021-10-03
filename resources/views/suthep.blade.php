@@ -40,7 +40,7 @@
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  {{$list->'post_name'.[__('message.suthep_detail')}}
+                  {{$list->post_name.''.__('message.suthep_detail')}}
                 </p>
               </div>
             </div>
