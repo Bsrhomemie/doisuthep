@@ -21,7 +21,7 @@
         <div class="col-12">
           <p class="mb-3">{!! $topic[__('message.suthep_detail')] !!}</p>
         </div>
-        @if ($topic['post']) 
+        <!-- @if ($topic['post'])  -->
         @foreach($topic['post'] as $post) 
         <div class="col-md-4">
           <div class="card card-box mb-3">
@@ -40,16 +40,16 @@
             </div>
             <div class="card-body">
               <p class="card-text">{{$post->post_name_th}}</p>
-              <!-- <p class="card-text">{{$post->__('message.lang_message')}}</p> -->
+              <p class="card-text">{{$post->__('message.lang_message')}}</p>
             </div>
           </div>
         </div>
         @endforeach
-        @else
+        <!-- @else
         <div class="col-12 text-center">
           <h6>ไม่มีข้อมูล</h6>
         </div>
-        @endif
+        @endif -->
         <div class="col-lg-12 d-flex justify-content-end">
           <a href="news.php" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
         </div>
