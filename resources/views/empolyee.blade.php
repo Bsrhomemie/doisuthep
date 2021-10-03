@@ -19,7 +19,7 @@
    
       <div class="row ">
         @foreach($employee_list as $employee) 
-          <div class="col-md-4  mt-4 wow fadeInUp">
+          <div class="col-md-3  mt-4 wow fadeInUp">
             <div class="card card-box  h-100 ">
               <div class="about-col">
                 <div class="img-4by3-v  holder">
