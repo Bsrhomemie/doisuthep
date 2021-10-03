@@ -40,7 +40,7 @@
               </div>
               <div class="card-body">
                 <p class="card-text">
-                  {{$list->__('message.lang_system')}}
+                  {{__('message.lang_system')}}
                 </p>
               </div>
             </div>
