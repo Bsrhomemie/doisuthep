@@ -221,7 +221,7 @@ class UserController extends Controller
 			$number = 3;
 			$select = Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
-			->paginate($number);
+			->take($number);
 			$post_list[$key]['list'] = $select;
 		}
 		dd($post_list);
