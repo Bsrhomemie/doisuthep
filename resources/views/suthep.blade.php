@@ -40,7 +40,7 @@
             </div>
             <div class="card-body">
               <p class="card-text">{{$post->post_name_th}}</p>
-              <p class="card-text">{{$post->'post_name_'.__('message.lang_message')}}</p>
+              <p class="card-text">{{$post->__('message.lang_message')}}</p>
             </div>
           </div>
         </div>
