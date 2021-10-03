@@ -219,13 +219,10 @@ class UserController extends Controller
 
 		foreach($post_list as $key => $type) {
 			$number = 3;
-			$value = Post::where('post_type', $type['id'])
+			$post_list[$key]['list'] = Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number);
-			$post_list[$key]['list'] = $value->toArray();
-
 		}
-
 		return view('suthep', compact('post_list'));
 	}
 
