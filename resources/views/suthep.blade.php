@@ -44,14 +44,14 @@
             </div>
           </div>
         @endforeach
+          <div class="col-lg-12 d-flex justify-content-end">
+            <a href="news.php" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
+          </div>
         @else 
           <div class="col-12 text-center">
             <h6>ไม่มีข้อมูล</h6>
           </div>
         @endif
-        <div class="col-lg-12 d-flex justify-content-end">
-          <a href="news.php" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
-        </div>
       </div>
     </section> 
     @endforeach
