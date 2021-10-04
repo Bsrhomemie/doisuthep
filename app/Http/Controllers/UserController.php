@@ -47,9 +47,11 @@ class UserController extends Controller
 			if($key == 'join') {
 				$number = 5;
 			}
-			$post_list[$key] = Post::where('post_type', $type['id'])
+			$select = Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
 			->paginate($number);
+			$select = json_decode(json_encode($select), true);
+			$post_list[$key]['list'] = $select['data'];
 		}
 		return view('index', compact('list', 'post_list', 'youtube_list'));
 	}

@@ -247,13 +247,13 @@
                     <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
-                    <a href="{{url('news-detail/news/'.$news->id)}}" title="รายละเอียด">
+                    <a href="{{url('news-detail/news/'.$news['id'])}}" title="รายละเอียด">
                       <i class="fas fa-eye"></i>
                     </a>
                   </div>
                 </div>
                 <div class="card-body">
-                  <p class="card-text">{{$news->post_name_th}}</p>
+                  <p class="card-text"> {{$news['post_name_'.__('message.lang_system')]}}</p>
                 </div>
               </div>
             </div>
@@ -280,13 +280,13 @@
                     <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
                       <i class="far fa-image"></i>
                     </a>
-                    <a href="{{url('news-detail/news/'.$articles->id)}}" title="รายละเอียด">
+                    <a href="{{url('news-detail/news/'.$articles['id'])}}" title="รายละเอียด">
                       <i class="fas fa-eye"></i>
                     </a>
                   </div>
                 </div>
                 <div class="card-body">
-                  <p class="card-text">{{$articles->post_name_th}}</p>
+                  <p class="card-text">{{$articles['post_name_'.__('message.lang_system')]}}</p>
                 </div>
               </div>
             </div>
@@ -348,8 +348,8 @@
                     <td class="text-grey">
                       <span style="font-size:14px;">
                         <i class="far fa-calendar-alt"></i>
-                        {{date('d/m/Y', strtotime($join->created_at))}} | {{$join->post_name_th}}
-                        <a class="text-link" href="{{url('news-detail/news/'.$join->id)}}">{{__('message.detail')}}</a>
+                        {{date('d/m/Y', strtotime($join['created_at']))}} | {{$join['post_name_'.__('message.lang_system')]}}
+                        <a class="text-link" href="{{url('news-detail/news/'.$join['id'])}}">{{__('message.detail')}}</a>
                       </span>
                     </td>
                   </tr>
