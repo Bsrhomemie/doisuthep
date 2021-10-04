@@ -39,7 +39,7 @@
     'organization_tel' => 'โทรศัพท์: 053-941451-3 / 084-6116345',
     'suthep_detail' => 'detail_en',
     'lang_system' => 'en',
-
+    'no_data' => 'No data',
   ];
   
 ?>

@@ -118,7 +118,9 @@ class UserController extends Controller
 		$type_text = isset($type_list[$type])? $type_list[$type]['name'] : '' ;
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 
-		$content_list = Post::where('post_type', $type_id)->get();
+		$select = Post::where('post_type', $type_id)->get();
+		$select = json_decode(json_encode($select), true);
+		$content_list =  $select['data'];
 		if($type == 'join') {
 			return view('news-job', compact('type_text', 'content_list'));
 		} else {

@@ -236,32 +236,41 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.news')}}</p>
         </div>
         <div class="row">
-          @foreach ($post_list['news'] as $key => $news) 
-            <div class="col-md-4">
-              <div class="card card-box mb-3">
-                <div class="highlight-hover">
-                  <div class="img-16by9 holder " >
-                    <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
+          @if($post_list['news']) 
+            @foreach ($post_list['news'] as $key => $news) 
+              <div class="col-md-4">
+                <div class="card card-box mb-3">
+                  <div class="highlight-hover">
+                    <div class="img-16by9 holder " >
+                      <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
+                    </div>
+                    <div class="show-hover">
+                      <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
+                        <i class="far fa-image"></i>
+                      </a>
+                      <a href="{{url('news-detail/news/'.$news['id'])}}" title="รายละเอียด">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </div>
                   </div>
-                  <div class="show-hover">
-                    <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
-                      <i class="far fa-image"></i>
-                    </a>
-                    <a href="{{url('news-detail/news/'.$news['id'])}}" title="รายละเอียด">
-                      <i class="fas fa-eye"></i>
-                    </a>
+                  <div class="card-body">
+                    <p class="card-text"> {{$news['post_name_'.__('message.lang_system')]}}</p>
                   </div>
-                </div>
-                <div class="card-body">
-                  <p class="card-text"> {{$news['post_name_'.__('message.lang_system')]}}</p>
                 </div>
               </div>
+            @endforeach
+            <div class="col-lg-12 d-flex justify-content-end">
+              <a href="{{url('news/news')}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
             </div>
-          @endforeach
-
-          <div class="col-lg-12 d-flex justify-content-end">
-            <a href="{{url('news/news')}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
-          </div>
+          @else 
+            <div class="col-12">
+              <div class="card card-box">
+                <div class="card-body text-center">
+                  <h6>ไม่มีข้อมูล</h6>
+                </div>  
+              </div>
+            </div>
+          @endif
         </div>
       </section>
       <section id="box-articles" class="wow fadeInDown " >
@@ -269,31 +278,42 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.articles')}}</p>
         </div>
         <div class="row">
-          @foreach ($post_list['articles'] as $key => $articles) 
-            <div class="col-md-4">
-              <div class="card card-box mb-3">
-                <div class="highlight-hover">
-                  <div class="img-16by9 holder " >
-                    <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
+          @if($post_list['articles']) 
+            @foreach ($post_list['articles'] as $key => $articles) 
+              <div class="col-md-4">
+                <div class="card card-box mb-3">
+                  <div class="highlight-hover">
+                    <div class="img-16by9 holder " >
+                      <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
+                    </div>
+                    <div class="show-hover">
+                      <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
+                        <i class="far fa-image"></i>
+                      </a>
+                      <a href="{{url('news-detail/news/'.$articles['id'])}}" title="รายละเอียด">
+                        <i class="fas fa-eye"></i>
+                      </a>
+                    </div>
                   </div>
-                  <div class="show-hover">
-                    <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
-                      <i class="far fa-image"></i>
-                    </a>
-                    <a href="{{url('news-detail/news/'.$articles['id'])}}" title="รายละเอียด">
-                      <i class="fas fa-eye"></i>
-                    </a>
+                  <div class="card-body">
+                    <p class="card-text">{{$articles['post_name_'.__('message.lang_system')]}}</p>
                   </div>
-                </div>
-                <div class="card-body">
-                  <p class="card-text">{{$articles['post_name_'.__('message.lang_system')]}}</p>
                 </div>
               </div>
+            @endforeach
+            <div class="col-lg-12 d-flex justify-content-end">
+              <a href="{{url('news/articles')}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
             </div>
-          @endforeach
-          <div class="col-lg-12 d-flex justify-content-end">
-            <a href="{{url('news/articles')}}" class="btn btn-main btn-sm mt-3"><i class="fa fa-arrow-right me-2"></i>{{__('message.more')}}</a>
-          </div>
+          @else 
+            <div class="col-12">
+              <div class="card card-box">
+                <div class="card-body text-center">
+                  <h6>ไม่มีข้อมูล</h6>
+                </div>  
+              </div>
+            </div>
+          @endif
+         
         </div>
       </section>
       <section id="box-souvenirs" class="wow fadeInDown mt-5" >
@@ -343,17 +363,21 @@
           <div class="col-12">
             <table class="table table-striped">
               <tbody>
-                @foreach ($post_list['join'] as $key => $join) 
-                  <tr>
-                    <td class="text-grey">
-                      <span style="font-size:14px;">
-                        <i class="far fa-calendar-alt"></i>
-                        {{date('d/m/Y', strtotime($join['created_at']))}} | {{$join['post_name_'.__('message.lang_system')]}}
-                        <a class="text-link" href="{{url('news-detail/news/'.$join['id'])}}">{{__('message.detail')}}</a>
-                      </span>
-                    </td>
-                  </tr>
-               @endforeach
+                @if($post_list['join']) 
+                  @foreach ($post_list['join'] as $key => $join) 
+                    <tr>
+                      <td class="text-grey">
+                        <span style="font-size:14px;">
+                          <i class="far fa-calendar-alt"></i>
+                          {{date('d/m/Y', strtotime($join['created_at']))}} | {{$join['post_name_'.__('message.lang_system')]}}
+                          <a class="text-link" href="{{url('news-detail/news/'.$join['id'])}}">{{__('message.detail')}}</a>
+                        </span>
+                      </td>
+                    </tr>
+                  @endforeach
+                @else 
+                  <tr><td class="text-center">{{__('message.no_data')}}</td></tr>
+                @endif  
               </tbody>
             </table>
           </div>

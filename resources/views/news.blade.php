@@ -18,13 +18,13 @@
                   <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="portfolio"  title="ดูรูปภาพ">
                     <i class="far fa-image"></i>
                   </a>
-                  <a href="{{url('news-detail/news/'.$content->id)}}" title="รายละเอียด">
+                  <a href="{{url('news-detail/news/'.$content['id'])}}" title="รายละเอียด">
                     <i class="fas fa-eye"></i>
                   </a>
                 </div>
               </div>
               <div class="card-body">
-                <p class="card-text">{{$content->post_name_th}}</p>
+                <p class="card-text">{{$content['post_name_'.__('message.lang_system')]}}</p>
               </div>
             </div>
           </div>

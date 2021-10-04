@@ -15,8 +15,8 @@
                     <td class="text-grey">
                       <span style="font-size:14px;">
                         <i class="far fa-calendar-alt"></i>
-                        {{date('d/m/Y', strtotime($join->created_at))}} | {{$join->post_name_th}}
-                        <a class="text-link" href="{{url('news-detail/news/'.$join->id)}}">{{__('message.detail')}}</a>
+                        {{date('d/m/Y', strtotime($join['created_at']))}} | {{$join['post_name_'.__('message.lang_system')]}}
+                        <a class="text-link" href="{{url('news-detail/news/'.$join['id'])}}">{{__('message.detail')}}</a>
                       </span>
                     </td>
                   </tr>

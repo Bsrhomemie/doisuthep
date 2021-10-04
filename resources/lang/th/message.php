@@ -39,5 +39,6 @@
     'organization_tel' => 'โทรศัพท์: 053-941451-3 / 084-6116345',
     'suthep_detail' => 'detail_th',
     'lang_system' => 'th',
+    'no_data' => 'ไม่พบข้อมูล',
   ];
 ?>
