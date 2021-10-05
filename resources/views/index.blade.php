@@ -242,10 +242,10 @@
                 <div class="card card-box mb-3">
                   <div class="highlight-hover">
                     <div class="img-16by9 holder " >
-                      <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
+                      <img src="{{URL::asset($news[$key])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
-                      <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
+                      <a href="{{URL::asset($news[$key])}}" class="me-3" data-lightbox="box_news"  title="ดูรูปภาพ">
                         <i class="far fa-image"></i>
                       </a>
                       <a href="{{url('news-detail/news/'.$news['id'])}}" title="รายละเอียด">
@@ -284,10 +284,10 @@
                 <div class="card card-box mb-3">
                   <div class="highlight-hover">
                     <div class="img-16by9 holder " >
-                      <img src="{{URL::asset($list[$key])}}" class="img-responsive image-preview" >
+                      <img src="{{URL::asset($articles[$key])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
-                      <a href="{{URL::asset($list[$key])}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
+                      <a href="{{URL::asset($articles[$key])}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
                         <i class="far fa-image"></i>
                       </a>
                       <a href="{{url('news-detail/news/'.$articles['id'])}}" title="รายละเอียด">
