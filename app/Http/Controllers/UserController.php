@@ -138,7 +138,6 @@ class UserController extends Controller
 		$select = Post::where('id', $id)->first();
 		$content = json_decode(json_encode($select), true);
 
-		dd($content);
 		if(!$content) {
 			$content =  [
 				'id' => '',
