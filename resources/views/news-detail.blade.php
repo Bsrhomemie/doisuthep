@@ -21,7 +21,6 @@
           </div>
         </div>
         <div class="col-md-6">
-          {!! $content->content_th !!}
           {!!  $content['content_'.__('message.lang_system')] !!}
 
           <div class="mt-4">
