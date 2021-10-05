@@ -57,7 +57,7 @@
     'staircase' => 'The Staircase',
     'staircase_description' => 'Placed at the bottom, it means letting everybody understand the environment and Doi Suthep.',
     'nong_doi' => 'Nong Doi', 
-    'nong_doi_description' => 'The bee of Doi Suthep which is the Habropoda sutepens  <br> <span class="font-14px font-Regular"> is symbolled as the savior of Doi Suthep forest. </span>', 
+    'nong_doi_description' => 'The bee of Doi Suthep  <br> <span class="font-14px font-Regular"> which is the Habropoda sutepens is symbolled as the savior of Doi Suthep forest. </span>', 
     'nong_ton_nam' => 'Nong Ton Nam ', 
     'nong_ton_nam_description' => 'A Crab called  Doimon Doi <br> <span class="font-14px font-Regular"> Suthep living in the waterfalls of Doi Suthep, symbolizing the restoration of Doi Suthep’s forests. </span>',
     'nong_guy' => 'Nong Guy', 

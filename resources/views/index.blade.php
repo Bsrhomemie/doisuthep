@@ -193,12 +193,9 @@
                 <img src="{{URL::asset('images/mascot/ntonnum.png')}}">
               </div>
             </div>
-            <p class="font-18px text-center mt-3 pt-1"><b>น้องต้นน้ำ</b></p>
+            <p class="font-18px text-center mt-3 pt-1"><b>{!!__('message.nong_ton_nam')!!}</b></p>
             <p class="text-center mb-0 font-Medium">
-              ปูน้ำตกดอยสุเทพ Doimon doisutep
-            </p>
-            <p class="text-center mb-0 font-14px">
-              ตัวแทนของการอนุรักษ์ฟื้นฟูป่าดอยสุเทพ
+            {!!__('message.nong_ton_nam_description')!!}
             </p>
           </div>
         </div>
@@ -211,12 +208,9 @@
                 <img src="{{URL::asset('images/mascot/nguy.png')}}">
               </div>
             </div>
-            <p class="font-18px text-center mt-3 pt-1"><b>น้องกาย</b></p>
+            <p class="font-18px text-center mt-3 pt-1"><b>{!!__('message.nong_guy')!!}</b></p>
             <p class="text-center mb-0 font-Medium">
-              ตุ๊กกายดอยสุเทพ Cyrtodactylus doisuthep
-            </p>
-            <p class="text-center mb-0 font-14px">
-              ตัวแทนของการเรียนรู้ธรรมชาติดอยสุเทพ
+            {!!__('message.nong_guy_description')!!}
             </p>
           </div>
         </div>
@@ -264,7 +258,7 @@
             <div class="col-12">
               <div class="card card-box">
                 <div class="card-body text-center">
-                  <h6>ไม่มีข้อมูล</h6>
+                  <h6>{{__('message.no_data')}}</h6>
                 </div>  
               </div>
             </div>
@@ -306,7 +300,7 @@
             <div class="col-12">
               <div class="card card-box">
                 <div class="card-body text-center">
-                  <h6>ไม่มีข้อมูล</h6>
+                  <h6>{{__('message.no_data')}}</h6>
                 </div>  
               </div>
             </div>
