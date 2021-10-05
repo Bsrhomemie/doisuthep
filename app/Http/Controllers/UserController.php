@@ -53,8 +53,7 @@ class UserController extends Controller
 			$select = json_decode(json_encode($select), true);
 			$post_list[$key]['list'] = $select['data'];
 		}
-		// dd($post_list);
-		// die();
+		dd($post_list);
 		return view('index', compact('list', 'post_list', 'youtube_list'));
 	}
 
