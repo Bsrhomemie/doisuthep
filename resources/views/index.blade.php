@@ -70,7 +70,7 @@
               </div>
               <p class="font-18px text-center mt-3"><b>{!!__('message.vision')!!}</b></p>
               <p class="text-center mb-0">
-              {{__('message.vision_description')}} 
+              {!!__('message.vision_description')!!} 
             </p>
             </div>
           </div>
