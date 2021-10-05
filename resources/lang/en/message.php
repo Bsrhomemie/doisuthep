@@ -57,11 +57,11 @@
     'staircase' => 'The Staircase',
     'staircase_description' => 'Placed at the bottom, it means letting everybody understand the environment and Doi Suthep.',
     'nong_doi' => 'Nong Doi', 
-    'nong_doi_description' => 'The bee of Doi Suthep which is the Habropoda sutepens  <br> <span class="font-14px"> is symbolled as the savior of Doi Suthep forest. </span>', 
+    'nong_doi_description' => 'The bee of Doi Suthep which is the Habropoda sutepens  <br> <span class="font-14px font-Regular"> is symbolled as the savior of Doi Suthep forest. </span>', 
     'nong_ton_nam' => 'Nong Ton Nam ', 
-    'nong_ton_nam_description' => 'A Crab called  Doimon Doi <br> <span class="font-14px"> Suthep living in the waterfalls of Doi Suthep, symbolizing the restoration of Doi Suthep’s forests. </span>',
+    'nong_ton_nam_description' => 'A Crab called  Doimon Doi <br> <span class="font-14px font-Regular"> Suthep living in the waterfalls of Doi Suthep, symbolizing the restoration of Doi Suthep’s forests. </span>',
     'nong_guy' => 'Nong Guy', 
-    'nong_guy_description' => 'The wild gecko of Doi Suthep <br> <span class="font-14px"> is called Cyrtodactylus Doi Suthep, the symbol of studying Doi Suthep’s nature. </span>', 
+    'nong_guy_description' => 'The wild gecko of Doi Suthep <br> <span class="font-14px font-Regular"> is called Cyrtodactylus Doi Suthep, the symbol of studying Doi Suthep’s nature. </span>', 
     'doi_suthep_description' => 'Doi Suthep – Pui Natural Park is counted as the 24th natural park in Thailand. It was made official on the 14th of April in 2524 B.E. it covers 100,662.50 Rai or 161.06 square kilometers of land. It covers Amphur Muang, Han Dong, Mae Lim and, Mae Tang sub-districts of Chiang Mai. The highest elevation point is in Doi Pui which is 1,685 meters above sea level. This Natural Park has an abundant forest despite being only 6 Kilometers away from the city.'
 
 

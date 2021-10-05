@@ -56,11 +56,11 @@
     'staircase' => 'ทางเดิน',
     'staircase_description' => 'ด้านล่างของตราสัญลักษณ์ สื่อถึงการนำทุกคนเข้าถึงธรรมชาติและดอยสุเทพ',
     'nong_doi' => 'น้องดอย', 
-    'nong_doi_description' => 'ผึ้งดอยสุเทพ Habropoda sutepensis  <br> <span class="font-14px"> ตัวแทนของการปกป้องพิทักษ์ป่าดอยสุเทพ </span>', 
+    'nong_doi_description' => 'ผึ้งดอยสุเทพ Habropoda sutepensis  <br> <span class="font-14px font-Regular"> ตัวแทนของการปกป้องพิทักษ์ป่าดอยสุเทพ </span>', 
     'nong_ton_nam' => 'น้องต้นน้ำ', 
-    'nong_ton_nam_description' => 'ปูน้ำตกดอยสุเทพ Doimon doisutep <br> <span class="font-14px"> ตัวแทนของการอนุรักษ์ฟื้นฟูป่าดอยสุเทพ </span>', 
+    'nong_ton_nam_description' => 'ปูน้ำตกดอยสุเทพ Doimon doisutep <br> <span class="font-14px font-Regular"> ตัวแทนของการอนุรักษ์ฟื้นฟูป่าดอยสุเทพ </span>', 
     'nong_guy' => 'น้องกาย', 
-    'nong_guy_description' => 'ตุ๊กกายดอยสุเทพ Cyrtodactylus doisuthep <br> <span class="font-14px"> ตัวแทนของการเรียนรู้ธรรมชาติดอยสุเทพ </span>',
+    'nong_guy_description' => 'ตุ๊กกายดอยสุเทพ Cyrtodactylus doisuthep <br> <span class="font-14px font-Regular"> ตัวแทนของการเรียนรู้ธรรมชาติดอยสุเทพ </span>',
     'doi_suthep_description' => 'อุทยานแห่งชาติดอยสุเทพ-ปุย เป็นอุทยานแห่งชาติลำดับที่ 24 ของประเทศไทย โดยประกาศเมื่อวันที่ 14 เมษายน 2524 ครอบคลุมพื้นที่ 100,662.50 ไร่ หรือ 161.06 ตารางกิโลเมตร มีพื้นที่ตั้งอยู่ในเขตอำเภอเมือง อำเภอหางดง อำเภอแม่ริม และอำเภอแม่แตง ของจังหวัดเชียงใหม่ จุดสูงสุดของอุทยานฯ อยู่บริเวณที่เรียกว่า “ดอยปุย” ซึ่งสูงกว่าระดับน้ำทะเล 1,685 เมตร อุทยานแห่งชาติแห่งนี้ประกอบด้วยป่าที่อุดมสมบูรณ์ แม้ว่าที่ตั้งจะอยู่ใกล้ตัวเมืองเชียงใหม่เพียง 6 กิโลเมตร'
   ];
 ?>

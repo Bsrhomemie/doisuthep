@@ -89,9 +89,9 @@
               </div>
               <p class="font-18px text-center mt-3 pt-1"><b>{{__('message.mission')}}</b></p>
               <p class="mb-0 px-2">
-                - จัดกิจกรรมและการอบรมที่ส่งเสริมการเรียนรู้ด้านธรรมชาติวิทยา <br>
-                - ให้บริการข้อมูลด้านธรรมชาติวิทยาดอยสุเทพ <br>
-                - สร้างเครือข่ายและพื้นที่แลกเปลี่ยนเรียนรู้เพื่อส่งเสริมชุมชนให้เป็นมิตรกับสิ่งแวดล้อม
+                - {!!__('message.mission_description1')!!} <br>
+                - {!!__('message.mission_description2')!!} <br>
+                - {!!__('message.mission_description3')!!}
               </p>
             </div>
           </div>
@@ -155,16 +155,16 @@
           </div>
           <table class="table table-bordered mt-3">
             <tr>
-              <th>ต้นไม้</th>
-              <td>ที่มีรูปร่างเหมือนดอยสุเทพ สื่อถึงธรรมชาติวิทยาของพื้นที่</td>
+              <th>{!!__('message.plants')!!}</th>
+              <td>{!!__('message.plants_description')!!}</td>
             </tr>
             <tr>
-              <th>พระธาตุดอยสุเทพ</th>
-              <td>ตรงกลางของตราสัญลักษณ์ สื่อถึงการเป็นศูนย์รวมจิตใจของชาวเชียงใหม่ </td>
+              <th>{!!__('message.pagoda')!!}</th>
+              <td>{!!__('message.pagoda_description')!!}</td>
             </tr>
             <tr>
-              <th>ทางเดิน </th>
-              <td>ด้านล่างของตราสัญลักษณ์ สื่อถึงการนำทุกคนเข้าถึงธรรมชาติและดอยสุเทพ</td>
+              <th>{!!__('message.staircase')!!}</th>
+              <td>{!!__('message.staircase_description')!!}</td>
             </tr>
           </table>
         </div>
@@ -178,12 +178,9 @@
                 <img src="{{URL::asset('images/mascot/ndoi.png')}}">
               </div>
             </div>
-            <p class="font-18px text-center mt-3"><b>น้องดอย</b></p>
+            <p class="font-18px text-center mt-3"><b>{!!__('message.nong_doi')!!}</b></p>
             <p class="text-center mb-0 font-Medium">
-             ผึ้งดอยสุเทพ Habropoda sutepensis
-            </p>
-            <p class="text-center mb-0 font-14px">
-              ตัวแทนของการปกป้องพิทักษ์ป่าดอยสุเทพ
+            {!!__('message.nong_doi_description')!!}
             </p>
           </div>
         </div>
