@@ -284,7 +284,7 @@
                 <div class="card card-box mb-3">
                   <div class="highlight-hover">
                     <div class="img-16by9 holder " >
-                      <img src="{{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" >
+                      <img src="{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
                       <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="box_articles"  title="ดูรูปภาพ">
