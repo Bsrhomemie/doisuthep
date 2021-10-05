@@ -5,11 +5,11 @@
     <section id="box-publicize">
       <div class="header-selected pt-0">
         <h3>
-          {{$content->post_name_th}}
+          {{$content['post_name_'.__('message.lang_system')]}}
           <br>
           <p class="text-dark mt-2 mb-0 text-normal">
             <small><i class="fa fa-calendar"></i> 
-              {{date('d/m/Y', strtotime($content->created_at))}}
+              {{date('d/m/Y', strtotime($content['created_at']))}}
             </small>
           </p>
         </h3>
@@ -22,6 +22,7 @@
         </div>
         <div class="col-md-6">
           {!! $content->content_th !!}
+          {!!  $content['content_'.__('message.lang_system')] !!}
 
           <div class="mt-4">
             <div id="fb-root"></div>
