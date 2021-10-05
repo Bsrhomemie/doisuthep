@@ -135,9 +135,12 @@ class UserController extends Controller
 			"/images/image-5.jpg", 
 		]; 
 	
-		$content = Post::where('id', $id)->first();
+		$select = Post::where('id', $id)->first();
+		$content = json_decode(json_encode($select), true);
+
+		dd($content);
 		if(!$content) {
-			$content = (object) [
+			$content =  [
 				'id' => '',
 				'created_at' => date('Y-m-d'),
 				'post_name_th' => '',
