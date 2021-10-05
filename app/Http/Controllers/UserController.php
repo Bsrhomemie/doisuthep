@@ -51,9 +51,8 @@ class UserController extends Controller
 			->orderBy('id','desc')
 			->paginate($number);
 			$select = json_decode(json_encode($select), true);
-			$post_list[$key]['list'] = $select['data'];
+			$post_list[$key] = $select['data'];
 		}
-		dd($post_list);
 		return view('index', compact('list', 'post_list', 'youtube_list'));
 	}
 
