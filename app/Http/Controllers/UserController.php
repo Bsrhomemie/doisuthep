@@ -120,9 +120,10 @@ class UserController extends Controller
 
 		$select = Post::where('post_type', $type_id)->get();
 		$select = json_decode(json_encode($select), true);
+	
+		dd($select);
+		die();
 		$content_list =  $select['data'];
-		dd($content_list);
-
 		if($type == 'join') {
 			return view('news-job', compact('type_text', 'content_list'));
 		} else {
