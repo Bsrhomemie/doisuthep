@@ -4,7 +4,7 @@
   <div class="container pt-30px mb-5">
     <section >
       <div class="header-selected pt-20px">
-        <h3> {{__('message.'+$type)}} </h3>
+        <h3> {{__('message.'.$type)}} </h3>
       </div>
       <div class="row wow fadeInDown">
         @foreach ($content_list as $content)
