@@ -50,7 +50,7 @@ Route::post('content/delete', [ContentController::Class,'deleteContet']);
 Route::get('/admin/product', [AdminController::Class,'listProtuct']);
 // Route::get('/admin/vedio', [AdminController::Class,'listVedio']);
 Route::get('/admin/work', [AdminController::Class,'listWork']);
-// Route::resource('product', ProductController::Class);
+Route::resource('product', ProductController::Class);
 // Route::resource('work', WorkController::Class);
 
 // Route::resource('admin', AdminController::Class);
