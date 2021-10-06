@@ -15,10 +15,10 @@
                   <img src="{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" >
                 </div>
                 <div class="show-hover">
-                  <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="portfolio"  title="ดูรูปภาพ">
+                  <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="portfolio"  title="{{__('message.picture')}}">
                     <i class="far fa-image"></i>
                   </a>
-                  <a href="{{url('news-detail/news/'.$content['id'])}}" title="รายละเอียด">
+                  <a href="{{url('news-detail/news/'.$content['id'])}}" title="{{__('message.detail')}}">
                     <i class="fas fa-eye"></i>
                   </a>
                 </div>
