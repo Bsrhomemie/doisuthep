@@ -50,8 +50,8 @@
             <ul class="sub">
               <li><a class="" href="{{url('/admin/content/news')}}">ข่าวประชาสัมพันธ์ </a></li>
               <li><a class="" href="{{url('/admin/content/articles')}}">บทความ</a></li>
-              <!-- <li><a class="" href="{{url('/admin/product?type=souvenirs')}}">ของที่ระลึก</a></li>
-              <li><a class="" href="{{url('/admin/vedio?type=vedio')}}">วิดีโอ</a></li> -->
+              <li><a class="" href="{{url('/admin/product')}}">ของที่ระลึก</a></li>
+              <!--<li><a class="" href="{{url('/admin/vedio?type=vedio')}}">วิดีโอ</a></li> -->
               <li><a class="" href="{{url('/admin/content/join')}}">ร่วมงานกันเรา</a></li>
             </ul>
           </li>

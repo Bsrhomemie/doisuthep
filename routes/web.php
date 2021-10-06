@@ -47,9 +47,7 @@ Route::post('content/edit/', [ContentController::Class,'editContet']);
 Route::post('content/delete', [ContentController::Class,'deleteContet']);
 // Route::post('content/add_type', [ContentController::Class,'addType']);
 
-
-
-// Route::get('/admin/product', [AdminController::Class,'listProtuct']);
+Route::get('/admin/product', [AdminController::Class,'listProtuct']);
 // Route::get('/admin/vedio', [AdminController::Class,'listVedio']);
 Route::get('/admin/work', [AdminController::Class,'listWork']);
 // Route::resource('product', ProductController::Class);

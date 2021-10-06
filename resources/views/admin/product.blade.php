@@ -12,7 +12,7 @@
                   <h2>ของที่ระลึก</h2>
                 </div>
                 <div>
-                  <a href="{{route('product.create','type='.$type)}}" class="btn btn-success px-3 py-2" id="btn-add" data-toggle="modal" data-target="#formModal">
+                  <a href="{{route('product.create')}}" class="btn btn-success px-3 py-2" id="btn-add" data-toggle="modal" data-target="#formModal">
                   <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล 
                   </a>
                 </div>
