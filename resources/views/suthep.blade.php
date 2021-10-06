@@ -8,7 +8,7 @@
       </div>
       <div class="row">
         <div class="col-12">
-          &nbsp &nbsp &nbsp &nbsp {{__('message.'.$doi_suthep_description)}} 
+          &nbsp &nbsp &nbsp &nbsp {{__('message.doi_suthep_description')}} 
         </div>
       </div>
     </section>
