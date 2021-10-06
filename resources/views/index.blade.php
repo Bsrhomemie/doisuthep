@@ -155,15 +155,15 @@
           </div>
           <table class="table table-bordered mt-3">
             <tr>
-              <th>{!!__('message.plants')!!}</th>
+              <th style="width: 30%;">{!!__('message.plants')!!}</th>
               <td>{!!__('message.plants_description')!!}</td>
             </tr>
             <tr>
-              <th>{!!__('message.pagoda')!!}</th>
+              <th style="width: 30%;">{!!__('message.pagoda')!!}</th>
               <td>{!!__('message.pagoda_description')!!}</td>
             </tr>
             <tr>
-              <th>{!!__('message.staircase')!!}</th>
+              <th style="width: 30%;">{!!__('message.staircase')!!}</th>
               <td>{!!__('message.staircase_description')!!}</td>
             </tr>
           </table>

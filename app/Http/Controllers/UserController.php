@@ -88,7 +88,7 @@ class UserController extends Controller
 			],
 			'exhibition' => [ 
 			  'id' =>	8,
-			  'name' =>	'นิทรรศการดอยสุเทพ',
+			  'name' =>	'นิทรรศการดอยสุเทพ', 
 			],
 			'learning' => [ 
 			  'id' =>	9,
@@ -122,9 +122,9 @@ class UserController extends Controller
 		$select = json_decode(json_encode($select), true);
 		$content_list =  $select;
 		if($type == 'join') {
-			return view('news-job', compact('type_text', 'content_list'));
+			return view('news-job', compact('type', 'content_list'));
 		} else {
-			return view('news', compact('type_text', 'content_list'));
+			return view('news', compact('type', 'content_list'));
 		}
 	}
 
