@@ -44,7 +44,7 @@
         </div>
       </div>
     </section>
-    <section id="box-dsnc" class="wow fadeInDown" >
+    <section id="box-aboutDSNC" class="wow fadeInDown" >
       <div class="header-selected pt-10px">
         <h3>{{__('message.aboutUs')}}</h3>
         <p><i class="fa fa-bullhorn"></i>{{__('message.aboutDSNC')}}</p>
