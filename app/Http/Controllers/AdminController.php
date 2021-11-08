@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
-use App\Models\Product_tbl;
+use App\Models\Product;
 use Illuminate\Http\Request; 
 
 class AdminController extends Controller
@@ -122,11 +122,9 @@ class AdminController extends Controller
 
 	public function listProtuct()
 	{
-		$content = Post::where('post_type', $type_id)
-		->orderBy('id','desc')
+		$products = Product::orderBy('id','desc')
 		->paginate(5); 
-		
-		return view('admin.product', compact('todo'));
+		return view('admin.product', compact('products'))->with('i', (request()->input('page', 1)-1) * 5);
 	}
 
 	public function listVedio(Request $request)

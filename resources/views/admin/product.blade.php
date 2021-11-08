@@ -23,23 +23,25 @@
                 <thead>
                   <tr>
                     <th nowrup class="w-100px">รูปภาพ</th>
-                    <th >ชื่อ</th>
+                    <th >ชื่อภาษาไทย</th>
+                    <th >ชื่อภาษาอังกฤษ</th>
                     <th class="w-250px">ราคา</th>
                     <th class="w-250px ">สถานะ</th>
                     <td class="w-100px"></td>
                   </tr>
                 </thead>
                 <tbody id="todos-list" name="todos-list">
-                    @foreach ($todo as $data)
+                    @if(!$products->isEmpty())
+                    @foreach ($products as $data)
                     <tr id="todo{{$data['id']}}">
                         <td>
                           <div class="img-1by1 holder " >
                             <img src="{{URL::asset('/images/image-5.jpg')}}" class="img-responsive image-preview" >
                           </div>
                         </td>
-                        <td>{{Str::limit($data['name'], 200)}}</td>
-                        <td>{{number_format($data['price'],2)}}</td>
-                        <td>{{($data['status'] == 0) ? 'ปิดขาย' : 'เปิดขาย' }}</td>
+                        <td>{{$data->name_th}}</td>
+                        <td>{{$data->name_en}</td>
+                        <td>{{($data->status == 0) ? 'ปิดขาย' : 'เปิดขาย' }}</td>
                         <td>
                           <div class="d-flex justify-content-center">
                             <a href="" class="btn btn-warning me-2">
@@ -54,6 +56,9 @@
                         </td>
                     </tr>
                     @endforeach
+                    @else 
+                    <tr><td class="text-center" colspan="5"> ไม่มีข้อมูล</td></tr>
+                    @endif
                 </tbody>
               </table>
             </div>

@@ -26,8 +26,8 @@
           <div class="col-12 px-3">
             <form action="{{route('product.store') }}" method="post">
               @csrf
-              <div class="row">
-                <div class="col-lg-3">
+              <div class="row justify-content-center">
+                <div class="col-6 col-lg-3">
                   <div class="form-group">
                     <label>รูปภาพ</label>
                     <div class="image-upload files">
@@ -46,22 +46,28 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label>ชื่อ</label>
-                        <input type="text" name="name" class="form-control">
+                        <label>ชื่อภาษาไทย</label>
+                        <input type="text" name="name_th" class="form-control">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label>ชื่อภาษาอังกฤษ</label>
+                        <input type="text" name="name_en" class="form-control">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>ราคาขาย</label>
-                        <input type="text" name="price" class="form-control">
+                        <input type="number" step="any" name="price" class="form-control">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>สถานะ</label>
                         <select name="status" class="form-control">
-                          <option value="0">ปิดการขาย</option>
                           <option value="1">เปิดการขาย</option>
+                          <option value="0">ปิดการขาย</option>
                         </select>
                       </div>
                     </div>
