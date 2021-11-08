@@ -57,7 +57,7 @@
                     </tr>
                     @endforeach
                     @else 
-                    <tr><td class="text-center" colspan="5"> ไม่มีข้อมูล</td></tr>
+                    <tr><td class="text-center" colspan="6"> ไม่มีข้อมูล</td></tr>
                     @endif
                 </tbody>
               </table>
