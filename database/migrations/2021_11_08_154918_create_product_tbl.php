@@ -19,7 +19,6 @@ class CreateProductTbl extends Migration
             $table->text('name_en');
             $table->float('price');
             $table->int('status');
-            $table->timestamps();
             
         });
     }
