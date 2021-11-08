@@ -40,7 +40,7 @@
                           </div>
                         </td>
                         <td>{{$data->name_th}}</td>
-                        <td>{{$data->name_en}</td>
+                        <td>{{$data->name_en}}</td>
                         <td>{{($data->status == 0) ? 'ปิดขาย' : 'เปิดขาย' }}</td>
                         <td>
                           <div class="d-flex justify-content-center">
