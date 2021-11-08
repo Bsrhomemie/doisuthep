@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use App\Models\Product_tbl;
 use Illuminate\Http\Request; 
 
 class AdminController extends Controller
@@ -121,32 +122,9 @@ class AdminController extends Controller
 
 	public function listProtuct()
 	{
-			$todo = [
-				[
-					'id' => 1,
-					'price' => 200,
-					'name' => 'สินค้า', 
-					'status' => 0
-				],
-				[
-					'id' => 2,
-					'price' => 200,
-					'name' => 'สินค้า',
-					'status' => 1
-				],	
-				[
-					'id' => 3,
-					'price' => 200,
-					'name' => 'สินค้า',
-					'status' => 1
-				],
-				[
-					'id' => 4,
-					'price' => 200,
-					'name' => 'สินค้า',
-					'status' => 0
-				],
-			];
+		$content = Post::where('post_type', $type_id)
+		->orderBy('id','desc')
+		->paginate(5); 
 		
 		return view('admin.product', compact('todo'));
 	}

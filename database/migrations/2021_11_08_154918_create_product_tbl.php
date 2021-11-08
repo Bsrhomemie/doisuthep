@@ -18,7 +18,7 @@ class CreateProductTbl extends Migration
             $table->text('name_th');
             $table->text('name_en');
             $table->decimal('price', 100, 2);
-            $table->boolean('sta');
+            $table->boolean('status');
             $table->timestamps();
             
         });
