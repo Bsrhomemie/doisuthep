@@ -27,7 +27,7 @@
             <form action="{{route('product.store') }}" method="post">
               @csrf
               <div class="row justify-content-center">
-                <div class="col-6 col-lg-3">
+                <div class="col-md-6 col-lg-3">
                   <div class="form-group">
                     <label>รูปภาพ</label>
                     <div class="image-upload files">
@@ -74,7 +74,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 d-flex justify-content-end">
+              <div class="col-12 d-flex justify-content-end flex-wrap">
                 <button type="reset" class="btn btn-secondary  me-3 w-150px  py-2">Reset</button>
                 <button type="submit" class="btn btn-success  w-150px  py-2">Submit</button>
               </div>
