@@ -70,11 +70,11 @@ class ProductController extends Controller
     }
 
 
-    public function deleteContet(Request $request)
+    public function deleteProduct(Request $request)
     {  
          $data = $request->input();
-        $data_post = Product::find($data['id']);
-        $data_post->delete();
+        $data_product = Product::find($data['id']);
+        $data_product->delete();
         return redirect('/admin/product')->with('status',"Delete successfully");
 
     }
