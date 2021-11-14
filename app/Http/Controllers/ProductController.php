@@ -52,8 +52,6 @@ class ProductController extends Controller
     {  
 
         $data = $request->input();
-        dd($data);
-        die();
         $data_product = Product::find($data['id']);
         $data_product->name_th = $data['name_th'];
         $data_product->name_en = $data['name_en'];
