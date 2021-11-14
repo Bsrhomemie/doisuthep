@@ -12,7 +12,7 @@
                   <h2>ของที่ระลึก</h2>
                 </div>
                 <div>
-                  <a href="{{url('product/form)}}" class="btn btn-success px-3 py-2">
+                  <a href="" class="btn btn-success px-3 py-2" >
                   <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล 
                   </a>
                 </div>
@@ -30,7 +30,36 @@
                     <td class="w-100px"></td>
                   </tr>
                 </thead>
-                
+                <tbody id="todos-list" name="todos-list">
+                    @if(!$products->isEmpty())
+                    @foreach ($products as $data)
+                    <tr id="todo{{$data['id']}}">
+                        <td>
+                          <div class="img-1by1 holder " >
+                            <img src="{{URL::asset('/images/image-5.jpg')}}" class="img-responsive image-preview" >
+                          </div>
+                        </td>
+                        <td>{{$data->name_th}}</td>
+                        <td>{{$data->name_en}}</td>
+                        <td>เปิดขาย</td>
+                        <td>
+                          <div class="d-flex justify-content-center">
+                            <a href="" class="btn btn-warning me-2">
+                              <i class="far fa-edit font-18px"></i>
+                            </a>
+                            <form action="" method="post">
+                              <!-- @csrf
+                              @method('DELETE') -->
+                              <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
+                            </form>
+                          </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                    @else 
+                    <tr><td class="text-center" colspan="6"> ไม่มีข้อมูล</td></tr>
+                    @endif
+                </tbody>
               </table>
             </div>
           </div>
