@@ -51,7 +51,7 @@ Route::get('/product/form/', [ProductController::Class,'viewProtuct']);
 Route::post('/product/add/', [ProductController::Class,'addProtuct']);
 Route::get('/product/form_edit/{id}', [ProductController::Class,'viewProtuct']);
 Route::post('product/edit/', [ProductController::Class,'editProduct']);
-Route::post('product/delete', [ContentController::Class,'deleteProduct']);
+Route::post('product/delete', [ProductController::Class,'deleteProduct']);
 
 // Route::get('/admin/vedio', [AdminController::Class,'listVedio']);
 Route::get('/admin/work', [AdminController::Class,'listWork']);
