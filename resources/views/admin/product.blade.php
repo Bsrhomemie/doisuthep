@@ -34,26 +34,26 @@
                     @if(!$products->isEmpty())
                     @foreach ($products as $data)
                     <tr>
-                        <td>
-                          <div class="img-1by1 holder " >
-                            <img src="{{asset('storage/'.$data->picture)}}" class="img-responsive image-preview" >
-                          </div>
-                        </td>
-                        <td>{{$data->name_th}}</td>
-                        <td>{{$data->name_en}}</td>
-                        <td>{{($data->status == 0) ? 'ปิดขาย' : 'เปิดขาย' }}</td>
-                        <td>
-                          <div class="d-flex justify-content-center">
-                            <a  href="{{url('product/form_edit/'.$data->id)}}" class="btn btn-warning me-2">
-                              <i class="far fa-edit font-18px"></i>
-                            </a>
-                            <form action="" method="post">
-                              <!-- @csrf
-                              @method('DELETE') -->
-                              <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
-                            </form>
-                          </div>
-                        </td>
+                      <td>
+                        <div class="img-1by1 holder " >
+                          <img src="" class="img-responsive image-preview" >
+                        </div>
+                      </td>
+                      <td>{{$data->name_th}}</td>
+                      <td>{{$data->name_en}}</td>
+                      <td>{{($data->status == 0) ? 'ปิดขาย' : 'เปิดขาย' }}</td>
+                      <td>
+                        <div class="d-flex justify-content-center">
+                          <a  href="{{url('product/form_edit/'.$data->id)}}" class="btn btn-warning me-2">
+                            <i class="far fa-edit font-18px"></i>
+                          </a>
+                          <form action="" method="post">
+                            <!-- @csrf
+                            @method('DELETE') -->
+                            <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
+                          </form>
+                        </div>
+                      </td>
                     </tr>
                     @endforeach
                     @else 
