@@ -19,6 +19,7 @@ class CreateProductTbl extends Migration
             $table->text('name_en');
             $table->decimal('price', 100, 2);
             $table->boolean('status');
+            $table->text('picture')->nullable();
             $table->timestamps();
             
         });

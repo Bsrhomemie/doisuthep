@@ -16,7 +16,7 @@ class TypeNameTable extends Migration
         Schema::create('type_name', function (Blueprint $table) {
             $table->id();
             $table->string('type_name_th');
-            $table->string('type_name_en');
+            $table->string('type_name_en'); 
         });
 
 
@@ -36,6 +36,7 @@ class TypeNameTable extends Migration
             ['type_name_th' => 'seed', 'type_name_en' => 'ห้องปฏิบัติการธนาคารเมล็ด'],
             ['type_name_th' => 'research', 'type_name_en' => 'งานวิจัยและฐานข้อมูล'],
             ['type_name_th' => 'activities', 'type_name_en' => 'พื้นที่จัดกิจกรรม'],
+            ['type_name_th' => 'join', 'type_name_en' => 'ร่วมงานกันเรา'],
         ]);
 
 
