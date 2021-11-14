@@ -50,13 +50,7 @@
                       </td>
                       <td>
                         <div class="d-flex justify-content-center">
-                          <a href="" class="btn btn-warning me-2">
-                            <i class="far fa-edit font-18px"></i>
-                          </a>
-                          <!-- <form action="{{url('/content/delete')}}" method="post">
-                              @csrf -->
-                            <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
-                          <!-- </form> -->
+                         
                         </div>
                       </td>
                     </tr>
