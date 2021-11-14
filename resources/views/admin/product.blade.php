@@ -30,35 +30,7 @@
                     <td class="w-100px"></td>
                   </tr>
                 </thead>
-                <tbody id="todos-list" name="todos-list">
-                    @if(!$products->isEmpty())
-                    @foreach ($products as $data)
-                    <tr>
-                      <td>
-                        <div class="img-1by1 holder " >
-                          <img src="" class="img-responsive image-preview" >
-                        </div>
-                      </td>
-                      <td>{{$data->name_th}}</td>
-                      <td>{{$data->name_en}}</td>
-                      <td>
-                        @if($data->status)
-                         เปิดการขาย
-                        @else 
-                          ปิดการขาย
-                        @endif
-                      </td>
-                      <td>
-                        <div class="d-flex justify-content-center">
-                         
-                        </div>
-                      </td>
-                    </tr>
-                    @endforeach
-                    @else 
-                    <tr><td class="text-center" colspan="6"> ไม่มีข้อมูล</td></tr>
-                    @endif
-                </tbody>
+                
               </table>
             </div>
           </div>
