@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/product/add')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/admin/content/articles')}}" method="post" enctype="multipart/form-data">
             @csrf
               <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3">
