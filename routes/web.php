@@ -46,8 +46,8 @@ Route::get('/content/form_edit/{type}/{id}', [ContentController::Class,'viewCont
 Route::post('content/edit/', [ContentController::Class,'editContet']);
 Route::post('content/delete', [ContentController::Class,'deleteContet']);
 
-Route::get('/admin/product', [AdminController::Class,'listProtuct']);
-Route::get('/product/form', [ProductController::Class,'viewProtuct']);
+Route::get('/admin/product/', [AdminController::Class,'listProtuct']);
+Route::get('/product/form/', [ProductController::Class,'viewProtuct']);
 Route::post('/product/add/', [ProductController::Class,'addProtuct']);
 Route::get('/product/form_edit/{id}', [ProductController::Class,'viewProtuct']);
 

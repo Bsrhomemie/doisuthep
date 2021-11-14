@@ -12,7 +12,7 @@
                   <h2>ของที่ระลึก</h2>
                 </div>
                 <div>
-                  <a href="" class="btn btn-success px-3 py-2" >
+                  <a href="{{url('/admin/content/articles')}}" class="btn btn-success px-3 py-2" >
                   <i class="fas fa-plus-circle me-2"></i>  เพิ่มข้อมูล 
                   </a>
                 </div>
