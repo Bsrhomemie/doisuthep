@@ -20,8 +20,8 @@ class ProductController extends Controller
         if(empty($id)) {
             return view('product.create');
         } else {
-            $content = product::where('id', $id)->first();
-            return view('product.edit', compact('content'));
+            $product = product::where('id', $id)->first();
+            return view('product.edit', compact('product'));
         }
        
     }
