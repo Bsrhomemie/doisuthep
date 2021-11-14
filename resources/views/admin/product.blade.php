@@ -41,7 +41,7 @@
                       </td>
                       <td>{{$data->name_th}}</td>
                       <td>{{$data->name_en}}</td>
-                      <td>{{($data->status == 0) ? 'ปิดขาย' : 'เปิดขาย' }}</td>
+                      <td>{{$data->statu }}</td>
                       <td>
                         <div class="d-flex justify-content-center">
                           <a  href="{{url('product/form_edit/'.$data->id)}}" class="btn btn-warning me-2">
