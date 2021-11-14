@@ -48,7 +48,7 @@
                         </td>
                         <td>{{$data->name_th}}</td>
                         <td>{{$data->name_en}}</td>
-                        <td>{{numfmt_format($data->price,2)}}</td>
+                        <td>{{ number_format($data->price, 2) }}</td>
                         <td>
                           @if($data->status) 
                             เปิดการขาย
