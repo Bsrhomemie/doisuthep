@@ -33,8 +33,6 @@
                 <tbody id="todos-list" name="todos-list">
                     @if(!$products->isEmpty())
                     @foreach ($products as $data)
-
-                  
                     <tr>
                       <td>
                         <div class="img-1by1 holder " >

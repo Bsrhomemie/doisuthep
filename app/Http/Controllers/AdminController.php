@@ -124,8 +124,6 @@ class AdminController extends Controller
 	{
 		$products = Product::orderBy('id','desc')
 		->paginate(5); 
-		dd($products);
-		die();
 		return view('admin.product', compact('products'))->with('i', (request()->input('page', 1)-1) * 5);
 	}
 
