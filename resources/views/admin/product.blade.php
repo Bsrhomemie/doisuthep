@@ -58,10 +58,10 @@
                         </td>
                         <td>
                           <div class="d-flex justify-content-center">
-                            <a href="" class="btn btn-warning me-2">
+                            <a href="{{url('product/form_edit/'.$data->id)}}" class="btn btn-warning me-2">
                               <i class="far fa-edit font-18px"></i>
                             </a>
-                            <form action="{{url('product/form_edit/'.$data->id)}}" method="post">
+                            <form action="" method="post">
                               <!-- @csrf
                               @method('DELETE') -->
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
