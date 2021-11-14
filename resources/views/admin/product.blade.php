@@ -50,7 +50,7 @@
                       </td>
                       <td>
                         <div class="d-flex justify-content-center">
-                          <a href="{{url('product/form_edit/'.$data->id)}}" class="btn btn-warning me-2">
+                          <a href="" class="btn btn-warning me-2">
                             <i class="far fa-edit font-18px"></i>
                           </a>
                           <form action="{{url('/content/delete')}}" method="post">
