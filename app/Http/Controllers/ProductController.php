@@ -27,7 +27,9 @@ class ProductController extends Controller
     }
 
     public function addProtuct(Request $request)
-    {
+    {   
+        dd($request);
+        die();
         $data = $request->input();
         $data_product = new Product;
         $data_product->name_th = $data['name_th'];
