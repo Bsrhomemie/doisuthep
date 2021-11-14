@@ -51,7 +51,6 @@ Route::get('/product/form', [ProductController::Class,'viewProtuct']);
 Route::post('/product/add/', [ProductController::Class,'addProtuct']);
 Route::get('/product/form_edit/{id}', [ProductController::Class,'viewProtuct']);
 
-
 // Route::get('/admin/vedio', [AdminController::Class,'listVedio']);
 Route::get('/admin/work', [AdminController::Class,'listWork']);
 Route::resource('product', ProductController::Class);

@@ -33,6 +33,8 @@
                 <tbody id="todos-list" name="todos-list">
                     @if(!$products->isEmpty())
                     @foreach ($products as $data)
+
+                  
                     <tr>
                       <td>
                         <div class="img-1by1 holder " >
@@ -41,7 +43,13 @@
                       </td>
                       <td>{{$data->name_th}}</td>
                       <td>{{$data->name_en}}</td>
-                      <td>{{$data->statu }}</td>
+                      <td>
+                        @if($data->status)
+                         เปิดการขาย
+                        @else 
+                          ปิดการขาย
+                        @endif
+                      </td>
                       <td>
                         <div class="d-flex justify-content-center">
                           <a  href="{{url('product/form_edit/'.$data->id)}}" class="btn btn-warning me-2">
