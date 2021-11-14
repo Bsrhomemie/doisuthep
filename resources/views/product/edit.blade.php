@@ -48,19 +48,19 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>ชื่อภาษาไทย</label>
-                        <input type="text" name="name_th" value="{{$product->name_th}}" class="form-control">
+                        <input type="text" name="name_th" required value="{{$product->name_th}}" class="form-control">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>ชื่อภาษาอังกฤษ</label>
-                        <input type="text" name="name_en"  value="{{$product->name_en}}" class="form-control">
+                        <input type="text" name="name_en" required  value="{{$product->name_en}}" class="form-control">
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label>ราคาขาย</label>
-                        <input type="number" step="any" name="price" value="{{$product->price}}" class="form-control">
+                        <input type="number" step="any" required name="price" value="{{$product->price}}" class="form-control">
                       </div>
                     </div>
                     <div class="col-lg-6">

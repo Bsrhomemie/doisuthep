@@ -313,24 +313,31 @@
           <p><i class="fa fa-bullhorn"></i>{{__('message.souvenirs')}}</p>
         </div>
         <div class="col-12">
-          <div id="owl_product" class="owl-carousel">
-            <?php for($i=0; $i<5; $i++) { ?>
-              <div class="col-12">
-                <div class="card card-product ">
-                  <div class="d-flex justify-content-center">
-                    <div class="img-product">
-                      <img src="{{URL::asset('images/product1.jpg')}}" >
+          @if($products_list) 
+            <div id="owl_product" class="owl-carousel">
+              @foreach ($products_list as $product)
+                <div class="col-12">
+                  <div class="card card-product ">
+                    <div class="d-flex justify-content-center">
+                      <div class="img-product">
+                        <img src="{{URL::asset('images/product1.jpg')}}" >
+                      </div>
+                    </div>
+                    <div class="card-body text-center pt-0">
+                      <p class="font-SemiBold mb-1">{{$product['name_'.__('message.lang_system')]}}</p>
+                      <p class="text-secondary">{{ number_format($product['price'], 2) }}</p>
                     </div>
                   </div>
-                  <div class="card-body text-center pt-0">
-                    <p class="font-SemiBold mb-1">Product</p>
-                    <p class="text-secondary">500.00</p>
-
-                  </div>
                 </div>
-              </div>
-            <?php  } ?>
-          </div>
+              @endforeach
+            </div>
+          @else 
+            <div class="card card-box">
+              <div class="card-body text-center">
+                <h6>{{__('message.no_data')}}</h6>
+              </div>  
+            </div>
+          @endif
         </div>
       </section>
       <section id="box-vedio" class="wow fadeInDown mt-5" >

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\Product;
 use App\Models\Post;
 class UserController extends Controller
 {
@@ -40,7 +41,7 @@ class UserController extends Controller
 			'https://www.youtube.com/embed/mgPUeT7BKMU',
 		];
 		
-		$post_list = [];
+		$post_list = []; 
 		
 		foreach($type_list as $key => $type) {
 			$number = 3;
@@ -53,7 +54,11 @@ class UserController extends Controller
 			$select = json_decode(json_encode($select), true);
 			$post_list[$key] = $select['data'];
 		}
-		return view('index', compact('list', 'post_list', 'youtube_list'));
+
+		$products = Product::where('status', 1)->get();
+		$select = json_decode(json_encode($products), true);
+		$products_list =  $select;
+		return view('index', compact('list', 'post_list', 'youtube_list', 'products_list'));
 	}
 
 	function news($type) {
@@ -118,7 +123,7 @@ class UserController extends Controller
 		$type_text = isset($type_list[$type])? $type_list[$type]['name'] : '' ;
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 
-		$select = Post::where('post_type', $type_id)->get();
+		$select = Post::where('post_type', $type_id)->orderBy('id','desc')->get();
 		$select = json_decode(json_encode($select), true);
 		$content_list =  $select;
 		if($type == 'join') {
