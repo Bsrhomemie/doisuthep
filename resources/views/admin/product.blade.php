@@ -61,7 +61,7 @@
                             <a href="" class="btn btn-warning me-2">
                               <i class="far fa-edit font-18px"></i>
                             </a>
-                            <form action="" method="post">
+                            <form action="{{url('product/form_edit/'.$data->id)}}" method="post">
                               <!-- @csrf
                               @method('DELETE') -->
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>

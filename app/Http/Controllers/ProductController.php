@@ -47,4 +47,26 @@ class ProductController extends Controller
 
     }
 
+
+    public function editProduct(Request $request)
+    {  
+
+        $data = $request->input();
+        $data_product = Product::find($data['id']);
+        $data_product->name_th = $data['name_th'];
+        $data_product->name_en = $data['name_en'];
+        $data_product->price = $data['price'];
+        $data_product->status = $data['status'];
+
+        if($request->file()) {
+            $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+            $request->file('picture')->storeAs('/public', $fileName);
+            $data_product->picture = $fileName;
+        }
+
+        $data_product->update();
+        return redirect('/admin/product')->with('status',"Insert successfully");
+
+    }
+
 }
