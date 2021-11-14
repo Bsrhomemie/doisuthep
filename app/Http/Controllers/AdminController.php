@@ -122,9 +122,9 @@ class AdminController extends Controller
 
 	public function listProtuct()
 	{
-		$products = Product::orderBy('id','desc')
-		->paginate(5); 
-		return view('admin.product', compact('products'))->with('i', (request()->input('page', 1)-1) * 5);
+		// $products = Product::orderBy('id','desc')
+		// ->paginate(5); 
+		return view('admin.product');
 	}
 
 	public function listVedio(Request $request)
