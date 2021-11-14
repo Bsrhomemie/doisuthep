@@ -4,7 +4,7 @@
 <div id="main-content">
   <div class="wrapper">
     <div class="col-12">
-      <a href="{{url('/admin/content?type=publicize')}}" class="btn btn-dark text-white font-12px p-1 "> 
+      <a href="{{url('/admin/product')}}" class="btn btn-dark text-white font-12px p-1 "> 
         <i class="fas fa-arrow-circle-left me-2"></i>Back
       </a>
       <div class="card">
@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{route('product.store') }}" method="post">
+            <form action="{{url('/product/add')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3">
@@ -38,7 +38,7 @@
                           </div>
                         </div>
                       </div>
-                      <input type="file" name="profile_image" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
+                      <input type="file" name="picture" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
                     </div>
                   </div>
                 </div>
@@ -87,18 +87,4 @@
 </div>
 @endsection
 
-@section('footer')
-  <script>
-    $(document).ready(function () {
-      $('.summernote').summernote({
-        height: 250,
-        toolbar: [
-          ['style', ['bold', 'italic', 'underline', 'clear']],
-          ['font', ['strikethrough', 'superscript', 'subscript']],
-          ['para', ['ul', 'ol',]],
-        ]
-      });
-    });
-  </script>
-@endsection
 

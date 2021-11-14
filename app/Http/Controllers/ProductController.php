@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
+use App\Models\Type;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,19 +14,37 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function viewProtuct($id='')
     {
-        return view('product.create');
+    
+        if(empty($id)) {
+            return view('product.create');
+        } else {
+            $content = product::where('id', $id)->first();
+            return view('product.edit', compact('content'));
+        }
+       
     }
 
-    public function store(Request $request)
+    public function addProtuct(Request $request)
     {
-        return redirect('/admin')
-                         ->with('success', 'Created successfully');
-    }
+
+        $data = $request->input();
+        $data_product = new Product;
+        $data_product->name_th = $data['name_th'];
+        $data_product->name_en = $data['name_en'];
+        $data_product->price = $data['price'];
+        $data_product->status = $data['status'];
+ 
+        if($request->file()) {
+            $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+            $request->file('picture')->storeAs('/public', $fileName);
+            $data_product->picture = $fileName;
+        }
     
-    public function __invoke(Request $request)
-    {
-        //
+        $data_product->save();
+        return redirect('/admin/content/'.$data['product_type'])->with('status',"Insert successfully");
+
     }
+
 }

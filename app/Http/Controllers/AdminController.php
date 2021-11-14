@@ -191,7 +191,6 @@ class AdminController extends Controller
 		return view('admin.work', compact('todo', 'type'));
 	}
 
-
 	public function viewContet(Request $request)
 	{
 
