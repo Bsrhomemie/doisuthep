@@ -43,7 +43,7 @@ class ProductController extends Controller
         }
     
         $data_product->save();
-        return redirect('/admin/content/'.$data['product_type'])->with('status',"Insert successfully");
+        return redirect('/admin/product')->with('status',"Insert successfully");
 
     }
 
