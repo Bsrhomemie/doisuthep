@@ -52,6 +52,8 @@ class ProductController extends Controller
     {  
 
         $data = $request->input();
+        dd($data);
+        die();
         $data_product = Product::find($data['id']);
         $data_product->name_th = $data['name_th'];
         $data_product->name_en = $data['name_en'];
@@ -65,7 +67,7 @@ class ProductController extends Controller
         }
 
         $data_product->update();
-        return redirect('/admin/product')->with('status',"Insert successfully");
+        return redirect('/admin/product')->with('status',"Update successfully");
 
     }
 
