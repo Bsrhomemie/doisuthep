@@ -33,7 +33,7 @@
                 <tbody id="todos-list" name="todos-list">
                     @if(!$products->isEmpty())
                     @foreach ($products as $data)
-                    <tr id="todo{{$data['id']}}">
+                    <tr>
                         <td>
                           <div class="img-1by1 holder " >
                             <img src="{{URL::asset('/images/image-5.jpg')}}" class="img-responsive image-preview" >
