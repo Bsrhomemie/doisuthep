@@ -18,6 +18,13 @@
                 </div>
               </div>
             </div>
+            <div class="col-12">
+              @if ($message = Session::get('status'))
+                <div class="alert alert-success">
+                  {{$message}}
+                </div>
+              @endif
+            </div>
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
@@ -41,7 +48,14 @@
                         </td>
                         <td>{{$data->name_th}}</td>
                         <td>{{$data->name_en}}</td>
-                        <td>เปิดขาย</td>
+                        <td>{{numfmt_format($data->price,2)}}</td>
+                        <td>
+                          @if($data->status) 
+                            เปิดการขาย
+                          @else 
+                            ปิดการขาย
+                          @endif
+                        </td>
                         <td>
                           <div class="d-flex justify-content-center">
                             <a href="" class="btn btn-warning me-2">
