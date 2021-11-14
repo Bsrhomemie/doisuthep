@@ -36,7 +36,7 @@
                     <tr>
                         <td>
                           <div class="img-1by1 holder " >
-                            <img src="{{URL::asset('/images/image-5.jpg')}}" class="img-responsive image-preview" >
+                            <img src="{{asset('storage/'.$data->picture)}}" class="img-responsive image-preview" >
                           </div>
                         </td>
                         <td>{{$data->name_th}}</td>

@@ -42,7 +42,7 @@
                     <tr>
                         <td>
                           <div class="img-16by9 holder " >
-                            <img src="{{ asset('storage/'.$data->picture)}}" class="img-responsive image-preview" >
+                            <img src="{{asset('storage/'.$data->picture)}}" class="img-responsive image-preview" >
                           </div>
                         </td>
                         <td>{{Str::limit($data->post_name_th, 200)}}</td>
