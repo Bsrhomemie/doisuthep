@@ -54,12 +54,3 @@ Route::post('product/edit/', [ProductController::Class,'editProduct']);
 Route::post('product/delete', [ProductController::Class,'deleteProduct']);
 
 Route::get('/admin/work', [AdminController::Class,'listWork']);
-
-
-Route::get('/welcome', function () {
-  return view('welcome');
-});
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
