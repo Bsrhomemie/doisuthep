@@ -53,12 +53,4 @@ Route::get('/product/form_edit/{id}', [ProductController::Class,'viewProtuct']);
 Route::post('product/edit/', [ProductController::Class,'editProduct']);
 Route::post('product/delete', [ProductController::Class,'deleteProduct']);
 
-// Route::get('/admin/vedio', [AdminController::Class,'listVedio']);
 Route::get('/admin/work', [AdminController::Class,'listWork']);
-// Route::resource('product', ProductController::Class);
-// Route::resource('work', WorkController::Class);
-
-// Route::resource('admin', AdminController::Class);
-
-// Route::get('/admin-content', [AdminController::Class,'viewContet'])->name('addmin.content');
-
