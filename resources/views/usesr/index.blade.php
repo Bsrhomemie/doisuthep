@@ -11,7 +11,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-  <h1 class="text-danger">Hello Uesr {{$name}}</h1>
+  <h1 class="text-danger">Hello User {{$name}}</h1>
   {{$user}}
   <a href="{{route('admin')}}">knowledge</a>
   @if($name == "homemie") 
