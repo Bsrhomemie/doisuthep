@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="style.css" rel="stylesheet" >
+
+    <title>Ford canteen</title>
+  </head>
+  <body class="font-ford">
+    <div class="container-fluid ">
+      <div class="row justify-content-center px-0">
+        <div class="card card-content-box background-log-in ">
+          <div class="card-body">
+            <div class="logo-login">
+              <img src="img/logo-login.png" alt="">
+            </div>
+            <div class="box-footer  pb-4">
+              <div class="box-footer-color">
+                Family <br>
+                Teamwork  <br>
+                Motivated
+                <div class="mt-4">
+                  <button class="btn btn-white btn-radius-30px font-SemiBold w-100" data-bs-toggle="modal" data-bs-target="#modal_SignIn"> Get start </button>
+                  <div class="text-center box-lang"><a href="#" >EN</a>/<a href="#" class="none-active">TH</a> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+     
+    </div>
+
+    <div class="modal fade modal-singin" id="modal_SignIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content ">
+          <div class="modal-body">
+            <h1 class="text-modal-header">Sign In </h1>
+            <div class="form-group pt-4">
+              <div class="d-flex  my-3">
+                <div class="img-icon-label me-3">
+                  <img src="img/icon-logo.png" alt="">
+                </div>
+                <p class="font-12px mb-0 mt-1"> Username </p>
+              </div>
+              <div class="input-icon">
+                <input type="text" class="form-control border" placeholder="Abcd10120">
+                <div class="img-input">
+                  <img src="img/vector.png" alt="">
+                </div>
+              </div>
+            </div>
+            <form action="home.html">
+              <div class="form-group ">
+                <div class="d-flex  my-3">
+                  <div class="img-icon-label me-3">
+                    <img src="img/icon-password.png" alt="">
+                  </div>
+                  <p class="font-12px mb-0 mt-1"> Password </p>
+                </div>
+                <div class="input-icon">
+                  <input id="signupform-password" type="password" class="form-control border" placeholder="Enter your password 12 digits">
+                  <div class="img-input show-pass">
+                    <img src="img/eye.png" alt="">
+                  </div>
+                </div>
+                <div class="text-center mt-3">
+                <button class="btn btn-primary btn-radius-30px  w-100 mt-5 mb-3"> Sign in </button>
+                <a class=" font-11px text-secondary forgot-pass"  data-bs-toggle="modal" data-bs-target="#modal_forgot"><u>Forgot Password</u></a>
+              </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal_forgot" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-body">
+            <h1 class="text-modal-header mt-3">Forgot Password</h1>
+            <div class="text-description mt-3 text-center px-4 text-dark">
+              Enter your email  to receive a link 
+              to change your password?
+            </div>
+            <div class="form-group mt-4">
+              <input type="email" class="form-control email" placeholder="Enter your email">
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-primary text-light btn-radius-30px width-200px mt-4 mb-3 send-email" data-bs-toggle="modal" data-bs-target="#modal_send_email"> Send </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal_send_email" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-body">
+            <h1 class="text-modal-header mt-3">Forgot Password</h1>
+            <div class="text-description my-5 text-center px-4 text-dark">
+              The system has sent the details 
+              via email successfully.
+            </div>
+            <div class="d-flex justify-content-center">
+              <a href="pin-confirmation.html" class="btn btn-primary btn-radius-30px width-200px  mb-3 pt-3"> Done </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script> 
+      $(document).ready(function () {
+        $(document).on('click', '.show-pass', function(e) {
+          e.preventDefault();
+          var type = $("#signupform-password").attr('type');
+          switch (type) {
+            case 'password':
+            {
+              $("#signupform-password").attr('type', 'text');
+              $(this).find('img').attr('src', 'img/eye-close.png');
+              return;
+            }
+            case 'text':
+            {
+              $("#signupform-password").attr('type', 'password');
+              $(this).find('img').attr('src', 'img/eye.png');
+              return;
+            }
+          }
+        });
+
+        $(".forgot-pass").click(function (e) {
+          $('#modal_SignIn').modal('hide')
+        });
+
+        $(".send-email").click(function (e) {
+          $('#modal_forgot').modal('hide')
+        });
+      });
+    </script>
+  </body>
+</html>
+

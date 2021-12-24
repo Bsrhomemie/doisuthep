@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="style.css" rel="stylesheet" >
+
+    <title>Ford canteen</title>
+  </head>
+  <body class="font-ford">
+    <div class="container-fluid h100-vh bg-footer">
+      <div class="row justify-content-center px-0  ">
+        <div class="card card-content-box pt-3">
+          <div class="card-body mt-20px">
+            <div class=" d-flex justify-content-end">
+              <a href="" class="btn btn-back rounded-circle">
+                <img src="img/close.png" alt="">
+              </a>
+            </div>
+            <div class="header-page text-color-theme my-3">Confirmation</div>
+            <div class="text-description mb-50px">
+              Enter the 6 digit code sent to <br>
+              you at <B class="text-color-theme">michael.kor@gmail.com</B> 
+              <hr>
+            </div>
+            <form method="post" action="create-new-password.html" class="digit-group  mb-10px" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+              <input type="number" id="digit-1" name="digit-1" data-next="digit-2" />
+              <input type="number" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
+              <input type="number" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
+              <input type="number" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3" />
+              <input type="number" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
+              <input type="number" id="digit-6" name="digit-6" data-next="digit-7" data-previous="digit-5" />
+              <button type="submit" id="digit-7" class="btn btn-primary btn-radius-30px  mt-5 w-100" name="digit-7" data-next="digit-8" data-previous="digit-6">Confirm!</button>
+              <div class="d-flex justify-content-center font-14px">
+                <a href="" class="requst-code">  Request Code </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <script src="script.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>
+      $('.digit-group').find('input').each(function() {
+        $(this).attr('maxlength', 1);
+        $(this).on('keyup', function(e) {
+          var parent = $($(this).parent());
+    
+          if (e.keyCode === 8 || e.keyCode === 37) {
+            var prev = parent.find('input#' + $(this).data('previous'));
+    
+            if (prev.length) {
+              $(prev).select();
+            }
+          } else if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 96 && e.keyCode <= 105) || e.keyCode === 39) {
+            var next = parent.find('input#' + $(this).data('next'));
+    
+            if (next.length) {
+              $(next).select();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
