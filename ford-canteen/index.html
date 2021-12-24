@@ -12,7 +12,7 @@
   </head>
   <body class="font-ford">
     <div class="container-fluid ">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center px-0">
         <div class="card card-content-box background-log-in ">
           <div class="card-body">
             <div class="logo-login">
@@ -24,7 +24,7 @@
                 Teamwork  <br>
                 Motivated
                 <div class="mt-4">
-                  <button class="btn btn-white btn-radius-30px font-SemiBold w-100" data-toggle="modal" data-target="#modal_forgot"> Get start </button>
+                  <button class="btn btn-white btn-radius-30px font-SemiBold w-100" data-bs-toggle="modal" data-bs-target="#modal_SignIn"> Get start </button>
                   <div class="text-center box-lang"><a href="#" >EN</a>/<a href="#" class="none-active">TH</a> </div>
                 </div>
               </div>
@@ -32,6 +32,8 @@
           </div>
         </div>
       </div> 
+
+     
     </div>
 
     <div class="modal fade modal-singin" id="modal_SignIn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,7 +81,7 @@
     </div>
 
     <div class="modal fade" id="modal_forgot" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" style="background-color: aquamarine;">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content ">
           <div class="modal-body">
             <h1 class="text-modal-header mt-3">Forgot Password</h1>
@@ -87,7 +89,6 @@
               Enter your email  to receive a link 
               to change your password?
             </div>
-            <input id="signupform-password" type="password" class="form-control border">
             <div class="form-group mt-4">
               <input type="email" class="form-control email" placeholder="Enter your email">
             </div>
@@ -117,8 +118,7 @@
     </div>
 
     <script src="script.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script> 
       $(document).ready(function () {
         $(document).on('click', '.show-pass', function(e) {
