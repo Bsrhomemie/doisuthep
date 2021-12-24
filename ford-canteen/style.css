@@ -354,6 +354,7 @@ b {
   padding: 30px;
   position: relative;
   padding-bottom: 0;
+  width: 100vw;
 }
 
 .background-log-in {
