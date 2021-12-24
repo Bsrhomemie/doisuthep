@@ -1139,6 +1139,10 @@ input[type="password"]::-ms-reveal {
 
 }
 
+.modal-dialog {
+  background-color: red;
+}
+
 .modal-singin {
   height: unset;
   bottom: 0;
