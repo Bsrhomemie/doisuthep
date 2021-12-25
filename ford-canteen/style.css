@@ -1152,13 +1152,6 @@ input[type="password"]::-ms-reveal {
   margin-left: auto;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
-  select,
-  textarea,
-  input {
-    font-size: 16px;
-  }
-}
 
 .text-modal-header {
   font-weight: 600;
