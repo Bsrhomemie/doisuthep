@@ -234,10 +234,10 @@
                 <div class="card card-box mb-3">
                   <div class="highlight-hover">
                     <div class="img-16by9 holder " >
-                      <img src="{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" >
+                      <img src="{{asset($news['picture'])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
-                      <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="box_news"  title="{{__('message.picture')}}">
+                      <a href="{{asset($news['picture'])}}" class="me-3" data-lightbox="box_news"  title="{{__('message.picture')}}">
                         <i class="far fa-image"></i>
                       </a>
                       <a href="{{url('news-detail/news/'.$news['id'])}}" title="{{__('message.detail')}}">
@@ -276,10 +276,10 @@
                 <div class="card card-box mb-3">
                   <div class="highlight-hover">
                     <div class="img-16by9 holder " >
-                      <img src="{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" >
+                      <img src="{{asset($articles['picture'])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
-                      <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="box_articles"  title="{{__('message.picture')}}">
+                      <a href="{{asset($articles['picture'])}}" class="me-3" data-lightbox="box_articles"  title="{{__('message.picture')}}">
                         <i class="far fa-image"></i>
                       </a>
                       <a href="{{url('news-detail/news/'.$articles['id'])}}" title="{{__('message.detail')}}">
@@ -320,7 +320,7 @@
                   <div class="card card-product ">
                     <div class="d-flex justify-content-center">
                       <div class="img-product">
-                        <img src="{{URL::asset('images/product1.jpg')}}" >
+                        <img src="{{asset($product['picture'])}}" >
                       </div>
                     </div>
                     <div class="card-body text-center pt-0">

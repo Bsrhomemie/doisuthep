@@ -14,10 +14,10 @@
             <div class="card card-box mb-3">
               <div class="highlight-hover">
                 <div class="img-16by9 holder ">
-                  <img src="{{URL::asset('images/cover3.jpg')}}" class="img-responsive image-preview" alt="...">
+                  <img src="{{asset($list['picture'])}}" class="img-responsive image-preview" alt="...">
                 </div>
                 <div class="show-hover">
-                  <a href="{{URL::asset('images/cover3.jpg')}}" class="me-3" data-lightbox="box_{{$key}}"  title="ดูรูปภาพ">
+                  <a href="{{asset($list['picture'])}}" class="me-3" data-lightbox="box_{{$key}}"  title="ดูรูปภาพ">
                     <i class="far fa-image"></i>
                   </a>
                   <a href="{{url('news-detail/news/'.$list['id'])}}" title="รายละเอียด">

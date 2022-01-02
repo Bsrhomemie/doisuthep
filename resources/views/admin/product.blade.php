@@ -43,7 +43,7 @@
                     <tr id="todo{{$data->id}}">
                         <td>
                           <div class="img-1by1 holder " >
-                            <img src="{{URL::asset('/images/image-5.jpg')}}" class="img-responsive image-preview" >
+                            <img src="{{asset($data->picture)}}" class="img-responsive image-preview" >
                           </div>
                         </td>
                         <td>{{$data->name_th}}</td>
@@ -63,6 +63,7 @@
                             </a>
                             <form action="{{url('/product/delete')}}" method="post">
                               @csrf
+                              <input type="hidden" name="file" value="{{$data->picture}}">
                               <input type="hidden" name="id" value="{{$data->id}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
                             </form>

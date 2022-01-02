@@ -52,7 +52,7 @@
                       <td>{{date('d/m/Y', strtotime($data->created_at))}}</td>
                       <td class="w-150px">
                         <div class="d-flex justify-content-center">
-                          <a href="{{$data->pdf}}" class="btn btn-dark me-2">
+                          <a href="{{asset($data->pdf)}}" class="btn btn-dark me-2" target="_blank">
                             <i class="fas fa-file-alt"></i>
                           </a>
                           <a href="{{url('content/form_edit/'.$type.'/'.$data->id)}}" class="btn btn-warning me-2">
@@ -60,6 +60,7 @@
                             </a>
                             <form action="{{url('/content/delete')}}" method="post">
                               @csrf
+                              <input type="hidden" name="file" value="{{$data->pdf}}">
                               <input type="hidden" name="id" value="{{$data->id}}">
                               <input type="hidden" name="post_type" value="{{$type}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>

@@ -110,9 +110,6 @@ class ContentController extends Controller
                 $img_ext = strtolower($service_image->getClientOriginalExtension());
                 $img_name = $name_gen.'.'.$img_ext;
 
-                // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-                // $request->file('picture')->storeAs('/public', $fileName);
-
                 $upload_location =  'image/services/';
                 $full_path =  $upload_location.$img_name ;
               
@@ -143,22 +140,55 @@ class ContentController extends Controller
         if($data['post_type'] == 'join') {
             $data_post->picture = '';
             if($request->file()) {
-                $fileName = time().'_'.$request->file('pdf')->getClientOriginalName();
-                $request->file('pdf')->storeAs('/pdf', $fileName);
-                $data_post->pdf = $fileName;
+                $service_image = $request->file('pdf');
+                if($service_image) {
+                    $name_gen = hexdec(uniqid());
+                    $img_ext = strtolower($service_image->getClientOriginalExtension());
+                    $img_name = $name_gen.'.'.$img_ext;
+
+
+                    $upload_location =  'file/services/';
+                    $full_path =  $upload_location.$img_name ;
+                
+                    $data_post->pdf = $full_path;
+                    $data_post->uniqid = $name_gen;
+
+                    //delete 
+                    $old_file = $data['old_file'];
+                    if($old_file) {
+                        unlink($old_file);
+                    }
+                    $service_image ->move($upload_location,  $img_name);
+                }
             }
         } else {
             $data_post->pdf = '';
             if($request->file()) {
-                $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-                $request->file('picture')->storeAs('/public', $fileName);
-                $data_post->picture = $fileName;
+                $service_image = $request->file('picture');
+                if($service_image) {
+                    $name_gen = hexdec(uniqid());
+                    $img_ext = strtolower($service_image->getClientOriginalExtension());
+                    $img_name = $name_gen.'.'.$img_ext;
+
+
+                    $upload_location =  'image/services/';
+                    $full_path =  $upload_location.$img_name ;
+                
+                    $data_post->picture = $full_path;
+                    $data_post->uniqid = $name_gen;
+
+                    //delete 
+                    $old_file = $data['old_file'];
+                    if($old_file) {
+                        unlink($old_file);
+                    }
+                    $service_image ->move($upload_location,  $img_name);
+                }
             }
         }
-
+        
         $data_post->update();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Update successfully");
-
     }
 
     public function deleteContet(Request $request)
@@ -166,6 +196,11 @@ class ContentController extends Controller
          $data = $request->input();
         $data_post = Post::find($data['id']);
         $data_post->delete();
+        //delete 
+        $file = $data['file'];
+        if($file) {
+            unlink($file);
+        }
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Delete successfully");
 
     }

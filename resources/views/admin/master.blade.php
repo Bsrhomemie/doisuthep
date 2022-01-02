@@ -129,7 +129,7 @@
               <span class="menu-arrow arrow_carrot-right"></span>
             </a>
             <ul class="sub">
-              <li><a class="" href="{{url('/admin/content/plant')}}">พืช </a></li>
+              <li><a class="" href="{{url('/admin/content/plants')}}">พืช </a></li>
               <li><a class="" href="{{url('/admin/content/animals')}}">สัตว์</a></li>
               <li><a class="" href="{{url('/admin/content/fungus')}}">จุลินทรีย์และฟังไจ</a></li>
               <li><a class="" href="{{url('/admin/content/geology')}}">ธรณี</a></li>

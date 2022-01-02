@@ -29,9 +29,9 @@
               <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3">
                   <div class="form-group">
-                    <label>รูปภาพ</label>
+                    <label>รูปภาพ</label> 
                     <div class="image-upload files">
-                      <div class="img-1by1 holder btn-change-image highlight-hover" >
+                      <div class="img-1by1 holder btn-change-image highlight-hover" style="background-image:url({{asset($product->picture)}});">
                         <img src="" class="img-responsive image-preview">
                         <div class="icon-box">
                           <div class="icon-box-text">
@@ -43,6 +43,7 @@
                     </div>
                   </div>
                 </div>
+                <input type="hidden" name="old_file"  value="{{$product->picture}}">
                 <div class="col-lg-9">
                   <div class="row">
                     <div class="col-lg-6">

@@ -27,9 +27,8 @@ Route::get('/welcom', function () {
 });
 
 Auth::routes();
- 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => '\App\Http\Controllers\LanguageController@switchLang']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [UserController::Class,'index']);
 Route::get('/news/{type}', [UserController::Class,'news']);
 Route::get('/news-detail/{type}/{id}', [UserController::Class,'news_detail']);

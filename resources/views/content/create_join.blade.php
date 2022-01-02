@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-          <form action="{{url('/content/add')}}" method="post" enctype="multipart/form-data">
+          <form action="{{url('/content/add')}}" method="post" enctype="multipart/form-data" >
              @csrf
               <div class="row">
                 <div class="col-lg-6">
@@ -34,11 +34,11 @@
                   </div>
                   <div class="form-group">
                     <label>ไฟล์</label>
-                    <input type="file" name="pdf" class="form-control">
+                    <input type="file" name="pdf" class="form-control" accept="application/pdf,application/vnd.ms-excel">
                   </div>
                 </div>
                 <div class="col-lg-6">
-
+             
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
