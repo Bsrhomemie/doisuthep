@@ -34,7 +34,7 @@
           <div>
             ดาวน์โหลดไฟล์แนบ <a href="{{asset($content['pdf'])}}" target="_blank" class="text-link"><i class="fa fa-download ms-1 "></i> Download</a>
           </div>
-          @endif
+          @endif 
         </div>
         <div class="col-12 mt-4">
           <div class="text-center">
