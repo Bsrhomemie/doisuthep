@@ -1,0 +1,60 @@
+.faq-nav {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 55px 0;
+}
+
+.faq-nav .tab-images-wrapper {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.faq-nav .faq-nav-items {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 14px;
+  color: #414B5A;
+  background-color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 10px;
+  cursor: pointer;
+  min-height: 140px;
+  padding: 10px;
+}
+
+.faq-nav .faq-nav-items.active {
+  color: #EE5B47;
+  border-color: #FE976E;
+}
+
+.faq-nav .faq-nav-items p {
+  margin: 0;
+}
+
+.faq-nav .faq-nav-items img {
+  max-height: 70px;
+  max-width: 70px;
+  margin: auto;
+}
+
+@media (max-width: 992px) {
+  .faq-nav {
+    margin: 15px 0 30px 0;
+  }
+}
+/*# sourceMappingURL=faq.css.map */

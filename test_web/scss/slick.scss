@@ -1,0 +1,46 @@
+@import 'variables';
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 0 5px;
+
+    button {
+      border: 1px solid $color_primary;
+      border-radius: 50%;
+      background-color: $color_white;
+      display: flex;
+      font-size: 0;
+      width: 15px;
+      height: 15px;
+    }
+
+    &.slick-active {
+      button {
+        background-color: $color_primary;
+      }
+    }
+  }
+
+}
+
+// .tab-content>.tab-pane:not(.active),
+// .pill-content>.pill-pane:not(.active) {
+//   display: block;
+//   height: 0;
+//   overflow-y: hidden;
+// }

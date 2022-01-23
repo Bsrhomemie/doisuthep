@@ -1,0 +1,195 @@
+@import 'variables';
+.revenue-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+
+  .revenue-icon {
+    max-width: 70px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  span {
+    margin-left: 15px;
+    color: $color_primary_dark;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  @media (max-width: $tablet-xl) {
+    span {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: $mobile-md) {
+    span {
+      font-size: 18px;
+    }
+  }
+}
+
+.revenue-jumbotron-image {
+  padding-top: 17.14%;
+  max-width: 903px;
+}
+
+.revenue-image-body {
+  max-width: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  .image-wrap {
+    padding-top: 65.6%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $tablet-xl) {
+    max-width: 100%;
+  }
+}
+
+.revenue-slider-wrapper {
+  padding: 20px 0;
+}
+
+.revenue-slider-items {
+  text-align: center;
+  border-radius: 10px;
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+  background-color: $color_white;
+  padding: 0 5px 30px 5px;
+  margin: 0 10px 5px 10px;
+
+  .revenue-box-wrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
+
+    .revenue-box-image-wrapper {
+      max-width: 45%;
+      width: 100%;
+      
+      img {
+        width: 100%;
+      }
+
+      @media (max-width: $tablet-xl) {
+        max-width: 80px;
+      }
+    }
+
+    .revenue-box-text-wrapper {
+      max-width: 55%;
+      width: 100%;
+    }
+
+    .rank-box-name {
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .rank-box-member {
+      font-size: 14px;
+    }
+  }
+
+  .rank-normal-text {
+    font-size: 14px;
+  }
+  
+  .rank-price-text {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .rank-percent-text {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .rank-small-text {
+    font-size: 12px;
+  }
+
+  .rank-medium-text {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &.rank-beginner {
+    color: $color_beginner;
+
+    .revenue-box-wrapper {
+      background: radial-gradient(89.41% 163.61% at 21.41% 29.36%, #FF7F4B 0%, #FFB68A 100%);
+    }
+  }
+
+  &.rank-agent {
+    color: $color_agent;
+
+    .revenue-box-wrapper {
+      background: radial-gradient(89.41% 163.61% at 21.43% 29.4%, #8BB8FC 0%, #BBD6FF 100%);
+    }
+  }
+
+  &.rank-master {
+    color: $color_master;
+    .revenue-box-wrapper {
+      background: radial-gradient(89.41% 163.61% at 21.41% 29.34%, #F1D47C 0%, #FFECB5 100%);
+    }
+  }
+
+  &.rank-senior {
+    color: $color_senior;
+    .revenue-box-wrapper {
+      background: radial-gradient(91.11% 165.44% at 21.55% 28.7%, #FF9595 0%, #FFDAD6 100%);
+    }
+  }
+
+  &.rank-super {
+    color: $color_super;
+    .revenue-box-wrapper {
+      background: radial-gradient(53.85% 98.8% at 16.96% 52.48%, #E9B120 0%, #FFD66A 100%);
+    }
+  }
+
+  @media (max-width: $mobile-xs) {
+    .rank-normal-text {
+      font-size: 14px;
+    }
+    
+    .rank-price-text {
+      font-size: 20px;
+    }
+
+    .rank-percent-text {
+      font-size: 48px;
+    }
+
+    .rank-small-text {
+      font-size: 12px;
+    }
+
+    .rank-medium-text {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+}
