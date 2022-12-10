@@ -4,7 +4,7 @@
 <div id="main-content">
   <div class="wrapper">
     <div class="col-12">
-      <a href="{{url('/admin/content/'.$type)}}" class="btn btn-dark text-white font-12px p-1">
+      <a href="{{url('/admin/database/'.$type)}}" class="btn btn-dark text-white font-12px p-1">
         <i class="fas fa-arrow-circle-left me-2"></i>Back
       </a>
       <div class="card">
@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/content/add')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/database/add')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-lg-4">
@@ -48,7 +48,6 @@
                   <input type="date" name="created_at" value="{{date('Y-m-d')}}" class="form-control">
                 </div>
                 <input type="hidden" name="post_type" value="{{$type}}">
-                <input type="hidden" name="id"  value="">
               </div>
               <div class="col-lg-8">
                 <div class="row">
@@ -56,19 +55,35 @@
                     <h4 class="mb-0">หัวข้อ</h4>
                     <hr class="my-2">
                     <div class="form-group mb-2">
-                      <label>ชื่อไทย</label>
+                      <label>ชื่อ ภาษาไทย</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>ชื่อสามัญ</label>
+                      <label>ชื่อ ภาษาอังกฤษ</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>ชื่อท้องถิ่น</label>
+                      <label>ชื่อสามัญ ภาษาไทย</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>ชื่อวิทยาศาสตร์</label>
+                      <label>ชื่อสามัญ ภาษาอังกฤษ</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>ชื่อท้องถิ่น ภาษาไทย</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>ชื่อท้องถิ่น ภาษาอังกฤษ</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>ชื่อวิทยาศาสตร์ ภาษาไทย</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>ชื่อวิทยาศาสตร์ ภาษาอังกฤษ</label>
                       <input type="text" name="" class="form-control">
                     </div>
                   </div>
@@ -76,31 +91,59 @@
                     <h4 class="mb-0">อนุกรมวิธาน</h4>
                     <hr class="my-2">
                     <div class="form-group mb-2">
-                      <label>อาณาจักร</label>
+                      <label>อาณาจักร ภาษาไทย</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>หมวด</label>
+                      <label>อาณาจักร ภาษาอังกฤษ</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>ชั้น</label>
+                      <label>หมวด ภาษาไทย</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>อันดับ</label>
+                      <label>หมวด ภาษาอังกฤษ</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>วงศ์</label>
+                      <label>ชั้น ภาษาไทย</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>สกุล</label>
+                      <label>ชั้น ภาษาอังกฤษ</label>
                       <input type="text" name="" class="form-control">
                     </div>
                     <div class="form-group mb-2">
-                      <label>ชนิด</label>
+                      <label>อันดับ ภาษาไทย</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>อันดับ ภาษาอังกฤษ</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>วงศ์ ภาษาไทย</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>วงศ์ ภาษาอังกฤษ</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>สกุล ภาษาไทย</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>สกุล ภาษาอังกฤษ</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>ชนิด ภาษาไทย</label>
+                      <input type="text" name="" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                      <label>ชนิด ภาษาอังกฤษ</label>
                       <input type="text" name="" class="form-control">
                     </div>
                   </div>
@@ -108,31 +151,59 @@
                   <h4 class="mb-0">ลักษณะทางพฤกษศาตร์</h4>
                     <hr class="my-2">
                     <div class="form-group">
-                      <label>ลำต้น</label>
+                      <label>ลำต้น ภาษาไทย</label>
                       <textarea name="" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ใบ</label>
+                      <label>ลำต้น ภาษาอังกฤษ</label>
                       <textarea name="" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ดอก</label>
+                      <label>ใบ ภาษาไทย</label>
                       <textarea name="" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ผล</label>
+                      <label>ใบ ภาษาอังกฤษ</label>
                       <textarea name="" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>การกระจายพันธุ์</label>
+                      <label>ดอก ภาษาไทย</label>
                       <textarea name="" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>การใช้ประโยชน์</label>
+                      <label>ดอก ภาษาอังกฤษ</label>
                       <textarea name="" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>อ้างอิง</label>
+                      <label>ผล ภาษาไทย</label>
+                      <textarea name="" class="summer-note summernote"> </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>ผล ภาษาอังกฤษ</label>
+                      <textarea name="" class="summer-note summernote"> </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>การกระจายพันธุ์ ภาษาไทย</label>
+                      <textarea name="" class="summer-note summernote"> </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>การกระจายพันธุ์ ภาษาอังกฤษ</label>
+                      <textarea name="" class="summer-note summernote"> </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>การใช้ประโยชน์ ภาษาไทย</label>
+                      <textarea name="" class="summer-note summernote"> </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>การใช้ประโยชน์ ภาษาอังกฤษ</label>
+                      <textarea name="" class="summer-note summernote"> </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>อ้างอิง ภาษาไทย</label>
+                      <textarea name="" class="summer-note summernote"> </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>อ้างอิง ภาษาอังกฤษ</label>
                       <textarea name="" class="summer-note summernote"> </textarea>
                     </div>
                   </div>
@@ -148,7 +219,6 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 @endsection
 

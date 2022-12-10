@@ -94,14 +94,6 @@ class AdminController extends Controller
 				'id' =>	14,
 				'name' =>	'ร่วมงานกันเรา',
 			],
-			'data_plants' => [
-				'id' =>	15,
-				'name' =>	'ฐานข้อมูลพืช',
-			],
-			'data_animal' => [
-				'id' =>	16,
-				'name' =>	'ฐานข้อมูลสัตว์',
-			],
 		];
 
 
@@ -228,4 +220,27 @@ class AdminController extends Controller
 	// {
 	// 	return view('content.create');
 	// }
+
+	public function listDatabase($type)
+	{
+		$type_list = [
+			'plants' => [
+				'id' =>	1,
+				'name' =>	'ฐานข้อมูลพืช',
+			],
+			'animal' => [
+				'id' =>	2,
+				'name' =>	'ฐานข้อมูลสัตว์',
+			],
+		];
+
+
+		$type_text = isset($type_list[$type]) ? $type_list[$type]['name'] : '';
+		$type_id = isset($type_list[$type]) ? $type_list[$type]['id'] : '';
+		$content = Post::where('post_type', $type_id)
+			->orderBy('id', 'desc')
+			->paginate(5);
+
+			return view('admin.database', compact('type', 'type_text', 'content'))->with('i', (request()->input('page', 1) - 1) * 5);
+	}
 }
