@@ -34,11 +34,11 @@
                   </div>
                   <div class="form-group">
                     <label>ไฟล์</label>
-                    <input type="file" name="pdf" value="{{$content->pdf}}" class="form-control" accept="application/pdf,application/vnd.ms-excel">
+                    <input type="file" name="pdf" value="{{$content->pdf}}" class="form-control">
                   </div>
                 </div>
                 <div class="col-lg-6">
-                <input type="hidden" name="old_file"  value="{{$content->pdf}}"  />
+
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">

@@ -15,14 +15,13 @@
               <form action="">
                 <div class="row">
                   @for ($i = 0; $i < 4; $i++)
-                  <div class="col-md-6 form-group">
+                  <div class="col-md-6 form-group mb-3">
                     <label>วิดีโอ {{($i+1)}}</label>
                     <input type="text" name="vedio{{($i+1)}}" class="form-control">
                   </div>  
                   @endfor    
                 </div>
                 <div class="col-12 d-flex justify-content-end pt-3">
-                  <button type="reset" class="btn btn-secondary  me-3 w-150px py-2">Reset</button>
                   <button type="submit" class="btn btn-success  w-150px py-2">Submit</button>
                 </div>
               </form>

@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/custom.css') }}" rel="stylesheet">
 
     <title>Hello, world!</title>
   </head>

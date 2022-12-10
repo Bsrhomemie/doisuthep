@@ -1,21 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Post;
 use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File; 
 
 class ContentController extends Controller
 {
 
     public function __construct()
-    {
-        $this->middleware('auth');
-    }
+	{
+			$this->middleware('auth');
+           // Artisan::call('storage:link', [] );
+	}
 
-    public function viewContet($type, $id = '')
+    public function viewContet($type, $id='')
     {
 
         $type_list = [
@@ -31,57 +33,47 @@ class ContentController extends Controller
             'tree' => 'เรือนเพาะชำกล้าไม้ท้องถิ่น',
             'seed' => 'ห้องปฏิบัติการธนาคารเมล็ด',
             'research' => 'งานวิจัยและฐานข้อมูล',
-            'join' => 'ร่วมงานกันเรา',
-            'data_plants' => 'ฐานข้อมูลพืช',
-            'data_animal' => 'ฐานข้อมูลสัตว์',
+            'join' => 'ร่วมงานกันเรา'
         ];
         $type = $type;
-        $type_text = isset($type_list[$type]) ? $type_list[$type] : '';
-        $type_database = ['data_plants', 'data_animal'];
-        if ($type == 'join') {
-            if (empty($id)) {
-                return view('content.create_join', compact('type', 'type_text'));
-            } else {
-                $content = Post::where('id', $id)->first();
-                return view('content.edit_join', compact('type', 'type_text', 'content'));
-            }
-        } else if (in_array($type, $type_database)) {
-            if (empty($id)) {
-                return view('content.create_database', compact('type', 'type_text'));
-            } else {
-                $content = Post::where('id', $id)->first();
-                return view('content.edit_database', compact('type', 'type_text', 'content'));
-            }
-        } else {
-            if (empty($id)) {
+        $type_text = isset($type_list[$type])? $type_list[$type] :'' ;
+        if($type != 'join') { 
+            if(empty($id)) {
                 return view('content.create', compact('type', 'type_text'));
             } else {
                 $content = Post::where('id', $id)->first();
                 return view('content.edit', compact('type', 'type_text', 'content'));
             }
+        } else {
+            if(empty($id)) {
+                return view('content.create_join', compact('type', 'type_text'));
+            } else {
+                $content = Post::where('id', $id)->first();
+                return view('content.edit_join', compact('type', 'type_text', 'content'));
+            }
         }
     }
 
-
+    
     public function addContet(Request $request)
     {
         $type_list = [
-            'news' => 1,
-            'articles' => 2,
-            'plants' => 3,
-            'animals' => 4,
-            'fungus' => 5,
-            'geology' => 6,
-            'culture' => 7,
-            'exhibition' => 8,
-            'learning' => 9,
-            'tree' => 10,
-            'seed' => 11,
-            'research' => 12,
-            'activities' => 13,
-            'join' => 14,
-        ];
-
+			'news' => 1,
+			'articles' => 2,
+			'plants' => 3,
+			'animals' => 4,
+			'fungus' => 5,
+			'geology' => 6,
+			'culture' => 7,
+			'exhibition' => 8,
+			'learning' => 9,
+			'tree' => 10,
+			'seed' => 11,
+			'research' => 12,
+			'activities' => 13,
+			'join' => 14,
+		];
+ 
         $data = $request->input();
         $data_post = new Post;
         $data_post->post_name_th = $data['post_name_th'];
@@ -89,54 +81,58 @@ class ContentController extends Controller
         $data_post->post_name_en = $data['post_name_en'];
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
-        $data_post->post_type = isset($type_list[$data['post_type']]) ? $type_list[$data['post_type']] : '';
+        $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
 
-        if ($data['post_type'] == 'join') {
+        if($data['post_type'] == 'join') {
             $data_post->picture = '';
-            if ($request->file()) {
-                $fileName = time() . '_' . $request->file('pdf')->getClientOriginalName();
-                $request->file('pdf')->storeAs('/pdf', $fileName);
-                $data_post->pdf = $fileName;
+            if($request->file()) {
 
                 $service_image = $request->file('pdf');
                 $name_gen = hexdec(uniqid());
-
+                // $service_image->getClientOriginalName()
                 $img_ext = strtolower($service_image->getClientOriginalExtension());
-                $img_name = $name_gen . '.' . $img_ext;
+                $img_name = $name_gen.'.'.$img_ext;
 
-                $upload_location =  'file/services/';
-                $full_path =  $upload_location . $img_name;
+                // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+                // $request->file('picture')->storeAs('/public', $fileName);
 
-                $service_image->move($upload_location,  $img_name);
-
-                $data_post->pdf = $full_path;
-                $data_post->uniqid = $name_gen;
-            }
-        } else {
-            $data_post->pdf = '';
-            if ($request->file()) {
-                $service_image = $request->file('picture');
-                $name_gen = hexdec(uniqid());
-
-                $img_ext = strtolower($service_image->getClientOriginalExtension());
-                $img_name = $name_gen . '.' . $img_ext;
-
-                $upload_location =  'image/services/';
-                $full_path =  $upload_location . $img_name;
-
-                $service_image->move($upload_location,  $img_name);
+                $upload_location =  'public/file/services/';
+                $full_path =  $upload_location.$img_name ;
+                $service_image ->move(base_path($upload_location),  $img_name);
 
                 $data_post->picture = $full_path;
                 $data_post->uniqid = $name_gen;
             }
+
+        } else {
+            $data_post->pdf = '';
+            if($request->file()) {
+                $service_image = $request->file('picture');
+                $name_gen = hexdec(uniqid());
+                // $service_image->getClientOriginalName()
+                $img_ext = strtolower($service_image->getClientOriginalExtension());
+                $img_name = $name_gen.'.'.$img_ext;
+
+                // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+                // $request->file('picture')->storeAs('/public', $fileName);
+
+                $upload_location =  'public/image/services/';
+                $full_path =  $upload_location.$img_name ;
+                $service_image ->move(base_path($upload_location),  $img_name);
+
+                $data_post->picture = $full_path;
+                $data_post->uniqid = $name_gen;
+
+            }
         }
-
+      
         $data_post->save();
-        return redirect('/admin/content/' . $data['post_type'])->with('status', "Insert successfully");
-    }
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
 
+    }
+   
     public function editContet(Request $request)
-    {
+    {  
 
         $data = $request->input();
         $data_post = Post::find($data['id']);
@@ -146,70 +142,82 @@ class ContentController extends Controller
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
 
-        if ($data['post_type'] == 'join') {
+        if($data['post_type'] == 'join') {
             $data_post->picture = '';
-            if ($request->file()) {
+            if($request->file()) {
                 $service_image = $request->file('pdf');
-                if ($service_image) {
+                if($service_image) {
                     $name_gen = hexdec(uniqid());
                     $img_ext = strtolower($service_image->getClientOriginalExtension());
-                    $img_name = $name_gen . '.' . $img_ext;
+                    $img_name = $name_gen.'.'.$img_ext;
 
 
-                    $upload_location =  'file/services/';
-                    $full_path =  $upload_location . $img_name;
-
+                    $upload_location =  'public/file/services/';
+                    $full_path =  $upload_location.$img_name ;
+                
                     $data_post->pdf = $full_path;
                     $data_post->uniqid = $name_gen;
 
                     //delete 
                     $old_file = $data['old_file'];
-                    if ($old_file) {
-                        unlink($old_file);
+                    if(File::exists(base_path($old_file))) {
+                        // echo "file mee mai";
+                        File::delete(base_path($old_file));
                     }
-                    $service_image->move($upload_location,  $img_name);
+                    $service_image ->move(base_path($upload_location),  $img_name);
                 }
             }
         } else {
             $data_post->pdf = '';
-            if ($request->file()) {
+            if($request->file()) {
                 $service_image = $request->file('picture');
-                if ($service_image) {
+                if($service_image) {
                     $name_gen = hexdec(uniqid());
                     $img_ext = strtolower($service_image->getClientOriginalExtension());
-                    $img_name = $name_gen . '.' . $img_ext;
+                    $img_name = $name_gen.'.'.$img_ext;
 
 
-                    $upload_location =  'image/services/';
-                    $full_path =  $upload_location . $img_name;
+                    $upload_location =  'public/image/services/';
+                    $full_path =  $upload_location.$img_name ;
 
+                    
+                
                     $data_post->picture = $full_path;
                     $data_post->uniqid = $name_gen;
 
                     //delete 
                     $old_file = $data['old_file'];
-                    if ($old_file) {
-                        unlink($old_file);
+                    if(File::exists(base_path($old_file))) {
+                        // echo "file mee mai";
+                        File::delete(base_path($old_file));
                     }
-                    $service_image->move($upload_location,  $img_name);
+                    
+                    $service_image ->move(base_path($upload_location),  $img_name);
                 }
             }
         }
-
+        
         $data_post->update();
-        return redirect('/admin/content/' . $data['post_type'])->with('status', "Update successfully");
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Update successfully");
     }
 
     public function deleteContet(Request $request)
-    {
-        $data = $request->input();
+    {  
+         $data = $request->input();
         $data_post = Post::find($data['id']);
         $data_post->delete();
-        //delete 
+        // //delete file
         $file = $data['file'];
-        if ($file) {
-            unlink($file);
+
+        if(File::exists(base_path($file))) {
+            // echo "file mee mai";
+            File::delete(base_path($file));
         }
-        return redirect('/admin/content/' . $data['post_type'])->with('status', "Delete successfully");
+        // else {
+        //     echo "Mai Mee arai";
+        // }
+        return redirect('/admin/content/'.$data['post_type'])->with('status',"Delete successfully");
+
     }
+    
 }

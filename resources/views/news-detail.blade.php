@@ -1,4 +1,9 @@
 @extends('master')
+@section('header')
+<meta property="og:title" content="{{$content['post_name_'.__('message.lang_system')]}}"/>
+<meta property="og:url" content="{{asset($content['picture'])}}"/>
+@endsection
+
 @section('content')
   <div class="container pt-30px mb-5">
     <section id="box-publicize">
@@ -25,7 +30,7 @@
           <div class="mt-4">
             <div id="fb-root"></div>
             <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v11.0" nonce="UHtkn8Nw"></script>
-            <div class="fb-share-button" data-href="https://doisuthep.herokuapp.com/news-detail/news/{{$content['id']}}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('message.share')}}</a></div>
+            <div class="fb-share-button" data-href="/news-detail/news/{{$content['id']}}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('message.share')}}</a></div>
           </div>
           <br>
           <br>

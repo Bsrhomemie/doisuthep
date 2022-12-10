@@ -51,3 +51,10 @@
   </div>
 @endsection
 
+@section('footer')
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#page_services').attr("href", "#")
+    });
+  </script>
+@endsection

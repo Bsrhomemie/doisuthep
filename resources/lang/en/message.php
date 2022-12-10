@@ -27,13 +27,13 @@
     'research' => 'Research and Database',
     'activities' => 'Activities-based',
     'team' => 'Our Team',
-    'administrator' => 'Administrator', 
+    'administrator' => 'Executive', 
     'staff' => 'Staff',
     'contact' => 'Contact',
     'more' => 'More.',
     'detail' => 'Detail.',
     'map' => 'Map',
-    'organization_name' => 'Doi Suthep Nature Center In Honor of His Majesty the King. Faculty of Science CMU',
+    'organization_name' => 'Doi Suthep Nature Center, Faculty of Science, Chiang Mai University',
     'organization_adress' => '239 Huay Kaew Road ,Suthep,  Mueang Chiang Mai District, Chiang Mai 50200',
     'organization_email' => 'E-mail: doisuthep.center@cmu.ac.th ',
     'organization_tel' => 'Tel: 053-941451-3 / 084-6116345',
@@ -66,7 +66,9 @@
     'picture' => 'Picture', 
     'share'=> 'Share',
     'back' => 'Back.',
-    'main_page' => 'back to main page.'
+    'main_page' => 'back to main page.',
+    'topic_index' => 'Doi Suthep Nature Center, Chiang Mai University.',
+    'description_index' => 'The Doi Suthep Nature Center is the learning center of the Faculty of Science, Chiang Mai   University. The goal of this center is to promote environmental friendly way of life and to connect people to beautiful nature. There is an exhibit and projects about the biodiversity of Doi Suthep-Pui National Park, Chiang Mai, Thailand. This place also offers to be a coordination center and knowledge center that provide information about Doi Suthep.',
   ];
   
 ?>

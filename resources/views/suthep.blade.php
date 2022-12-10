@@ -64,3 +64,10 @@
   </div>
 @endsection
 
+@section('footer')
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#page_suthep').attr("href", "#")
+    });
+  </script>
+@endsection
