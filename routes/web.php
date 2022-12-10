@@ -60,7 +60,7 @@ Route::post('product/edit/', [ProductController::Class, 'editProduct']);
 Route::post('product/delete', [ProductController::Class, 'deleteProduct']);
 Route::get('/admin/work', [AdminController::Class, 'listWork']);
 
-Route::get('/admin/vedio/', [AdminController::Class, 'listVedio']);
+Route::get('/admin/video/', [AdminController::Class, 'listVideo']);
 
 Route::get('/admin/animal', 'App\Http\Controllers\AnimalController@index');
 
