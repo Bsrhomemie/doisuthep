@@ -10,6 +10,21 @@ use Response;
 class AnimalController extends Controller
 {
     /**
+     * check if data is correct
+     *
+     * @return validator
+     */
+    public function validatoraAdd(Request $request){
+        $validator = Validator::make(
+            $request->all(), [
+            'name' => 'required',
+            'common_name' => 'required',
+            'scientific_name' => 'required'
+        ]);
+        return $validator;
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

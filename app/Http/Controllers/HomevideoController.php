@@ -12,10 +12,21 @@ class HomevideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function editVideo(Request $request)
+    {   
+    
+        $data = $request->input();
+
+        for($i=1; $i<5;  $i++) {
+            $data_video = Homevideo::find($i);
+            $data_video->vdo_link = $data['url_'.$i];
+            $data_video->position = $i;
+
+            $data_video->update();
+        }
+        return redirect('/admin/video')->with('status',"Insert successfully");
     }
+
 
     /**
      * Show the form for creating a new resource.

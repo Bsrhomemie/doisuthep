@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Homevideo;
-
 use Illuminate\Http\Request; 
 
 class AdminController extends Controller
@@ -118,11 +117,31 @@ class AdminController extends Controller
 		return view('admin.product', compact('products'))->with('i', (request()->input('page', 1)-1) * 5);
 	}
 
-	public function listVideo()
+	public function listVideo(Request $request)
 	{
-		$video = Homevideo::orderBy('id','desc')->get();
-		dd($video);
-		return view('admin.video', compact('video'));
+		$type = $request['type'];
+		$video = Homevideo::orderBy('id','asc')->get();; 
+		// dd($video);
+			$todo = [
+				[
+					'id' => 1,
+					'link' => '',
+				],
+				[
+					'id' => 2,
+					'link' => '',
+				],	
+				[
+					'id' => 3,
+					'link' => '',
+				],
+				[
+					'id' => 4,
+					'link' => '',
+				],
+			];
+		
+		return view('admin.video', compact('video', 'type'));
 	}
 	
 	public function listWork(Request $request)

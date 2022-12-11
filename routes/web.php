@@ -61,6 +61,7 @@ Route::post('product/delete', [ProductController::Class, 'deleteProduct']);
 Route::get('/admin/work', [AdminController::Class, 'listWork']);
 
 Route::get('/admin/video/', [AdminController::Class, 'listVideo']);
+Route::post('video/edit/', [HomevideoController::Class, 'editVideo']);
 
 Route::get('/admin/animal', 'App\Http\Controllers\AnimalController@index');
 

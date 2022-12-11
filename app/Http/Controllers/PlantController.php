@@ -3,12 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plant;
+use App\Models\Doisuthep_db;
 use Illuminate\Http\Request;
 use DB;
+use Validator;
 use Response;
 
 class PlantController extends Controller
 {
+    /**
+     * check if data is correct
+     *
+     * @return validator
+     */
+    public function validatoraAdd(Request $request){
+        $validator = Validator::make(
+            $request->all(), [
+            'name' => 'required',
+            'common_name' => 'required',
+            'scientific_name' => 'required'
+        ]);
+        return $validator;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +60,11 @@ class PlantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'price' => 'required',
+        ]);
+        $show = Game::create($validatedData);
     }
 
     /**

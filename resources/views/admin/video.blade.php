@@ -13,14 +13,15 @@
                   <h2>วิดีโอ</h2>
                 </div>
               </div>
-              <form action="">
-                <div class="row">
-                  @foreach ($video as $data )
-                  <div class="col-md-6 form-group mb-3">
-                    <label>วิดีโอ {{($data->id)}}</label>
-                    <input type="text" name="vedio{{($data->id)}}" class="form-control">
-                  </div>  
-                  @endforeach
+              <form action="{{url('/video/edit')}}" method="post">
+                 @csrf
+                  <div class="row">
+                    @foreach ($video as $data )
+                      <div class="col-md-6 form-group mb-3">
+                        <label>วิดีโอ {{($data->id)}}</label>
+                        <input type="text" name="url_{{($data->id)}}" value="{{($data->vdo_link)}}" class="form-control">
+                      </div>  
+                    @endforeach
                 </div>
                 <div class="col-12 d-flex justify-content-end pt-3">
                   <button type="submit" class="btn btn-success  w-150px py-2">Submit</button>
