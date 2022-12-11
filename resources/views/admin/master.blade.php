@@ -153,6 +153,17 @@
               <li><a href="{{url('/admin/content/activities')}}">พื้นที่จัดกิจกรรม</a></li>
             </ul>
           </li>
+          <li class="sub-menu">
+          <a href="javascript:;" class="">
+            <i class="icon_document_alt"></i>
+            <span>ฐานข้อมูล</span>
+            <span class="menu-arrow arrow_carrot-right"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="" href="{{url('/admin/database/plants')}}">พืช</a></li>
+            <li><a class="" href="{{url('/admin/database/animal')}}">สัตว์</a></li>
+          </ul>
+        </li>
         </ul>
         <!-- sidebar menu end-->
       </div>
