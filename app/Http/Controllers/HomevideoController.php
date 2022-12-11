@@ -19,12 +19,11 @@ class HomevideoController extends Controller
 
         for($i=1; $i<5;  $i++) {
             $data_video = Homevideo::find($i);
-            $data_video->vdo_link = $data['url_'.$i];
+            $data_video->vdo_link = ($data['url_'.$i])? $data['url_'.$i] : '';
             $data_video->position = $i;
-
             $data_video->update();
         }
-        return redirect('/admin/video')->with('status',"Insert successfully");
+        return redirect('/admin/video')->with('status',"Updated successfully");
     }
 
 

@@ -8,6 +8,13 @@
         <div class="card">
           <div class="card-body">
             <div class="col-12">
+              @if ($message = Session::get('status'))
+                <div class="alert alert-success">
+                  {{$message}}
+                </div>
+              @endif
+            </div>
+            <div class="col-12">
               <div class="d-flex flex-wrap justify-content-between align-items-center">
                 <div class="p-2 ">
                   <h2>วิดีโอ</h2>

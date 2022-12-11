@@ -120,26 +120,7 @@ class AdminController extends Controller
 	public function listVideo(Request $request)
 	{
 		$type = $request['type'];
-		$video = Homevideo::orderBy('id','asc')->get();; 
-		// dd($video);
-			$todo = [
-				[
-					'id' => 1,
-					'link' => '',
-				],
-				[
-					'id' => 2,
-					'link' => '',
-				],	
-				[
-					'id' => 3,
-					'link' => '',
-				],
-				[
-					'id' => 4,
-					'link' => '',
-				],
-			];
+		$video = Homevideo::orderBy('id','asc')->get(); 
 		
 		return view('admin.video', compact('video', 'type'));
 	}
