@@ -20,7 +20,7 @@
             </div>
             <div class="col-12">
               @if ($message = Session::get('status'))
-                <div class="alert alert-success">
+                <div class="alert alert-success alert-dismissible fade show">
                   {{$message}}
                 </div>
               @endif
@@ -37,19 +37,17 @@
                   </tr>
                 </thead>
                 <tbody id="todos-list" name="todos-list">
-                    @if(!$content->isEmpty())
-                    @foreach ($content as $data)
+                    @if(!$list_data->isEmpty())
+                    @foreach ($list_data as $data)
                     <tr>
                         <td>
                           <div class="img-16by9 holder " >
-                            <img src="{{asset($data->picture)}}" class="img-responsive image-preview" >
+                            <img src="https://picsum.photos/seed/picsum/200/300" class="img-responsive image-preview" >
                           </div>
                         </td>
-                        <td>{{Str::limit($data->post_name_th, 200)}}</td>
-                        <!-- <td>{!! Str::limit($data->content_th, 200) !!}</td> -->
-                        <td>{{Str::limit($data->post_name_en, 200)}}</td>
+                        <td>{{Str::limit($data->name, 200)}}</td>
+                        <td>{{Str::limit($data->common_name, 200)}}</td>
                         <td>{{date('d/m/Y', strtotime($data->created_at))}}</td>
-                        <!-- <td>{!! Str::limit($data->content_en, 200) !!}</td> -->
                         <td>
                           <div class="d-flex justify-content-center">
                             <a href="{{url('database/form_edit/'.$type.'/'.$data->id)}}" class="btn btn-warning me-2">
@@ -57,9 +55,7 @@
                             </a>
                             <form action="{{url('/database/delete')}}" method="post">
                               @csrf
-                              <input type="hidden" name="file" value="{{$data->picture}}">
                               <input type="hidden" name="id" value="{{$data->id}}">
-                              <input type="hidden" name="post_type" value="{{$type}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
                             </form>
                           </div>
@@ -71,7 +67,7 @@
                     @endif
                 </tbody>
               </table>
-              {!! $content->links() !!}
+              {!! $list_data->links() !!}
             </div>
           </div>
         </div>

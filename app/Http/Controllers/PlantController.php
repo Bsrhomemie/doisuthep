@@ -23,7 +23,6 @@ class PlantController extends Controller
             $request->all(),
             [
                 'name' => 'required',
-                'type' => 'required',
                 'common_name' => 'required',
                 'scientific_name' => 'required'
             ]
@@ -47,14 +46,27 @@ class PlantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($type)
     {
-        $data = DB::table('doisuthep_dbs')
+        $type_list = [
+			'plants' => [
+				'id' =>	1,
+				'name' =>	'ฐานข้อมูลพืช',
+			],
+			'animal' => [
+				'id' =>	2,
+				'name' =>	'ฐานข้อมูลสัตว์',
+			],
+		];
+
+        $type_text = isset($type_list[$type]) ? $type_list[$type]['name'] : '';
+		$type_id = isset($type_list[$type]) ? $type_list[$type]['id'] : '';
+        $list_data = DB::table('doisuthep_dbs')
             ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'plant')
-            ->get();
+            ->paginate(5);
 
-        return response()->json(array('data' => $data), 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE)->setStatusCode(200, 'success');
+        return view('admin.database', compact('type', 'type_text', 'list_data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -64,7 +76,10 @@ class PlantController extends Controller
      */
     public function create()
     {
-        //
+        $type_text = 'ฐานข้อมูลพืช';
+        $type= 'plant';
+        return view('database.create', compact('type', 'type_text'));
+        
     }
 
     /**
@@ -82,79 +97,68 @@ class PlantController extends Controller
             return response()->json($validator->errors())
                 ->setStatusCode(400, 'failed');
         }
-
         //name exist?
         if ($this->isHaveName($request->name)) {
-            return response()->json("already have plant name in System.")
-                ->setStatusCode(400, 'failed');
+            return redirect('')->with('status',"already have plant name in System.");
         }
+        
+        \DB::beginTransaction();
 
-        if ($request->type == 'plant') {
-            \DB::beginTransaction();
-
-            // insert doisuthep with type
-            try {
-
-                $doisuthep = new Doisuthep_db();
-                $doisuthep->name = $request->name;
-                $doisuthep->type = 'plant';
-                $doisuthep->common_name = $request->common_name;
-                if (isset($request->local_name)) {
-                    $doisuthep->local_name = $request->local_name;
-                } else {
-                    $doisuthep->local_name = '';
-                }
-
-                $doisuthep->scientific_name = $request->scientific_name;
-                $doisuthep->save();
-                // \DB::commit();
-            } catch (\Throwable $e) {
-                \DB::rollBack();
-                return response()->json("create doisuthep is err .")
-                    ->setStatusCode(400, 'failed');
+        // insert doisuthep with type
+        try {
+            $doisuthep = new Doisuthep_db();
+            $doisuthep->name = $request->name;
+            $doisuthep->type = 'plant';
+            $doisuthep->common_name = $request->common_name;
+            if (isset($request->local_name)) {
+                $doisuthep->local_name = $request->local_name;
+            } else {
+                $doisuthep->local_name = '';
             }
 
-            try {
-                $plant = new Plant();
-                $plant->kingdom = $request->kingdom ?: '';
-                $plant->division = $request->division ?: '';
-                $plant->class = $request->class ?: '';
-                $plant->order = $request->order ?: '';
-                $plant->family = $request->family ?: '';
-                $plant->genus = $request->genus ?: '';
-                $plant->species = $request->species ?: '';
-                $plant->stem_th = $request->stem_th ?: '';
-                $plant->stem_en = $request->stem_en ?: '';
-                $plant->leaf_th = $request->leaf_th ?: '';
-                $plant->leaf_en = $request->leaf_en ?: '';
-                $plant->flower_th = $request->flower_th ?: '';
-                $plant->flower_en = $request->flower_en ?: '';
-                $plant->fruit_th = $request->fruit_th ?: '';
-                $plant->fruit_en = $request->fruit_en ?: '';
-                $plant->distribution_th = $request->distribution_th ?: '';
-                $plant->distribution_en = $request->distribution_en ?: '';
-                $plant->utilization_th = $request->utilization_th ?: '';
-                $plant->utilization_en = $request->utilization_en ?: '';
-                $plant->conservation_status_th = $request->conservation_status_th ?: '';
-                $plant->conservation_status_en = $request->conservation_status_en ?: '';
-                $plant->references_th = $request->references_th ?: '';
-                $plant->references_en = $request->references_en ?: '';
-                $plant->doisuthep_db_id = $doisuthep->id;
-                $plant->save();
-                // \DB::commit();
-            } catch (\Throwable $e) {
-                \DB::rollBack();
-                return response()->json($e)
-                    ->setStatusCode(400, 'failed');
-            }
-
-            \DB::commit();
-
-            return response()->json("Created Plant Successfully")
-                ->setStatusCode(200, 'success');
+            $doisuthep->scientific_name = $request->scientific_name;
+            $doisuthep->save();
+            // \DB::commit();
+        } catch (\Throwable $e) {
+            \DB::rollBack();
+            return redirect('')->with('status',"create doisuthep is err .");
         }
-        return response()->json("Input wrong type")
-            ->setStatusCode(400, 'failed');
+
+        try {
+            $plant = new Plant();
+            $plant->kingdom = $request->kingdom ?: '';
+            $plant->division = $request->division ?: '';
+            $plant->class = $request->class ?: '';
+            $plant->order = $request->order ?: '';
+            $plant->family = $request->family ?: '';
+            $plant->genus = $request->genus ?: '';
+            $plant->species = $request->species ?: '';
+            $plant->stem_th = $request->stem_th ?: '';
+            $plant->stem_en = $request->stem_en ?: '';
+            $plant->leaf_th = $request->leaf_th ?: '';
+            $plant->leaf_en = $request->leaf_en ?: '';
+            $plant->flower_th = $request->flower_th ?: '';
+            $plant->flower_en = $request->flower_en ?: '';
+            $plant->fruit_th = $request->fruit_th ?: '';
+            $plant->fruit_en = $request->fruit_en ?: '';
+            $plant->distribution_th = $request->distribution_th ?: '';
+            $plant->distribution_en = $request->distribution_en ?: '';
+            $plant->utilization_th = $request->utilization_th ?: '';
+            $plant->utilization_en = $request->utilization_en ?: '';
+            $plant->conservation_status_th = $request->conservation_status_th ?: '';
+            $plant->conservation_status_en = $request->conservation_status_en ?: '';
+            $plant->references_th = $request->references_th ?: '';
+            $plant->references_en = $request->references_en ?: '';
+            $plant->doisuthep_db_id = $doisuthep->id;
+            $plant->save();
+            // \DB::commit();
+        } catch (\Throwable $e) {
+            \DB::rollBack();
+            return redirect('')->with('status',$e);
+        }
+
+        \DB::commit();
+        return redirect('/admin/database/plants')->with('status',"Insert successfully");
     }
 
     /**
@@ -163,15 +167,16 @@ class PlantController extends Controller
      * @param  \App\Models\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function show(Plant $plant)
-    {
+    public function show($type,$id)
+    {   
+        $type_text = 'ฐานข้อมูลพืช';
+        $type= 'plant';
         $data = DB::table('doisuthep_dbs')
             ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'plant')
-            ->where('plants.id', '=', $plant->id)
-            ->get();
-
-        return response()->json(array('data' => $data), 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE)->setStatusCode(200, 'success');
+            ->where('plants.id', '=', $id)
+            ->first();
+        return view('database.edit', compact('type', 'type_text', 'data'));
     }
 
     /**
@@ -194,7 +199,6 @@ class PlantController extends Controller
      */
     public function update(Request $request, Plant $plant)
     {
-
         \DB::beginTransaction();
 
         try {
@@ -231,20 +235,18 @@ class PlantController extends Controller
             DB::table('doisuthep_dbs')
                 ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
                 ->where('doisuthep_dbs.type', '=', 'plant')
-                ->where('plants.id', '=', $plant->id)
+                ->where('plants.id', '=', $request->id)
                 ->update($get_doi_id);
 
             // \DB::commit();
         } catch (\Throwable $e) {
             \DB::rollBack();
-            return response()->json(array($e, "update doisuthep is err ."))
-                ->setStatusCode(400, 'failed');
+            return redirect('')->with('status',"update doisuthep is err .");
         }
 
         \DB::commit();
-
-        return response()->json("Updated Plant Successfully")
-            ->setStatusCode(200, 'success');
+        return redirect('/admin/database/plants')->with('status',"Updated Plant Successfully");
+       
     }
 
     /**
@@ -253,7 +255,7 @@ class PlantController extends Controller
      * @param  \App\Models\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plant $plant)
+    public function destroy(Request $request)
     {
         \DB::beginTransaction();
 
@@ -261,14 +263,14 @@ class PlantController extends Controller
             DB::table('doisuthep_dbs')
                 ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
                 ->where('doisuthep_dbs.type', '=', 'plant')
-                ->where('plants.id', '=', $plant->id)
+                ->where('plants.id', '=', $request->id)
                 ->delete();
         } catch (\Throwable $e) {
             \DB::rollBack();
-            return response()->json(array($e, "delete plant is err ."))
-                ->setStatusCode(400, 'failed');
+            return redirect('/admin/database/plants')->with('status',"delete plant is err .");
         }
         
-        return \DB::commit();
+         \DB::commit();
+        return redirect('/admin/database/plants')->with('status',"Delete Plant Successfully");
     }
 }

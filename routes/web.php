@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DatabaseController;
+use App\Http\Controllers\PlantController;
 use App\Http\Controllers\SuthepController;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\StaffController;
@@ -158,9 +159,9 @@ Route::get('/config-cache', function () {
 // });
 
 
-Route::get('/admin/database/{type}', [AdminController::Class, 'listDatabase']);
-Route::get('/database/form/{type}', [DatabaseController::Class, 'viewDatabase']);
-Route::post('/database/add/', [DatabaseController::Class, 'addDatabase']);
-Route::get('/database/form_edit/{type}/{id}', [DatabaseController::Class, 'viewDatabase']);
-Route::post('database/edit/', [DatabaseController::Class, 'editDatabase']);
-Route::post('database/delete', [DatabaseController::Class, 'deleteDatabase']);
+Route::get('/admin/database/{type}', [PlantController::Class, 'index']);
+Route::get('/database/form/{type}', [PlantController::Class, 'create']);
+Route::post('/database/add/', [PlantController::Class, 'store']);
+Route::get('/database/form_edit/{type}/{id}', [PlantController::Class, 'show']);
+Route::post('database/edit/', [PlantController::Class, 'update']);
+Route::post('database/delete/', [PlantController::Class, 'destroy']);
