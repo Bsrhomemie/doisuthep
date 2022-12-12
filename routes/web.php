@@ -164,4 +164,4 @@ Route::get('/database/form/{type}', [PlantController::Class, 'create']);
 Route::post('/database/add/', [PlantController::Class, 'store']);
 Route::get('/database/form_edit/{type}/{id}', [PlantController::Class, 'show']);
 Route::post('database/edit/', [PlantController::Class, 'update']);
-Route::post('database/delete/', [PlantController::Class, 'destroy']);
+Route::delete('database/delete/', [PlantController::Class, 'destroy']);

@@ -48,19 +48,8 @@ class PlantController extends Controller
      */
     public function index($type)
     {
-        $type_list = [
-			'plants' => [
-				'id' =>	1,
-				'name' =>	'ฐานข้อมูลพืช',
-			],
-			'animal' => [
-				'id' =>	2,
-				'name' =>	'ฐานข้อมูลสัตว์',
-			],
-		];
-
-        $type_text = isset($type_list[$type]) ? $type_list[$type]['name'] : '';
-		$type_id = isset($type_list[$type]) ? $type_list[$type]['id'] : '';
+        $type_text = 'ฐานข้อมูลพืช';
+        $type= 'plant';
         $list_data = DB::table('doisuthep_dbs')
             ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'plant')

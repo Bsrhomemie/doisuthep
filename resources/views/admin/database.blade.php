@@ -55,6 +55,7 @@
                             </a>
                             <form action="{{url('/database/delete')}}" method="post">
                               @csrf
+                              @method('DELETE') 
                               <input type="hidden" name="id" value="{{$data->id}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
                             </form>
