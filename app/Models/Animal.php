@@ -9,9 +9,12 @@ class Animal extends Model
 {
     use HasFactory;
     protected $table = 'animals';
+    public $timestamps = false;
 
-    public function Doisuthep_db()
-    {
-        return $this->hasMany(Doisuthep_db::class, 'id', 'id');
-    }
+    protected $fillable = [
+        'kingdom','phylum','class','order','family','genus',
+        'species','characteristics_th','characteristics_en','behavior_th','behavior_en',
+        'habitat_th','habitat_en','food_th','food_en','conservation_status_th','conservation_status_en',
+        'references_th','references_en','doisuthep_db_id'
+    ];
 }

@@ -30,5 +30,3 @@ class CreateHomevideosTable extends Migration
         Schema::dropIfExists('homevideos');
     }
 }
-
-

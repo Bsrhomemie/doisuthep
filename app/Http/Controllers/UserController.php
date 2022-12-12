@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Redirect; 
+use App\Models\Homevideo;
 use App\Models\Product;
 use App\Models\Post;
 class UserController extends Controller
@@ -34,12 +35,7 @@ class UserController extends Controller
 			],
 		];
 
-		$youtube_list = [
-			'https://www.youtube.com/embed/Fsh9UkI69hY',
-			'https://www.youtube.com/embed/HsoenzSc7vo',
-			'https://www.youtube.com/embed/pbMS7ePk20I',
-			'https://www.youtube.com/embed/mgPUeT7BKMU',
-		];
+		$youtube_list = Homevideo::orderBy('id','asc')->get(); 
 		
 		$post_list = []; 
 		
