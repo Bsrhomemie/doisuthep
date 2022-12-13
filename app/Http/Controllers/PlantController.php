@@ -55,7 +55,7 @@ class PlantController extends Controller
             ->where('doisuthep_dbs.type', '=', 'plant')
             ->paginate(5);
 
-        return view('admin.database', compact('type', 'type_text', 'list_data'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('admin.plant', compact('type', 'type_text', 'list_data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
