@@ -46,10 +46,10 @@ class PlantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($type)
+    public function index()
     {
         $type_text = 'ฐานข้อมูลพืช';
-        $type= 'plant';
+        $type= 'plants';
         $list_data = DB::table('doisuthep_dbs')
             ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'plant')
@@ -66,8 +66,8 @@ class PlantController extends Controller
     public function create()
     {
         $type_text = 'ฐานข้อมูลพืช';
-        $type= 'plant';
-        return view('database.create', compact('type', 'type_text'));
+        $type= 'plants';
+        return view('plant.create', compact('type', 'type_text'));
         
     }
 
@@ -156,16 +156,16 @@ class PlantController extends Controller
      * @param  \App\Models\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function show($type,$id)
+    public function show($id)
     {   
         $type_text = 'ฐานข้อมูลพืช';
-        $type= 'plant';
+        $type= 'plants';
         $data = DB::table('doisuthep_dbs')
             ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'plant')
             ->where('plants.id', '=', $id)
             ->first();
-        return view('database.edit', compact('type', 'type_text', 'data'));
+        return view('plant.edit', compact('type', 'type_text', 'data'));
     }
 
     /**

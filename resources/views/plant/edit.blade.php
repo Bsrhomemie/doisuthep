@@ -45,7 +45,7 @@
                 </div>
                 <div class="form-group mt-2 mb-3">
                   <label>วันที่ลงประกาศ </label>
-                  <input type="date" name="created_at" value="{{date('Y-m-d')}}" class="form-control">
+                  <input type="date" name="created_at" value="{{date('Y-m-d', strtotime($data->created_at))}}" class="form-control">
                 </div>
                 <input type="hidden" name="post_type" value="{{$type}}">
                 <input type="hidden" name="id"  value="{{$data->id}}">
