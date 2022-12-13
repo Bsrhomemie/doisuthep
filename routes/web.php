@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\PlantController;
+use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\SuthepController;
 use App\Http\Controllers\KnowledgeController;
 use App\Http\Controllers\StaffController;
@@ -161,7 +162,16 @@ Route::get('/config-cache', function () {
 
 Route::get('/admin/database/plants', [PlantController::Class, 'index']);
 Route::get('/database/form/plants', [PlantController::Class, 'create']);
-Route::post('/database/add/', [PlantController::Class, 'store']);
+Route::post('/database/add/plants', [PlantController::Class, 'store']);
 Route::get('/database/form_edit/plants/{id}', [PlantController::Class, 'show']);
-Route::post('database/edit/', [PlantController::Class, 'update']);
+Route::post('database/edit/plants', [PlantController::Class, 'update']);
 Route::delete('database/delete/', [PlantController::Class, 'destroy']);
+
+
+
+Route::get('/admin/database/animals', [AnimalController::Class, 'list']);
+Route::get('/database/form/animals', [AnimalController::Class, 'add']);
+Route::post('/database/add/animals', [AnimalController::Class, 'store']);
+Route::get('/database/form_edit/animals/{id}', [AnimalController::Class, 'view']);
+Route::post('database/edit/animals', [AnimalController::Class, 'update']);
+Route::delete('database/delete/', [AnimalController::Class, 'destroy']);

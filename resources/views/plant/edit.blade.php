@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/database/edit')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/database/edit'.$type)}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-lg-4">

@@ -161,7 +161,7 @@
           </a>
           <ul class="sub">
             <li><a class="" href="{{url('/admin/database/plants')}}">พืช</a></li>
-            <li><a class="" href="{{url('/admin/database/animal')}}">สัตว์</a></li>
+            <li><a class="" href="{{url('/admin/database/animals')}}">สัตว์</a></li>
           </ul>
         </li>
         </ul>

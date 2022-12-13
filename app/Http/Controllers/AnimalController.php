@@ -262,4 +262,28 @@ class AnimalController extends Controller
         
         return \DB::commit();
     }
+    public function list()
+    {
+        $type_text = 'ฐานข้อมูลสัตว์';
+        $type= 'animals';
+        $list_data  = DB::table('doisuthep_dbs')
+            ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+            ->where('doisuthep_dbs.type', '=', 'animal')
+            ->paginate(5);
+        return view('admin.animal', compact('type', 'type_text','list_data'));
+    }
+    public function add()
+    {
+        $type_text = 'ฐานข้อมูลสัตว์';
+        $type= 'animals';
+        return view('animal.create', compact('type', 'type_text'));
+        
+    }
+    public function view()
+    {
+        $type_text = 'ฐานข้อมูลสัตว์';
+        $type= 'animals';
+        return view('animal.edit', compact('type', 'type_text'));
+        
+    }
 }

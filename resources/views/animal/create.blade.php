@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/database/add'.$type)}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/database/add/'.$type)}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-lg-4">
@@ -147,55 +147,39 @@
                     </div>
                   </div>
                   <div class="col-lg-12">
-                  <h4 class="mb-0">ลักษณะทางพฤกษศาตร์</h4>
+                    <h4 class="mb-0">ลักษณะ</h4>
                     <hr class="my-2">
                     <div class="form-group">
-                      <label>ลำต้น ภาษาไทย</label>
-                      <textarea name="stem_th" class="summer-note summernote"> </textarea>
+                      <label>ลักษณะเด่น ภาษาไทย</label>
+                      <textarea name="characteristics_th" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ลำต้น ภาษาอังกฤษ</label>
-                      <textarea name="stem_en" class="summer-note summernote"> </textarea>
+                      <label>ลักษณะเด่น ภาษาอังกฤษ</label>
+                      <textarea name="characteristics_en" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ใบ ภาษาไทย</label>
-                      <textarea name="leaf_th" class="summer-note summernote"> </textarea>
+                      <label>พฤติกรรม ภาษาไทย</label>
+                      <textarea name="behavior_th" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ใบ ภาษาอังกฤษ</label>
-                      <textarea name="leaf_en" class="summer-note summernote"> </textarea>
+                      <label>พฤติกรรม ภาษาอังกฤษ</label>
+                      <textarea name="behavior_en" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ดอก ภาษาไทย</label>
-                      <textarea name="flower_th" class="summer-note summernote"> </textarea>
+                      <label>ถิ่นอาศัย ภาษาไทย</label>
+                      <textarea name="habitat_th" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ดอก ภาษาอังกฤษ</label>
-                      <textarea name="flower_en" class="summer-note summernote"> </textarea>
+                      <label>ถิ่นอาศัย ภาษาอังกฤษ</label>
+                      <textarea name="habitat_en" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ผล ภาษาไทย</label>
-                      <textarea name="fruit_th" class="summer-note summernote"> </textarea>
+                      <label>อาหาร ภาษาไทย</label>
+                      <textarea name="food_th" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
-                      <label>ผล ภาษาอังกฤษ</label>
-                      <textarea name="fruit_en" class="summer-note summernote"> </textarea>
-                    </div>
-                    <div class="form-group">
-                      <label>การกระจายพันธุ์ ภาษาไทย</label>
-                      <textarea name="distribution_th" class="summer-note summernote"> </textarea>
-                    </div>
-                    <div class="form-group">
-                      <label>การกระจายพันธุ์ ภาษาอังกฤษ</label>
-                      <textarea name="distribution_en" class="summer-note summernote"> </textarea>
-                    </div>
-                    <div class="form-group">
-                      <label>การใช้ประโยชน์ ภาษาไทย</label>
-                      <textarea name="utilization_th" class="summer-note summernote"> </textarea>
-                    </div>
-                    <div class="form-group">
-                      <label>การใช้ประโยชน์ ภาษาอังกฤษ</label>
-                      <textarea name="utilization_en" class="summer-note summernote"> </textarea>
+                      <label>อาหาร ภาษาอังกฤษ</label>
+                      <textarea name="food_en" class="summer-note summernote"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>อ้างอิง ภาษาไทย</label>
