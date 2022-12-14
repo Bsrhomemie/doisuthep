@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use App\Models\Files_post;
 use App\Models\Product;
 use App\Models\Homevideo;
 use Illuminate\Http\Request; 
@@ -101,6 +102,15 @@ class AdminController extends Controller
 		$content = Post::where('post_type', $type_id)
 		->orderBy('id','desc')
 		->paginate(5); 
+		foreach ($content as $key => $data) {
+			$temp_files = [];
+			$files = Files_post::where('post_id', $data->id)
+			->get(); 
+			foreach ($files as $key => $file) {
+				$temp_files[] = $file;
+			}
+			$data['files'] = $temp_files;
+		}
 
 		if($type != 'join') {
 			return view('admin.content', compact('type', 'type_text', 'content'))->with('i', (request()->input('page', 1)-1) * 5);

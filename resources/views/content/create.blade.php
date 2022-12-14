@@ -30,7 +30,8 @@
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label>รูปภาพ</label>
-                    <div class="image-upload files">
+                    @for($i = 1; $i <= 5; $i++) 
+                    <div class="image-upload files mb-3">
                       <div class="img-16by9 holder btn-change-image highlight-hover" >
                         <img src="" class="img-responsive image-preview">
                         <div class="icon-box">
@@ -38,8 +39,9 @@
                           </div>
                         </div>
                       </div>
-                      <input type="file" name="picture" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
+                      <input type="file" name="picture_{{$i}}" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
                     </div>
+                    @endfor
                   </div>
                   <div class="form-group mt-2">
                     <label>วันที่ลงประกาศ </label>

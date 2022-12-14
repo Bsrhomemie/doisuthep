@@ -41,12 +41,12 @@
                       </div>
                       <input type="file" name="picture_{{$i}}" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
                     </div>
-                  @endfor
-                </div>
-                <div class="form-group mt-2 mb-3">
-                  <label>วันที่ลงประกาศ </label>
-                  <input type="date" name="created_at" value="{{date('Y-m-d')}}" class="form-control">
-                </div>
+                    @endfor
+                  </div>
+                  <div class="form-group mt-2 mb-3">
+                    <label>วันที่ลงประกาศ </label>
+                    <input type="date" name="created_at" value="{{date('Y-m-d')}}" class="form-control">
+                  </div>
               </div>
               <div class="col-lg-8">
                 <div class="row">

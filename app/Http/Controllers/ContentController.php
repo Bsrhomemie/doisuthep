@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Type;
+use App\Models\Files_post;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -42,6 +43,13 @@ class ContentController extends Controller
                 return view('content.create', compact('type', 'type_text'));
             } else {
                 $content = Post::where('id', $id)->first();
+                $temp_files = [];
+                $files = Files_post::where('post_id', $id)->get(); 
+                
+                foreach ($files as $key => $file) {
+                    $temp_files[] = $file;
+                }
+                $content['files'] = $temp_files;
                 return view('content.edit', compact('type', 'type_text', 'content'));
             }
         } else {
@@ -82,51 +90,30 @@ class ContentController extends Controller
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
         $data_post->post_type = isset($type_list[$data['post_type']])? $type_list[$data['post_type']] : '';
-
-        if($data['post_type'] == 'join') {
-            $data_post->picture = '';
-            if($request->file()) {
-
-                $service_image = $request->file('pdf');
+        $data_post->save();
+        
+        if($request->file()) {
+            foreach ($request->file() as $key => $file) {
+                $service_image = $request->file($key);
                 $name_gen = hexdec(uniqid());
-                // $service_image->getClientOriginalName()
                 $img_ext = strtolower($service_image->getClientOriginalExtension());
                 $img_name = $name_gen.'.'.$img_ext;
-
-                // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-                // $request->file('picture')->storeAs('/public', $fileName);
-
-                $upload_location =  'public/file/services/';
-                $full_path =  $upload_location.$img_name ;
-                $service_image ->move(base_path($upload_location),  $img_name);
-
-                $data_post->picture = $full_path;
-                $data_post->uniqid = $name_gen;
-            }
-
-        } else {
-            $data_post->pdf = '';
-            if($request->file()) {
-                $service_image = $request->file('picture');
-                $name_gen = hexdec(uniqid());
-                // $service_image->getClientOriginalName()
-                $img_ext = strtolower($service_image->getClientOriginalExtension());
-                $img_name = $name_gen.'.'.$img_ext;
-
-                // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-                // $request->file('picture')->storeAs('/public', $fileName);
-
                 $upload_location =  'public/image/services/';
                 $full_path =  $upload_location.$img_name ;
                 $service_image ->move(base_path($upload_location),  $img_name);
 
-                $data_post->picture = $full_path;
-                $data_post->uniqid = $name_gen;
+                $data_file = new Files_post;
+                $data_file->file_path = $full_path;
+                $data_file->uniqid = $name_gen;
+                $data_file->post_id = $data_post->id;
+                $data_file->save();
 
+                // $service_image->getClientOriginalName()
+                // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
+                // $request->file('picture')->storeAs('/public', $fileName);
             }
         }
-      
-        $data_post->save();
+
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Insert successfully");
 
     }
