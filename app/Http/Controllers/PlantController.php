@@ -255,7 +255,7 @@ class PlantController extends Controller
      * @param  \App\Models\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Plant $plant)
+    public function destroy(Request $request)
     {
         \DB::beginTransaction();
 
@@ -263,7 +263,7 @@ class PlantController extends Controller
             DB::table('doisuthep_dbs')
                 ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
                 ->where('doisuthep_dbs.type', '=', 'plant')
-                ->where('plants.id', '=', $plant->id)
+                ->where('plants.id', '=', $request->id)
                 ->delete();
         } catch (\Throwable $e) {
             \DB::rollBack();

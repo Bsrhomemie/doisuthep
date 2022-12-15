@@ -168,7 +168,7 @@ Route::get('/database/form/plants', [PlantController::Class, 'create']);
 Route::post('/database/add/plants', [PlantController::Class, 'store']);
 Route::get('/database/form_edit/plants/{plant}', [PlantController::Class, 'show']);
 Route::post('database/edit/plants', [PlantController::Class, 'update']);
-Route::delete('database/delete/', [PlantController::Class, 'destroy']);
+Route::delete('database/delete/plants', [PlantController::Class, 'destroy']);
 
 
 
@@ -177,4 +177,4 @@ Route::get('/database/form/animals', [AnimalController::Class, 'add']);
 Route::post('/database/add/animals', [AnimalController::Class, 'store']);
 Route::get('/database/form_edit/animals/{id}', [AnimalController::Class, 'view']);
 Route::post('database/edit/animals', [AnimalController::Class, 'update']);
-Route::delete('database/delete/', [AnimalController::Class, 'destroy']);
+Route::delete('database/delete/animals', [AnimalController::Class, 'destroy']);
