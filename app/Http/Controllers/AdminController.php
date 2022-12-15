@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
-use App\Models\Files_post;
+use App\Models\Postpic;
 use App\Models\Product;
 use App\Models\Homevideo;
 use Illuminate\Http\Request; 
@@ -104,7 +104,7 @@ class AdminController extends Controller
 		->paginate(5); 
 		foreach ($content as $key => $data) {
 			$temp_files = [];
-			$files = Files_post::where('post_id', $data->id)
+			$files = Postpic::where('post_id', $data->id)
 			->get(); 
 			foreach ($files as $key => $file) {
 				$temp_files[] = $file;

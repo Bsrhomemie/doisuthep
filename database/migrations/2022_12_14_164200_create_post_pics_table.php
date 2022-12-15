@@ -16,12 +16,8 @@ class CreatePostPicsTable extends Migration
         Schema::create('post_pics', function (Blueprint $table) {
             $table->id();
             $table->string('pic_path');
-            // define foreign key 
-            $table->foreignId('doisuthep_db_id')
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->timestamp('created_at')->useCurrent();
+            $table->foreignId('post_id')->constrained('posts')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

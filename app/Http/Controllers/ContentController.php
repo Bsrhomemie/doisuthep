@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Type;
-use App\Models\Files_post;
 use App\Models\Postpic;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -45,7 +44,7 @@ class ContentController extends Controller
             } else {
                 $content = Post::where('id', $id)->first();
                 $temp_files = [];
-                $files = Files_post::where('post_id', $id)->get(); 
+                $files = Postpic::where('post_id', $id)->get(); 
                 
                 foreach ($files as $key => $file) {
                     $temp_files[] = $file;
@@ -105,7 +104,8 @@ class ContentController extends Controller
                 
                 $data_file = new Postpic;
                 $data_file->pic_path = $full_path;
-                $data_file->doisuthep_db_id = $data_post->id;
+                $data_file->post_id = $data_post->id;
+                $data_file->created_at = $data['created_at'];
                 $data_file->save();
                 // $data_file = new Files_post;
                 // $data_file->file_path = $full_path;

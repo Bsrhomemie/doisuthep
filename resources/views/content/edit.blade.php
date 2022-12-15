@@ -44,7 +44,7 @@
                     </div>
                     @endfor
                   </div>
-                  <input type="hidden" name="old_file"  value="{{$content->picture}}">
+                  <input type="hidden" name="old_file"  value="{{$content->files[$i-1]->file_path}}">
                   <div class="form-group mt-2">
                     <label>วันที่ลงประกาศ </label>
                     <input type="date" name="created_at" value="{{$content->created_at}}" class="form-control">
