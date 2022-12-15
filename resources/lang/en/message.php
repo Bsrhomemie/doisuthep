@@ -69,6 +69,7 @@
     'main_page' => 'back to main page.',
     'topic_index' => 'Doi Suthep Nature Center, Chiang Mai University.',
     'description_index' => 'The Doi Suthep Nature Center is the learning center of the Faculty of Science, Chiang Mai   University. The goal of this center is to promote environmental friendly way of life and to connect people to beautiful nature. There is an exhibit and projects about the biodiversity of Doi Suthep-Pui National Park, Chiang Mai, Thailand. This place also offers to be a coordination center and knowledge center that provide information about Doi Suthep.',
+    'databaes' => 'database',
   ];
   
 ?>

@@ -310,4 +310,59 @@ class UserController extends Controller
 		];
 		return view('empolyee', compact('employee_list', 'staff_list'));
 	}
+
+
+	function database()
+	{
+		$database_list = [
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+		];
+		return view('database', compact('database_list'));
+	}
+	
+	function database_detail($type, $id) {
+		$database_list = [
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/image-5.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+		];
+		return view('database-detail', compact('type', 'database_list'));
+	}
+
 }

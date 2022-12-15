@@ -44,9 +44,18 @@
   color: #0A1E12;
 }
 
+.text-detail {
+  color: #11331f;
+}
+
 .dropdown-item:focus, .dropdown-item:hover {
   color: #2E8B57;
   background-color: transparent;
+}
+
+.border-green {
+  margin-top: 40px;
+  border-bottom: 3px solid #57a97a;
 }
 
 .btn-main {

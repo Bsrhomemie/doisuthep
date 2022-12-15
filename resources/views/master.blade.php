@@ -60,7 +60,7 @@
                 <span>{{__('message.doi_suthep')}}</span> <i class="fas fa-chevron-down"></i>
               </a>
               <ul>
-                <li><a href="#">ฐานข้อมูลดอยสุเทพ</a></li>
+                <li><a href="database">ฐานข้อมูลดอยสุเทพ</a></li>
                 <li><a href="#">ดอยสุเทพศึกษา</a></li>
                 <!-- <li><a href="suthep#box-fungus">{{__('message.fungus')}}</a></li>
                 <li><a href="suthep#box-geology">{{__('message.geology')}}</a></li>

@@ -41,6 +41,9 @@ Route::get('/news/{type}', [UserController::Class, 'news']);
 Route::get('/services', [UserController::Class, 'services']);
 Route::get('/suthep', [UserController::Class, 'suthep']);
 Route::get('/empolyee', [UserController::Class, 'empolyee']);
+Route::get('/database', [UserController::Class, 'database']);
+Route::get('/databasel/{type}/{id}', [UserController::Class, 'database_detail']);
+
 
 Route::get('/about-us', function () {
     return view('about-us');

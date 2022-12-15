@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Type;
 use App\Models\Files_post;
+use App\Models\Post_pics;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -101,12 +102,16 @@ class ContentController extends Controller
                 $upload_location =  'public/image/services/';
                 $full_path =  $upload_location.$img_name ;
                 $service_image ->move(base_path($upload_location),  $img_name);
-
-                $data_file = new Files_post;
-                $data_file->file_path = $full_path;
-                $data_file->uniqid = $name_gen;
-                $data_file->post_id = $data_post->id;
+                
+                $data_file = new Post_pics;
+                $data_file->pic_path = $full_path;
+                $data_file->doisuthep_db_id = $data_post->id;
                 $data_file->save();
+                // $data_file = new Files_post;
+                // $data_file->file_path = $full_path;
+                // $data_file->uniqid = $name_gen;
+                // $data_file->post_id = $data_post->id;
+                // $data_file->save();
 
                 // $service_image->getClientOriginalName()
                 // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
