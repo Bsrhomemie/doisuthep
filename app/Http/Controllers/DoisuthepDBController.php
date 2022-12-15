@@ -4,9 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Doisuthep_db;
 use Illuminate\Http\Request;
-
+use Response;
+use DB;
 class DoisuthepDBController extends Controller
 {
+    public function search(Request $request)
+    {
+
+        $search = $request->input();
+        if (isset($search['type'])) {
+            echo 10;
+        } else {
+            $results = DB::table('doisuthep_dbs')
+                ->where('name', 'like', "%{$search['search']}%")
+                ->orWhere('common_name', 'like', "%{$search['search']}%")
+                ->orWhere('local_name', 'like', "%{$search['search']}%")
+                ->orWhere('scientific_name', 'like', "%{$search['search']}%")
+                ->get();
+            $data=json_decode($results, true);
+
+            // return view("doisuthep.index", compact("data"));
+            // return Response::json(array('data' => $data));
+            // return Response::json(
+            //     array('data' => $results),
+            //     200,
+            //     array('Content-Type' => 'application/json;charset=utf8'),
+            //     JSON_UNESCAPED_UNICODE
+            // );
+            return $data[0]['type'];
+        }
+    }
     /**
      * Display a listing of the resource.
      *

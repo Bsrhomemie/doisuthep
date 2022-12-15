@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Type;
 use App\Models\Files_post;
-use App\Models\Post_pics;
+use App\Models\Postpic;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -103,7 +103,7 @@ class ContentController extends Controller
                 $full_path =  $upload_location.$img_name ;
                 $service_image ->move(base_path($upload_location),  $img_name);
                 
-                $data_file = new Post_pics;
+                $data_file = new Postpic;
                 $data_file->pic_path = $full_path;
                 $data_file->doisuthep_db_id = $data_post->id;
                 $data_file->save();
