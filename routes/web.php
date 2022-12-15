@@ -163,10 +163,10 @@ Route::get('/config-cache', function () {
 // });
 
 
-Route::get('/admin/database/plants', [PlantController::Class, 'index']);
+Route::get('/admin/database/plants', [PlantController::Class, 'indexAdmin']);
 Route::get('/database/form/plants', [PlantController::Class, 'create']);
 Route::post('/database/add/plants', [PlantController::Class, 'store']);
-Route::get('/database/form_edit/plants/{id}', [PlantController::Class, 'show']);
+Route::get('/database/form_edit/plants/{plant}', [PlantController::Class, 'show']);
 Route::post('database/edit/plants', [PlantController::Class, 'update']);
 Route::delete('database/delete/', [PlantController::Class, 'destroy']);
 

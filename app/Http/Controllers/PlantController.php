@@ -58,6 +58,17 @@ class PlantController extends Controller
         return view('admin.plant', compact('type', 'type_text', 'list_data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
+    public function indexAdmin()
+    {
+        $type_text = 'ฐานข้อมูลพืช';
+        $type= 'plants';
+        $list_data = DB::table('doisuthep_dbs')
+            ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+            ->where('doisuthep_dbs.type', '=', 'plant')
+            ->paginate(5);
+
+        return view('admin.plant', compact('type', 'type_text', 'list_data'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -156,14 +167,14 @@ class PlantController extends Controller
      * @param  \App\Models\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {   
+    public function show(Plant $plant)
+    {
         $type_text = 'ฐานข้อมูลพืช';
         $type= 'plants';
         $data = DB::table('doisuthep_dbs')
             ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'plant')
-            ->where('plants.id', '=', $id)
+            ->where('plants.id', '=', $plant->id)
             ->first();
         return view('plant.edit', compact('type', 'type_text', 'data'));
     }
@@ -244,7 +255,7 @@ class PlantController extends Controller
      * @param  \App\Models\Plant  $plant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Plant $plant)
     {
         \DB::beginTransaction();
 
@@ -252,7 +263,7 @@ class PlantController extends Controller
             DB::table('doisuthep_dbs')
                 ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
                 ->where('doisuthep_dbs.type', '=', 'plant')
-                ->where('plants.id', '=', $request->id)
+                ->where('plants.id', '=', $plant->id)
                 ->delete();
         } catch (\Throwable $e) {
             \DB::rollBack();

@@ -4,7 +4,7 @@
 <div id="main-content">
   <div class="wrapper">
     <div class="col-12">
-      <a href="{{url('/admin/database/'.$type)}}" class="btn btn-dark text-white font-12px p-1">
+      <a href="{{url('/admin/database/plants')}}" class="btn btn-dark text-white font-12px p-1">
         <i class="fas fa-arrow-circle-left me-2"></i>Back
       </a>
       <div class="card">
@@ -24,7 +24,7 @@
             @endif
           </div>
           <div class="col-12 px-3">
-            <form action="{{url('/database/edit'.$type)}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/database/edit/plants')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="row">
                 <div class="col-lg-4">
