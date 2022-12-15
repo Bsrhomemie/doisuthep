@@ -216,12 +216,16 @@
             var $btn_remove = $container.find('.btn-remove-image');
             var $img = $container.find('.image-preview');
             var $btn_change_image = $container.find('.btn-change-image');
-
-             var status = readImage(this, function(file_event) {
+          
+            var status = readImage(this, function(file_event) {
               $img.attr('src', file_event.target.result);
               $btn_remove.removeClass('d-none');
               $btn_change_image.addClass('has-image');
             });
+
+            if($container.hasClass('update_file')){
+              $container.find('.event_is_update').val(1);
+            }
 
             if (status != 'success') {
               $img.attr('src', '');

@@ -105,17 +105,7 @@ class ContentController extends Controller
                 $data_file = new Postpic;
                 $data_file->pic_path = $full_path;
                 $data_file->post_id = $data_post->id;
-                $data_file->created_at = $data['created_at'];
                 $data_file->save();
-                // $data_file = new Files_post;
-                // $data_file->file_path = $full_path;
-                // $data_file->uniqid = $name_gen;
-                // $data_file->post_id = $data_post->id;
-                // $data_file->save();
-
-                // $service_image->getClientOriginalName()
-                // $fileName = time().'_'.$request->file('picture')->getClientOriginalName();
-                // $request->file('picture')->storeAs('/public', $fileName);
             }
         }
 
@@ -133,83 +123,52 @@ class ContentController extends Controller
         $data_post->post_name_en = $data['post_name_en'];
         $data_post->content_en = $data['content_en'];
         $data_post->created_at = $data['created_at'];
+        $data_post->update();
 
-        if($data['post_type'] == 'join') {
-            $data_post->picture = '';
-            if($request->file()) {
-                $service_image = $request->file('pdf');
-                if($service_image) {
-                    $name_gen = hexdec(uniqid());
-                    $img_ext = strtolower($service_image->getClientOriginalExtension());
-                    $img_name = $name_gen.'.'.$img_ext;
-
-
-                    $upload_location =  'public/file/services/';
-                    $full_path =  $upload_location.$img_name ;
-                
-                    $data_post->pdf = $full_path;
-                    $data_post->uniqid = $name_gen;
-
-                    //delete 
-                    $old_file = $data['old_file'];
+      
+        if($request->file()) {
+            foreach ($request->file() as $key => $file) {
+                if($data['is_update'][$key] == 1){
+                    $old_file = $data['old_file'][$key];
                     if(File::exists(base_path($old_file))) {
-                        // echo "file mee mai";
                         File::delete(base_path($old_file));
                     }
-                    $service_image ->move(base_path($upload_location),  $img_name);
-                }
-            }
-        } else {
-            $data_post->pdf = '';
-            if($request->file()) {
-                $service_image = $request->file('picture');
-                if($service_image) {
+
+                    $service_image = $request->file($key);
                     $name_gen = hexdec(uniqid());
                     $img_ext = strtolower($service_image->getClientOriginalExtension());
                     $img_name = $name_gen.'.'.$img_ext;
-
-
                     $upload_location =  'public/image/services/';
                     $full_path =  $upload_location.$img_name ;
-
-                    
-                
-                    $data_post->picture = $full_path;
-                    $data_post->uniqid = $name_gen;
-
-                    //delete 
-                    $old_file = $data['old_file'];
-                    if(File::exists(base_path($old_file))) {
-                        // echo "file mee mai";
-                        File::delete(base_path($old_file));
-                    }
-                    
                     $service_image ->move(base_path($upload_location),  $img_name);
+                    
+                    $data_file =  Postpic::where('pic_path', $old_file)->first();
+
+                    $data_file->pic_path = $full_path;
+                    $data_file->update();
                 }
+                 
             }
         }
         
-        $data_post->update();
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Update successfully");
     }
 
     public function deleteContet(Request $request)
     {  
-         $data = $request->input();
+        $data = $request->input();
+        // delete file path
+        $data_file =  Postpic::where('post_id', $data['id'])->get();
+        foreach ($data_file as $key => $file) {
+            $file = $file['pic_path'];
+            if(File::exists(base_path($file))) {
+                File::delete(base_path($file));
+            }
+        }
+        // delete content
         $data_post = Post::find($data['id']);
         $data_post->delete();
-        // //delete file
-        $file = $data['file'];
-
-        if(File::exists(base_path($file))) {
-            // echo "file mee mai";
-            File::delete(base_path($file));
-        }
-        // else {
-        //     echo "Mai Mee arai";
-        // }
         return redirect('/admin/content/'.$data['post_type'])->with('status',"Delete successfully");
-
     }
     
 }
