@@ -34,14 +34,22 @@
                     @for($i = 1; $i <= 5; $i++) 
                     <div class="image-upload files mb-3 update_file">
                       <div class="img-16by9 holder btn-change-image highlight-hover has-image" >
-                        <img src="{{$content->files[$i-1]->pic_path}}" class="img-responsive image-preview">
+                        @if(isset($content->files[$i-1]))
+                        <img src="{{asset($content->files[$i-1]->pic_path)}}" class="img-responsive image-preview">
+                        @else 
+                        <img src="" class="img-responsive image-preview">
+                         @endif
                         <div class="icon-box">
                           <div class="icon-box-text">
                           </div>
                         </div>
                       </div>
                       <input type="file" name="picture_{{$i}}" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
-                      <input type="hidden" name="old_file[picture_{{$i}}]"  value="{{$content->files[$i-1]->pic_path}}">
+                      @if(isset($content->files[$i-1]))
+                        <input type="hidden" name="old_file[picture_{{$i}}]"  value="{{asset($content->files[$i-1]->pic_path)}}">
+                        @else 
+                        <input type="hidden" name="old_file[picture_{{$i}}]"  value="">
+                      @endif
                       <input type="hidden" name="is_update[picture_{{$i}}]"  class="event_is_update" value="0">
                     </div>
                     @endfor

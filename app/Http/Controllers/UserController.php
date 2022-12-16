@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Redirect;
 use App\Models\Homevideo;
 use App\Models\Product;
 use App\Models\Post;
+use App\Models\Postpic;
+
 class UserController extends Controller
 {
 
 	function index() {
-
 		$list = [
 			"/images/cover3.jpg",
 			"/images/cover2.jpg",
@@ -35,22 +36,29 @@ class UserController extends Controller
 			],
 		];
 
+
 		$youtube_list = Homevideo::orderBy('id','asc')->get(); 
-		
 		$post_list = []; 
-		
-		foreach($type_list as $key => $type) {
+		foreach($type_list as $name => $type) {
 			$number = 3;
-			if($key == 'join') {
-				$number = 5;
-			}
 			$select = Post::where('post_type', $type['id'])
 			->orderBy('id','desc')
-			->paginate($number);
-			$select = json_decode(json_encode($select), true);
-			$post_list[$key] = $select['data'];
-		}
+			->paginate(3);
 
+			foreach ($select as $key => $data) {
+				$temp_files = [];
+				$files = Postpic::where('post_id', $data->id)
+				->get(); 
+				foreach ($files as $key => $file) {
+					$temp_files[] = $file;
+				}
+				$data['files'] = $temp_files;
+			}
+
+			$select = json_decode(json_encode($select), true);
+			$post_list[$name] = $select['data'];
+		}
+		
 		$products = Product::where('status', 1)->get();
 		$select = json_decode(json_encode($products), true);
 		$products_list =  $select;
@@ -135,6 +143,34 @@ class UserController extends Controller
 			"/images/cover2.jpg",
 			"/images/image-5.jpg", 
 		]; 
+
+		$database_list = [
+			[
+				'img_path' => '/images/cover1.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/cover2.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/cover3.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/cover4.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/cover3.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+		];
 	
 		$select = Post::where('id', $id)->first();
 		$content = json_decode(json_encode($select), true);
@@ -151,8 +187,8 @@ class UserController extends Controller
 			];
 		}
 
-		return view('news-detail', compact('list', 'content'));
-	}
+		return view('news-detail', compact('list', 'content', 'database_list'));
+	} 
 
 	function services(){   
 		$post_list = [
@@ -342,22 +378,27 @@ class UserController extends Controller
 	function database_detail($type, $id) {
 		$database_list = [
 			[
-				'img_path' => '/images/image-5.jpg',
+				'img_path' => '/images/cover1.jpg',
 				'name_th' => 'ชื่อภาษาไทย',
 				'name_en' => 'Eng',
 			],
 			[
-				'img_path' => '/images/image-5.jpg',
+				'img_path' => '/images/cover2.jpg',
 				'name_th' => 'ชื่อภาษาไทย',
 				'name_en' => 'Eng',
 			],
 			[
-				'img_path' => '/images/image-5.jpg',
+				'img_path' => '/images/cover3.jpg',
 				'name_th' => 'ชื่อภาษาไทย',
 				'name_en' => 'Eng',
 			],
 			[
-				'img_path' => '/images/image-5.jpg',
+				'img_path' => '/images/cover4.jpg',
+				'name_th' => 'ชื่อภาษาไทย',
+				'name_en' => 'Eng',
+			],
+			[
+				'img_path' => '/images/cover3.jpg',
 				'name_th' => 'ชื่อภาษาไทย',
 				'name_en' => 'Eng',
 			],

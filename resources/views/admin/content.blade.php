@@ -41,15 +41,15 @@
                     @foreach ($content as $data)
                     <tr>
                         <td>
-                          <div class="img-16by9 holder " >
-                            <img src="{{asset($data->files[0]->pic_path)}}" class="img-responsive image-preview" >
-                          </div>
+                          @if(isset($data->files[0]))
+                            <div class="img-16by9 holder " >
+                              <img src="{{asset($data->files[0]->pic_path)}}" class="img-responsive image-preview" >
+                            </div>
+                          @endif
                         </td>
                         <td>{{Str::limit($data->post_name_th, 200)}}</td>
-                        <!-- <td>{!! Str::limit($data->content_th, 200) !!}</td> -->
                         <td>{{Str::limit($data->post_name_en, 200)}}</td>
                         <td>{{date('d/m/Y', strtotime($data->created_at))}}</td>
-                        <!-- <td>{!! Str::limit($data->content_en, 200) !!}</td> -->
                         <td>
                           <div class="d-flex justify-content-center">
                             <a href="{{url('content/form_edit/'.$type.'/'.$data->id)}}" class="btn btn-warning me-2">
@@ -57,7 +57,6 @@
                             </a>
                             <form action="{{url('/content/delete')}}" method="post">
                               @csrf
-                              <input type="hidden" name="file" value="{{$data->picture}}">
                               <input type="hidden" name="id" value="{{$data->id}}">
                               <input type="hidden" name="post_type" value="{{$type}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>

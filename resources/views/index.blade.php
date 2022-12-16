@@ -247,10 +247,10 @@
                 <div class="card card-box mb-3">
                   <div class="highlight-hover">
                     <div class="img-16by9 holder " >
-                      <img src="{{asset($news['picture'])}}" class="img-responsive image-preview" >
+                      <img src="{{asset($news['files'][0]['pic_path'])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
-                      <a href="{{asset($news['picture'])}}" class="me-3" data-lightbox="box_news"  title="{{__('message.picture')}}">
+                      <a href="{{asset($news['picture'])}}" class="me-3" data-lightbox="box_news"  title="{{asset($news['files'][0]['pic_path'])}}">
                         <i class="far fa-image"></i>
                       </a>
                       <a href="{{url('news-detail/news/'.$news['id'])}}" title="{{__('message.detail')}}">
@@ -292,7 +292,7 @@
                       <img src="{{asset($articles['picture'])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
-                      <a href="{{asset($articles['picture'])}}" class="me-3" data-lightbox="box_articles"  title="{{__('message.picture')}}">
+                      <a href="{{asset($articles['files'][0]['pic_path'])}}" class="me-3" data-lightbox="box_articles"  title="{{__('message.picture')}}">
                         <i class="far fa-image"></i>
                       </a>
                       <a href="{{url('news-detail/news/'.$articles['id'])}}" title="{{__('message.detail')}}">
@@ -422,6 +422,42 @@
       autoplay:true,
       autoplayTimeout:5000,
       animateOut: 'fadeOut'
+    })
+
+    $('#owl_product').owlCarousel({
+      autoinit: true,
+      margin: 25,
+      loop: false,
+      center: false,
+      mousedrag: true,
+      touchdrag: true,
+      pullDrag: true,
+      nav: true,
+      navText:["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+      dots: false,
+      dotsdata: false,
+      autoplay: false,
+      smartspeed: 650,
+      animateout: null,
+      animatein: null,
+      rtl: false,
+      responsive: {
+        0: {
+          items: 1
+        },
+        576: {
+          items: 2
+        },
+        768: {
+          items: 3
+        },
+        992: {
+          items: 4
+        },
+        1200: {
+          items: 4
+        }
+      }
     })
   });
 </script>
