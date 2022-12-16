@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plant;
+use App\Models\Picture;
 use App\Models\Doisuthep_db;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 use DB;
 use Validator;
 use Response;
@@ -66,7 +68,15 @@ class PlantController extends Controller
             ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'plant')
             ->paginate(5);
-
+        foreach ($list_data as $key => $data) {
+            $temp_files = [];
+            $files = Picture::where('doisuthep_db_id', $data->doisuthep_db_id)->get(); 
+            
+            foreach ($files as $key => $file) {
+                $temp_files[] = $file;
+            }
+            $data->files = $temp_files;
+        }
         return view('admin.plant', compact('type', 'type_text', 'list_data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
     /**
@@ -90,7 +100,6 @@ class PlantController extends Controller
      */
     public function store(Request $request)
     {
-
         // validator required
         $validator = $this->validatoraAdd($request);
         if ($validator->errors()->any()) {
@@ -99,7 +108,7 @@ class PlantController extends Controller
         }
         //name exist?
         if ($this->isHaveName($request->name)) {
-            return redirect('')->with('status',"already have plant name in System.");
+            return redirect('/admin/database/plants')->with('status',"already have plant name in System.");
         }
         
         \DB::beginTransaction();
@@ -118,10 +127,30 @@ class PlantController extends Controller
 
             $doisuthep->scientific_name = $request->scientific_name;
             $doisuthep->save();
+
+
+            if($request->file()) {
+                foreach ($request->file() as $key => $file) {
+                    $service_image = $request->file($key);
+                    $name_gen = hexdec(uniqid());
+                    $img_ext = strtolower($service_image->getClientOriginalExtension());
+                    $img_name = $name_gen.'.'.$img_ext;
+                    $upload_location =  'public/image/services/';
+                    $full_path =  $upload_location.$img_name ;
+                    $service_image ->move(base_path($upload_location),  $img_name);
+                    
+                    $data_file = new Picture;
+                    $data_file->pic_location = $full_path;
+                    $data_file->doisuthep_db_id = $doisuthep->id;
+                    $data_file->save();
+                }
+            }
+
+            
             // \DB::commit();
         } catch (\Throwable $e) {
             \DB::rollBack();
-            return redirect('')->with('status',"create doisuthep is err .");
+            return redirect('/admin/database/plants')->with('status',"create doisuthep is err .");
         }
 
         try {
@@ -154,7 +183,7 @@ class PlantController extends Controller
             // \DB::commit();
         } catch (\Throwable $e) {
             \DB::rollBack();
-            return redirect('')->with('status',$e);
+            return redirect('/admin/database/plants')->with('status',$e);
         }
 
         \DB::commit();
@@ -176,6 +205,12 @@ class PlantController extends Controller
             ->where('doisuthep_dbs.type', '=', 'plant')
             ->where('plants.id', '=', $plant->id)
             ->first();
+        $temp_files = [];
+        $files = Picture::where('doisuthep_db_id', $data->doisuthep_db_id)->get(); 
+        foreach ($files as $key => $file) {
+            $temp_files[] = $file;
+        }
+        $data->files = $temp_files;
         return view('plant.edit', compact('type', 'type_text', 'data'));
     }
 
@@ -238,10 +273,41 @@ class PlantController extends Controller
                 ->where('plants.id', '=', $request->id)
                 ->update($get_doi_id);
 
+
+            if($request->file()) {
+                foreach ($request->file() as $key => $file) {
+                    if($request['is_update'][$key] == 1){
+                        $old_file = $request['old_file'][$key];
+                        if(File::exists(base_path($old_file))) {
+                            File::delete(base_path($old_file));
+                        }
+    
+                        $service_image = $request->file($key);
+                        $name_gen = hexdec(uniqid());
+                        $img_ext = strtolower($service_image->getClientOriginalExtension());
+                        $img_name = $name_gen.'.'.$img_ext;
+                        $upload_location =  'public/image/services/';
+                        $full_path =  $upload_location.$img_name ;
+                        $service_image ->move(base_path($upload_location),  $img_name);
+                        
+                        $data_file =  Picture::where('doisuthep_db_id',$request->doisuthep_db_id)->where('pic_location', $old_file)->first();
+                        if($data_file){
+                            $data_file->pic_location = $full_path;
+                            $data_file->update();
+                        }else{
+                            $data_add_file = new Picture;
+                            $data_add_file->pic_location = $full_path;
+                            $data_add_file->doisuthep_db_id  = $request->doisuthep_db_id;
+                            $data_add_file->save();
+                        }
+                    }
+                        
+                }
+            }
             // \DB::commit();
         } catch (\Throwable $e) {
             \DB::rollBack();
-            return redirect('')->with('status',"update doisuthep is err .");
+            return redirect('/admin/database/plants')->with('status',"update doisuthep is err .");
         }
 
         \DB::commit();
@@ -260,10 +326,16 @@ class PlantController extends Controller
         \DB::beginTransaction();
 
         try {
+
+            $data_file =  Picture::where('doisuthep_db_id',$request->doisuthep_db_id)->get();
+            foreach ($data_file as $key => $file) {
+                $file = $file['pic_location'];
+                if(File::exists(base_path($file))) {
+                    File::delete(base_path($file));
+                }
+            } 
             DB::table('doisuthep_dbs')
-                ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-                ->where('doisuthep_dbs.type', '=', 'plant')
-                ->where('plants.id', '=', $request->id)
+                ->where('id', '=', $request->doisuthep_db_id)
                 ->delete();
         } catch (\Throwable $e) {
             \DB::rollBack();

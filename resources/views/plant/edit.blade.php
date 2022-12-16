@@ -31,15 +31,25 @@
                   <div class="form-group">
                     <label>รูปภาพ</label>
                     @for($i = 1; $i <= 5; $i++) 
-                    <div class="image-upload files mb-3">
-                      <div class="img-16by9 holder btn-change-image highlight-hover">
-                        <img src="" class="img-responsive image-preview">
+                    <div class="image-upload files mb-3 update_file">
+                      <?php
+                        $class = '';
+                        $image_path = '';
+                        if(isset($data->files[$i-1]->pic_location)){
+                          $class = 'has-image';
+                          $image_path = $data->files[$i-1]->pic_location;
+                        }
+                      ?>
+                      <div class="img-16by9 holder btn-change-image highlight-hover {{$class}}">
+                        <img src="{{$image_path}}" class="img-responsive image-preview">
                         <div class="icon-box">
                           <div class="icon-box-text">
                           </div>
                         </div>
                       </div>
                       <input type="file" name="picture_{{$i}}" class="form-control hidden img-upload-file" data-files="true" accept="image/*">
+                      <input type="hidden" name="old_file[picture_{{$i}}]"  value="{{$image_path}}">
+                      <input type="hidden" name="is_update[picture_{{$i}}]"  class="event_is_update" value="0">
                     </div>
                   @endfor
                 </div>
@@ -49,6 +59,7 @@
                 </div>
                 <input type="hidden" name="post_type" value="{{$type}}">
                 <input type="hidden" name="id"  value="{{$data->id}}">
+                <input type="hidden" name="doisuthep_db_id"  value="{{$data->doisuthep_db_id}}">
               </div>
               <div class="col-lg-8">
                 <div class="row">

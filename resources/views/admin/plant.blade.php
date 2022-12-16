@@ -42,7 +42,7 @@
                     <tr>
                         <td>
                           <div class="img-16by9 holder " >
-                            <img src="https://picsum.photos/seed/picsum/200/300" class="img-responsive image-preview" >
+                            <img src="{{asset($data->files[0]->pic_location)}}" class="img-responsive image-preview" >
                           </div>
                         </td>
                         <td>{{Str::limit($data->name, 200)}}</td>
@@ -57,6 +57,7 @@
                               @csrf
                               @method('DELETE') 
                               <input type="hidden" name="id" value="{{$data->id}}">
+                              <input type="hidden" name="doisuthep_db_id" value="{{$data->doisuthep_db_id}}">
                               <button type="submit" class="btn btn-danger"> <i class="fas fa-trash-alt font-18px"></i> </button>
                             </form>
                           </div>
