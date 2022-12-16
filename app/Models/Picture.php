@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Picture extends Model
 {
     use HasFactory;
+    protected $table = 'pictures';
+    public $timestamps = false;
+    public function user()
+    {
+        return $this->belongsTo('App\Post');
+    }
 }

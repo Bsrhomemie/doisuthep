@@ -142,10 +142,16 @@ class ContentController extends Controller
                     $full_path =  $upload_location.$img_name ;
                     $service_image ->move(base_path($upload_location),  $img_name);
                     
-                    $data_file =  Postpic::where('pic_path', $old_file)->first();
-
-                    $data_file->pic_path = $full_path;
-                    $data_file->update();
+                    $data_file =  Postpic::where('post_id',$data['id'])->where('pic_path', $old_file)->first();
+                    if($data_file){
+                        $data_file->pic_path = $full_path;
+                        $data_file->update();
+                    }else{
+                        $data_file = new Postpic;
+                        $data_file->pic_path = $full_path;
+                        $data_file->post_id = $data['id'];
+                        $data_file->save();
+                    }
                 }
                  
             }

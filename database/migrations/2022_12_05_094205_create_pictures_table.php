@@ -17,7 +17,7 @@ class CreatePicturesTable extends Migration
             $table->id();
             $table->text('pic_location');
             $table->integer('position')->default(0);
-            $table->foreignId('doisuthep_db_id')->constrained('doisuthep_dbs');
+            $table->foreignId('doisuthep_db_id')->constrained('doisuthep_dbs')->onDelete('cascade');
 
         });
     }
