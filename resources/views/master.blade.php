@@ -176,7 +176,7 @@
   <script src="{{asset('js/jquery-3.6.0.js') }}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('vendor/owlcarousel/owl.carousel.js')}}"></script>
-  <script src="{{asset('js/owl-custom.js')}}"></script>
+  <!-- <script src="{{asset('js/owl-custom.js')}}"></script> -->
   <script src="{{asset('vendor/lightbox2/lightbox.min.js')}}"></script>
   <script src="{{asset('vendor/WOW-master/dist/wow.js')}}"></script>
   @yield('footer')
