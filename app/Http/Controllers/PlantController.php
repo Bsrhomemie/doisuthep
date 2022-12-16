@@ -325,7 +325,7 @@ class PlantController extends Controller
     {
         \DB::beginTransaction();
 
-        // try {
+        try {
 
             $data_file =  Picture::where('doisuthep_db_id',$request->doisuthep_db_id)->get();
             foreach ($data_file as $key => $file) {
@@ -337,10 +337,10 @@ class PlantController extends Controller
             DB::table('doisuthep_dbs')
                 ->where('id', '=', $request->doisuthep_db_id)
                 ->delete();
-        // } catch (\Throwable $e) {
-        //     \DB::rollBack();
-        //     return redirect('/admin/database/plants')->with('status',"delete plant is err .");
-        // }
+        } catch (\Throwable $e) {
+            \DB::rollBack();
+            return redirect('/admin/database/plants')->with('status',"delete plant is err .");
+        }
         
          \DB::commit();
         return redirect('/admin/database/plants')->with('status',"Delete Plant Successfully");
