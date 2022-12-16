@@ -8,6 +8,7 @@ use DB;
 use Validator;
 use Illuminate\Http\Request;
 use Response;
+use Illuminate\Support\Facades\Schema;
 
 class AnimalController extends Controller
 {
@@ -32,6 +33,22 @@ class AnimalController extends Controller
     }
 
     /**
+     * check if search is exist
+     *
+     * @return validator
+     */
+    public function validatorSearch(Request $request)
+    {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'search' => 'required'
+            ]
+        );
+        return $validator;
+    }
+    
+    /**
      * check if data is exist
      *
      * @return boolean 
@@ -47,14 +64,32 @@ class AnimalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = DB::table('doisuthep_dbs')
-            ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-            ->where('doisuthep_dbs.type', '=', 'animal')
-            ->get();
-        // return Response::json(array('data' => $data));
-        return Response::json(array('data' => $data), 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
+        // validator search
+        $validator = $this->validatorSearch($request);
+        if ($validator->errors()->any()) { // no search
+            $data = DB::table('doisuthep_dbs')
+                ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+                ->where('doisuthep_dbs.type', '=', 'animal')
+                ->paginate(5);
+            // return Response::json(array('data' => $data));
+            return Response::json(array('data' => $data), 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
+        } else { // have search
+            $columns = Schema::getColumnListing('animals');
+            $data = DB::table('doisuthep_dbs')
+                ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+                ->where('doisuthep_dbs.type', '=', 'animal');
+            foreach($columns as $column){
+                if($column == 'id'){
+                    continue;
+                }
+                $data->orWhere($column, 'LIKE', '%' . $request->search . '%');
+            }
+            $data=$data->get();
+            // return Response::json(array('data' => $data));
+            return Response::json(array('data' => $data), 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE);
+        }
     }
 
     /**
@@ -259,31 +294,7 @@ class AnimalController extends Controller
             return response()->json(array($e, "delete animal is err ."))
                 ->setStatusCode(400, 'failed');
         }
-        
+
         return \DB::commit();
-    }
-    public function list()
-    {
-        $type_text = 'ฐานข้อมูลสัตว์';
-        $type= 'animals';
-        $list_data  = DB::table('doisuthep_dbs')
-            ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-            ->where('doisuthep_dbs.type', '=', 'animal')
-            ->paginate(5);
-        return view('admin.animal', compact('type', 'type_text','list_data'));
-    }
-    public function add()
-    {
-        $type_text = 'ฐานข้อมูลสัตว์';
-        $type= 'animals';
-        return view('animal.create', compact('type', 'type_text'));
-        
-    }
-    public function view()
-    {
-        $type_text = 'ฐานข้อมูลสัตว์';
-        $type= 'animals';
-        return view('animal.edit', compact('type', 'type_text'));
-        
     }
 }

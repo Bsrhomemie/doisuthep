@@ -12,10 +12,10 @@
             <div class="card card-box mb-3">
               <div class="highlight-hover">
                 <div class="img-16by9 holder " >
-                  <img src="{{asset($content['picture'])}}" class="img-responsive image-preview" >
+                  <img src="{{asset($content['files'][0]['pic_path'])}}" class="img-responsive image-preview" >
                 </div>
                 <div class="show-hover">
-                  <a href="{{asset($content['picture'])}}" class="me-3" data-lightbox="portfolio"  title="{{__('message.picture')}}">
+                  <a href="{{asset($content['files'][0]['pic_path'])}}" class="me-3" data-lightbox="portfolio"  title="{{__('message.picture')}}">
                     <i class="far fa-image"></i>
                   </a>
                   <a href="{{url('news-detail/news/'.$content['id'])}}" title="{{__('message.detail')}}">

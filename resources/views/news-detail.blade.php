@@ -1,7 +1,7 @@
 @extends('master')
 @section('header')
 <meta property="og:title" content="{{$content['post_name_'.__('message.lang_system')]}}"/>
-<meta property="og:url" content="{{asset($content['picture'])}}"/>
+<meta property="og:url" content="{{asset($files_content[0]['pic_path'])}}"/>
 @endsection
 
 @section('content')
@@ -23,25 +23,27 @@
           <div class="gallery">
             <div class="container-fluid p-body">
               <div class="row no-gutters">
-                @if($database_list) 
+                @if($files_content) 
                 <div class="col-md-12">
                   <div class="slide-nav">
                       <div class="nav-prev btn-nav"><i class='fa fa-angle-left'></i></div>
                       <div class="nav-next btn-nav"><i class='fa fa-angle-right'></i></div>
                       <div class="img-16by9 holder " >
-                      <img class="img-slide gallery image image-big col-12" src="{{asset($database_list[0]['img_path'])}}" class="img-responsive image-preview" >
+                      <img class="img-slide gallery image image-big col-12" src="{{asset($files_content[0]['pic_path'])}}" class="img-responsive image-preview" >
                       </div>
                   </div>
                 </div>
               @endif
               <div class="col-12 mt-4">
-                @if($database_list) 
+                @if($files_content) 
                   <div id="owl_carousel" class="owl-carousel">
-                    @foreach ($database_list as $key => $data) 
-                      <div class="img-16by9 holder img-indicator {{ $key ==  0 ? 'active' : ''  }}" >
-                        <img src="{{asset($data['img_path'])}}" class="img-responsive  imagecon image-center "
-                        >
-                      </div>
+                    @foreach ($files_content as $key => $files) 
+                      @if($files['pic_path']) 
+                        <div class="img-16by9 holder img-indicator {{ $key ==  0 ? 'active' : ''  }}" >
+                          <img src="{{asset($files['pic_path'])}}" 
+                          class="img-responsive  imagecon image-center">
+                        </div>
+                      @endif
                     @endforeach
                   </div>
                 @endif
@@ -50,7 +52,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12 mt-4">
         {!!  $content['content_'.__('message.lang_system')] !!}
 
         <div class="mt-4">

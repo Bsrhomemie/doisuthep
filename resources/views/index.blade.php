@@ -250,7 +250,7 @@
                       <img src="{{asset($news['files'][0]['pic_path'])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
-                      <a href="{{asset($news['picture'])}}" class="me-3" data-lightbox="box_news"  title="{{asset($news['files'][0]['pic_path'])}}">
+                      <a href="{{asset($news['files'][0]['pic_path'])}}" class="me-3" data-lightbox="box_news"  title="{{__('message.picture')}}">
                         <i class="far fa-image"></i>
                       </a>
                       <a href="{{url('news-detail/news/'.$news['id'])}}" title="{{__('message.detail')}}">
@@ -289,7 +289,7 @@
                 <div class="card card-box mb-3">
                   <div class="highlight-hover">
                     <div class="img-16by9 holder " >
-                      <img src="{{asset($articles['picture'])}}" class="img-responsive image-preview" >
+                      <img src="{{asset($articles['files'][0]['pic_path'])}}" class="img-responsive image-preview" >
                     </div>
                     <div class="show-hover">
                       <a href="{{asset($articles['files'][0]['pic_path'])}}" class="me-3" data-lightbox="box_articles"  title="{{__('message.picture')}}">
@@ -328,7 +328,7 @@
           @foreach ($youtube_list as $youtube) 
             <div class="col-md-6 mb-4">
               <div class="ratio ratio-21x9">
-                <iframe  src="{{$youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe  src="{{$youtube->vdo_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
           @endforeach

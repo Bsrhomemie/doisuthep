@@ -56,10 +56,10 @@
           
         </div>
         <div class="col-12 mt-4">
-          <div class="text-center">
-            <a href="#" class="text-link" onclick="window.history.back()"><i class="fa fa-arrow-left"></i> {{__('message.back')}}</a> |
-            <a href="{{url('/')}}" class="text-link"><i class="fa fa-home"></i> {{__('message.main_page')}}</a>
-          </div>
+        <div class="text-center">
+          <a href="#" class="text-link" onclick="window.history.back()"><i class="fa fa-arrow-left"></i> {{__('message.back')}}</a> |
+          <a href="{{url('/')}}" class="text-link"><i class="fa fa-home"></i> {{__('message.main_page')}}</a>
+        </div>
       </div> 
       </section>
   </div>

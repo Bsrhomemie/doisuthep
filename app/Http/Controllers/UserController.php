@@ -38,6 +38,7 @@ class UserController extends Controller
 
 
 		$youtube_list = Homevideo::orderBy('id','asc')->get(); 
+
 		$post_list = []; 
 		foreach($type_list as $name => $type) {
 			$number = 3;
@@ -128,7 +129,17 @@ class UserController extends Controller
 		$type_id = isset($type_list[$type])? $type_list[$type]['id'] : '' ;
 
 		$select = Post::where('post_type', $type_id)->orderBy('id','desc')->get();
+		foreach ($select as $key => $data) {
+			$temp_files = [];
+			$files = Postpic::where('post_id', $data->id)
+			->get(); 
+			foreach ($files as $key => $file) {
+				$temp_files[] = $file;
+			}
+			$data['files'] = $temp_files;
+		}
 		$select = json_decode(json_encode($select), true);
+
 		$content_list =  $select;
 		if($type == 'join') {
 			return view('news-job', compact('type', 'content_list'));
@@ -143,38 +154,13 @@ class UserController extends Controller
 			"/images/cover2.jpg",
 			"/images/image-5.jpg", 
 		]; 
-
-		$database_list = [
-			[
-				'img_path' => '/images/cover1.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover2.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover3.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover4.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover3.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-		];
-	
 		$select = Post::where('id', $id)->first();
+		$temp_files = [];
+		$files = Postpic::where('post_id', $id)->get(); 
+		
+		
 		$content = json_decode(json_encode($select), true);
-
+		$files_content = json_decode(json_encode($files), true);
 		if(!$content) {
 			$content =  [
 				'id' => '',
@@ -187,7 +173,7 @@ class UserController extends Controller
 			];
 		}
 
-		return view('news-detail', compact('list', 'content', 'database_list'));
+		return view('news-detail', compact('list', 'content', 'files_content'));
 	} 
 
 	function services(){   
