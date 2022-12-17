@@ -151,43 +151,43 @@
                     <hr class="my-2">
                     <div class="form-group">
                       <label>ลักษณะเด่น ภาษาไทย</label>
-                      <textarea name="characteristics_th" class="summer-note summernote"> </textarea>
+                      <textarea name="characteristics_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ลักษณะเด่น ภาษาอังกฤษ</label>
-                      <textarea name="characteristics_en" class="summer-note summernote"> </textarea>
+                      <textarea name="characteristics_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>พฤติกรรม ภาษาไทย</label>
-                      <textarea name="behavior_th" class="summer-note summernote"> </textarea>
+                      <textarea name="behavior_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>พฤติกรรม ภาษาอังกฤษ</label>
-                      <textarea name="behavior_en" class="summer-note summernote"> </textarea>
+                      <textarea name="behavior_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ถิ่นอาศัย ภาษาไทย</label>
-                      <textarea name="habitat_th" class="summer-note summernote"> </textarea>
+                      <textarea name="habitat_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ถิ่นอาศัย ภาษาอังกฤษ</label>
-                      <textarea name="habitat_en" class="summer-note summernote"> </textarea>
+                      <textarea name="habitat_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>อาหาร ภาษาไทย</label>
-                      <textarea name="food_th" class="summer-note summernote"> </textarea>
+                      <textarea name="food_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>อาหาร ภาษาอังกฤษ</label>
-                      <textarea name="food_en" class="summer-note summernote"> </textarea>
+                      <textarea name="food_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>อ้างอิง ภาษาไทย</label>
-                      <textarea name="references_th" class="summer-note summernote"> </textarea>
+                      <textarea name="references_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>อ้างอิง ภาษาอังกฤษ</label>
-                      <textarea name="references_en" class="summer-note summernote"> </textarea>
+                      <textarea name="references_en" class="form-control mb-2"> </textarea>
                     </div>
                   </div>
                 </div>
@@ -203,19 +203,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('footer')
-<script>
-  $(document).ready(function() {
-    $('.summernote').summernote({
-      height: 100,
-      toolbar: [
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['font', ['strikethrough', 'superscript', 'subscript']],
-        ['para', ['ul', 'ol', ]],
-      ]
-    });
-  });
-</script>
 @endsection

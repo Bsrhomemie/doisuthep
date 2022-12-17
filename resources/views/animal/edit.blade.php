@@ -164,43 +164,43 @@
                     <hr class="my-2">
                     <div class="form-group">
                       <label>ลักษณะเด่น ภาษาไทย</label>
-                      <textarea name="characteristics_th" class="summer-note summernote">{{$data->characteristics_th}}</textarea>
+                      <textarea name="characteristics_th" class="form-control mb-2">{{$data->characteristics_th}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>ลักษณะเด่น ภาษาอังกฤษ</label>
-                      <textarea name="characteristics_en" class="summer-note summernote">{{$data->characteristics_en}}</textarea>
+                      <textarea name="characteristics_en" class="form-control mb-2">{{$data->characteristics_en}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>พฤติกรรม ภาษาไทย</label>
-                      <textarea name="behavior_th" class="summer-note summernote">{{$data->behavior_th}}</textarea>
+                      <textarea name="behavior_th" class="form-control mb-2">{{$data->behavior_th}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>พฤติกรรม ภาษาอังกฤษ</label>
-                      <textarea name="behavior_en" class="summer-note summernote">{{$data->behavior_en}}</textarea>
+                      <textarea name="behavior_en" class="form-control mb-2">{{$data->behavior_en}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>ถิ่นอาศัย ภาษาไทย</label>
-                      <textarea name="habitat_th" class="summer-note summernote">{{$data->habitat_th}}</textarea>
+                      <textarea name="habitat_th" class="form-control mb-2">{{$data->habitat_th}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>ถิ่นอาศัย ภาษาอังกฤษ</label>
-                      <textarea name="habitat_en" class="summer-note summernote">{{$data->habitat_en}}</textarea>
+                      <textarea name="habitat_en" class="form-control mb-2">{{$data->habitat_en}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>อาหาร ภาษาไทย</label>
-                      <textarea name="food_th" class="summer-note summernote">{{$data->food_th}}</textarea>
+                      <textarea name="food_th" class="form-control mb-2">{{$data->food_th}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>อาหาร ภาษาอังกฤษ</label>
-                      <textarea name="food_en" class="summer-note summernote">{{$data->food_en}}</textarea>
+                      <textarea name="food_en" class="form-control mb-2">{{$data->food_en}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>อ้างอิง ภาษาไทย</label>
-                      <textarea name="references_th" class="summer-note summernote">{{$data->references_th}}</textarea>
+                      <textarea name="references_th" class="form-control mb-2">{{$data->references_th}}</textarea>
                     </div>
                     <div class="form-group">
                       <label>อ้างอิง ภาษาอังกฤษ</label>
-                      <textarea name="references_en" class="summer-note summernote">{{$data->references_en}}</textarea>
+                      <textarea name="references_en" class="form-control mb-2">{{$data->references_en}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -216,19 +216,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('footer')
-<script>
-  $(document).ready(function() {
-    $('.summernote').summernote({
-      height: 100,
-      toolbar: [
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['font', ['strikethrough', 'superscript', 'subscript']],
-        ['para', ['ul', 'ol', ]],
-      ]
-    });
-  });
-</script>
 @endsection

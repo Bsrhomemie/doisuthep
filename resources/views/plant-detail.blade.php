@@ -1,4 +1,5 @@
 @extends('master')
+@section('content')
   <div class="container pt-30px pb-5">
     <section id="box-databaes">
       <div class="header-selected pt-20px">
@@ -167,6 +168,7 @@
       </div>
     </section>
   </div>
+@endsection
 @section('footer')
 <script type="text/javascript">
   $(document).ready(function () {

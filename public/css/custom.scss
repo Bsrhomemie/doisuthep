@@ -919,3 +919,28 @@ a {
     }
   }
 }
+
+.custom-pagination {
+  .pagination {
+    justify-content: center;
+    .page-item {
+      .page-link {
+        color: $color-main;
+      }
+    }
+    .page-item.active .page-link {
+      z-index: 3;
+      color: #fff;
+      background-color: $color-main;
+      border-color: $color-main;
+    }
+
+    .page-link:focus {
+      z-index: 3;
+      color:  $color-main;
+      background-color: #e9ecef;
+      outline: 0;
+      box-shadow: 0 0 0 0.2rem #2e8b5667;
+    } 
+  }
+}

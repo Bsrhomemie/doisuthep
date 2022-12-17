@@ -1,4 +1,5 @@
 @extends('master')
+@section('content')
 <div class="container pt-30px pb-5">
   <section id="box-databaes">
     <div class="header-selected pt-20px">
@@ -35,12 +36,12 @@
           <div class="col-md-4 mb-3">
             <div class="card card-box mb-3">
               <div class="card-body">
-                <div class="highlight-hover">
+                <div class="highlight-hover ">
                   <div class="img-16by9 holder bg-light" >
-                    <img src="{{isset($data->files[0])? asset($data->files[0]->pic_location) : ''}}" class="img-responsive image-preview" >
+                    <img src="{{isset($data->files)? asset($data->files->pic_location) : ''}}" class="img-responsive image-preview">
                   </div>
                   <div class="show-hover">
-                    <a href="{{isset($data->files[0])? asset($data->files[0]->pic_location) : ''}}" class="me-3" data-lightbox="box_news"  title="{{__('message.picture')}}">
+                    <a href="{{isset($data->files)? asset($data->files->pic_location) : ''}}" class="me-3" data-lightbox="box_news" title="{{__('message.picture')}}">
                       <i class="far fa-image"></i>
                     </a>
                     <a href="{{url('/database/'.$data->type.'/'.$data->id)}}" title="{{__('message.detail')}}">
@@ -48,14 +49,16 @@
                     </a>
                   </div>
                 </div>
-                <p class="card-text">
+                <p class="card-text pt-3">
                  {{$data->name}}
                 </p>
               </div>
             </div>
           </div>
         @endforeach
-        {!! $database_list->appends(Request::capture()->except('page'))->render() !!}
+        <div class="custom-pagination mt-2">
+          {!! $database_list->appends(Request::capture()->except('page'))->render() !!}
+        </div>
         @else 
         <div class="col-12">
           <div class="card card-box">
@@ -68,3 +71,4 @@
     </div>
   </section>
 </div>
+@endsection

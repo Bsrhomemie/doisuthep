@@ -886,4 +886,24 @@ a {
 }
 .img-indicator.active img {
   filter: blur(0px);
+}
+
+.custom-pagination .pagination {
+  justify-content: center;
+}
+.custom-pagination .pagination .page-item .page-link {
+  color: #2E8B57;
+}
+.custom-pagination .pagination .page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #2E8B57;
+  border-color: #2E8B57;
+}
+.custom-pagination .pagination .page-link:focus {
+  z-index: 3;
+  color: #2E8B57;
+  background-color: #e9ecef;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(46, 139, 86, 0.4039215686);
 }/*# sourceMappingURL=custom.css.map */

@@ -151,59 +151,59 @@
                     <hr class="my-2">
                     <div class="form-group">
                       <label>ลำต้น ภาษาไทย</label>
-                      <textarea name="stem_th" class="summer-note summernote"> </textarea>
+                      <textarea name="stem_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ลำต้น ภาษาอังกฤษ</label>
-                      <textarea name="stem_en" class="summer-note summernote"> </textarea>
+                      <textarea name="stem_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ใบ ภาษาไทย</label>
-                      <textarea name="leaf_th" class="summer-note summernote"> </textarea>
+                      <textarea name="leaf_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ใบ ภาษาอังกฤษ</label>
-                      <textarea name="leaf_en" class="summer-note summernote"> </textarea>
+                      <textarea name="leaf_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ดอก ภาษาไทย</label>
-                      <textarea name="flower_th" class="summer-note summernote"> </textarea>
+                      <textarea name="flower_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ดอก ภาษาอังกฤษ</label>
-                      <textarea name="flower_en" class="summer-note summernote"> </textarea>
+                      <textarea name="flower_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ผล ภาษาไทย</label>
-                      <textarea name="fruit_th" class="summer-note summernote"> </textarea>
+                      <textarea name="fruit_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>ผล ภาษาอังกฤษ</label>
-                      <textarea name="fruit_en" class="summer-note summernote"> </textarea>
+                      <textarea name="fruit_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>การกระจายพันธุ์ ภาษาไทย</label>
-                      <textarea name="distribution_th" class="summer-note summernote"> </textarea>
+                      <textarea name="distribution_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>การกระจายพันธุ์ ภาษาอังกฤษ</label>
-                      <textarea name="distribution_en" class="summer-note summernote"> </textarea>
+                      <textarea name="distribution_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>การใช้ประโยชน์ ภาษาไทย</label>
-                      <textarea name="utilization_th" class="summer-note summernote"> </textarea>
+                      <textarea name="utilization_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>การใช้ประโยชน์ ภาษาอังกฤษ</label>
-                      <textarea name="utilization_en" class="summer-note summernote"> </textarea>
+                      <textarea name="utilization_en" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>อ้างอิง ภาษาไทย</label>
-                      <textarea name="references_th" class="summer-note summernote"> </textarea>
+                      <textarea name="references_th" class="form-control mb-2"> </textarea>
                     </div>
                     <div class="form-group">
                       <label>อ้างอิง ภาษาอังกฤษ</label>
-                      <textarea name="references_en" class="summer-note summernote"> </textarea>
+                      <textarea name="references_en" class="form-control mb-2"> </textarea>
                     </div>
                   </div>
                 </div>
@@ -219,19 +219,4 @@
     </div>
   </div>
 </div>
-@endsection
-
-@section('footer')
-<script>
-  $(document).ready(function() {
-    $('.summernote').summernote({
-      height: 100,
-      toolbar: [
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['font', ['strikethrough', 'superscript', 'subscript']],
-        ['para', ['ul', 'ol', ]],
-      ]
-    });
-  });
-</script>
 @endsection
