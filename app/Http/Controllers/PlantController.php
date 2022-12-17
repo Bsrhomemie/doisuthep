@@ -103,8 +103,7 @@ class PlantController extends Controller
         // validator required
         $validator = $this->validatoraAdd($request);
         if ($validator->errors()->any()) {
-            return response()->json($validator->errors())
-                ->setStatusCode(400, 'failed');
+            return redirect('/admin/database/plants')->with('status',$validator->errors());
         }
         //name exist?
         if ($this->isHaveName($request->name)) {

@@ -92,6 +92,26 @@ class AnimalController extends Controller
         }
     }
 
+    public function indexAdmin()
+    {
+        $type_text = 'ฐานข้อมูลสัตว์';
+        $type= 'animals';
+        $list_data = DB::table('doisuthep_dbs')
+            ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+            ->where('doisuthep_dbs.type', '=', 'animal')
+            ->paginate(5);
+        foreach ($list_data as $key => $data) {
+            $temp_files = [];
+            $files = Picture::where('doisuthep_db_id', $data->doisuthep_db_id)->get(); 
+            
+            foreach ($files as $key => $file) {
+                $temp_files[] = $file;
+            }
+            $data->files = $temp_files;
+        }
+        return view('admin.animal', compact('type', 'type_text', 'list_data'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -99,7 +119,9 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        $type_text = 'ฐานข้อมูลสัตว์';
+        $type= 'animals';
+        return view('animal.create', compact('type', 'type_text'));
     }
 
     /**
@@ -113,78 +135,70 @@ class AnimalController extends Controller
         // validator required
         $validator = $this->validatoraAdd($request);
         if ($validator->errors()->any()) {
-            return response()->json($validator->errors())
-                ->setStatusCode(400, 'failed');
+            return redirect('/admin/database/animals')->with('status',$validator->errors());
         }
 
         //name exist?
         if ($this->isHaveName($request->name)) {
-            return response()->json("already have animal name in System.")
-                ->setStatusCode(400, 'failed');
+            return redirect('/admin/database/animals')->with('status',"already have animal name in System.");
         }
 
-        if ($request->type == 'animal') {
-            \DB::beginTransaction();
+        \DB::beginTransaction();
 
-            // insert doisuthep with type
-            try {
+        // insert doisuthep with type
+        try {
 
-                $doisuthep = new Doisuthep_db();
-                $doisuthep->name = $request->name;
-                $doisuthep->type = 'animal';
-                $doisuthep->common_name = $request->common_name;
-                if (isset($request->local_name)) {
-                    $doisuthep->local_name = $request->local_name;
-                } else {
-                    $doisuthep->local_name = '';
-                }
-
-                $doisuthep->scientific_name = $request->scientific_name;
-                $doisuthep->save();
-                // \DB::commit();
-            } catch (\Throwable $e) {
-                \DB::rollBack();
-                return response()->json("create doisuthep is err .")
-                    ->setStatusCode(400, 'failed');
+            $doisuthep = new Doisuthep_db();
+            $doisuthep->name = $request->name;
+            $doisuthep->type = 'animal';
+            $doisuthep->common_name = $request->common_name;
+            if (isset($request->local_name)) {
+                $doisuthep->local_name = $request->local_name;
+            } else {
+                $doisuthep->local_name = '';
             }
 
-            try {
-                $animal = new Animal();
-                $animal->kingdom = $request->kingdom ?: '';
-                $animal->phylum = $request->phylum ?: '';
-                $animal->class = $request->class ?: '';
-                $animal->order = $request->order ?: '';
-                $animal->family = $request->family ?: '';
-                $animal->genus = $request->genus ?: '';
-                $animal->species = $request->species ?: '';
-                $animal->characteristics_th  = $request->characteristics_th ?: '';
-                $animal->characteristics_en  = $request->characteristics_en ?: '';
-                $animal->behavior_th = $request->behavior_th ?: '';
-                $animal->behavior_en = $request->behavior_en ?: '';
-                $animal->habitat_th = $request->habitat_th ?: '';
-                $animal->habitat_en = $request->habitat_en ?: '';
-                $animal->food_th = $request->food_th ?: '';
-                $animal->food_en = $request->food_en ?: '';
-                $animal->conservation_status_th = $request->conservation_status_th ?: '';
-                $animal->conservation_status_en = $request->conservation_status_en ?: '';
-                $animal->references_th = $request->references_th ?: '';
-                $animal->references_en = $request->references_en ?: '';
-                $animal->doisuthep_db_id = $doisuthep->id;
-                $animal->save();
-                // \DB::commit();
-            } catch (\Throwable $e) {
-                \DB::rollBack();
-                return response()->json($e)
-                    ->setStatusCode(400, 'failed');
-            }
-
-            \DB::commit();
-
-            return response()->json("Created Animal Successfully")
-                ->setStatusCode(200, 'success');
+            $doisuthep->scientific_name = $request->scientific_name;
+            $doisuthep->save();
+            // \DB::commit();
+        } catch (\Throwable $e) {
+            \DB::rollBack();
+            return redirect('/admin/database/animals')->with('status',"create doisuthep is err .");
         }
-        return response()->json("Input wrong type")
-            ->setStatusCode(400, 'failed');
+
+        try {
+            $animal = new Animal();
+            $animal->kingdom = $request->kingdom ?: '';
+            $animal->phylum = $request->phylum ?: '';
+            $animal->class = $request->class ?: '';
+            $animal->order = $request->order ?: '';
+            $animal->family = $request->family ?: '';
+            $animal->genus = $request->genus ?: '';
+            $animal->species = $request->species ?: '';
+            $animal->characteristics_th  = $request->characteristics_th ?: '';
+            $animal->characteristics_en  = $request->characteristics_en ?: '';
+            $animal->behavior_th = $request->behavior_th ?: '';
+            $animal->behavior_en = $request->behavior_en ?: '';
+            $animal->habitat_th = $request->habitat_th ?: '';
+            $animal->habitat_en = $request->habitat_en ?: '';
+            $animal->food_th = $request->food_th ?: '';
+            $animal->food_en = $request->food_en ?: '';
+            $animal->conservation_status_th = $request->conservation_status_th ?: '';
+            $animal->conservation_status_en = $request->conservation_status_en ?: '';
+            $animal->references_th = $request->references_th ?: '';
+            $animal->references_en = $request->references_en ?: '';
+            $animal->doisuthep_db_id = $doisuthep->id;
+            $animal->save();
+            // \DB::commit();
+        } catch (\Throwable $e) {
+            \DB::rollBack();
+            return redirect('/admin/database/animals')->with('status',$e);
+        }
+
+        \DB::commit();
+
+        return redirect('/admin/database/animals')->with('status',"Created Animal Successfully");
+    
     }
 
     /**
@@ -297,4 +311,28 @@ class AnimalController extends Controller
 
         return \DB::commit();
     }
+    // public function list()
+    // {
+    //     $type_text = 'ฐานข้อมูลสัตว์';
+    //     $type= 'animals';
+    //     $list_data  = DB::table('doisuthep_dbs')
+    //         ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+    //         ->where('doisuthep_dbs.type', '=', 'animal')
+    //         ->paginate(5);
+    //     return view('admin.animal', compact('type', 'type_text','list_data'));
+    // }
+    // public function add()
+    // {
+    //     $type_text = 'ฐานข้อมูลสัตว์';
+    //     $type= 'animals';
+    //     return view('animal.create', compact('type', 'type_text'));
+        
+    // }
+    // public function view()
+    // {
+    //     $type_text = 'ฐานข้อมูลสัตว์';
+    //     $type= 'animals';
+    //     return view('animal.edit', compact('type', 'type_text'));
+        
+    // }
 }
