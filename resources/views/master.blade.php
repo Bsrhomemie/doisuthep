@@ -60,8 +60,8 @@
                 <span>{{__('message.doi_suthep')}}</span> <i class="fas fa-chevron-down"></i>
               </a>
               <ul>
-                <li><a href="search-database">ฐานข้อมูลดอยสุเทพ</a></li>
-                <li><a href="#">ดอยสุเทพศึกษา</a></li>
+                <li><a href="{{url('search-database')}}">ฐานข้อมูลดอยสุเทพ</a></li>
+                <li><a href="{{url('#')}}">ดอยสุเทพศึกษา</a></li>
                 <!-- <li><a href="suthep#box-fungus">{{__('message.fungus')}}</a></li>
                 <li><a href="suthep#box-geology">{{__('message.geology')}}</a></li>
                 <li><a href="suthep#box-culture">{{__('message.culture')}}</a></li> -->
@@ -87,12 +87,12 @@
                 <span>{{__('message.services')}}</span> <i class="fas fa-chevron-down"></i>
               </a>
               <ul>
-                <li><a href="services#box-exhibition">{{__('message.exhibition')}}</a></li>
-                <li><a href="services#box-learning">{{__('message.learning')}}</a></li>
-                <li><a href="services#box-tree">{{__('message.tree')}}</a></li>
-                <li><a href="services#box-seed">{{__('message.seed')}}</a></li>
-                <li><a href="services#box-research">{{__('message.research')}}</a></li>
-                <li><a href="services#box-activities">{{__('message.activities')}}</a></li>
+                <li><a href="{{url('services#box-exhibition')}}">{{__('message.exhibition')}}</a></li>
+                <li><a href="{{url('services#box-learning')}}">{{__('message.learning')}}</a></li>
+                <li><a href="{{url('services#box-tree')}}">{{__('message.tree')}}</a></li>
+                <li><a href="{{url('services#box-seed')}}">{{__('message.seed')}}</a></li>
+                <li><a href="{{url('services#box-research')}}">{{__('message.research')}}</a></li>
+                <li><a href="{{url('services#box-activities')}}">{{__('message.activities')}}</a></li>
               </ul>
             </li>
             <?php
