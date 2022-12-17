@@ -12,10 +12,8 @@ class DoisuthepDBController extends Controller
 {
     public function search(Request $request)
     {   
+        $database_list = '';
         $search = $request->input();
-        if(!isset($search['type']) && !isset($search['search'])) {
-            return view('database', ['database_list' => []]);
-        }
         if (isset($search['type'])) {
             if ($search['type'] == 'plant') {
                 $columns = Schema::getColumnListing('plants');
@@ -50,10 +48,7 @@ class DoisuthepDBController extends Controller
                 
             }
             $data->paginate(15);
-            $res_data = compact('data');
-            dd( $res_data);
-
-            return view('database', ['database_list' => $res_data]);
+            $database_list = $data;
         } else {
             $results = DB::table('doisuthep_dbs')
                 ->where('name', 'like', "%{$search['search']}%")
@@ -75,10 +70,10 @@ class DoisuthepDBController extends Controller
                     ->where('doisuthep_dbs.type', '=', 'animal')
                     ->paginate(12);
             }
-            $res_data = compact('returndata');
-            dd( $res_data);
-            return view('database', ['database_list' => $res_data]);
+            $database_list = $returndata;
         }
+
+        return view('database', compact('database_list'));
     }
     /**
      * Display a listing of the resource.
