@@ -55,21 +55,7 @@ class DoisuthepDBController extends Controller
                 ->orWhere('common_name', 'like', "%{$search['search']}%")
                 ->orWhere('local_name', 'like', "%{$search['search']}%")
                 ->orWhere('scientific_name', 'like', "%{$search['search']}%")
-                ->get();
-            $data = json_decode($results, true);
-            dd( $data);
-
-            if ($data[0]['type'] == 'animal') {
-                $returndata = DB::table('doisuthep_dbs')
-                    ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-                    ->where('doisuthep_dbs.type', '=', 'plant')
-                    ->paginate(12);
-            } elseif ($data[0]['type'] == 'plant') {
-                $returndata = DB::table('doisuthep_dbs')
-                    ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-                    ->where('doisuthep_dbs.type', '=', 'animal')
-                    ->paginate(12);
-            }
+                ->paginate(15);
             $database_list = $returndata;
         }
 
