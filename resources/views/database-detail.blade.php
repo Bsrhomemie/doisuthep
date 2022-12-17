@@ -11,7 +11,7 @@
         <div class="container-fluid p-body">
           <div class="row no-gutters">
             @if($database_list) 
-              <div class="col-md-12">
+              <div class="col-12 col-lg-9 mx-auto">
                 <div class="slide-nav">
                     <div class="nav-prev btn-nav"><i class='fa fa-angle-left'></i></div>
                     <div class="nav-next btn-nav"><i class='fa fa-angle-right'></i></div>
@@ -21,7 +21,7 @@
                 </div>
               </div>
             @endif
-            <div class="col-12 mt-4">
+            <div class="col-12 col-lg-9 mx-auto mt-4">
               @if($database_list) 
                 <div id="owl_carousel" class="owl-carousel">
                   @foreach ($database_list as $key => $data) 

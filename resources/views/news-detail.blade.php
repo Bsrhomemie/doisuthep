@@ -23,7 +23,7 @@
           <div class="gallery">
             <div class="container-fluid p-body">
               <div class="row no-gutters">
-                @if($files_content) 
+              @if($files_content) 
                 <div class="col-12 col-lg-9 mx-auto">
                   <div class="slide-nav">
                       <div class="nav-prev btn-nav"><i class='fa fa-angle-left'></i></div>

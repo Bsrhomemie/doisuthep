@@ -89,7 +89,6 @@ class PlantController extends Controller
         $type_text = 'ฐานข้อมูลพืช';
         $type= 'plants';
         return view('plant.create', compact('type', 'type_text'));
-        
     }
 
     /**
