@@ -376,13 +376,13 @@ class UserController extends Controller
 		}
 		return view('database', compact('database_list', 'search'))->with('i', (request()->input('page', 1) - 1) * 1);
 	}
-	
+
 	function plant_detail($id)
 	{
 		$plant = DB::table('doisuthep_dbs')
 			->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
 			->where('doisuthep_dbs.type', '=', 'plant')
-			->where('plants.id', '=', $id)
+			->where('plants.doisuthep_db_id', '=', $id)
 			->first();
 		$temp_files = [];
 		$files = Picture::where('doisuthep_db_id', $plant->doisuthep_db_id)->get();
@@ -394,16 +394,17 @@ class UserController extends Controller
 		return view('plant-detail', compact('plant'));
 	}
 
-	function animal_detail($id) { 
+	function animal_detail($id)
+	{
 		$animal = DB::table('doisuthep_dbs')
-		->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-		->where('doisuthep_dbs.type', '=', 'animal')
-		->where('animals.id', '=', $id)
-		->first();
+			->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+			->where('doisuthep_dbs.type', '=', 'animal')
+			->where('animals.doisuthep_db_id', '=', $id)
+			->first();
 		$temp_files = [];
-		$files = Picture::where('doisuthep_db_id', $animal->doisuthep_db_id)->get(); 
+		$files = Picture::where('doisuthep_db_id', $animal->doisuthep_db_id)->get();
 		foreach ($files as $key => $file) {
-				$temp_files[] = $file;
+			$temp_files[] = $file;
 		}
 		$animal->files = $temp_files;
 		$animal = json_decode(json_encode($animal), true);
