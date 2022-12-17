@@ -41,8 +41,8 @@
                         }
                       ?>
                       <div class="img-16by9 holder btn-change-image highlight-hover {{$class}}">
-                        <img src="{{$image_path}}" class="img-responsive image-preview">
-                        <div class="icon-box">
+                        <img src="{{asset($image_path)}}" class="img-responsive image-preview">
+                        <div class="icon-box"> 
                           <div class="icon-box-text">
                           </div>
                         </div>

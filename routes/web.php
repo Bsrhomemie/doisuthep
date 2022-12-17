@@ -42,8 +42,8 @@ Route::get('/news/{type}', [UserController::Class, 'news']);
 Route::get('/services', [UserController::Class, 'services']);
 Route::get('/suthep', [UserController::Class, 'suthep']);
 Route::get('/empolyee', [UserController::Class, 'empolyee']);
-Route::get('/database', [DoisuthepDBController::Class, 'search']);
-Route::get('/databasel/{type}/{id}', [UserController::Class, 'database_detail']);
+Route::get('/search-database', [UserController::Class, 'database']);
+Route::get('/search-database/plants/{id}', [UserController::Class, 'database_detail']);
 
 
 Route::get('/about-us', function () {
@@ -57,7 +57,6 @@ Route::post('/content/add/', [ContentController::Class, 'addContet']);
 Route::get('/content/form_edit/{type}/{id}', [ContentController::Class, 'viewContet']);
 Route::post('content/edit/', [ContentController::Class, 'editContet']);
 Route::post('content/delete', [ContentController::Class, 'deleteContet']);
-
 Route::get('/admin/product/', [AdminController::Class, 'listProtuct']);
 
 Route::get('/product/form/', [ProductController::Class, 'viewProtuct']);
@@ -170,7 +169,7 @@ Route::post('/database/add/plants', [PlantController::Class, 'store']);
 Route::get('/database/form_edit/plants/{plant}', [PlantController::Class, 'show']);
 Route::post('database/edit/plants', [PlantController::Class, 'update']);
 Route::delete('database/delete/plants', [PlantController::Class, 'destroy']);
-Route::get('/database/plants/{id}', [UserController::Class, 'database_detail']);
+Route::get('/database/plant/{id}', [UserController::Class, 'plant_detail']);
 
 
 Route::get('/admin/database/animals', [AnimalController::Class, 'indexAdmin']);

@@ -10,7 +10,10 @@ use App\Models\Homevideo;
 use App\Models\Product;
 use App\Models\Post;
 use App\Models\Postpic;
+use App\Models\Picture;
+use App\Models\Doisuthep_db;
 
+use DB;
 class UserController extends Controller
 {
 
@@ -336,32 +339,47 @@ class UserController extends Controller
 
 	function database()
 	{
-		$database_list = [
-			[
-				'img_path' => '/images/image-5.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/image-5.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/image-5.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/image-5.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-		];
-		return view('database', compact('database_list'));
+		$database_list = [];
+		$search = request()->input();
+		if(isset($search['search'])  && isset($search['type'])){
+			if(empty($search['type'])) {
+				$data = DB::table('doisuthep_dbs')
+				->where('name', 'like', "%{$search['search']}%")
+				->paginate(15);
+				$database_list =  $data;
+			} else if(empty($search['search'])) {
+				$data = DB::table('doisuthep_dbs')
+				->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+				->where('doisuthep_dbs.type', '=',$search['type'])
+				->paginate(15);
+				$database_list =  $data;
+			} else {
+				$data = DB::table('doisuthep_dbs')
+				->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+				->where('doisuthep_dbs.type', '=',$search['type'])
+				->Where('name', 'like', "%{$search['search']}%")
+				->paginate(15);
+				$database_list =  $data;
+			}
+		} else {
+			$data = DB::table('doisuthep_dbs')->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')->paginate(15);
+			$database_list =  $data;
+		}
+		foreach ($database_list as $key => $list) {
+			$temp_files = [];
+			$files = Picture::where('doisuthep_db_id', $list->id)->get(); 
+			
+		  foreach ($files as $key => $file) {
+				$temp_files[] = $file;
+			}
+			$list->files = $temp_files;
+		}
+		dd($database_list);
+
+		return view('database', compact('database_list', 'search'))->with('i', (request()->input('page', 1) - 1) * 1);
 	}
 	
-	function database_detail($type, $id) {
+	function plant_detail($id) { 
 		$database_list = [
 			[
 				'img_path' => '/images/cover1.jpg',
@@ -389,7 +407,19 @@ class UserController extends Controller
 				'name_en' => 'Eng',
 			],
 		];
-		return view('database-detail', compact('type', 'database_list'));
+		$plant = DB::table('doisuthep_dbs')
+		->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+		->where('doisuthep_dbs.type', '=', 'plant')
+		->where('plants.id', '=', $id)
+		->first();
+		$temp_files = [];
+		$files = Picture::where('doisuthep_db_id', $plant->doisuthep_db_id)->get(); 
+		foreach ($files as $key => $file) {
+				$temp_files[] = $file;
+		}
+		$plant->files = $temp_files;
+		$plant = json_decode(json_encode($plant), true);
+		return view('plant-detail', compact('plant'));
 	}
 
 }
