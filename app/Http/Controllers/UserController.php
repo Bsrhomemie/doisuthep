@@ -12,7 +12,6 @@ use App\Models\Post;
 use App\Models\Postpic;
 use App\Models\Picture;
 use App\Models\Doisuthep_db;
-
 use DB;
 class UserController extends Controller
 {
@@ -336,7 +335,6 @@ class UserController extends Controller
 		return view('empolyee', compact('employee_list', 'staff_list'));
 	}
 
-
 	function database()
 	{
 		$database_list = [];
@@ -374,39 +372,11 @@ class UserController extends Controller
 			}
 			$list->files = $temp_files;
 		}
-		dd($database_list);
 
 		return view('database', compact('database_list', 'search'))->with('i', (request()->input('page', 1) - 1) * 1);
 	}
 	
 	function plant_detail($id) { 
-		$database_list = [
-			[
-				'img_path' => '/images/cover1.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover2.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover3.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover4.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-			[
-				'img_path' => '/images/cover3.jpg',
-				'name_th' => 'ชื่อภาษาไทย',
-				'name_en' => 'Eng',
-			],
-		];
 		$plant = DB::table('doisuthep_dbs')
 		->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
 		->where('doisuthep_dbs.type', '=', 'plant')
@@ -422,4 +392,19 @@ class UserController extends Controller
 		return view('plant-detail', compact('plant'));
 	}
 
+	function animal_detail($id) { 
+		$animal = DB::table('doisuthep_dbs')
+		->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+		->where('doisuthep_dbs.type', '=', 'animal')
+		->where('animals.id', '=', $id)
+		->first();
+		$temp_files = [];
+		$files = Picture::where('doisuthep_db_id', $animal->doisuthep_db_id)->get(); 
+		foreach ($files as $key => $file) {
+				$temp_files[] = $file;
+		}
+		$animal->files = $temp_files;
+		$animal = json_decode(json_encode($animal), true);
+		return view('animal-detail', compact('animal'));
+	}
 }

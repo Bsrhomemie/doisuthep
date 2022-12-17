@@ -296,7 +296,7 @@ class AnimalController extends Controller
             DB::table('doisuthep_dbs')
                 ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
                 ->where('doisuthep_dbs.type', '=', 'animal')
-                ->where('animals.id', '=', $animal->id)
+                ->where('animals.id', '=', $request->id)
                 ->update($get_doi_id);
 
 
