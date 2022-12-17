@@ -23,7 +23,8 @@ class DoisuthepDBController extends Controller
                     ->orWhere('name', 'like', "%{$search['search']}%")
                     ->orWhere('common_name', 'like', "%{$search['search']}%")
                     ->orWhere('local_name', 'like', "%{$search['search']}%")
-                    ->orWhere('scientific_name', 'like', "%{$search['search']}%");
+                    ->orWhere('scientific_name', 'like', "%{$search['search']}%")
+                    ->paginate(15);
                 foreach ($columns as $column) {
                     if ($column == 'id') {
                         continue;
@@ -38,7 +39,8 @@ class DoisuthepDBController extends Controller
                     ->orWhere('name', 'like', "%{$search['search']}%")
                     ->orWhere('common_name', 'like', "%{$search['search']}%")
                     ->orWhere('local_name', 'like', "%{$search['search']}%")
-                    ->orWhere('scientific_name', 'like', "%{$search['search']}%");
+                    ->orWhere('scientific_name', 'like', "%{$search['search']}%")
+                    ->paginate(15);
                 foreach ($columns as $column) {
                     if ($column == 'id') {
                         continue;
@@ -47,7 +49,6 @@ class DoisuthepDBController extends Controller
                 }
                 
             }
-            $data->paginate(15);
             $database_list = $data;
         } else {
             $results = DB::table('doisuthep_dbs')
@@ -56,6 +57,20 @@ class DoisuthepDBController extends Controller
                 ->orWhere('local_name', 'like', "%{$search['search']}%")
                 ->orWhere('scientific_name', 'like', "%{$search['search']}%")
                 ->paginate(15);
+            $data = json_decode($results, true);
+            dd( $data);
+
+            if ($data[0]['type'] == 'animal') {
+                $returndata = DB::table('doisuthep_dbs')
+                    ->Join('plants', 'plants.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+                    ->where('doisuthep_dbs.type', '=', 'plant')
+                    ->paginate(12);
+            } elseif ($data[0]['type'] == 'plant') {
+                $returndata = DB::table('doisuthep_dbs')
+                    ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
+                    ->where('doisuthep_dbs.type', '=', 'animal')
+                    ->paginate(12);
+            }
             $database_list = $returndata;
         }
 

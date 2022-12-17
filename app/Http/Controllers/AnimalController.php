@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Animal;
 use App\Models\Doisuthep_db;
+use App\Models\Picture;
 use DB;
 use Validator;
 use Illuminate\Http\Request;
 use Response;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\File; 
 
 class AnimalController extends Controller
 {
@@ -24,7 +26,6 @@ class AnimalController extends Controller
             $request->all(),
             [
                 'name' => 'required',
-                'type' => 'required',
                 'common_name' => 'required',
                 'scientific_name' => 'required'
             ]
@@ -160,6 +161,23 @@ class AnimalController extends Controller
 
             $doisuthep->scientific_name = $request->scientific_name;
             $doisuthep->save();
+            if($request->file()) {
+                foreach ($request->file() as $key => $file) {
+                    $service_image = $request->file($key);
+                    $name_gen = hexdec(uniqid());
+                    $img_ext = strtolower($service_image->getClientOriginalExtension());
+                    $img_name = $name_gen.'.'.$img_ext;
+                    $upload_location =  'public/image/services/';
+                    $full_path =  $upload_location.$img_name ;
+                    $service_image ->move(base_path($upload_location),  $img_name);
+                    
+                    $data_file = new Picture;
+                    $data_file->pic_location = $full_path;
+                    $data_file->doisuthep_db_id = $doisuthep->id;
+                    $data_file->save();
+                }
+            }
+
             // \DB::commit();
         } catch (\Throwable $e) {
             \DB::rollBack();
@@ -209,13 +227,20 @@ class AnimalController extends Controller
      */
     public function show(Animal $animal)
     {
+        $type_text = 'ฐานข้อมูลสัตว์';
+        $type= 'animals';
         $data = DB::table('doisuthep_dbs')
             ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
             ->where('doisuthep_dbs.type', '=', 'animal')
             ->where('animals.id', '=', $animal->id)
-            ->get();
-
-        return response()->json(array('data' => $data), 200, array('Content-Type' => 'application/json;charset=utf8'), JSON_UNESCAPED_UNICODE)->setStatusCode(200, 'success');
+            ->first();
+        $temp_files = [];
+        $files = Picture::where('doisuthep_db_id', $data->doisuthep_db_id)->get(); 
+        foreach ($files as $key => $file) {
+            $temp_files[] = $file;
+        }
+        $data->files = $temp_files;
+        return view('animal.edit', compact('type', 'type_text', 'data'));
     }
 
     /**
@@ -241,7 +266,7 @@ class AnimalController extends Controller
 
         \DB::beginTransaction();
 
-        try {
+        // try {
             $get_doi_id = [
                 'doisuthep_dbs.name' => $request->name,
                 'doisuthep_dbs.common_name' => $request->common_name,
@@ -274,17 +299,45 @@ class AnimalController extends Controller
                 ->where('animals.id', '=', $animal->id)
                 ->update($get_doi_id);
 
+
+                if($request->file()) {
+                    foreach ($request->file() as $key => $file) {
+                        if($request['is_update'][$key] == 1){
+                            $old_file = $request['old_file'][$key];
+                            if(File::exists(base_path($old_file))) {
+                                File::delete(base_path($old_file));
+                            }
+        
+                            $service_image = $request->file($key);
+                            $name_gen = hexdec(uniqid());
+                            $img_ext = strtolower($service_image->getClientOriginalExtension());
+                            $img_name = $name_gen.'.'.$img_ext;
+                            $upload_location =  'public/image/services/';
+                            $full_path =  $upload_location.$img_name ;
+                            $service_image ->move(base_path($upload_location),  $img_name);
+                            
+                            $data_file =  Picture::where('doisuthep_db_id',$request->doisuthep_db_id)->where('pic_location', $old_file)->first();
+                            if($data_file){
+                                $data_file->pic_location = $full_path;
+                                $data_file->update();
+                            }else{
+                                $data_add_file = new Picture;
+                                $data_add_file->pic_location = $full_path;
+                                $data_add_file->doisuthep_db_id  = $request->doisuthep_db_id;
+                                $data_add_file->save();
+                            }
+                        }
+                            
+                    }
+                }
             // \DB::commit();
-        } catch (\Throwable $e) {
-            \DB::rollBack();
-            return response()->json(array($e, "update doisuthep is err ."))
-                ->setStatusCode(400, 'failed');
-        }
+        // } catch (\Throwable $e) {
+        //     \DB::rollBack();
+        //     return redirect('/admin/database/animals')->with('status',"update doisuthep is err .");
+        // }
 
         \DB::commit();
-
-        return response()->json("Updated Animal Successfully")
-            ->setStatusCode(200, 'success');
+        return redirect('/admin/database/animals')->with('status',"Updated Animal Successfully");
     }
 
     /**
@@ -293,46 +346,27 @@ class AnimalController extends Controller
      * @param  \App\Models\Animal  $animal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Animal $animal)
+    public function destroy(Request $request)
     {
         \DB::beginTransaction();
 
         try {
-            DB::table('doisuthep_dbs')
-                ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-                ->where('doisuthep_dbs.type', '=', 'animal')
-                ->where('animals.id', '=', $animal->id)
-                ->delete();
+        $data_file =  Picture::where('doisuthep_db_id',$request->doisuthep_db_id)->get();
+        foreach ($data_file as $key => $file) {
+            $file = $file['pic_location'];
+            if(File::exists(base_path($file))) {
+                File::delete(base_path($file));
+            }
+        } 
+        DB::table('doisuthep_dbs')
+            ->where('id', '=', $request->doisuthep_db_id)
+            ->delete();
         } catch (\Throwable $e) {
             \DB::rollBack();
-            return response()->json(array($e, "delete animal is err ."))
-                ->setStatusCode(400, 'failed');
-        }
-
-        return \DB::commit();
+            return redirect('/admin/database/animals')->with('status',"delete animal is err .");
     }
-    // public function list()
-    // {
-    //     $type_text = 'ฐานข้อมูลสัตว์';
-    //     $type= 'animals';
-    //     $list_data  = DB::table('doisuthep_dbs')
-    //         ->Join('animals', 'animals.doisuthep_db_id', '=', 'doisuthep_dbs.id')
-    //         ->where('doisuthep_dbs.type', '=', 'animal')
-    //         ->paginate(5);
-    //     return view('admin.animal', compact('type', 'type_text','list_data'));
-    // }
-    // public function add()
-    // {
-    //     $type_text = 'ฐานข้อมูลสัตว์';
-    //     $type= 'animals';
-    //     return view('animal.create', compact('type', 'type_text'));
-        
-    // }
-    // public function view()
-    // {
-    //     $type_text = 'ฐานข้อมูลสัตว์';
-    //     $type= 'animals';
-    //     return view('animal.edit', compact('type', 'type_text'));
-        
-    // }
+
+         \DB::commit();
+        return redirect('/admin/database/animals')->with('status',"Delete Animal Successfully");
+    }
 }
