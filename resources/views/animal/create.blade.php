@@ -99,7 +99,7 @@
                     </div>
                     <div class="form-group mb-2">
                       <label>หมวด ภาษาไทย</label>
-                      <input type="text" name="division" class="form-control">
+                      <input type="text" name="phylum" class="form-control">
                     </div>
                     <div class="form-group mb-2">
                       <label>หมวด ภาษาอังกฤษ</label>

@@ -176,6 +176,6 @@ Route::get('/database/plants/{id}', [UserController::Class, 'database_detail']);
 Route::get('/admin/database/animals', [AnimalController::Class, 'indexAdmin']);
 Route::get('/database/form/animals', [AnimalController::Class, 'create']);
 Route::post('/database/add/animals', [AnimalController::Class, 'store']);
-Route::get('/database/form_edit/animals/{id}', [AnimalController::Class, 'view']);
+Route::get('/database/form_edit/animals/{animal}', [AnimalController::Class, 'show']);
 Route::post('database/edit/animals', [AnimalController::Class, 'update']);
 Route::delete('database/delete/animals', [AnimalController::Class, 'destroy']);

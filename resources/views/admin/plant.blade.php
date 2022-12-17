@@ -41,9 +41,11 @@
                     @foreach ($list_data as $data)
                     <tr>
                         <td>
+                          @if(isset($data->files[0]))
                           <div class="img-16by9 holder " >
                             <img src="{{asset($data->files[0]->pic_location)}}" class="img-responsive image-preview" >
                           </div>
+                          @endif
                         </td>
                         <td>{{Str::limit($data->name, 200)}}</td>
                         <td>{{Str::limit($data->common_name, 200)}}</td>
