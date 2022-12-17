@@ -14,6 +14,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WorkController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomevideoController;
+use App\Http\Controllers\DoisuthepDBController;
 
 use Illuminate\Support\Facades\Artisan;
 /*
@@ -41,7 +42,7 @@ Route::get('/news/{type}', [UserController::Class, 'news']);
 Route::get('/services', [UserController::Class, 'services']);
 Route::get('/suthep', [UserController::Class, 'suthep']);
 Route::get('/empolyee', [UserController::Class, 'empolyee']);
-Route::get('/database', [UserController::Class, 'database']);
+Route::get('/database', [DoisuthepDBController::Class, 'search']);
 Route::get('/databasel/{type}/{id}', [UserController::Class, 'database_detail']);
 
 
