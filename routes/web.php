@@ -169,7 +169,7 @@ Route::post('/database/add/plants', [PlantController::Class, 'store']);
 Route::get('/database/form_edit/plants/{plant}', [PlantController::Class, 'show']);
 Route::post('database/edit/plants', [PlantController::Class, 'update']);
 Route::delete('database/delete/plants', [PlantController::Class, 'destroy']);
-
+Route::get('/database/plants/{id}', [UserController::Class, 'database_detail']);
 
 
 Route::get('/admin/database/animals', [AnimalController::Class, 'list']);
